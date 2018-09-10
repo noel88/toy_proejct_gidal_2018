@@ -1,0 +1,2 @@
+# gidal
+MIT

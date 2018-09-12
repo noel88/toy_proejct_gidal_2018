@@ -1,13 +1,22 @@
 package org.gidal.enterprise.dao;
 
-import org.gidal.enterprise.domain.EnterpriseVO;
+import javax.inject.Inject;
 
+import org.apache.ibatis.session.SqlSession;
+import org.gidal.enterprise.domain.EnterpriseVO;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class EnterpriseDAOImpl implements EnterpriseDAO{
+
+	@Inject
+	private SqlSession sqlsession;
+
+	private static String namespace = "org.gidal.mapper.EnterpriseMapper";
 
 	@Override
 	public int enterprise_join(EnterpriseVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlsession.insert(namespace + ".join", vo);
 	}
 
 	@Override
@@ -25,13 +34,13 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	@Override
 	public void enterprise_delete() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void enterprise_logout() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

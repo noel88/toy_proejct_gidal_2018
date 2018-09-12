@@ -7,8 +7,6 @@ import org.gidal.waiting.domain.WaitingVO;
 public interface EnterprisePageDAO {
 
 
-
-	public int enterprisePage_update(EnterpriseVO vo);
 	public int enterprisePage_reserve_history(ReserveVO vo);
 	public int enterprisePage_waiting_history(WaitingVO vo);
 

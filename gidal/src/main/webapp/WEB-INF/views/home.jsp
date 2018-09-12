@@ -37,21 +37,21 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img class="d-block w-100" src="<%= request.getContextPath() %>/pages/image/event/event1.png" alt="첫번째 슬라이드">
+						<img class="d-block w-100" src="<%= request.getContextPath() %>/resources/img/event/event1.png" alt="첫번째 슬라이드">
 						<div class="carousel-caption d-none d-md-block">
 							<h3 style="color: black;">첫번째 캡션</h3>
 							<p style="color: black;">두번째 캡션</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100" src="<%= request.getContextPath() %>/pages/image/event/event2.png" alt="두번째 슬라이드">
+						<img class="d-block w-100" src="<%= request.getContextPath() %>/resources/img/event/event2.png" alt="두번째 슬라이드">
 						<div class="carousel-caption d-none d-md-block">
 							<h3 style="color: black;">첫번째 캡션</h3>
 							<p style="color: black;">두번째 캡션</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100" src="<%= request.getContextPath() %>/pages/image/event/event3.png" alt="세번째 슬라이드">
+						<img class="d-block w-100" src="<%= request.getContextPath() %>/resources/img/event/event3.png" alt="세번째 슬라이드">
 						<div class="carousel-caption d-none d-md-block">
 							<h3 style="color: black;">첫번째 캡션</h3>
 							<p style="color: black;">두번째 캡션</p>
@@ -79,7 +79,7 @@
 						<h6 class="card-subtitle text-muted">경기도 수원시 영통구</h6>
 					</div>
 					<img style="height: 200px; width: 100%; display: block;"
-						src="<%= request.getContextPath() %>/pages/image/company/USeolhwa.jpg"
+						src="<%= request.getContextPath() %>/resources/img/company/USeolhwa.jpg"
 						alt="Card image">
 					<div class="card-body" style = "text-align : center;">
 						<a class="btn btn-primary btn-lg" href="#" role="button">예약</a>
@@ -95,7 +95,7 @@
 						<h6 class="card-subtitle text-muted">경기도 수원시 영통구</h6>
 					</div>
 					<img style="height: 200px; width: 100%; display: block;"
-						src="<%= request.getContextPath() %>/pages/image/company/GinJa.jpg"
+						src="<%= request.getContextPath() %>/resources/img/company/GinJa.jpg"
 						alt="Card image">
 					<div class="card-body" style = "text-align : center;">
 						<a class="btn btn-primary btn-lg" href="#" role="button">예약</a>
@@ -111,7 +111,7 @@
 						<h6 class="card-subtitle text-muted">경기도 수원시 영통구</h6>
 					</div>
 					<img style="height: 200px; width: 100%; display: block;"
-						src="<%= request.getContextPath() %>/pages/image/company/CheonJiyeon.jpg"
+						src="<%= request.getContextPath() %>/resources/img/company/CheonJiyeon.jpg"
 						alt="Card image">
 					<div class="card-body" style = "text-align : center;">
 						<a class="btn btn-primary btn-lg" href="#" role="button">예약</a>

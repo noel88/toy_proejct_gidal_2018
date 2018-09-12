@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gidal.mapper.ReserveMapper">
+
+	<insert id="reserve">
+		insert into enterprise values (#{enterprise_email},#{enterprise_code},#{enterprise_password},#{enterprise_name},#{enterprise_phoneNum},#{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
+		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_adress},#{enterprise_adressDetail},#{enterprise_operatingTime},#{enterprise_breakTime},#{enterprise_closed})
+	</insert>
+
+	<select id="login" resultType="org.gidal.enterprise.domain.EnterpriseVO">
+		select * from enterprise where enterprise_email = #{enterprise_email} and enterprise_password = #{enterprise_password}
+	</select>
+
+	<select id="boardview" resultType="org.gidal.enterprise.domain.EnterpriseVO">
+		select (enterprise_sectors, enterprise_service, enterprise_mainImg, enterprise_img1, enterprise_img2, enterprise_img3, enterprise_img4, enterprise_address, enterprise_addressDetail, enterprise_operatingTime, enterprise_breakTime, enterprise_closed)
+		from enterprise
+	</select>
+
+	<update id="boardupdate">
+		update enterprise set enterprise_sectors = #{enterprise_sectors}, enterprise_service = #{enterprise_service}, enterprise_mainImg = #{enterprise_mainImg}, enterprise_img1 = #{enterprise_img1},
+		enterprise_img2 = #{enterprise_img2}, enterprise_img3 = #{enterprise_img3}, enterprise_img4 = #{enterprise_img4}, enterprise_address = #{enterprise_address}, enterprise_addressDetail = #{enterprise_addressDetail},
+		enterprise_operatingTime = #{enterprise_operatingTime}, enterprise_breakTime = #{enterprise_breakTime}, enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
+	</update>
+
+	<delete id="delete">
+		delete from enterprise where enterprise_email = #{enterprise_email} and enterprise_password = #{enterprise_password}
+	</delete>
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.gidal.mapper.ReviewMapper">
+
+	<insert id="create">
+		insert into review (review_num, enterprise_code, user_email, review_scope, review_text)
+		values (#{review_num},#{enterprise_code},#{user_email},#{review_scope},#{review_text})
+	</insert>
+
+	<select id="view" resultType="org.gidal.review.domain.ReviewVO">
+		select * from review where review_code = #{review_code}
+	</select>
+
+	<update id="reviewUpdate">
+		update review set review_scope = #{review_scope}, reveiw_text = #{review_text}
+	</update>
+
+	<update id="commandCreate">
+		update review set review_commandText = #{review_commandText} where review_code = #{review_code} and enterprise_code = #{enterprise_code}
+	</update>
+
+	<update id="commandDelete">
+		update review set review_commandText = #{review_commandText} where review_code = #{review_code}
+	</update>
+
+	<delete id="reviewDelete">
+		delete from review where user_email = #{user_email}
+	</delete>
+
+
+
+
+</mapper>

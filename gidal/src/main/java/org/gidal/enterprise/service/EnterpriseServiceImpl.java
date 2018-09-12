@@ -13,10 +13,8 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	@Inject
 	private EnterpriseDAO dao;
-	@Inject
-	private EnterpriseBoardDAO boardDao;
 
-	
-	
+
+
 
 }

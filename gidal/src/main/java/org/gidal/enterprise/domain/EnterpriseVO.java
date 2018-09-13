@@ -5,9 +5,10 @@ public class EnterpriseVO {
 	private String enterprise_email; //이메일
 	private String enterprise_code; // 상호코드
 	private String enterprise_password; //비밀번호
+	//private String enterprise_passwordCheck; //비밀번호확인
 	private String enterprise_name; //이름
 	private String enterprise_phoneNum; //핸드폰번호
-	private String enterprise_businessName; // 상호명
+	private String enterprise_businessName; // 매장명
 	private String enterprise_phone; //연락처
 	private String enterprise_sectors; //업종
 	private String enterprise_service; //서비스
@@ -16,10 +17,13 @@ public class EnterpriseVO {
 	private String enterprise_img2; //이미지2
 	private String enterprise_img3; //이미지3
 	private String enterprise_img4; //이미지4
-	private String enterprise_address; //주소
-	private String enterprise_addressDetail; //주소
-	private String enterprise_operatingTime; //영업시간
-	private String enterprise_breakTime; //브레이크타임
+	private String enterprise_add1; //주소1
+	private String enterprise_add2; //주소2
+	private String enterprise_add3; //주소3
+	private String enterprise_operatingOpenTime; //영업시간
+	private String enterprise_operatingCloseTime; //영업시간
+	private String enterprise_breakStartTime; //브레이크타임시작
+	private String enterprise_breakCloseTime; //브레이크타임끝
 	private String enterprise_closed; //휴무일
 
 
@@ -198,50 +202,89 @@ public class EnterpriseVO {
 
 
 
-	public String getEnterprise_address() {
-		return enterprise_address;
+	public String getEnterprise_add1() {
+		return enterprise_add1;
 	}
 
 
 
-	public void setEnterprise_address(String enterprise_address) {
-		this.enterprise_address = enterprise_address;
+	public void setEnterprise_add1(String enterprise_add1) {
+		this.enterprise_add1 = enterprise_add1;
 	}
 
 
 
-	public String getEnterprise_addressDetail() {
-		return enterprise_addressDetail;
+	public String getEnterprise_add2() {
+		return enterprise_add2;
 	}
 
 
 
-	public void setEnterprise_addressDetail(String enterprise_addressDetail) {
-		this.enterprise_addressDetail = enterprise_addressDetail;
+	public void setEnterprise_add2(String enterprise_add2) {
+		this.enterprise_add2 = enterprise_add2;
 	}
 
 
 
-	public String getEnterprise_operatingTime() {
-		return enterprise_operatingTime;
+	public String getEnterprise_add3() {
+		return enterprise_add3;
 	}
 
 
 
-	public void setEnterprise_operatingTime(String enterprise_operatingTime) {
-		this.enterprise_operatingTime = enterprise_operatingTime;
+	public void setEnterprise_add3(String enterprise_add3) {
+		this.enterprise_add3 = enterprise_add3;
 	}
 
 
 
-	public String getEnterprise_breakTime() {
-		return enterprise_breakTime;
+
+
+
+	public String getEnterprise_operatingOpenTime() {
+		return enterprise_operatingOpenTime;
 	}
 
 
 
-	public void setEnterprise_breakTime(String enterprise_breakTime) {
-		this.enterprise_breakTime = enterprise_breakTime;
+	public void setEnterprise_operatingOpenTime(String enterprise_operatingOpenTime) {
+		this.enterprise_operatingOpenTime = enterprise_operatingOpenTime;
+	}
+
+
+
+	public String getEnterprise_operatingCloseTime() {
+		return enterprise_operatingCloseTime;
+	}
+
+
+
+	public void setEnterprise_operatingCloseTime(String enterprise_operatingCloseTime) {
+		this.enterprise_operatingCloseTime = enterprise_operatingCloseTime;
+	}
+
+
+
+	public String getEnterprise_breakStartTime() {
+		return enterprise_breakStartTime;
+	}
+
+
+
+	public void setEnterprise_breakStartTime(String enterprise_breakStartTime) {
+		this.enterprise_breakStartTime = enterprise_breakStartTime;
+	}
+
+
+
+	public String getEnterprise_breakCloseTime() {
+		return enterprise_breakCloseTime;
+	}
+
+
+
+	public void setEnterprise_breakCloseTime(String enterprise_breakCloseTime) {
+		this.enterprise_breakCloseTime = enterprise_breakCloseTime;
 	}
 
 
@@ -258,7 +301,4 @@ public class EnterpriseVO {
 
 
 
-
-
-
-}
+	}

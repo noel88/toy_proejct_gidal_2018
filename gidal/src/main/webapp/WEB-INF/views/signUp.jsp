@@ -30,13 +30,13 @@
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
 				<p>
-					<a href="<%=request.getContextPath()%>/pages/authentication/individual.jsp" style = "text-decoration : none">
+					<a href="<%=request.getContextPath()%>/user/individual" style = "text-decoration : none">
 						<button type="button" class="btn btn-primary btn-lg btn-block">
 							개인회원</button>
 					</a>
 				</p>
 				<p>
-					<a href="<%=request.getContextPath()%>/pages/authentication/enterprise.jsp" style = "text-decoration : none">
+					<a href="<%=request.getContextPath()%>/enterprise/enterprise" style = "text-decoration : none">
 						<button type="button" class="btn btn-primary btn-lg btn-block">
 							기업회원</button>
 					</a>

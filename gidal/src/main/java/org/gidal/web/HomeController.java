@@ -21,9 +21,22 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
-
-
 		return "home";
 	}
+
+
+	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
+	public String join() {
+
+		return "signUp";
+	}
+
+	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
+	public String login() {
+
+		return "signIn";
+	}
+
+
 
 }

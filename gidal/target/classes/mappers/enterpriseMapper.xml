@@ -6,8 +6,10 @@
 <mapper namespace="org.gidal.mapper.EnterpriseMapper">
 
 	<insert id="join">
-		insert into enterprise values (#{enterprise_email},#{enterprise_code},#{enterprise_password},#{enterprise_name},#{enterprise_phoneNum},#{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
-		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_adress},#{enterprise_adressDetail},#{enterprise_operatingTime},#{enterprise_breakTime},#{enterprise_closed})
+		insert into enterprise values (#{enterprise_email},#{enterprise_code},#{enterprise_password},#{enterprise_name},
+		#{enterprise_phoneNum},#{enterprise_businessName}, #{enterprise_phone}, #{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
+		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_add1},#{enterprise_add2},
+		#{enterprise_add3},#{enterprise_operatingOpenTime},#{enterprise_operatingCloseTime},#{enterprise_breakStartTime},#{enterprise_breakCloseTime},#{enterprise_closed})
 	</insert>
 
 	<select id="login" resultType="org.gidal.enterprise.domain.EnterpriseVO">

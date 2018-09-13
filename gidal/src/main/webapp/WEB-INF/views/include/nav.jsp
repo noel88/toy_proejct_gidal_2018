@@ -3,13 +3,13 @@
 
 <div style = "background-color : #EB6864;">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style = "max-width : 1050px; margin-right : auto; margin-left : auto;">
-		<a class="navbar-brand" href="<%= request.getContextPath() %>/pages/home.jsp">
+		<a class="navbar-brand" href="<%= request.getContextPath() %>/">
 			<img src="<%= request.getContextPath() %>/pages/image/logo/GiDal.png" style="margin : auto; height : 30px; width : auto;">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-	
+
 		<div class="navbar-collapse collapse show" id="navbarColor01" style="">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown">
@@ -44,22 +44,22 @@
 			</ul>
 			<div>
 			<form class="form-inline my-2 my-lg-0" action = "<%= request.getContextPath() %>/pages/search/search.jsp" method = "post">
-				
+
 				<input class="form-control mr-sm-2" type="text" placeholder="업체검색">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>&nbsp;&nbsp;
 			</form>
 			</div>
-			
+
 			<div>
 			<span class="navbar-text">
-				
-				<a href="<%= request.getContextPath() %>/pages/authentication/signIn.jsp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그인</a>
-				 or 
-				<a href="<%= request.getContextPath() %>/pages/authentication/signUp.jsp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">회원가입</a>
+
+				<a href="<%= request.getContextPath() %>/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그인</a>
+				 or
+				<a href="<%= request.getContextPath() %>/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">회원가입</a>
 			</span>
 			</div>
-	
-		
+
+
 		</div>
 	</nav>
 </div>

@@ -19,28 +19,6 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 		return sqlsession.insert(namespace + ".join", vo);
 	}
 
-	@Override
-	public EnterpriseVO enterprise_password_foget() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public int enterprise_login() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void enterprise_delete() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void enterprise_logout() {
-		// TODO Auto-generated method stub
-
-	}
 
 }

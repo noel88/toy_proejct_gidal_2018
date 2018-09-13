@@ -25,17 +25,7 @@ public class HomeController {
 	}
 
 
-	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
-	public String join() {
 
-		return "signUp";
-	}
-
-	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
-	public String login() {
-
-		return "signIn";
-	}
 
 
 

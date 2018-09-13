@@ -53,15 +53,11 @@
 			<div>
 			<span class="navbar-text">
 
-<<<<<<< HEAD
-				<a href="/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그인</a>
-				 or
-				<a href="/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">회원가입</a>
-=======
+
 				<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그인</a>
 				 or
 				<a href="/authentication/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">회원가입</a>
->>>>>>> da37fdf65478bcd22ba8403591b421701e75ea1a
+
 			</span>
 			</div>
 

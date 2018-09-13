@@ -18,22 +18,32 @@
 			<h1>오시는길</h1>
 
 			<hr class="my-4">
-			<!-- <p class="lead">This is a simple hero unit, a simple
-			jumbotron-style component for calling extra attention to featured
-			content or information.</p>
-		<p>It uses utility classes for typography and spacing to space
-			content out within the larger container.</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
-		</p> -->
 
-			<div class="form-group" style = "max-width : 400px; margin : auto;">
-			
+			<div class="form-group" style = "max-width : 900px; margin : auto;">
+				<!--
+					* Daum 지도 - 약도서비스
+					* 한 페이지 내에 약도를 2개 이상 넣을 경우에는
+					* 약도의 수 만큼 소스를 새로 생성, 삽입해야 합니다.
+				-->
+				<!-- 1. 약도 노드 -->
+				<div id="daumRoughmapContainer1536822872499"
+					class="root_daum_roughmap root_daum_roughmap_landing" style = "width : 100%;"></div>
+
+				<!-- 2. 설치 스크립트 -->
+				<script charset="UTF-8" class="daum_roughmap_loader_script"
+					src="http://dmaps.daum.net/map_js_init/roughmapLoader.js"></script>
+
+				<!-- 3. 실행 스크립트 -->
+				<script charset="UTF-8">
+					new daum.roughmap.Lander({
+						"timestamp" : "1536822872499",
+						"key" : "qz8g",
+						"mapWidth" : "auto",
+						"mapHeight" : "520"
+					}).render();
+				</script>
 			</div>
-
 		</div>
-
 	</div>
 	
 </body>

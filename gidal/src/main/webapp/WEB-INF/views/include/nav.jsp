@@ -53,9 +53,9 @@
 			<div>
 			<span class="navbar-text">
 
-				<a href="<%= request.getContextPath() %>/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그인</a>
+				<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그인</a>
 				 or
-				<a href="<%= request.getContextPath() %>/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">회원가입</a>
+				<a href="/authentication/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">회원가입</a>
 			</span>
 			</div>
 

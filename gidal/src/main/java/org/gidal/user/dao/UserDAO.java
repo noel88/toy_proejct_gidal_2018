@@ -1,10 +1,11 @@
-package org.gidal.user.service;
+package org.gidal.user.dao;
 
 import org.gidal.user.domain.UserVO;
 
-public interface UserJoinService {
+public interface UserDAO {
 
 
 	public int user_join(UserVO vo);
+
 
 }

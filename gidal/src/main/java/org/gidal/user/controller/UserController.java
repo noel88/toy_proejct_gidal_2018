@@ -2,10 +2,9 @@ package org.gidal.user.controller;
 
 import javax.inject.Inject;
 
-import org.gidal.enterprise.domain.EnterpriseVO;
-import org.gidal.enterprise.service.EnterpriseService;
+
 import org.gidal.user.domain.UserVO;
-import org.gidal.user.service.UserJoinService;
+import org.gidal.user.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/user/")
 public class UserController {
+
 	@Inject
-	private UserJoinService service;
+	private UserService service;
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String user_joinForm() {

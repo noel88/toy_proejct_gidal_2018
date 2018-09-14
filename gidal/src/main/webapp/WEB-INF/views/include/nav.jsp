@@ -27,9 +27,9 @@
 						이벤트
 					</a>
 					<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
-						<a class="dropdown-item" href="/WEB-INF/views/event/currentEvent">진행중인 이벤트</a>
-						<a class="dropdown-item" href="/WEB-INF/views/event/closedEvent">종료된 이벤트</a>
-						<a class="dropdown-item" href="/WEB-INF/views/event/upcomingEvent">진행 예정 이벤트</a>
+						<a class="dropdown-item" href="/event/currentEvent">진행중인 이벤트</a>
+						<a class="dropdown-item" href="/event/closedEvent">종료된 이벤트</a>
+						<a class="dropdown-item" href="/event/upcomingEvent">진행 예정 이벤트</a>
 					</div>
 				</li>
 				<li class="nav-item dropdown">

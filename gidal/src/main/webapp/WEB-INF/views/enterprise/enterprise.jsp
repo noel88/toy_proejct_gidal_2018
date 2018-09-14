@@ -7,9 +7,6 @@
 
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
-</head>
-<body>
-
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/resources/js/addressapi.js"></script>
 <%@ include file = "/WEB-INF/views/include/nav.jsp" %>
@@ -58,7 +55,7 @@ function execPostCode() {
     }).open();
 }
 
-/* function DosignUp() {
+ function DosignUp() {
 
     var enterprise_email = $("#enterprise_email").val();
     var enterprise_password = $("#enterprise_password").val();
@@ -100,7 +97,7 @@ function execPostCode() {
         return true;
     }
 
-} */
+}
 
 </script>
 
@@ -189,17 +186,43 @@ function execPostCode() {
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
 
+
+
+						<label class="col-form-label" for="inputDefault">휴무일</label>
+						<div class="form-group">
+							<input type = "checkbox" value = "월요일">월요일
+							<input type = "checkbox" value = "화요일">화요일
+							<input type = "checkbox" value = "수요일">수요일
+							<input type = "checkbox" value = "목요일">목요일
+							<input type = "checkbox" value = "금요일">금요일
+							<input type = "checkbox" value = "토요일">토요일
+							<input type = "checkbox" value = "일요일">일요일
+						</div>
 						<label class="col-form-label" for="inputDefault">업종</label>
-						<input type="text" class="form-control"  name = "enterprise_sectors" placeholder="업종" id="inputDefault">
+						<select class="custom-select" name = "enterprise_serctors" id="exampleSelect1">
+							<option value = "0" selected>선택해주세요</option>
+							<option value = "default" selected>음식전체</option>
+							<option value = "한식">한식</option>
+							<option value = "양식">양식</option>
+							<option value = "증식">중식</option>
+							<option value = "일식">일식</option>
+							<option value = "아시아식">아시아식</option>
+							<option value = "컨템퍼러리">컨템퍼러리</option>
+							<option value = "붸페">뷔페</option>
+							<option value = "구이">구이</option>
+							<option value = "술집">술집</option>
+							<option value = "카페/베이커리">카페/베이커리</option>
+						</select>
 
 						<label class="col-form-label" for="inputDefault">대표이미지</label>
 						<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile" aria-describedby="fileHelp">
 
 						<label class="col-form-label" for="inputDefault">서비스</label>
 						<select class="custom-select" name = "enterprise_service" id="exampleSelect1">
-							<option>웨이팅 서비스</option>
-							<option>예약 서비스</option>
-							<option>웨이팅 + 예약 서비스</option>
+							<option value = "0" selected>선택해주세요</option>
+							<option value = "1">웨이팅 서비스</option>
+							<option value = "2">예약 서비스</option>
+							<option value = "3">웨이팅 + 예약 서비스</option>
 						</select>
 
 						<label class="col-form-label" for="inputDefault">매장 이미지</label>

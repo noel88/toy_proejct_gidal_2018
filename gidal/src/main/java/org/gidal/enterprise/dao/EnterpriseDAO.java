@@ -8,6 +8,7 @@ public interface EnterpriseDAO {
 
 	public int enterprise_join(EnterpriseVO vo);
 	public int enterpriseBoard_update(EnterpriseVO vo);
+	public List<EnterpriseVO> enterpriseBoard_list();
 	public List<EnterpriseVO> enterpriseBoard_view();
 
 

@@ -1,15 +1,17 @@
 package org.gidal.enterprise.domain;
 
+import java.util.Date;
+
 public class EnterpriseVO {
 
 	private String enterprise_email; //이메일
-	private String enterprise_code; // 상호코드
+	private int enterprise_code; // 상호코드
 	private String enterprise_password; //비밀번호
 	//private String enterprise_passwordCheck; //비밀번호확인
 	private String enterprise_name; //이름
-	private String enterprise_phoneNum; //핸드폰번호
+	private int enterprise_phoneNum; //핸드폰번호
 	private String enterprise_businessName; // 매장명
-	private String enterprise_phone; //연락처
+	private int enterprise_phone; //연락처
 	private String enterprise_sectors; //업종
 	private String enterprise_service; //서비스
 	private String enterprise_mainImg; //메인이미지
@@ -20,10 +22,10 @@ public class EnterpriseVO {
 	private String enterprise_add1; //주소1
 	private String enterprise_add2; //주소2
 	private String enterprise_add3; //주소3
-	private String enterprise_operatingOpenTime; //영업시간
-	private String enterprise_operatingCloseTime; //영업시간
-	private String enterprise_breakStartTime; //브레이크타임시작
-	private String enterprise_breakCloseTime; //브레이크타임끝
+	private Date enterprise_operatingOpenTime; //영업시간
+	private Date enterprise_operatingCloseTime; //영업시간
+	private Date enterprise_breakStartTime; //브레이크타임시작
+	private Date enterprise_breakCloseTime; //브레이크타임끝
 	private String enterprise_closed; //휴무일
 
 
@@ -46,13 +48,13 @@ public class EnterpriseVO {
 
 
 
-	public String getEnterprise_code() {
+	public int getEnterprise_code() {
 		return enterprise_code;
 	}
 
 
 
-	public void setEnterprise_code(String enterprise_code) {
+	public void setEnterprise_code(int enterprise_code) {
 		this.enterprise_code = enterprise_code;
 	}
 
@@ -82,13 +84,13 @@ public class EnterpriseVO {
 
 
 
-	public String getEnterprise_phoneNum() {
+	public int getEnterprise_phoneNum() {
 		return enterprise_phoneNum;
 	}
 
 
 
-	public void setEnterprise_phoneNum(String enterprise_phoneNum) {
+	public void setEnterprise_phoneNum(int enterprise_phoneNum) {
 		this.enterprise_phoneNum = enterprise_phoneNum;
 	}
 
@@ -106,13 +108,13 @@ public class EnterpriseVO {
 
 
 
-	public String getEnterprise_phone() {
+	public int getEnterprise_phone() {
 		return enterprise_phone;
 	}
 
 
 
-	public void setEnterprise_phone(String enterprise_phone) {
+	public void setEnterprise_phone(int enterprise_phone) {
 		this.enterprise_phone = enterprise_phone;
 	}
 
@@ -238,52 +240,49 @@ public class EnterpriseVO {
 
 
 
-
-
-
-	public String getEnterprise_operatingOpenTime() {
+	public Date getEnterprise_operatingOpenTime() {
 		return enterprise_operatingOpenTime;
 	}
 
 
 
-	public void setEnterprise_operatingOpenTime(String enterprise_operatingOpenTime) {
+	public void setEnterprise_operatingOpenTime(Date enterprise_operatingOpenTime) {
 		this.enterprise_operatingOpenTime = enterprise_operatingOpenTime;
 	}
 
 
 
-	public String getEnterprise_operatingCloseTime() {
+	public Date getEnterprise_operatingCloseTime() {
 		return enterprise_operatingCloseTime;
 	}
 
 
 
-	public void setEnterprise_operatingCloseTime(String enterprise_operatingCloseTime) {
+	public void setEnterprise_operatingCloseTime(Date enterprise_operatingCloseTime) {
 		this.enterprise_operatingCloseTime = enterprise_operatingCloseTime;
 	}
 
 
 
-	public String getEnterprise_breakStartTime() {
+	public Date getEnterprise_breakStartTime() {
 		return enterprise_breakStartTime;
 	}
 
 
 
-	public void setEnterprise_breakStartTime(String enterprise_breakStartTime) {
+	public void setEnterprise_breakStartTime(Date enterprise_breakStartTime) {
 		this.enterprise_breakStartTime = enterprise_breakStartTime;
 	}
 
 
 
-	public String getEnterprise_breakCloseTime() {
+	public Date getEnterprise_breakCloseTime() {
 		return enterprise_breakCloseTime;
 	}
 
 
 
-	public void setEnterprise_breakCloseTime(String enterprise_breakCloseTime) {
+	public void setEnterprise_breakCloseTime(Date enterprise_breakCloseTime) {
 		this.enterprise_breakCloseTime = enterprise_breakCloseTime;
 	}
 
@@ -298,6 +297,8 @@ public class EnterpriseVO {
 	public void setEnterprise_closed(String enterprise_closed) {
 		this.enterprise_closed = enterprise_closed;
 	}
+
+
 
 
 

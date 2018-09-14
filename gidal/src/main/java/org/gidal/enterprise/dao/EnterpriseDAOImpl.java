@@ -29,8 +29,13 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	@Override
 	public List<EnterpriseVO> enterpriseBoard_view() {
-		// TODO Auto-generated method stub
 		return null;
+
+	}
+
+	@Override
+	public List<EnterpriseVO> enterpriseBoard_list() {
+		return sqlsession.selectList(namespace + ".boardlist");
 	}
 
 

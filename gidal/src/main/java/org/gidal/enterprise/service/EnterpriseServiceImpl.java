@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import org.gidal.enterprise.dao.EnterpriseDAO;
 import org.gidal.enterprise.domain.EnterpriseVO;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.gidal.util.SHA256;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,47 +24,15 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	@Override
 	public int enterprise_join(EnterpriseVO vo) {
 
-		//패스워드 암호화, 상호코드 작성
+		//패스워드 암호화, 상호코드 어떻게 할껀지 결정
 
-
-		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
-	        System.out.println(vo.toString());
-	        //암호화 하기전
-	          String password = scpwd.encode(vo.getEnterprise_password());
-	          String code = scpwd.encode(vo.getEnterprise_businessName());
-	        //암호화 하여 저장
-	        vo.setEnterprise_password(password);
-	        vo.setEnterprise_code(code);
-	        System.out.println(vo.toString());
+		SHA256 sha = new SHA256();
+		sha.getSHA256(vo.getEnterprise_password());
 
 		return dao.enterprise_join(vo);
 
 	}
 
-
-	@Override
-	public EnterpriseVO enterprise_password_foget() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int enterprise_login() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void enterprise_delete() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void enterprise_logout() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public int enterpriseBoard_update(EnterpriseVO vo) {
@@ -74,8 +42,13 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	@Override
 	public List<EnterpriseVO> enterpriseBoard_view() {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public List<EnterpriseVO> enterpriseBoard_list() {
+		return dao.enterpriseBoard_list();
 	}
 
 

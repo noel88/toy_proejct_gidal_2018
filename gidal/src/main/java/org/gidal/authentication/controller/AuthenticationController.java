@@ -11,13 +11,11 @@ public class AuthenticationController {
 
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
 	public String join() {
-
 		return "authentication/signUp";
 	}
 
 	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
 	public String login() {
-
 		return "authentication/signIn";
 	}
 

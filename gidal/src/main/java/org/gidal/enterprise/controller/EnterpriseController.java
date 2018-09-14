@@ -24,20 +24,24 @@ public class EnterpriseController {
 
 	}
 
-
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String enterprise_join(EnterpriseVO vo, Model model) {
 		 int result = service.enterprise_join(vo);
 
 		 if(result > 0) {
 			 model.addAttribute("id", vo);
-			 return "redirect:/";
+			 return "redirect:/authentication/signIn";
 		 }else {
 			 //error
 			 return "redirect:/signFail";
 		 }
 	}
 
+
+	//식당목록보기
+	//필터링해서 보여주기
+	//예약하기
+	//웨이팅하기
 	//수정
 
 

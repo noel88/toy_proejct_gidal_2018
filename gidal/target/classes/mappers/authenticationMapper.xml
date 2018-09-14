@@ -15,6 +15,14 @@
 		select * from enterprise where enterprise_email = #{enterprise_email} and enterprise_password = #{enterprise_password}
 	</select>
 
+	<select id="user_check" resultType="org.gidal.user.domain.UserVO">
+		select * from user where user_email = #{user_email}
+	</select>
+
+	<select id="enterprise_check" resultType="org.gidal.enterprise.domain.EnterpriseVO">
+		select * from enterprise where enterprise_email = #{enterprise_email}
+	</select>
+
 	<update id="user_forget">
 		update user set user_password = #{user_password} where user_email = #{user_email}
 	</update>
@@ -30,6 +38,7 @@
 	<delete id="enterprise_delete">
 		delete from enterprise where enterprise_email = #{enterprise_email}
 	</delete>
+
 
 
 

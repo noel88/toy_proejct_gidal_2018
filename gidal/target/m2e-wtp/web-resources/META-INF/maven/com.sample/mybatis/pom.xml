@@ -130,6 +130,12 @@
 		    <version>2.2.5</version>
 		</dependency>
 
+		<!-- 객체를 json타입의 데이터로 변환하거나 반대의 작업을 할때 사용하는 라이브러리   -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.4</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
 		<dependency>

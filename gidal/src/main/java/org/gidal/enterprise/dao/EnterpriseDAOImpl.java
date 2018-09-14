@@ -1,5 +1,7 @@
 package org.gidal.enterprise.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,6 +19,18 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	@Override
 	public int enterprise_join(EnterpriseVO vo) {
 		return sqlsession.insert(namespace + ".join", vo);
+	}
+
+	@Override
+	public int enterpriseBoard_update(EnterpriseVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<EnterpriseVO> enterpriseBoard_view() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

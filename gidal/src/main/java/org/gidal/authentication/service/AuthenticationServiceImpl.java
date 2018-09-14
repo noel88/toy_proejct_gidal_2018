@@ -17,63 +17,71 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
 
-
-
 	@Override
-	public String enterprise_password_foget(EnterpriseVO vo) {
+	public String password_foget(String email) {
 
 		SHA256 sha = new SHA256();
-		String new_password = sha.getSHA256(vo.getEnterprise_email());
+		UserVO vo1 = new UserVO();
+		EnterpriseVO vo2 = new EnterpriseVO();
+		String new_password;
 
-		vo.setEnterprise_password(new_password);
-		dao.enterprise_password_foget(vo);
+		if (dao.user_check(vo1)) {
 
-		return new_password;
+			new_password = sha.getSHA256(email);
+			vo1.setUser_password(new_password);
+			dao.user_password_foget(vo1);
+
+			return new_password;
+
+		} else if (dao.enterprise_check(vo2)) {
+
+			new_password = sha.getSHA256(email);
+			vo2.setEnterprise_password(new_password);
+			dao.enterprise_password_foget(vo2);
+
+			return new_password;
+
+		} else {
+
+			// 회원, 기업 둘다 아니므로 오류
+			return null;
+
+		}
+
+
 	}
 
-
 	@Override
-	public String user_password_foget(UserVO vo) {
+	public boolean login(String email, String pwd, HttpSession session) {
 
 		SHA256 sha = new SHA256();
-		String new_password = sha.getSHA256(vo.getUser_email());
-
-		vo.setUser_password(new_password);
-		dao.user_password_foget(vo);
-
-		return new_password;
-	}
-
-	@Override
-	public boolean enterprise_login(EnterpriseVO vo, HttpSession session) {
-
-		boolean isCheck = dao.enterprise_login(vo);
+		UserVO vo1 = new UserVO();
+		EnterpriseVO vo2 = new EnterpriseVO();
 
 
-		if(isCheck) {
+		if(dao.user_login(vo1)) {
 
-			session.setAttribute("email", vo.getEnterprise_email());
-			session.setAttribute("password", vo.getEnterprise_password());
+			session.setAttribute("email", email);
 
-		}
-		return isCheck;
+			return true;
 
-	}
+		}else if (dao.enterpirse_login(vo2)) {
 
-	@Override
-	public boolean user_login(UserVO vo, HttpSession session) {
-		boolean isCheck = dao.user_login(vo);
+			session.setAttribute("email", vo2.getEnterprise_email());
+			session.setAttribute("cod", vo2.getEnterprise_code());
 
+			return true;
 
-		if(isCheck) {
+		}else {
 
-			session.setAttribute("email", vo.getUser_email());
-			session.setAttribute("password", vo.getUser_password());
+			//둘다 일치하지 않음
+			return false;
 
 		}
-		return isCheck;
+
 
 	}
+
 
 	@Override
 	public void logout(HttpSession session) {
@@ -82,17 +90,32 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
 	@Override
-	public void enterprise_delete(EnterpriseVO vo) {
-		dao.enterprise_delete(vo);
+	public void delete(String email) {
+
+
+		UserVO vo1 = new UserVO();
+		EnterpriseVO vo2 = new EnterpriseVO();
+
+
+		if (dao.user_check(vo1)) {
+
+			dao.user_delete(vo1);
+
+		} else if (dao.enterprise_check(vo2)) {
+
+			dao.enterprise_delete(vo2);
+
+		} else {
+
+			// 회원, 기업 둘다 아니므로 오류
+
+		}
+
 
 	}
 
 
-	@Override
-	public void user_delete(UserVO vo) {
-		dao.user_delete(vo);
 
-	}
 
 
 

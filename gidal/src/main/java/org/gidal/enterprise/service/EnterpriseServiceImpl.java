@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.gidal.enterprise.dao.EnterpriseBoardDAO;
+
 import org.gidal.enterprise.dao.EnterpriseDAO;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,8 +17,8 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	@Inject
 	private EnterpriseDAO dao;
-	
-	private EnterpriseBoardDAO boardDao;
+
+
 
 
 	@Override

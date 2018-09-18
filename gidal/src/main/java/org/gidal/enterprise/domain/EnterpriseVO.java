@@ -5,13 +5,13 @@ package org.gidal.enterprise.domain;
 public class EnterpriseVO {
 
 	private String enterprise_email; //이메일
-	private int enterprise_code; // 상호코드
+	private String enterprise_code; // 상호코드
 	private String enterprise_password; //비밀번호
 	//private String enterprise_passwordCheck; //비밀번호확인
 	private String enterprise_name; //이름
-	private int enterprise_phoneNum; //핸드폰번호
+	private String enterprise_phoneNum; //핸드폰번호
 	private String enterprise_businessName; // 매장명
-	private int enterprise_phone; //연락처
+	private String enterprise_phone; //연락처
 	private String enterprise_sectors; //업종
 	private String enterprise_service; //서비스
 	private String enterprise_mainImg; //메인이미지
@@ -48,15 +48,6 @@ public class EnterpriseVO {
 
 
 
-	public int getEnterprise_code() {
-		return enterprise_code;
-	}
-
-
-
-	public void setEnterprise_code(int enterprise_code) {
-		this.enterprise_code = enterprise_code;
-	}
 
 
 
@@ -84,16 +75,6 @@ public class EnterpriseVO {
 
 
 
-	public int getEnterprise_phoneNum() {
-		return enterprise_phoneNum;
-	}
-
-
-
-	public void setEnterprise_phoneNum(int enterprise_phoneNum) {
-		this.enterprise_phoneNum = enterprise_phoneNum;
-	}
-
 
 
 	public String getEnterprise_businessName() {
@@ -108,13 +89,40 @@ public class EnterpriseVO {
 
 
 
-	public int getEnterprise_phone() {
+
+
+
+	public String getEnterprise_code() {
+		return enterprise_code;
+	}
+
+
+
+	public void setEnterprise_code(String enterprise_code) {
+		this.enterprise_code = enterprise_code;
+	}
+
+
+
+	public String getEnterprise_phoneNum() {
+		return enterprise_phoneNum;
+	}
+
+
+
+	public void setEnterprise_phoneNum(String enterprise_phoneNum) {
+		this.enterprise_phoneNum = enterprise_phoneNum;
+	}
+
+
+
+	public String getEnterprise_phone() {
 		return enterprise_phone;
 	}
 
 
 
-	public void setEnterprise_phone(int enterprise_phone) {
+	public void setEnterprise_phone(String enterprise_phone) {
 		this.enterprise_phone = enterprise_phone;
 	}
 

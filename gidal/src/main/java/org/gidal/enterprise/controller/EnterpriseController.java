@@ -1,5 +1,7 @@
 package org.gidal.enterprise.controller;
 
+
+
 import javax.inject.Inject;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 @RequestMapping("/enterprise/")
@@ -27,6 +30,10 @@ public class EnterpriseController {
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String enterprise_join(EnterpriseVO vo, Model model) {
+
+
+
+
 		 int result = service.enterprise_join(vo);
 
 		 if(result > 0) {

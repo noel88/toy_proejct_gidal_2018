@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-							<option value = "00:00">00:00</option>
+							<option value = 0000>00:00</option>
 							<option value = "00:30">00:30</option>
 							<option value = "01:00">01:00</option>
 							<option value = "01:30">01:30</option>

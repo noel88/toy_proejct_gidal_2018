@@ -27,7 +27,11 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		//패스워드 암호화, 상호코드 어떻게 할껀지 결정
 
 		SHA256 sha = new SHA256();
-		sha.getSHA256(vo.getEnterprise_password());
+		String pwd = sha.getSHA256(vo.getEnterprise_password());
+		String code = sha.getSHA256(vo.getEnterprise_businessName());
+
+		vo.setEnterprise_code(code);
+		vo.setEnterprise_password(pwd);
 
 		return dao.enterprise_join(vo);
 

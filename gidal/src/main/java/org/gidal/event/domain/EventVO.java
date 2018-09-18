@@ -1,9 +1,9 @@
 package org.gidal.event.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class EventVO {
-
+	
 	private Integer event_no;
 	private String event_title;
 	private Date event_startDate;
@@ -11,6 +11,9 @@ public class EventVO {
 	private String event_image;
 	private String event_content;
 
+	private String event_startDateSQL;
+	private String event_endDateSQL;
+	
 	public Integer getEvent_no() {
 		return event_no;
 	}
@@ -57,5 +60,21 @@ public class EventVO {
 	
 	public void setEvent_content(String event_content) {
 		this.event_content = event_content;
-	}	
+	}
+	
+	public String getEvent_startDateSQL() {
+		return event_startDateSQL;
+	}
+
+	public void setEvent_startDateSQL(String event_startDateSQL) {
+		this.event_startDateSQL = event_startDateSQL;
+	}
+
+	public String getEvent_endDateSQL() {
+		return event_endDateSQL;
+	}
+
+	public void setEvent_endDateSQL(String event_endDateSQL) {
+		this.event_endDateSQL = event_endDateSQL;
+	}
 }

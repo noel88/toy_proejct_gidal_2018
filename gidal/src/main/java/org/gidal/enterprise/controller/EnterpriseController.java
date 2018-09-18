@@ -37,6 +37,11 @@ public class EnterpriseController {
 		 }
 	}
 
+	@RequestMapping(value = "/view", method = RequestMethod.POST)
+	public String enterprise_view(EnterpriseVO vo, Model model) {
+		return "redirect:/enterprise/enterpriseBoardView";
+	}
+
 
 	//식당목록보기
 	//필터링해서 보여주기

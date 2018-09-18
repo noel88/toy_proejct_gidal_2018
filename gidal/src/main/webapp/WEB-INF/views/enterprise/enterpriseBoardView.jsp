@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page import= "org.gidal.enterprise.domain.EnterpriseVO" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,173 +9,12 @@
 <title>기달</title>
 
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
-</head>
-<body>
-
-	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
-
-
-<script type="text/javascript">
-
-function setCategory2(){
-	form = document.search;
-
-	// 아파트
-		if(document.search.type.value == 1){
-			form.category2.length = 1;
-			form.category2.options[1] = new Option("아파트");
-			form.category2.options[1].value = "아파트";
-			form.category2.options[2] = new Option("공동주택");
-			form.category2.options[2].value = "공동주택";
-			form.category2.options[3] = new Option("카사 파티쿨라르");
-			form.category2.options[3].value = "카사 파티쿨라르";
-			form.category2.options[4] = new Option("로프트");
-			form.category2.options[4].value = "로프트";
-			form.category2.options[5] = new Option("레지던스");
-			form.category2.options[5].value = "레지던스";
-
-		}
-	//주택
-
-		if(document.search.roomsType2.value == 2){
-			form.category2.length = 1;
-			form.category2.options[1] = new Option("주택");
-			form.category2.options[1].value = "주택";
-			form.category2.options[2] = new Option("방갈로");
-			form.category2.options[2].value = "방갈로";
-			form.category2.options[3] = new Option("통나무집");
-			form.category2.options[3].value = "통나무집";
-			form.category2.options[4] = new Option("카사 파티쿨라르");
-			form.category2.options[4].value = "카사 파티쿨라르";
-			form.category2.options[5] = new Option("살레");
-			form.category2.options[5].value = "살레";
-			form.category2.options[6] = new Option("전원주택");
-			form.category2.options[6].value = "전원주택";
-			form.category2.options[7] = new Option("키클라데스 주택");
-			form.category2.options[7].value = "키클라데스 주택";
-			form.category2.options[8] = new Option("담무소");
-			form.category2.options[8].value = "담무소";
-			form.category2.options[9] = new Option("돔하우스");
-			form.category2.options[9].value = "돔하우스";
-			form.category2.options[10] = new Option("땅속의 집");
-			form.category2.options[10].value = "땅속의 집";
-			form.category2.options[11] = new Option("농장 체험 숙박");
-			form.category2.options[11].value = "농장 체험 숙박";
-			form.category2.options[12] = new Option("하우스보트");
-			form.category2.options[12].value = "하우스보트";
-			form.category2.options[13] = new Option("오두막");
-			form.category2.options[13].value = "오두막";
-			form.category2.options[14] = new Option("등대");
-			form.category2.options[14].value = "등대";
-			form.category2.options[15] = new Option("팬션(한국)");
-			form.category2.options[15].value = "팬션(한국)";
-			form.category2.options[16] = new Option("마차(영국,프랑스)");
-			form.category2.options[16].value = "마차(영국,프랑스)";
-			form.category2.options[17] = new Option("초소형주택");
-			form.category2.options[17].value = "초소형주택";
-			form.category2.options[18] = new Option("타운하우스");
-			form.category2.options[18].value = "타운하우스";
-			form.category2.options[19] = new Option("트롤로(이탈리아)");
-			form.category2.options[19].value = "트롤로(이탈리아)";
-			form.category2.options[20] = new Option("저택");
-			form.category2.options[20].value = "저택";
-
-
-		}
-	//별채
-
-		if(document.search.roomsType2.value == 3){
-			form.category2.length = 1;
-			form.category2.options[1] = new Option("게스트용 별채");
-			form.category2.options[1].value = "게스트용 별채";
-			form.category2.options[2] = new Option("게스트 스위트");
-			form.category2.options[2].value = "게스트 스위트";
-			form.category2.options[3] = new Option("농장 체험 숙박");
-			form.category2.options[3].value = "농장 체험 숙박";
-
-
-		}
-
-	//독특한 숙소
-
-
-
-		if(document.search.roomsType2.value == 4){
-			form.category2.options[1] = new Option("헛간");
-			form.category2.options[1].value = "헛간";
-			form.category2.options[2] = new Option("보트");
-			form.category2.options[2].value = "보트";
-			form.category2.options[3] = new Option("버스");
-			form.category2.options[3].value = "버스";
-			form.category2.options[4] = new Option("캠핑카");
-			form.category2.options[4].value = "캠핑카";
-			form.category2.options[5] = new Option("캠핑장");
-			form.category2.options[5].value = "캠핑장";
-			form.category2.options[6] = new Option("성");
-			form.category2.options[6].value = "성";
-			form.category2.options[7] = new Option("동굴");
-			form.category2.options[7].value = "동굴";
-			form.category2.options[8] = new Option("땅속의 집");
-			form.category2.options[8].value = "땅속의 집";
-			form.category2.options[9] = new Option("농장 체험 숙박");
-			form.category2.options[9].value = "농장 체험 숙박";
-			form.category2.options[10] = new Option("하우스보트");
-			form.category2.options[10].value = "하우스보트";
-			form.category2.options[11] = new Option("오두막");
-			form.category2.options[11].value = "오두막";
-			form.category2.options[12] = new Option("이글루");
-			form.category2.options[12].value = "이글루";
-			form.category2.options[13] = new Option("성");
-			form.category2.options[13].value = "성";
-			form.category2.options[14] = new Option("등대");
-			form.category2.options[14].value = "등대";
-			form.category2.options[15] = new Option("팬션(한국)");
-			form.category2.options[15].value = "팬션(한국)";
-			form.category2.options[16] = new Option("비행기");
-			form.category2.options[16].value = "비행기";
-			form.category2.options[17] = new Option("마차(영국,프랑스)");
-			form.category2.options[17].value = "마차(영국,프랑스)";
-			form.category2.options[18] = new Option("텐트");
-			form.category2.options[18].value = "텐트";
-			form.category2.options[19] = new Option("초소형 주택");
-			form.category2.options[19].value = "초소형 주택";
-			form.category2.options[20] = new Option("티피");
-			form.category2.options[20].value = "티피";
-			form.category2.options[21] = new Option("기차");
-			form.category2.options[21].value = "기차";
-			form.category2.options[22] = new Option("트리하우스");
-			form.category2.options[22].value = "트리하우스";
-			form.category2.options[23] = new Option("풍차");
-			form.category2.options[23].value = "풍차";
-			form.category2.options[24] = new Option("유르트");
-			form.category2.options[24].value = "유르트";
-		}
-	//B&B
-
-		if(document.search.roomsType2.value == 5){
-			form.category2.length = 1;
-			form.category2.options[1] = new Option("B&B");
-			form.category2.options[1].value = "B&B";
-			form.category2.options[2] = new Option("카사 파티쿨라르");
-			form.category2.options[2].value = "카사 파티쿨라르";
-			form.category2.options[3] = new Option("농장 체험 숙박");
-			form.category2.options[3].value = "농장 체험 숙박";
-			form.category2.options[4] = new Option("민수(타이완)");
-			form.category2.options[4].value = "민수(타이완)";
-			form.category2.options[5] = new Option("료칸");
-			form.category2.options[6].value = "료칸";
-
-		}
-
-
-</script>
-
 
 <style>
 @import url("http://fonts.googleapis.com/css?family=Lato");
 body {
   font-family: Lato, Arial;
-  color: #fff;
+/*   color: #fff; */
   padding: 20px;
 
 }
@@ -295,8 +134,15 @@ p a:hover {
 </style>
 
 </head>
+<body>
 
-  <body>
+	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
+
+
+
+
+
+
 	<form action = "">
 
 	<select id="gun">
@@ -396,28 +242,28 @@ $('select').each(function(){
 </script>
 
 
-
+<table border="2">
 
 <c:forEach items = "${list}" var = "EnterpriseVO">
   			<tr>
-		      <td rowspan="4">${enterpriseVO.code}</td><!-- 기업코드  -->
-		      <td rowspan="4">${enterpriseVo.mainImg }</td><!-- 메인이미지  -->
-		      <td>${enterpriseVo.businessName }</td> <!--  식당명 -->
+		       <td rowspan="4">${EnterpriseVO.enterprise_code}</td><!-- 기업코드  -->
+		     <td rowspan="4">${enterpriseVO.enterprise_mainImg }</td><!-- 메인이미지  -->
+		      <td>${EnterpriseVO.enterprise_businessName }</td> <!--  식당명 -->
 		    </tr>
   			<tr>
-		      <td>${enterpriseVo.add2}</td> <!-- 도로명주소  -->
+		      <td>${EnterpriseVO.enterprise_add2}</td> <!-- 도로명주소  -->
 		    </tr>
   			<tr>
-		      <td>${enterpriseVo.sectors}</td> <!-- 업종  -->
+		      <td>${EnterpriseVO.enterprise_sectors}</td> <!-- 업종  -->
 		    </tr>
   			<tr>
 		      <td>예약하기, 웨이팅하기 버튼</td> <!-- 버튼넣기  -->
 		    </tr>
 </c:forEach>
 
-		</tbody>
+
 </table>
+
 </body>
 </html>
-
 

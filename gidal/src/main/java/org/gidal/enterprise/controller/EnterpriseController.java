@@ -20,9 +20,10 @@ public class EnterpriseController {
 	@RequestMapping(value = "/enterprise", method = RequestMethod.GET)
 	public String enterprise_joinForm() {
 
-		return "enterprise/enterprise";
+		return "/enterprise/enterprise";
 
 	}
+
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String enterprise_join(EnterpriseVO vo, Model model) {
@@ -37,13 +38,15 @@ public class EnterpriseController {
 		 }
 	}
 
-	@RequestMapping(value = "/view", method = RequestMethod.POST)
-	public String enterprise_view(EnterpriseVO vo, Model model) {
-		return "redirect:/enterprise/enterpriseBoardView";
+
+	//식당목록보기
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	public String enterprise_view(Model model) {
+		model.addAttribute("list", service.enterpriseBoard_list());
+		return "/enterprise/enterpriseBoardView";
 	}
 
 
-	//식당목록보기
 	//필터링해서 보여주기
 	//예약하기
 	//웨이팅하기

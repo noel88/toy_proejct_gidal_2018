@@ -119,22 +119,22 @@ function execPostCode() {
 		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "join" method = "post">
+				<form action = "join" method = "post" enctype="multipart/form-data">
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
 						<input type="email" class="form-control" name = "enterprise_email" placeholder="이메일" id="inputDefault">
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
-						<input type="password" class="form-control" name = "enterprise_password"placeholder="패스워드" id="inputDefault">
+						<input type="password" class="form-control" name = "enterprise_password" placeholder="패스워드" id="inputDefault">
 
-						<label class="col-form-label" for="inputDefault">패스워드확인</label>
-						<input type="password" class="form-control"name = "enterprise_passwordCheck" placeholder="패스워드확인" id="inputDefault">
+						<!-- <label class="col-form-label" for="inputDefault">패스워드확인</label>
+						<input type="password" class="form-control"name = "enterprise_passwordCheck" placeholder="패스워드확인" id="inputDefault"> -->
 
 						<label class="col-form-label" for="inputDefault">이름</label>
 						<input type="text" class="form-control" name = "enterprise_name" placeholder="이름" id="inputDefault">
 
 						<label class="col-form-label" for="inputDefault">핸드폰번호</label>
-						<input type="text" class="form-control" name = "enterprise_phoneNum" placeholder="핸드폰번호" id="inputDefault">
+						<input type="number" class="form-control" name = "enterprise_phoneNum" placeholder="핸드폰번호" id="inputDefault">
 
 
 					</p>
@@ -146,7 +146,7 @@ function execPostCode() {
 						<input type="text" class="form-control" name = "enterprise_businessName" placeholder="매장명" id="inputDefault">
 
 						<label class="col-form-label" for="inputDefault">매장 전화번호</label>
-						<input type="tel" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="inputDefault">
+						<input type="number" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="inputDefault">
 
 
 
@@ -187,17 +187,17 @@ function execPostCode() {
 						</select>
 
 
-
 						<label class="col-form-label" for="inputDefault">휴무일</label>
 						<div class="form-group">
-							<input type = "checkbox" value = "월요일">월요일
-							<input type = "checkbox" value = "화요일">화요일
-							<input type = "checkbox" value = "수요일">수요일
-							<input type = "checkbox" value = "목요일">목요일
-							<input type = "checkbox" value = "금요일">금요일
-							<input type = "checkbox" value = "토요일">토요일
-							<input type = "checkbox" value = "일요일">일요일
+							<input type = "checkbox" name = "enterprise_closed" value = "월요일">월요일
+							<input type = "checkbox" name = "enterprise_closed" value = "화요일">화요일
+							<input type = "checkbox" name = "enterprise_closed" value = "수요일">수요일
+							<input type = "checkbox" name = "enterprise_closed" value = "목요일">목요일
+							<input type = "checkbox" name = "enterprise_closed" value = "금요일">금요일
+							<input type = "checkbox" name = "enterprise_closed" value = "토요일">토요일
+							<input type = "checkbox" name = "enterprise_closed" value = "일요일">일요일
 						</div>
+
 						<label class="col-form-label" for="inputDefault">업종</label>
 						<select class="custom-select" name = "enterprise_serctors" id="exampleSelect1">
 							<option value = "0" selected>선택해주세요</option>
@@ -214,9 +214,6 @@ function execPostCode() {
 							<option value = "카페/베이커리">카페/베이커리</option>
 						</select>
 
-						<label class="col-form-label" for="inputDefault">대표이미지</label>
-						<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile" aria-describedby="fileHelp">
-
 						<label class="col-form-label" for="inputDefault">서비스</label>
 						<select class="custom-select" name = "enterprise_service" id="exampleSelect1">
 							<option value = "0" selected>선택해주세요</option>
@@ -224,6 +221,9 @@ function execPostCode() {
 							<option value = "2">예약 서비스</option>
 							<option value = "3">웨이팅 + 예약 서비스</option>
 						</select>
+
+						<label class="col-form-label" for="inputDefault">대표이미지</label>
+						<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile" aria-describedby="fileHelp">
 
 						<label class="col-form-label" for="inputDefault">매장 이미지</label>
 						<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile" aria-describedby="fileHelp">

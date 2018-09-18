@@ -37,7 +37,7 @@
 						지역 선택
 					</a>
 					<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
-						<a class="dropdown-item" href=/enterprise/view">서울</a>
+						<a class="dropdown-item" href=/enterprise/view>서울</a>
 						<a class="dropdown-item" href="/WEB-INF/views/company/gyeongGi">경기</a>
 					</div>
 				</li>

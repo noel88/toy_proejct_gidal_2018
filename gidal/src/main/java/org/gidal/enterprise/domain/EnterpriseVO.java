@@ -1,6 +1,6 @@
 package org.gidal.enterprise.domain;
 
-import java.util.Date;
+
 
 public class EnterpriseVO {
 
@@ -22,10 +22,10 @@ public class EnterpriseVO {
 	private String enterprise_add1; //주소1
 	private String enterprise_add2; //주소2
 	private String enterprise_add3; //주소3
-	private Date enterprise_operatingOpenTime; //영업시간
-	private Date enterprise_operatingCloseTime; //영업시간
-	private Date enterprise_breakStartTime; //브레이크타임시작
-	private Date enterprise_breakCloseTime; //브레이크타임끝
+	private String enterprise_operatingOpenTime; //영업시간
+	private String enterprise_operatingCloseTime; //영업시간
+	private String enterprise_breakStartTime; //브레이크타임시작
+	private String enterprise_breakCloseTime; //브레이크타임끝
 	private String enterprise_closed; //휴무일
 
 
@@ -240,49 +240,49 @@ public class EnterpriseVO {
 
 
 
-	public Date getEnterprise_operatingOpenTime() {
+	public String getEnterprise_operatingOpenTime() {
 		return enterprise_operatingOpenTime;
 	}
 
 
 
-	public void setEnterprise_operatingOpenTime(Date enterprise_operatingOpenTime) {
+	public void setEnterprise_operatingOpenTime(String enterprise_operatingOpenTime) {
 		this.enterprise_operatingOpenTime = enterprise_operatingOpenTime;
 	}
 
 
 
-	public Date getEnterprise_operatingCloseTime() {
+	public String getEnterprise_operatingCloseTime() {
 		return enterprise_operatingCloseTime;
 	}
 
 
 
-	public void setEnterprise_operatingCloseTime(Date enterprise_operatingCloseTime) {
+	public void setEnterprise_operatingCloseTime(String enterprise_operatingCloseTime) {
 		this.enterprise_operatingCloseTime = enterprise_operatingCloseTime;
 	}
 
 
 
-	public Date getEnterprise_breakStartTime() {
+	public String getEnterprise_breakStartTime() {
 		return enterprise_breakStartTime;
 	}
 
 
 
-	public void setEnterprise_breakStartTime(Date enterprise_breakStartTime) {
+	public void setEnterprise_breakStartTime(String enterprise_breakStartTime) {
 		this.enterprise_breakStartTime = enterprise_breakStartTime;
 	}
 
 
 
-	public Date getEnterprise_breakCloseTime() {
+	public String getEnterprise_breakCloseTime() {
 		return enterprise_breakCloseTime;
 	}
 
 
 
-	public void setEnterprise_breakCloseTime(Date enterprise_breakCloseTime) {
+	public void setEnterprise_breakCloseTime(String enterprise_breakCloseTime) {
 		this.enterprise_breakCloseTime = enterprise_breakCloseTime;
 	}
 

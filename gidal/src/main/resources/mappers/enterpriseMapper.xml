@@ -6,7 +6,7 @@
 <mapper namespace="org.gidal.mapper.EnterpriseMapper">
 
 	<insert id="join">
-		insert into enterprise values (#{enterprise_email},#{enterprise_code},#{enterprise_password},#{enterprise_name},
+		insert into enterprise values (#{enterprise_code}, #{enterprise_email}, #{enterprise_password},#{enterprise_name},
 		#{enterprise_phoneNum},#{enterprise_businessName}, #{enterprise_phone}, #{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
 		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_add1},#{enterprise_add2},
 		#{enterprise_add3},#{enterprise_operatingOpenTime},#{enterprise_operatingCloseTime},#{enterprise_breakStartTime},#{enterprise_breakCloseTime},#{enterprise_closed})
@@ -19,8 +19,8 @@
 	</select>
 
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select (enterprise_code, enterprise_sectors, enterprise_service, enterprise_mainImg, enterprise_add2, enterprise_closed)
-		from enterprise
+		select enterprise_code, enterprise_sectors, enterprise_service, enterprise_add2
+		from enterprise order by enterprise_code DESC;
 	</select>
 
 	<update id="boardupdate">

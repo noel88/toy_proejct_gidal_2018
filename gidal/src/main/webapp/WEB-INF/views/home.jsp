@@ -69,9 +69,7 @@
 				</a>
 			</div>
 
-
-
-			<div class="row" style="margin : auto;">
+			<div class="row" style="margin : 0 auto;">
 				<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
 					<h3 class="card-header">우설화</h3>
 					<div class="card-body">

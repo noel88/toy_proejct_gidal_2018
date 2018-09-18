@@ -1,6 +1,6 @@
 package org.gidal.enterprise.dao;
 
-import org.gidal.enterprise.domain.EnterpriseVO;
+
 import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.waiting.domain.WaitingVO;
 

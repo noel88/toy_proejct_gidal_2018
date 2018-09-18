@@ -17,7 +17,7 @@
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-			<h1>진행중인 이벤트</h1>
+			<h1>진행 중인 이벤트</h1>
 
 			<hr class="my-4">
 
@@ -43,23 +43,37 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			
 			<div style = "width : 100%;">
-				<ul class="pagination" style = "width : 70%; margin : auto;">
-					<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
-					<li class="page-item active"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item"><a class="page-link" href="#">4</a></li>
-					<li class="page-item"><a class="page-link" href="#">5</a></li>
-					<li class="page-item"><a class="page-link" href="#">6</a></li>
-					<li class="page-item"><a class="page-link" href="#">7</a></li>
-					<li class="page-item"><a class="page-link" href="#">8</a></li>
-					<li class="page-item"><a class="page-link" href="#">9</a></li>
-					<li class="page-item"><a class="page-link" href="#">10</a></li>
-					<li class="page-item"><a class="page-link" href="#">&raquo;</a>
-					</li>
+				<ul class="pagination" style = "width : 30%; margin : auto;">
+					<c:choose>
+						<c:when test="${ (pageInfo.page - 1) == 0 }">
+							<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item"><a class="page-link" href="/event/closedEvent?page=${ pageInfo.page - 1 }">&laquo;</a></li>
+						</c:otherwise>
+					</c:choose>
+					<c:forEach var = "page" begin = "${ pageInfo.startPage }" end = "${ pageInfo.endPage }" step = "1">
+						<c:choose>
+							<c:when test="${ pageInfo.page == page }">
+								<li class="page-item active"><a class="page-link" href="/event/closedEvent?page=${ page }">${ page }</a></li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item"><a class="page-link" href="/event/closedEvent?page=${ page }">${ page }</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<c:choose>
+						<c:when test="${ pageInfo.page == pageInfo.endPage }">
+							<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item"><a class="page-link" href="/event/closedEvent?page=${ pageInfo.page + 1 }">&raquo;</a></li>
+						</c:otherwise>
+					</c:choose>
 				</ul>
-			</div>
+			</div>	
 		</div>
 		
 

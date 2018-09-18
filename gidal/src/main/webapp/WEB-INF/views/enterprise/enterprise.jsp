@@ -60,17 +60,7 @@ function execPostCode() {
     var enterprise_email = $("#enterprise_email").val();
     var enterprise_password = $("#enterprise_password").val();
     var enterprise_passwordCheck = $("#enterprise_passwordCheck").val();
-    var enterprise_name = $("#enterprise_name").val();
-    var enterprise_phoneNum = $("#enterprise_phoneNum").val();
-    var enterprise_businessName = $("#enterprise_businessName").val();
-    var enterprise_phone = $("#enterprise_phone").val();
-    var enterprise_sector = $("#enterprise_sector").val();
-    var enterprise_service = $("#enterprise_servic").val();
-    var enterprise_add1 = $("#enterprise_add1").val();
-    var enterprise_add2 = $("#enterprise_add2").val();
-    var enterprise_add3 = $("#enterprise_add3").val();
-    var enterprise_operaingTime = $("#enterprise_operaingTime").val();
-    var enterprise_closed = $("#enterprise_closed").val();
+
 
 
     if(enterprise_email.length == 0){
@@ -119,13 +109,13 @@ function execPostCode() {
 		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "join" method = "post">
+				<form name = "form" action = "join" method = "post" enctype="multipart/form-data">
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
 						<input type="email" class="form-control" name = "enterprise_email" placeholder="이메일" id="inputDefault">
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
-						<input type="password" class="form-control" name = "enterprise_password"placeholder="패스워드" id="inputDefault">
+						<input type="password" class="form-control" name = "enterprise_password" placeholder="패스워드" id="inputDefault">
 
 						<label class="col-form-label" for="inputDefault">패스워드확인</label>
 						<input type="password" class="form-control"name = "enterprise_passwordCheck" placeholder="패스워드확인" id="inputDefault">
@@ -141,12 +131,12 @@ function execPostCode() {
 
 					<hr class="my-4">
 
-					<p>
+					 <p>
 						<label class="col-form-label" for="inputDefault">매장명</label>
 						<input type="text" class="form-control" name = "enterprise_businessName" placeholder="매장명" id="inputDefault">
 
 						<label class="col-form-label" for="inputDefault">매장 전화번호</label>
-						<input type="tel" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="inputDefault">
+						<input type="text" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="inputDefault">
 
 
 
@@ -171,7 +161,7 @@ function execPostCode() {
 
 
 						<label class="col-form-label" for="inputDefault" >영업종료시간</label>
-						<select class="custom-select"  name = "enterprise_operatingColseTime" id="exampleSelect1">
+						<select class="custom-select"  name = "enterprise_operatingCloseTime" id="exampleSelect1">
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
 
@@ -188,20 +178,45 @@ function execPostCode() {
 
 
 
-						<label class="col-form-label" for="inputDefault">휴무일</label>
+						<script>
+
+						function itemSum(frm)
+						{
+						   var sum = 0;
+						   var count = frm.chkbox.length;
+
+						   for(var i=0; i < count; i++ ){
+						       if( frm.chkbox[i].checked == true ){
+							    sum += parseInt(frm.chkbox[i].value);
+						       }
+						   }
+						   frm.enterprise_closed.value = sum;
+						}
+
+						</script>
+
+
+
+				 		<label class="col-form-label" for="inputDefault">휴무일</label>
 						<div class="form-group">
-							<input type = "checkbox" value = "월요일">월요일
-							<input type = "checkbox" value = "화요일">화요일
-							<input type = "checkbox" value = "수요일">수요일
-							<input type = "checkbox" value = "목요일">목요일
-							<input type = "checkbox" value = "금요일">금요일
-							<input type = "checkbox" value = "토요일">토요일
-							<input type = "checkbox" value = "일요일">일요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '1000000'>월요일
+						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0100000'>화요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0010000'>수요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0001000'>목요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0000100'>금요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0000010'>토요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0000001'>일요일
+							<input type = "hidden" name = "enterprise_closed">
+
 						</div>
+
+
+
+
 						<label class="col-form-label" for="inputDefault">업종</label>
 						<select class="custom-select" name = "enterprise_serctors" id="exampleSelect1">
 							<option value = "0" selected>선택해주세요</option>
-							<option value = "default" selected>음식전체</option>
+							<option value = "default">음식전체</option>
 							<option value = "한식">한식</option>
 							<option value = "양식">양식</option>
 							<option value = "증식">중식</option>
@@ -214,10 +229,7 @@ function execPostCode() {
 							<option value = "카페/베이커리">카페/베이커리</option>
 						</select>
 
-						<label class="col-form-label" for="inputDefault">대표이미지</label>
-						<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile" aria-describedby="fileHelp">
-
-						<label class="col-form-label" for="inputDefault">서비스</label>
+						 <label class="col-form-label" for="inputDefault">서비스</label>
 						<select class="custom-select" name = "enterprise_service" id="exampleSelect1">
 							<option value = "0" selected>선택해주세요</option>
 							<option value = "1">웨이팅 서비스</option>
@@ -225,14 +237,17 @@ function execPostCode() {
 							<option value = "3">웨이팅 + 예약 서비스</option>
 						</select>
 
+<!--
+						 <label class="col-form-label" for="inputDefault">대표이미지</label>
+						<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile">
 						<label class="col-form-label" for="inputDefault">매장 이미지</label>
-						<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile" aria-describedby="fileHelp">
-						<input type="file" class="form-control-file" name = "enterprise_img2" id="exampleInputFile" aria-describedby="fileHelp">
-						<input type="file" class="form-control-file" name = "enterprise_img3" id="exampleInputFile" aria-describedby="fileHelp">
-						<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile" aria-describedby="fileHelp">
+						<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile">
+						<input type="file" class="form-control-file" name = "enterprise_img2" id="exampleInputFile">
+						<input type="file" class="form-control-file" name = "enterprise_img3" id="exampleInputFile">
+						<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile"> -->
 					</p>
 					<p>
-						<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block" onclick="DosignUp();">회원가입</button>
 					</p>
 				</form>
 

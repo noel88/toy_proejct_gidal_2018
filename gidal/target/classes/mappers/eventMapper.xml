@@ -5,42 +5,48 @@
 
 <mapper namespace="org.gidal.mapper.EventMapper">
 
-	<select id="closedEventListAll" resultType="org.gidal.event.domain.EventVO">
+	<select id="closedEventList" resultType="org.gidal.event.domain.EventVO">
 		<![CDATA[
 		SELECT 
 			* 
 		FROM 
 			event 
 		WHERE 
-			event_endDate <= now() 
+			event_endDate < date(now()) 
 		ORDER BY 
-			event_no DESC;
+			event_no DESC
+		LIMIT 
+			#{startRow}, 10;
 		]]>  
 	</select>
 	
-	<select id="currentEventListAll" resultType="org.gidal.event.domain.EventVO">
+	<select id="currentEventList" resultType="org.gidal.event.domain.EventVO">
 		<![CDATA[
 		SELECT 
 			* 
 		FROM 
 			event 
 		WHERE 
-			event_startDate <= now() AND event_endDate >= now() 
+			event_startDate <= date(now()) AND event_endDate >= date(now()) 
 		ORDER BY 
-			event_no DESC;
+			event_no DESC
+		LIMIT 
+			#{startRow}, 10;
 		]]>  
 	</select>
 	
-	<select id="upcomingEventListAll" resultType="org.gidal.event.domain.EventVO">
+	<select id="upcomingEventList" resultType="org.gidal.event.domain.EventVO">
 		<![CDATA[
 		SELECT 
 			* 
 		FROM 
 			event 
 		WHERE 
-			event_startDate >= now() 
+			event_startDate > date(now()) 
 		ORDER BY 
-			event_no DESC;
+			event_no DESC 
+		LIMIT 
+			#{startRow}, 10;
 		]]>  
 	</select>
 	
@@ -51,6 +57,39 @@
 			event
 		WHERE
 			event_no = #{event_no}
+	</select>
+	
+	<select id="closedEventListCount" resultType="int">
+		<![CDATA[
+		SELECT 
+			count(event_no) 
+		FROM 
+			event 
+		WHERE 
+			event_endDate <date(now());
+		]]>
+	</select>
+	
+	<select id="currentEventListCount" resultType="int">
+		<![CDATA[
+		SELECT 
+			count(event_no) 
+		FROM 
+			event 
+		WHERE 
+			event_startDate <= date(now()) AND event_endDate >= date(now());
+		]]>
+	</select>
+	
+	<select id="upcomingEventListCount" resultType="int">
+		<![CDATA[
+		SELECT 
+			count(event_no) 
+		FROM 
+			event 
+		WHERE 
+			event_startDate > date(now());
+		]]>
 	</select>
 	
 </mapper>

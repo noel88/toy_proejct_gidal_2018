@@ -11,6 +11,7 @@ public class AuthenticationController {
 
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
 	public String join() {
+
 		return "authentication/signUp";
 	}
 

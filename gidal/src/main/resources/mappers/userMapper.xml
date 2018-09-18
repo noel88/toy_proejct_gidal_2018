@@ -6,20 +6,19 @@
 
 <mapper namespace="org.gidal.mapper.UserMapper">
 
-	<insert id="join">
-		insert into enterprise values (#{enterprise_email},#{enterprise_code},#{enterprise_password},#{enterprise_name},#{enterprise_phoneNum},#{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
-		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_adress},#{enterprise_adressDetail},#{enterprise_operatingTime},#{enterprise_breakTime},#{enterprise_closed})
+	<insert id="userjoin">
+		insert into user values (#{user_email},#{user_password},#{user_name},#{user_phoneNum},#{user_gender})
 	</insert>
 
 	<select id="login" resultType="org.gidal.user.domain.UserVO">
-		select * from enterprise where enterprise_email = #{enterprise_email} and enterprise_password = #{enterprise_password}
+		select * from user where user_email = #{user_email} and user_password = #{user_password}
 	</select>
 
-	<update id="">
+	<!-- <update id="">
 		update user set enterprise_sectors = #{enterprise_sectors}, enterprise_service = #{enterprise_service}, enterprise_mainImg = #{enterprise_mainImg}, enterprise_img1 = #{enterprise_img1},
 		enterprise_img2 = #{enterprise_img2}, enterprise_img3 = #{enterprise_img3}, enterprise_img4 = #{enterprise_img4}, enterprise_address = #{enterprise_address}, enterprise_addressDetail = #{enterprise_addressDetail},
 		enterprise_operatingTime = #{enterprise_operatingTime}, enterprise_breakTime = #{enterprise_breakTime}, enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
-	</update>
+	</update> -->
 
 	<delete id="delete">
 		delete from user where user_email = #{user_email}

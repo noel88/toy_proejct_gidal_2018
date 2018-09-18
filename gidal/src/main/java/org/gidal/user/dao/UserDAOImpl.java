@@ -13,12 +13,11 @@ public class UserDAOImpl implements UserDAO {
 	@Inject
 	private SqlSession sqlsession; 
 	
-	
+	private static String namespace = "org.gidal.mapper.userMapper";
 	
 	@Override
 	public int user_join(UserVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlsession.insert(namespace + ".join", vo);
 	}
 
 }

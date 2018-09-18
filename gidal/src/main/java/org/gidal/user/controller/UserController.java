@@ -17,10 +17,10 @@ public class UserController {
 	@Inject
 	private UserService service;
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/individual", method = RequestMethod.GET)
 	public String user_joinForm() {
 
-		return "user/user";
+		return "user/individual";
 
 	}
 

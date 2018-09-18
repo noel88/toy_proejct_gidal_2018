@@ -29,7 +29,7 @@
 		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "#" method = "post">
+				<form action = "userjoin" method = "post">
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
 						<input type="email" class="form-control" placeholder="이메일" id="inputDefault">

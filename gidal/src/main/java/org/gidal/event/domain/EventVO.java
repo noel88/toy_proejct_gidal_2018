@@ -2,6 +2,8 @@ package org.gidal.event.domain;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class EventVO {
 	
 	private Integer event_no;
@@ -11,8 +13,7 @@ public class EventVO {
 	private String event_image;
 	private String event_content;
 
-	private String event_startDateSQL;
-	private String event_endDateSQL;
+	private MultipartFile event_file;
 	
 	public Integer getEvent_no() {
 		return event_no;
@@ -62,19 +63,12 @@ public class EventVO {
 		this.event_content = event_content;
 	}
 	
-	public String getEvent_startDateSQL() {
-		return event_startDateSQL;
+	public MultipartFile getEvent_file() {
+		return event_file;
 	}
 
-	public void setEvent_startDateSQL(String event_startDateSQL) {
-		this.event_startDateSQL = event_startDateSQL;
+	public void setEvent_file(MultipartFile event_file) {
+		this.event_file = event_file;
 	}
 
-	public String getEvent_endDateSQL() {
-		return event_endDateSQL;
-	}
-
-	public void setEvent_endDateSQL(String event_endDateSQL) {
-		this.event_endDateSQL = event_endDateSQL;
-	}
 }

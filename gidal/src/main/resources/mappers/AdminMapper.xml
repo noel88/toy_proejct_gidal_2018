@@ -7,9 +7,9 @@
 
 	<insert id="eventRegist">
 		INSERT INTO event 
-			(`event_title`, `event_startDate`, `event_endDate`, `event_content`) 
+			(`event_title`, `event_startDate`, `event_endDate`, `event_image`, `event_content`) 
 		VALUES 
-			(#{event_title}, #{event_startDate}, #{event_endDate}, #{event_content});
+			(#{event_title}, #{event_startDate}, #{event_endDate}, #{event_image}, #{event_content});
 	</insert>
  
 </mapper>

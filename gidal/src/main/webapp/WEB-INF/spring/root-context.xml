@@ -33,7 +33,12 @@
 		destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+	<!-- 경로설정  -->
+	<bean id = "uploadPath" class="java.lang.String">
+		<constructor-arg value="C:\upload">
 
+		</constructor-arg>
+	</bean>
 
 
 

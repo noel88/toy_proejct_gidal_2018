@@ -10,128 +10,7 @@
 
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 
-<style>
-@import url("http://fonts.googleapis.com/css?family=Lato");
-body {
-  font-family: Lato, Arial;
-/*   color: #fff; */
-  padding: 20px;
 
-}
-
-h1 {
-  font-weight: normal;
-  font-size: 40px;
-  font-weight: normal;
-  text-transform: uppercase;
-}
-h1 span {
-  font-size: 13px;
-  display: block;
-  padding-left: 4px;
-}
-
-p {
-  margin-top: 200px;
-}
-p a {
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  color: #fff;
-  padding: 5px 10px;
-  margin: 0 5px;
-  background-color: #b83729;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-p a:hover {
-  background-color: #ab3326;
-}
-
-.select-hidden {
-  display: none;
-  visibility: hidden;
-  padding-right: 10px;
-}
-
-.select {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  font-size: 16px;
-  color: #fff;
-  width: 220px;
-  height: 40px;
-}
-
-.select-styled {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #c0392b;
-  padding: 8px 15px;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-.select-styled:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border: 7px solid transparent;
-  border-color: #fff transparent transparent transparent;
-  position: absolute;
-  top: 16px;
-  right: 10px;
-}
-.select-styled:hover {
-  background-color: #b83729;
-}
-.select-styled:active, .select-styled.active {
-  background-color: #ab3326;
-}
-.select-styled:active:after, .select-styled.active:after {
-  top: 9px;
-  border-color: transparent transparent #fff transparent;
-}
-
-.select-options {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
-  z-index: 999;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background-color: #ab3326;
-}
-.select-options li {
-  margin: 0;
-  padding: 12px 0;
-  text-indent: 15px;
-  border-top: 1px solid #962d22;
-  -moz-transition: all 0.15s ease-in;
-  -o-transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
-}
-.select-options li:hover {
-  color: #c0392b;
-  background: #fff;
-}
-.select-options li[rel="hide"] {
-  display: none;
-}
-
-</style>
 
 </head>
 <body>
@@ -139,131 +18,552 @@ p a:hover {
 	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
 
+<script type="text/javascript">
+
+	function setCategory2(){
+		form = document.filterSelect;
+
+
+			if(document.filterSelect.local.value == 1){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("종로구");
+				form.local2.options[1].value = "종로구";
+				form.local2.options[2] = new Option("중구");
+				form.local2.options[2].value = "중구";
+				form.local2.options[3] = new Option("용산구");
+				form.local2.options[3].value = "용산구";
+				form.local2.options[4] = new Option("성동구");
+				form.local2.options[4].value = "성동구";
+				form.local2.options[5] = new Option("광진구");
+				form.local2.options[5].value = "광진구";
+				form.local2.options[6] = new Option("동대문구");
+				form.local2.options[6].value = "동대문구";
+				form.local2.options[7] = new Option("중량구");
+				form.local2.options[7].value = "중량";
+				form.local2.options[8] = new Option("성북구");
+				form.local2.options[8].value = "성북구";
+				form.local2.options[9] = new Option("강북구");
+				form.local2.options[9].value = "강북구";
+				form.local2.options[10] = new Option("도봉구");
+				form.local2.options[10].value = "도봉구";
+				form.local2.options[11] = new Option("노원구");
+				form.local2.options[11].value = "노원구";
+				form.local2.options[12] = new Option("은평구");
+				form.local2.options[12].value = "은평구";
+				form.local2.options[13] = new Option("서대문구");
+				form.local2.options[13].value = "서대문구";
+				form.local2.options[14] = new Option("마포구");
+				form.local2.options[14].value = "마포구";
+				form.local2.options[15] = new Option("양천구");
+				form.local2.options[15].value = "양천구";
+				form.local2.options[16] = new Option("강서구");
+				form.local2.options[16].value = "강서구";
+				form.local2.options[17] = new Option("구로구");
+				form.local2.options[17].value = "구로구";
+				form.local2.options[18] = new Option("금천구");
+				form.local2.options[18].value = "금천구";
+				form.local2.options[19] = new Option("영등포구");
+				form.local2.options[19].value = "영등포구";
+				form.local2.options[20] = new Option("동작구");
+				form.local2.options[20].value = "동작구";
+				form.local2.options[21] = new Option("관악구");
+				form.local2.options[21].value = "관악구";
+				form.local2.options[22] = new Option("서초구");
+				form.local2.options[22].value = "서초구";
+				form.local2.options[23] = new Option("강남구");
+				form.local2.options[23].value = "강남구";
+				form.local2.options[24] = new Option("송파구");
+				form.local2.options[24].value = "송파구";
+				form.local2.options[25] = new Option("강동구");
+				form.local2.options[25].value = "강동구";
+
+			}
+			if(document.filterSelect.local.value == 2){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("중구");
+				form.local2.options[1].value = "중구";
+				form.local2.options[2] = new Option("서구");
+				form.local2.options[2].value = "서구";
+				form.local2.options[3] = new Option("동구");
+				form.local2.options[3].value = "동구";
+				form.local2.options[4] = new Option("영도구");
+				form.local2.options[4].value = "영도구";
+				form.local2.options[5] = new Option("부산진구");
+				form.local2.options[5].value = "부산진구";
+				form.local2.options[6] = new Option("동래구");
+				form.local2.options[6].value = "동래구";
+				form.local2.options[7] = new Option("남구");
+				form.local2.options[7].value = "남구";
+				form.local2.options[8] = new Option("북구");
+				form.local2.options[8].value = "북구";
+				form.local2.options[9] = new Option("강서구");
+				form.local2.options[9].value = "강서구";
+				form.local2.options[10] = new Option("해운대구");
+				form.local2.options[10].value = "해운대구";
+				form.local2.options[11] = new Option("사하구");
+				form.local2.options[11].value = "사하구";
+				form.local2.options[12] = new Option("금정구");
+				form.local2.options[12].value = "금정구";
+				form.local2.options[13] = new Option("연제구");
+				form.local2.options[13].value = "연제구";
+				form.local2.options[14] = new Option("수영구");
+				form.local2.options[14].value = "수영구";
+				form.local2.options[15] = new Option("사상구");
+				form.local2.options[15].value = "사상구";
+
+
+			}
+			if(document.filterSelect.local.value == 3){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("중구");
+				form.local2.options[1].value = "중구";
+				form.local2.options[2] = new Option("서구");
+				form.local2.options[2].value = "서구";
+				form.local2.options[3] = new Option("동구");
+				form.local2.options[3].value = "동구";
+				form.local2.options[4] = new Option("남구");
+				form.local2.options[4].value = "남구";
+				form.local2.options[5] = new Option("북구");
+				form.local2.options[5].value = "북구";
+				form.local2.options[6] = new Option("수성구");
+				form.local2.options[6].value = "수성구";
+				form.local2.options[7] = new Option("달서구");
+				form.local2.options[7].value = "달서구";
+
+
+			}
+			if(document.filterSelect.local.value == 4){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("중구");
+				form.local2.options[1].value = "중구";
+				form.local2.options[2] = new Option("동구");
+				form.local2.options[2].value = "동구";
+				form.local2.options[3] = new Option("미추홀구");
+				form.local2.options[3].value = "미추홀구";
+				form.local2.options[4] = new Option("연수구");
+				form.local2.options[4].value = "연수구";
+				form.local2.options[5] = new Option("남동구");
+				form.local2.options[5].value = "남동구";
+				form.local2.options[6] = new Option("부평구");
+				form.local2.options[6].value = "부평구";
+				form.local2.options[7] = new Option("계양구");
+				form.local2.options[7].value = "계양구";
+				form.local2.options[8] = new Option("서구");
+				form.local2.options[8].value = "서구";
+
+
+			}
+			if(document.filterSelect.local.value == 5){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("동구");
+				form.local2.options[1].value = "동구";
+				form.local2.options[2] = new Option("서구");
+				form.local2.options[2].value = "서구";
+				form.local2.options[3] = new Option("남구");
+				form.local2.options[3].value = "남구";
+				form.local2.options[4] = new Option("북구");
+				form.local2.options[4].value = "북구";
+				form.local2.options[5] = new Option("광산구");
+				form.local2.options[5].value = "광산구";
 
 
 
+			}
+			if(document.filterSelect.local.value == 6){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("동구");
+				form.local2.options[1].value = "동구";
+				form.local2.options[2] = new Option("중구");
+				form.local2.options[2].value = "중구";
+				form.local2.options[3] = new Option("서구");
+				form.local2.options[3].value = "서구";
+				form.local2.options[4] = new Option("유성구");
+				form.local2.options[4].value = "유성구";
+				form.local2.options[5] = new Option("대덕구");
+				form.local2.options[5].value = "대덕구";
 
-	<form action = "">
 
-	<select id="gun">
-	    <option value="hide">-- 구 선택 --</option>
-	    <option value="강남구" rel="icon-temperature">강남구</option>
-	    <option value="강동구">강동구</option>
-	    <option value="강북구">강북구</option>
-	    <option value="강서구">강서구</option>
-	    <option value="관악구">관악구</option>
-	    <option value="광진구">광진구</option>
-	    <option value="구로구">구로구</option>
-	    <option value="노원구">노원구</option>
-	    <option value="동대문구">동대문구</option>
-	    <option value="동작구">동작구</option>
-	    <option value="마포구">마포구</option>
-	    <option value="서대문구">서대문구</option>
-	    <option value="서초구">서초구</option>
-	    <option value="성동구">성동구</option>
-	    <option value="성북구">성북구</option>
-	    <option value="송파구">송파구</option>
-	    <option value="양천구">양천구</option>
-	    <option value="영등포구">영등포구</option>
-	    <option value="용산구">용산구</option>
-	    <option value="은평구">은평구</option>
-	    <option value="종로구">종로구</option>
-	    <option value="중구">중구</option>
 
-	</select>
+			}
+			if(document.filterSelect.local.value == 7){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("중구");
+				form.local2.options[1].value = "중구";
+				form.local2.options[2] = new Option("남구");
+				form.local2.options[2].value = "남구";
+				form.local2.options[3] = new Option("동구");
+				form.local2.options[3].value = "동구";
+				form.local2.options[4] = new Option("북구");
+				form.local2.options[4].value = "북구";
 
-	<select id="food">
-	    <option value="hide">-- 음식선택 --</option>
-	    <option value="default">음식전체</option>
-	    <option value="양식">양식</option>
-	    <option value="한식">한식</option>
-	    <option value="중식">중식</option>
-	    <option value="일식">일식</option>
-	    <option value="아시아식">아시아식</option>
-	    <option value="컨템퍼러리">컨템퍼러리</option>
-	    <option value="뷔페">뷔페</option>
-	    <option value="구이">구이</option>
-	    <option value="술집">술집</option>
-	    <option value="카페/베이커리">카페/베이커리</option>
 
-	</select>
+			}
+			if(document.filterSelect.local.value == 8){
 
-	<input type = "submit" value = "검색">
 
-	</form>
+			}
+			if(document.filterSelect.local.value == 9){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("광명시");
+				form.local2.options[1].value = "광명시";
+				form.local2.options[2] = new Option("평택시");
+				form.local2.options[2].value = "평택시";
+				form.local2.options[3] = new Option("오산시");
+				form.local2.options[3].value = "오산시";
+				form.local2.options[4] = new Option("시흥시");
+				form.local2.options[4].value = "시흥시";
+				form.local2.options[5] = new Option("군포시");
+				form.local2.options[5].value = "군포시";
+				form.local2.options[6] = new Option("의왕시");
+				form.local2.options[6].value = "의왕시";
+				form.local2.options[7] = new Option("하남시");
+				form.local2.options[7].value = "하남시";
+				form.local2.options[8] = new Option("이천시");
+				form.local2.options[8].value = "이천시";
+				form.local2.options[9] = new Option("안성시");
+				form.local2.options[9].value = "안성시";
+				form.local2.options[10] = new Option("김포시");
+				form.local2.options[10].value = "김포시";
+				form.local2.options[11] = new Option("화성시");
+				form.local2.options[11].value = "화성시";
+				form.local2.options[12] = new Option("광주시");
+				form.local2.options[12].value = "광주시";
+				form.local2.options[13] = new Option("여주시");
+				form.local2.options[13].value = "여주시";
+				form.local2.options[14] = new Option("부천시");
+				form.local2.options[14].value = "부천시";
+				form.local2.options[15] = new Option("수원시 장안구");
+				form.local2.options[15].value = "수원시 장안구";
+				form.local2.options[16] = new Option("수원시 권선구");
+				form.local2.options[16].value = "수원시 권선구";
+				form.local2.options[17] = new Option("수원시 팔달구");
+				form.local2.options[17].value = "수원시 팔달구";
+				form.local2.options[18] = new Option("수원시 영통구");
+				form.local2.options[18].value = "수원시 영통구";
+				form.local2.options[19] = new Option("성남시 수정구");
+				form.local2.options[19].value = "성남시 수정구";
+				form.local2.options[20] = new Option("성남시 중원구");
+				form.local2.options[20].value = "성남시 중원구";
+				form.local2.options[21] = new Option("성남시 분당구");
+				form.local2.options[21].value = "성남시 분당구";
+				form.local2.options[22] = new Option("안양시 만안구");
+				form.local2.options[22].value = "안양시 만안구";
+				form.local2.options[23] = new Option("안양시 동안구");
+				form.local2.options[23].value = "안양시 동안구";
+				form.local2.options[24] = new Option("안산시 상록구");
+				form.local2.options[24].value = "안산시 상록구";
+				form.local2.options[25] = new Option("안산시 단원구");
+				form.local2.options[25].value = "안산시 단원구";
+				form.local2.options[26] = new Option("용인시 처인구");
+				form.local2.options[26].value = "용인시 처인구";
+				form.local2.options[27] = new Option("용인시 기흥구");
+				form.local2.options[27].value = "용인시 기흥구";
+				form.local2.options[28] = new Option("용인시 수지구");
+				form.local2.options[28].value = "용인시 수지구";
+				form.local2.options[29] = new Option("고양시 덕양구");
+				form.local2.options[29].value = "고양시 덕양구";
+				form.local2.options[30] = new Option("고양시 일산동구");
+				form.local2.options[30].value = "고양시 일산동구";
+				form.local2.options[31] = new Option("고양이 일산서구");
+				form.local2.options[31].value = "고양시 일산서구";
+				form.local2.options[32] = new Option("의정부시");
+				form.local2.options[32].value = "의정부시";
+				form.local2.options[33] = new Option("동두천시");
+				form.local2.options[33].value = "동두천시";
+				form.local2.options[34] = new Option("구리시");
+				form.local2.options[34].value = "구리시";
+				form.local2.options[35] = new Option("남양주시");
+				form.local2.options[35].value = "남양주시";
+				form.local2.options[36] = new Option("파주시");
+				form.local2.options[36].value = "파주시";
+				form.local2.options[37] = new Option("양주시");
+				form.local2.options[37].value = "양주시";
+				form.local2.options[38] = new Option("포천시");
+				form.local2.options[38].value = "포천시";
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-$('select').each(function(){
-    var $this = $(this), numberOfOptions = $(this).children('option').length;
 
-    $this.addClass('select-hidden');
-    $this.wrap('<div class="select"></div>');
-    $this.after('<div class="select-styled"></div>');
+			}
+			if(document.filterSelect.local.value == 10){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("춘천시");
+				form.local2.options[1].value = "춘천시";
+				form.local2.options[2] = new Option("원주시");
+				form.local2.options[2].value = "원주시";
+				form.local2.options[3] = new Option("강릉시");
+				form.local2.options[3].value = "강릉시";
+				form.local2.options[4] = new Option("동해시");
+				form.local2.options[4].value = "동해시";
+				form.local2.options[5] = new Option("태백시");
+				form.local2.options[5].value = "태백시";
+				form.local2.options[6] = new Option("속초시");
+				form.local2.options[6].value = "속초시";
+				form.local2.options[7] = new Option("삼척시");
+				form.local2.options[7].value = "삼척시";
 
-    var $styledSelect = $this.next('div.select-styled');
-    $styledSelect.text($this.children('option').eq(0).text());
+			}
+			if(document.filterSelect.local.value == 11){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("청주시 상당구");
+				form.local2.options[1].value = "청주시 상당구";
+				form.local2.options[2] = new Option("청주시 서원구");
+				form.local2.options[2].value = "청주시 서원구";
+				form.local2.options[3] = new Option("청주시 흥덕구");
+				form.local2.options[3].value = "청구시 흥덕구";
+				form.local2.options[4] = new Option("청주시 청원구");
+				form.local2.options[4].value = "청주시 청원구";
 
-    var $list = $('<ul ></ul>', {
-        'class': 'select-options'
-    }).insertAfter($styledSelect);
 
-    for (var i = 0; i < numberOfOptions; i++) {
-        $('<li ></li>', {
-            text: $this.children('option').eq(i).text(),
-            rel: $this.children('option').eq(i).val()
-        }).appendTo($list);
-    }
+			}
+			if(document.filterSelect.local.value == 12){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("천안시 동남구");
+				form.local2.options[1].value = "천안시 동남구";
+				form.local2.options[2] = new Option("천안시 서북구");
+				form.local2.options[2].value = "천안시 서북구";
+				form.local2.options[3] = new Option("공주시");
+				form.local2.options[3].value = "공주시";
+				form.local2.options[4] = new Option("보령시");
+				form.local2.options[4].value = "보령시";
+				form.local2.options[5] = new Option("아산시");
+				form.local2.options[5].value = "아산시";
+				form.local2.options[6] = new Option("서산시");
+				form.local2.options[6].value = "서산시";
+				form.local2.options[7] = new Option("논산시");
+				form.local2.options[7].value = "논산시";
+				form.local2.options[8] = new Option("계룡시");
+				form.local2.options[8].value = "계룡시";
+				form.local2.options[9] = new Option("당진시");
+				form.local2.options[9].value = "당진시";
 
-    var $listItems = $list.children('li');
 
-    $styledSelect.click(function(e) {
-        e.stopPropagation();
-        $('div.select-styled.active').each(function(){
-            $(this).removeClass('active').next('ul.select-options').hide();
-        });
-        $(this).toggleClass('active').next('ul.select-options').toggle();
-    });
+			}
+			if(document.filterSelect.local.value == 13){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("전주시 완산구");
+				form.local2.options[1].value = "전주시 완산구";
+				form.local2.options[2] = new Option("전주시 덕진구");
+				form.local2.options[2].value = "전주시 덕진구";
+				form.local2.options[3] = new Option("군산시");
+				form.local2.options[3].value = "군산시";
+				form.local2.options[4] = new Option("익산시");
+				form.local2.options[4].value = "익산시";
+				form.local2.options[5] = new Option("정읍시");
+				form.local2.options[5].value = "정읍시";
+				form.local2.options[6] = new Option("남원시");
+				form.local2.options[6].value = "남원시";
+				form.local2.options[7] = new Option("김제시");
+				form.local2.options[7].value = "김제시";
 
-    $listItems.click(function(e) {
-        e.stopPropagation();
-        $styledSelect.text($(this).text()).removeClass('active');
-        $this.val($(this).attr('rel'));
-        $list.hide();
-        //console.log($this.val());
-    });
 
-    $(document).click(function() {
-        $styledSelect.removeClass('active');
-        $list.hide();
-    });
 
-});
+			}
+			if(document.filterSelect.local.value == 14){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("목포시");
+				form.local2.options[1].value = "목포시";
+				form.local2.options[2] = new Option("여수시");
+				form.local2.options[2].value = "여수시";
+				form.local2.options[3] = new Option("순천시");
+				form.local2.options[3].value = "순천시";
+				form.local2.options[4] = new Option("나주시");
+				form.local2.options[4].value = "나주시";
+				form.local2.options[5] = new Option("광양시");
+				form.local2.options[5].value = "광양시";
+
+
+			}
+			if(document.filterSelect.local.value == 15){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("포항시 남구");
+				form.local2.options[1].value = "포항시 남구";
+				form.local2.options[2] = new Option("포항시 북구");
+				form.local2.options[2].value = "포항시 북구";
+				form.local2.options[3] = new Option("경주시");
+				form.local2.options[3].value = "경주시";
+				form.local2.options[4] = new Option("김천시");
+				form.local2.options[4].value = "김천시";
+				form.local2.options[5] = new Option("안동시");
+				form.local2.options[5].value = "안동시";
+				form.local2.options[6] = new Option("구미시");
+				form.local2.options[6].value = "구미시";
+				form.local2.options[7] = new Option("영주시");
+				form.local2.options[7].value = "영주시";
+				form.local2.options[8] = new Option("영천시");
+				form.local2.options[8].value = "영천시";
+				form.local2.options[9] = new Option("상주시");
+				form.local2.options[9].value = "상주시";
+				form.local2.options[10] = new Option("문경시");
+				form.local2.options[10].value = "문경시";
+				form.local2.options[11] = new Option("경산시");
+				form.local2.options[11].value = "경산시";
+
+			}
+			if(document.filterSelect.local.value == 16){
+				form.local2.length = 1;
+				form.local2.options[1] = new Option("창원시 의창구");
+				form.local2.options[1].value = "창원시 의창구";
+				form.local2.options[2] = new Option("창원시 성산구");
+				form.local2.options[2].value = "창원시 성산구";
+				form.local2.options[3] = new Option("창원시 마산합포구");
+				form.local2.options[3].value = "창원시 마산합포구";
+				form.local2.options[4] = new Option("창원시 마산회원구");
+				form.local2.options[4].value = "창원시 마산회원구";
+				form.local2.options[5] = new Option("창원시 진해구");
+				form.local2.options[5].value = "창원시 진해구";
+				form.local2.options[6] = new Option("진주시");
+				form.local2.options[6].value = "진주시";
+				form.local2.options[7] = new Option("통영시");
+				form.local2.options[7].value = "통영시";
+				form.local2.options[8] = new Option("사천시");
+				form.local2.options[8].value = "사천시";
+				form.local2.options[9] = new Option("김해시");
+				form.local2.options[9].value = "김해시";
+				form.local2.options[10] = new Option("밀양시");
+				form.local2.options[10].value = "밀양시";
+				form.local2.options[11] = new Option("거제시");
+				form.local2.options[11].value = "거제시";
+				form.local2.options[12] = new Option("양산시");
+				form.local2.options[12].value = "양산시";
+
+			}
+			if(document.filterSelect.local.value == 17){
+				form.local2.length = 1;
+
+			}
+
+	}
 </script>
 
 
-<table border="2">
+
+	<form action = "/filter" name = "filterSelect" method="get">
+		<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+		<div class="jumbotron">
+
+
+
+		<table style = " margin-top : 30px; margin-left: auto; margin-right: auto;">
+
+
+			<tr>
+
+				<td>
+
+				      		<select class="form-control" name = "local" onchange="setCategory2()">
+				        		<option value = "hide">-- 지역 선택 --</option>
+				        		<option value = 1>서울특별시</option>
+				        		<option value = 2>부산광역시</option>
+				        		<option value = 3>대구광역시</option>
+				        		<option value = 4>인천광역시</option>
+				        		<option value = 5>광주광역시</option>
+				        		<option value = 6>대전광역시</option>
+				        		<option value = 7>울산광역시</option>
+				        		<option value = 8>세종특별자치시</option>
+				        		<option value = 9>경기도</option>
+				        		<option value = 10>강원도</option>
+				        		<option value = 11>충청북도</option>
+				        		<option value = 12>충청남도</option>
+				        		<option value = 13>전라북도</option>
+				        		<option value = 14>전라남도</option>
+				        		<option value = 15>경상북도</option>
+				        		<option value = 16>경상남도</option>
+				        		<option value = 17>제주도</option>
+
+			     	 		</select>
+
+				</td>
+
+			<td>
+
+				<select class="form-control" name = "local2" onchange = "settext(this.options[this.selectedIndex].value)">
+			    	<option value="hide">-- 구 선택 --</option>
+
+				</select>
+
+
+			</td>
+
+	<td>
+		<select class = "form-control" name = "food">
+		    <option value="hide">-- 음식선택 --</option>
+		    <option value="default">음식전체</option>
+		    <option value="양식">양식</option>
+		    <option value="한식">한식</option>
+		    <option value="중식">중식</option>
+		    <option value="일식">일식</option>
+		    <option value="아시아식">아시아식</option>
+		    <option value="컨템퍼러리">컨템퍼러리</option>
+		    <option value="뷔페">뷔페</option>
+		    <option value="구이">구이</option>
+		    <option value="술집">술집</option>
+		    <option value="카페/베이커리">카페/베이커리</option>
+
+		</select>
+
+
+	</td>
+
+	<td>
+		<button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>
+	</td>
+</tr>
+
+
+</table>
+	</form>
+
+
+
+
+
+<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; width: 65%;">
 
 <c:forEach items = "${list}" var = "EnterpriseVO">
   			<tr>
-		       <td rowspan="4">${EnterpriseVO.enterprise_code}</td><!-- 기업코드  -->
-		     <td rowspan="4">${enterpriseVO.enterprise_mainImg }</td><!-- 메인이미지  -->
-		      <td>${EnterpriseVO.enterprise_businessName }</td> <!--  식당명 -->
+<%-- 		     <td rowspan="5"><img src="${enterpriseVO.enterprise_mainImg }" style="margin : auto; height : 100px; width : 200px;"></td><!-- 메인이미지  --> --%>
+		     <td rowspan="5"><img src="/resources/img/logo/GiDal.png" style="margin : auto; height : 100px; width : 200px;"></td><!-- 메인이미지  -->
+		      <td>
+		      	<h5>
+					  Restaurant Name <br>
+					  <small class="text-muted">${EnterpriseVO.enterprise_businessName}</small>
+				</h5>
+				</td> <!--  식당명 -->
 		    </tr>
   			<tr>
-		      <td>${EnterpriseVO.enterprise_add2}</td> <!-- 도로명주소  -->
+		      <td>
+		      	<h5>
+					  Restaurant Address <br>
+					  <small class="text-muted">${EnterpriseVO.enterprise_add2}</small>
+				</h5>
+		      </td> <!-- 도로명주소  -->
 		    </tr>
   			<tr>
-		      <td>${EnterpriseVO.enterprise_sectors}</td> <!-- 업종  -->
+		      <td>
+		      	<h5>
+					  Restaurant Sectors <br>
+					  <small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
+				</h5>
+		      </td> <!-- 업종  -->
 		    </tr>
   			<tr>
-		      <td>예약하기, 웨이팅하기 버튼</td> <!-- 버튼넣기  -->
+		      <td>
+		      	<h5>
+					  Restaurant Closed <br>
+					  <small class="text-muted">${EnterpriseVO.enterprise_closed}</small>
+				</h5>
+		      </td> <!-- 휴무일  -->
+		    </tr>
+  			<tr>
+		      <td><button type="button" class="btn btn-primary">예약하기</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">웨이팅하기</button></td> <!-- 버튼넣기  -->
 		    </tr>
 </c:forEach>
 
 
 </table>
 
+		</div>
+
+	</div>
 </body>
 </html>
 

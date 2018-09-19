@@ -5,6 +5,7 @@ package org.gidal.enterprise.controller;
 import javax.inject.Inject;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.enterprise.domain.FilterVO;
 import org.gidal.enterprise.service.EnterpriseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,7 +55,7 @@ public class EnterpriseController {
 	}
 
 
-	//필터링해서 보여주기
+
 	//예약하기
 	//웨이팅하기
 	//수정

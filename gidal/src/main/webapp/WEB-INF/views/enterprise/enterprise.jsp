@@ -98,15 +98,7 @@ function execPostCode() {
 			<h1>기업 회원가입</h1>
 
 			<hr class="my-4">
-			<!-- <p class="lead">This is a simple hero unit, a simple
-			jumbotron-style component for calling extra attention to featured
-			content or information.</p>
-		<p>It uses utility classes for typography and spacing to space
-			content out within the larger container.</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
-		</p> -->
+
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
 				<form name = "form" action = "join" method = "post" enctype="multipart/form-data">
@@ -214,7 +206,7 @@ function execPostCode() {
 
 
 						<label class="col-form-label" for="inputDefault">업종</label>
-						<select class="custom-select" name = "enterprise_serctors" id="exampleSelect1">
+						<select class="custom-select" name = "enterprise_sectors" id="exampleSelect1">
 							<option value = "0" selected>선택해주세요</option>
 							<option value = "default">음식전체</option>
 							<option value = "한식">한식</option>
@@ -237,14 +229,14 @@ function execPostCode() {
 							<option value = "3">웨이팅 + 예약 서비스</option>
 						</select>
 
-<!--
+
 						 <label class="col-form-label" for="inputDefault">대표이미지</label>
 						<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile">
 						<label class="col-form-label" for="inputDefault">매장 이미지</label>
 						<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile">
 						<input type="file" class="form-control-file" name = "enterprise_img2" id="exampleInputFile">
 						<input type="file" class="form-control-file" name = "enterprise_img3" id="exampleInputFile">
-						<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile"> -->
+						<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile">
 					</p>
 					<p>
 						<button type="submit" class="btn btn-primary btn-lg btn-block" onclick="DosignUp();">회원가입</button>

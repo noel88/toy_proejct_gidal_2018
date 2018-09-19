@@ -32,15 +32,9 @@
 						<a class="dropdown-item" href="/event/upcomingEvent">진행 예정 이벤트</a>
 					</div>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-						지역 선택
-					</a>
-					<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
-						<a class="dropdown-item" href=/enterprise/view>서울</a>
-						<a class="dropdown-item" href="/WEB-INF/views/company/gyeongGi">경기</a>
-					</div>
-				</li>
+					<li class="nav-item active">
+       				 <a class="nav-link" href="/enterprise/view">지역별 검색<span class="sr-only">(current)</span></a>
+     			 </li>
 			</ul>
 			<div>
 			<form class="form-inline my-2 my-lg-0" action = "/WEB-INF/views/search/search" method = "post">

@@ -3,10 +3,11 @@ package org.gidal.enterprise.service;
 import java.util.List;
 
 import javax.inject.Inject;
-
+import javax.servlet.http.HttpSession;
 
 import org.gidal.enterprise.dao.EnterpriseDAO;
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.enterprise.domain.FilterVO;
 import org.gidal.util.SHA256;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,9 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	public List<EnterpriseVO> enterpriseBoard_list() {
 		return dao.enterpriseBoard_list();
 	}
+
+
+
 
 
 

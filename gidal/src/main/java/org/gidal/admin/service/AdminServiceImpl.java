@@ -14,37 +14,37 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class AdminServiceImpl implements AdminService{
-	
+
 	@Inject
 	private AdminDAO dao;
-	
+
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
 	@Override
 	public void eventRegist(EventVO event) throws Exception {
-		
+
 		System.out.println("**************" + event.getEvent_title());
 		System.out.println("**************" + event.getEvent_startDate());
 		System.out.println("**************" + event.getEvent_endDate());
 		System.out.println("**************" + event.getEvent_image());
 		System.out.println("**************" + event.getEvent_content());
 		System.out.println("**************" + event.getEvent_file());
-		
+
 		if(event.getEvent_file().isEmpty()) {
 			dao.eventRegist(event);
 		} else {
 			MultipartFile mf = event.getEvent_file();
-			
+
 			String savedName = uploadFile(mf.getOriginalFilename(), mf.getBytes());
-			
+
 			event.setEvent_image(savedName);
-			
+
 			dao.eventRegist(event);
 		}
 
 	}
-	
+
 	private String uploadFile(String originalName, byte[] fileData) throws Exception {
 
 		UUID uid = UUID.randomUUID();

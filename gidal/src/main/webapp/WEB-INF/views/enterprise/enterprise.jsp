@@ -55,39 +55,7 @@ function execPostCode() {
     }).open();
 }
 
- function DosignUp() {
 
-    var enterprise_email = $("#enterprise_email").val();
-    var enterprise_password = $("#enterprise_password").val();
-    var enterprise_passwordCheck = $("#enterprise_passwordCheck").val();
-
-
-
-    if(enterprise_email.length == 0){
-        alert("이메일을 입력해 주세요");
-        $("#enterprise_email").focus();
-        return false;
-    }
-
-    if(enterprise_password.length == 0){
-        alert("비밀번호를 입력해 주세요");
-        $("#enterprise_password").focus();
-        return false;
-    }
-
-    if(enterprise_password != enterprise_passwordCheck){
-        alert("비밀번호가 서로 다릅니다. 비밀번호를 확인해 주세요.");
-        $("#signUpUserPwd").focus();
-        return false;
-    }
-
-
-    if(confirm("회원가입을 하시겠습니까?")){
-        alert("회원가입을 축하합니다");
-        return true;
-    }
-
-}
 
 </script>
 
@@ -114,9 +82,6 @@ function execPostCode() {
 
 						<label class="col-form-label" for="inputDefault">이름</label>
 						<input type="text" class="form-control" name = "enterprise_name" placeholder="이름" id="inputDefault">
-
-						<label class="col-form-label" for="inputDefault">핸드폰번호</label>
-						<input type="text" class="form-control" name = "enterprise_phoneNum" placeholder="핸드폰번호" id="inputDefault">
 
 
 					</p>
@@ -174,7 +139,7 @@ function execPostCode() {
 
 						function itemSum(frm)
 						{
-						   var sum = 0;
+						   var sum = "";
 						   var count = frm.chkbox.length;
 
 						   for(var i=0; i < count; i++ ){
@@ -230,16 +195,17 @@ function execPostCode() {
 						</select>
 
 
-						 <label class="col-form-label" for="inputDefault">대표이미지</label>
-						<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile">
-						<label class="col-form-label" for="inputDefault">매장 이미지</label>
-						<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile">
-						<input type="file" class="form-control-file" name = "enterprise_img2" id="exampleInputFile">
-						<input type="file" class="form-control-file" name = "enterprise_img3" id="exampleInputFile">
-						<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile">
+						 <label class="col-form-label" for="inputDefault">대표이미지 및 기타 이미지 첨부</label>
+					   	<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile" aria-describedby="fileHelp">
+					   	<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile" aria-describedby="fileHelp">
+					   	<input type="file" class="form-control-file" name = "enterprise_img2" id="exampleInputFile" aria-describedby="fileHelp">
+					   	<input type="file" class="form-control-file" name = "enterprise_img3" id="exampleInputFile" aria-describedby="fileHelp">
+					   	<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile" aria-describedby="fileHelp">
+
+
 					</p>
 					<p>
-						<button type="submit" class="btn btn-primary btn-lg btn-block" onclick="DosignUp();">회원가입</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>
 					</p>
 				</form>
 

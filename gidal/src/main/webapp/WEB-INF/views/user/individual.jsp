@@ -3,6 +3,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 패스워드체크
+ --><!-- <script language="javascript">
+
+	function passwordCheckk()
+
+		{
+
+			var password = document.getElementById("password").value;
+
+			var passwordCheck = document.getElementById("passwordCheck").value;
+
+
+
+			if ( passwordCheck == "")
+
+                        {  
+
+                               document.getElementById("passwordCheckText").innerHTML = "" } 
+
+                         else if ( password != passwordCheck )
+
+			{
+
+				document.getElementById("passwordCheckText").innerHTML = "<b><font color=red size=5pt> Not Ok PW. </font></b>"
+
+			}
+
+			else
+
+			{
+
+				document.getElementById("passwordCheckText").innerHTML = "<b><font color=red size=5pt> Ok PW. </font></b>"	
+
+			}
+
+		}
+
+	</script> -->
+
+
+
+
+
+
+
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
@@ -29,22 +76,34 @@
 		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "userjoin" method = "post">
+				<form action = "userjoin" onsubmit="return tocheckpw2()" data-ajax="false" method = "post">
 					<p>
+						
+						<label class="col-form-label" for="inputDefault">휴대폰번호</label>
+						<input type="text" name="user_phoneNum" class="form-control" id="phone" placeholder="휴대폰번호" maxlength="13"  />
+
 						<label class="col-form-label" for="inputDefault">이메일</label>
 						<input type="email" class="form-control" name="user_email" placeholder="이메일" id="inputDefault">
 						
+						
 						<label class="col-form-label" for="inputDefault">패스워드</label>
-						<input type="password" class="form-control" name="user_password" placeholder="패스워드" id="inputDefault">
+						<input type="password" class="form-control" name="user_password" placeholder="패스워드" id="pw">
+						
+						<label class="col-form-label" for="inputDefault">패스워드확인</label>
+						<input type="password" class="form-control" name = "user_passwordCheck" placeholder="패스워드확인" id="pwcheck">
+						
+						
+
+
 						
 						<label class="col-form-label" for="inputDefault">이름</label>
 						<input type="text" class="form-control" name="user_name" placeholder="이름" id="inputDefault">
 	 
 						<label class="col-form-label" for="inputDefault">성별</label>
-						<input type="text" class="custom-select" id="exampleSelect1" name="user_gender">
-						<!-- 	<option>남성</option>
-							<option>여성</option>
-						</select> -->
+						<select  class="custom-select" id="exampleSelect1" name="user_gender">
+						 	<option value="남성">남성</option>
+							<option value="여성">여성</option>
+						</select> 
 					</p>
 					<p>
 						<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>

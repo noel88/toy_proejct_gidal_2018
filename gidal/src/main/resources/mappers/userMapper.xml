@@ -7,7 +7,7 @@
 <mapper namespace="org.gidal.mapper.UserMapper">
 
 	<insert id="userjoin">
-		insert into user(user_email,user_password,user_name,user_gender) values (#{user_email},#{user_password},#{user_name},#{user_gender})
+		insert into user(user_email,user_password,user_name,user_gender,user_phoneNum) values (#{user_email},#{user_password},#{user_name},#{user_gender},#{user_phoneNum})
 	</insert>
 
 	<select id="login" resultType="org.gidal.user.domain.UserVO">

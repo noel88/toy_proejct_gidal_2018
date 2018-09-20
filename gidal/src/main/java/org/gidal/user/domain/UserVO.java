@@ -6,7 +6,7 @@ public class UserVO {
 	private String user_password; //비밀번호
 	private String user_name; //이름
 	private String user_gender; //성별
-	private String user_phone; //핸드폰번호
+	private String user_phoneNum; //핸드폰번호
 	private String user_phoneCertification; //핸드폰번호인증유
 
 
@@ -35,11 +35,11 @@ public class UserVO {
 	public void setUser_gender(String user_gender) {
 		this.user_gender = user_gender;
 	}
-	public String getUser_phone() {
-		return user_phone;
+	public String getUser_phoneNum() {
+		return user_phoneNum;
 	}
-	public void setUser_phone(String user_phone) {
-		this.user_phone = user_phone;
+	public void setUser_phoneNum(String user_phoneNum) {
+		this.user_phoneNum = user_phoneNum;
 	}
 	public String getUser_phoneCertification() {
 		return user_phoneCertification;

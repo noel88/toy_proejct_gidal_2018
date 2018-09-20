@@ -14,10 +14,11 @@
 		select * from enterprise where enterprise_email = #{enterprise_email} and enterprise_password = #{enterprise_password}
 	</select>
 
-	<select id="boardview" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select (enterprise_sectors, enterprise_service, enterprise_mainImg, enterprise_img1, enterprise_img2, enterprise_img3, enterprise_img4, enterprise_address, enterprise_addressDetail, enterprise_operatingTime, enterprise_breakTime, enterprise_closed)
-		from enterprise
+	<select id="selectView" resultType = "org.gidal.enterprise.domain.EnterpriseVO">
+		select * from enterprise where enterprise_code = #{enterprise_code}
 	</select>
+
+
 
 	<update id="boardupdate">
 		update enterprise set enterprise_sectors = #{enterprise_sectors}, enterprise_service = #{enterprise_service}, enterprise_mainImg = #{enterprise_mainImg}, enterprise_img1 = #{enterprise_img1},

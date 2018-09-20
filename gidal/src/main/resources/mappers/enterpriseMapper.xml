@@ -13,13 +13,10 @@
 	</insert>
 
 
-	<select id="boardview" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select (enterprise_sectors, enterprise_service, enterprise_mainImg, enterprise_img1, enterprise_img2, enterprise_img3, enterprise_img4, enterprise_address, enterprise_addressDetail, enterprise_operatingTime, enterprise_breakTime, enterprise_closed)
-		from enterprise
-	</select>
+
 
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
+		select enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
 		from enterprise order by enterprise_code DESC;
 	</select>
 

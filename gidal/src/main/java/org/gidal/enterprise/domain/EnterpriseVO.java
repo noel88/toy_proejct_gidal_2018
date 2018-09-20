@@ -5,7 +5,7 @@ package org.gidal.enterprise.domain;
 public class EnterpriseVO {
 
 	private String enterprise_email; //이메일
-	private String enterprise_code; // 상호코드
+	private int enterprise_code; // 상호코드
 	private String enterprise_password; //비밀번호
 	//private String enterprise_passwordCheck; //비밀번호확인
 	private String enterprise_name; //이름
@@ -86,13 +86,13 @@ public class EnterpriseVO {
 
 
 
-	public String getEnterprise_code() {
+	public int getEnterprise_code() {
 		return enterprise_code;
 	}
 
 
 
-	public void setEnterprise_code(String enterprise_code) {
+	public void setEnterprise_code(int enterprise_code) {
 		this.enterprise_code = enterprise_code;
 	}
 

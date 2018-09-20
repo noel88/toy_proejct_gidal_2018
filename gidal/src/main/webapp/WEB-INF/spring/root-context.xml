@@ -39,6 +39,18 @@
 
 		</constructor-arg>
 	</bean>
+	
+	<bean id = "adminID" class="java.lang.String">
+		<constructor-arg value="admin@admin.com">
+
+		</constructor-arg>
+	</bean>
+	
+	<bean id = "adminPW" class="java.lang.String">
+		<constructor-arg value="admin">
+
+		</constructor-arg>
+	</bean>
 
 
 

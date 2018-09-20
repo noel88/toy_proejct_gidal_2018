@@ -1,19 +1,25 @@
 package org.gidal.admin.controller;
 
+import java.io.File;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.gidal.admin.service.AdminService;
 import org.gidal.event.domain.EventVO;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -22,6 +28,8 @@ public class AdminController {
 	
 	@Inject
 	private AdminService service;
+	
+
 	
 	@InitBinder
     protected void initBinder(WebDataBinder binder){
@@ -38,10 +46,22 @@ public class AdminController {
 	public String eventRegist(EventVO event, RedirectAttributes rttr) throws Exception {
 
 		service.eventRegist(event);
-
+		
 		rttr.addFlashAttribute("msg", "success");
 		
 	    return "redirect:/admin/adminPage";
 	}
+	
+	/*@RequestMapping(value = "/eventRegist", method = RequestMethod.POST)
+	public String eventRegist(EventVO event, RedirectAttributes rttr) throws Exception {
+
+		service.eventRegist(event);
+
+		rttr.addFlashAttribute("msg", "success");
+		
+	    return "redirect:/admin/adminPage";
+	}*/
+	
+
 
 }

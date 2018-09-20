@@ -28,7 +28,7 @@
 			<hr class="my-4">
 			<h4>이벤트 추가</h4>
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "eventRegist" method = "post">
+				<form action = "eventRegist" method = "post" enctype = "multipart/form-data">
 					<p>
 						<label class="col-form-label" for="inputDefault">이벤트 제목</label>
 						<input type="text" class="form-control" name = "event_title" placeholder="이벤트 제목" id="inputDefault" required = "required" />
@@ -40,7 +40,7 @@
 						<input type="date" class="form-control" name = "event_endDate" placeholder="이벤트 종료일" id="inputDefault" required = "required" />
 						
 						<label class="col-form-label" for="inputDefault">이벤트 이미지</label>
-						<input type="file" class="form-control-file" name = "event_image" id="exampleInputFile" aria-describedby="fileHelp">
+						<input type="file" class="form-control-file" name = "event_file" id="exampleInputFile" aria-describedby="fileHelp">
 							
 						<label class="col-form-label" for="inputDefault">이벤트 내용</label>
 						<textarea class="form-control" name = "event_content" placeholder="이벤트 내용" id="inputDefault" rows = "10" style="resize: none;"></textarea>

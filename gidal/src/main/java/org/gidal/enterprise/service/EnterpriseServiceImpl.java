@@ -35,28 +35,6 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		String pwd = sha.getSHA256(vo.getEnterprise_password());
 		String code = sha.getSHA256(vo.getEnterprise_businessName());
 
-
-		int cnt = 0;
-/*
-		String [] arr = {"월","화","수","목","금","토","일"};
-		String [] close = new String[7];
-
-		for (int i = 0; i < arr.length; i++) {
-
-			if(vo.getEnterprise_closed().charAt(i) == '1') {
-
-				close[i] = arr[i];
-
-				System.out.print(close[i]);
-			}else {
-				close[i] = ",";
-			}
-		}*/
-
-	//	vo.setEnterprise_closed(Arrays.toString(close).replaceAll(",", " "));
-
-
-		//vo.setEnterprise_closed(Arrays.toString(close));
 		vo.setEnterprise_code(code);
 		vo.setEnterprise_password(pwd);
 

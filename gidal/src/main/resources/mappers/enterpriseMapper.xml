@@ -19,7 +19,7 @@
 	</select>
 
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed
+		select enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
 		from enterprise order by enterprise_code DESC;
 	</select>
 

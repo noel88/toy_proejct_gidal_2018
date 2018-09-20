@@ -144,7 +144,7 @@ function execPostCode() {
 
 						   for(var i=0; i < count; i++ ){
 						       if( frm.chkbox[i].checked == true ){
-							    sum += parseInt(frm.chkbox[i].value);
+							    sum += frm.chkbox[i].value + " ";
 						       }
 						   }
 						   frm.enterprise_closed.value = sum;
@@ -156,13 +156,13 @@ function execPostCode() {
 
 				 		<label class="col-form-label" for="inputDefault">휴무일</label>
 						<div class="form-group">
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '1000000'>월요일
-						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0100000'>화요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0010000'>수요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0001000'>목요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0000100'>금요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0000010'>토요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0000001'>일요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '월'>월요일
+						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '화'>화요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '수'>수요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '목'>목요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '금'>금요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '토'>토요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '일'>일요일
 							<input type = "hidden" name = "enterprise_closed">
 
 						</div>

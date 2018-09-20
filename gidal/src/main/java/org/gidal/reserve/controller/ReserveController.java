@@ -1,7 +1,9 @@
 package org.gidal.reserve.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
+import org.gidal.authentication.dto.LoginDTO;
 import org.gidal.reserve.service.ReserveService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +21,17 @@ public class ReserveController {
 
 
 	@RequestMapping(value = "/reserve", method = RequestMethod.GET)
-	public Model enterprise_details(@RequestParam("enterprise_code") int code, Model model) {
+	public Model enterprise_details(@RequestParam("enterprise_code") int code, LoginDTO dto, HttpSession session, Model model) {
 
+		String email = (String)session.getAttribute("LOGIN");
+
+
+		session.setAttribute("user", service.selectOne(email));
 		model.addAttribute(service.selectOne(code));
+
 		return model;
+
+
 
 	}
 

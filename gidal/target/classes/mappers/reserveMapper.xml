@@ -10,8 +10,8 @@
 		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_adress},#{enterprise_adressDetail},#{enterprise_operatingTime},#{enterprise_breakTime},#{enterprise_closed})
 	</insert>
 
-	<select id="login" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select * from enterprise where enterprise_email = #{enterprise_email} and enterprise_password = #{enterprise_password}
+	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">
+		select * from user where user_email = #{user_email}
 	</select>
 
 	<select id="selectView" resultType = "org.gidal.enterprise.domain.EnterpriseVO">

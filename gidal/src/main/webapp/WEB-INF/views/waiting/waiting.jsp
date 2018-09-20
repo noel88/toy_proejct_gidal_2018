@@ -116,13 +116,13 @@
 
     <div class="form-group">
       <label for="exampleInputEmail1">이름</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="exampleInputEmail1" readonly="readonly" value = "">
 
     </div>
 
     <div class="form-group">
       <label for="exampleInputEmail1">휴대폰번호</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="exampleInputEmail1" readonly="readonly" value = "">
 
     </div>
 

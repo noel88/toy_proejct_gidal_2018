@@ -1,5 +1,6 @@
 <%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page import= "org.gidal.enterprise.domain.EnterpriseVO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -520,8 +521,8 @@
 
 <c:forEach items = "${list}" var = "EnterpriseVO">
   			<tr>
-<%-- 		     <td rowspan="5"><img src="${enterpriseVO.enterprise_mainImg }" style="margin : auto; height : 100px; width : 200px;"></td><!-- 메인이미지  --> --%>
-		     <td rowspan="5"><img src="/resources/img/logo/GiDal.png" style="margin : auto; height : 100px; width : 200px;"></td><!-- 메인이미지  -->
+		     <td rowspan="5"><img src="../upload/${EnterpriseVO.enterprise_mainImg}" style="margin : auto; height : 100px; width : 200px;"></td><!-- 메인이미지  -->
+<!-- 		     <td rowspan="5"><img src="/resources/img/logo/GiDal.png" style="margin : auto; height : 100px; width : 200px;"></td>메인이미지  -->
 		      <td>
 		      	<h5>
 					  Restaurant Name <br>
@@ -545,18 +546,39 @@
 				</h5>
 		      </td> <!-- 업종  -->
 		    </tr>
+
+
+
+
+
   			<tr>
 		      <td>
 		      	<h5>
 					  Restaurant Closed <br>
-					  <small class="text-muted">${EnterpriseVO.enterprise_closed}</small>
+					  <small class="text-muted"><c:out value="${fn:replace(EnterpriseVO.enterprise_closed, ' ', ', ')}"/> 휴무</small>
 				</h5>
 		      </td> <!-- 휴무일  -->
 		    </tr>
-  			<tr>
-		      <td><button type="button" class="btn btn-primary">예약하기</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">웨이팅하기</button></td> <!-- 버튼넣기  -->
-		    </tr>
-</c:forEach>
+			<c:choose>
+				<c:when test = "${EnterpriseVO.enterprise_service == '1'}">
+	  			<tr>
+			      <td>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">웨이팅하기</button>&nbsp;&nbsp;&nbsp;</td> <!-- 버튼넣기  -->
+		    	</tr>
+			    </c:when>
+			    <c:when test = "${EnterpriseVO.enterprise_service == '2'}">
+			    <tr>
+			      <td>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">예약하기</button>&nbsp;&nbsp;&nbsp;</td>
+			    </tr>
+			    </c:when>
+
+	      <c:otherwise>
+	      <tr>
+			      <td>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">웨이팅하기</button>&nbsp;&nbsp;&nbsp; <!-- 버튼넣기  -->
+			      <button type="button" class="btn btn-primary">예약하기</button></td>
+	       	</tr>
+	       </c:otherwise>
+			</c:choose>
+	</c:forEach>
 
 
 </table>

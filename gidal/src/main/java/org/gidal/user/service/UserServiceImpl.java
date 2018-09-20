@@ -1,5 +1,7 @@
 package org.gidal.user.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.gidal.user.dao.UserDAO;
@@ -18,11 +20,35 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public int user_join(UserVO vo) {
-		SHA256 sha = new SHA256();
-		sha.getSHA256(vo.getUser_password());
-
+		/*SHA256 sha = new SHA256();
+		sha.getSHA256(vo.getUser_password());*/
+		
 		return dao.user_join(vo);
 
+	}
+
+
+
+	@Override
+	public int userBoard_update(UserVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public List<UserVO> userBoard_list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<UserVO> userBoard_view() {
+		// TODO Auto-generated method stub
+		return dao.userBoard_list();
 	}
 	
 

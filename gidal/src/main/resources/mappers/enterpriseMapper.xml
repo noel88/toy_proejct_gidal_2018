@@ -7,7 +7,7 @@
 
 	<insert id="join">
 		insert into enterprise values (#{enterprise_code}, #{enterprise_email}, #{enterprise_password},#{enterprise_name},
-		#{enterprise_phoneNum},#{enterprise_businessName}, #{enterprise_phone}, #{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
+		#{enterprise_businessName}, #{enterprise_phone}, #{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
 		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_add1},#{enterprise_add2},
 		#{enterprise_add3},#{enterprise_operatingOpenTime},#{enterprise_operatingCloseTime},#{enterprise_breakStartTime},#{enterprise_breakCloseTime},#{enterprise_closed})
 	</insert>
@@ -19,7 +19,7 @@
 	</select>
 
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select enterprise_businessName, enterprise_sectors, enterprise_service, enterprise_add2, enterprise_closed
+		select enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
 		from enterprise order by enterprise_code DESC;
 	</select>
 

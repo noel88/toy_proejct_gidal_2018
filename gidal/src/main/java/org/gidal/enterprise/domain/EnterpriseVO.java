@@ -9,7 +9,6 @@ public class EnterpriseVO {
 	private String enterprise_password; //비밀번호
 	//private String enterprise_passwordCheck; //비밀번호확인
 	private String enterprise_name; //이름
-	private String enterprise_phoneNum; //핸드폰번호
 	private String enterprise_businessName; // 매장명
 	private String enterprise_phone; //연락처
 	private String enterprise_sectors; //업종
@@ -29,7 +28,6 @@ public class EnterpriseVO {
 	private String enterprise_closed; //휴무일
 
 
-
 	public EnterpriseVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -45,10 +43,6 @@ public class EnterpriseVO {
 	public void setEnterprise_email(String enterprise_email) {
 		this.enterprise_email = enterprise_email;
 	}
-
-
-
-
 
 
 	public String getEnterprise_password() {
@@ -101,19 +95,6 @@ public class EnterpriseVO {
 	public void setEnterprise_code(String enterprise_code) {
 		this.enterprise_code = enterprise_code;
 	}
-
-
-
-	public String getEnterprise_phoneNum() {
-		return enterprise_phoneNum;
-	}
-
-
-
-	public void setEnterprise_phoneNum(String enterprise_phoneNum) {
-		this.enterprise_phoneNum = enterprise_phoneNum;
-	}
-
 
 
 	public String getEnterprise_phone() {

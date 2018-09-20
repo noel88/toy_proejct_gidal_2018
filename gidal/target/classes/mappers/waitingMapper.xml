@@ -32,7 +32,9 @@
 	</select>
 
 
-
+	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">
+		select * from user where user_email = #{user_email}
+	</select>
 
 
 </mapper>

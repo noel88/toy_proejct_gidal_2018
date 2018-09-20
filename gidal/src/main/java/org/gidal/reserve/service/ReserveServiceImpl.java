@@ -1,9 +1,7 @@
 package org.gidal.reserve.service;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
-import org.gidal.authentication.dto.LoginDTO;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.reserve.dao.ReserveDAO;
 import org.gidal.user.domain.UserVO;
@@ -24,8 +22,6 @@ public class ReserveServiceImpl implements ReserveService {
 
 	@Override
 	public UserVO selectOne(String str) {
-
-
 
 		return dao.selectUser(str);
 	}

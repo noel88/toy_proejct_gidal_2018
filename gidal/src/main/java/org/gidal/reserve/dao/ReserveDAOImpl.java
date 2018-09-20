@@ -5,7 +5,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
-import org.gidal.authentication.dto.LoginDTO;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.user.domain.UserVO;

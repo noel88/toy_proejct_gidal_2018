@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package org.gidal.admin.service;
 
 import java.io.File;
@@ -12,51 +12,6 @@ import org.gidal.event.domain.EventVO;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
-
-@Service
-public class AdminServiceImpl implements AdminService{
-	
-	@Inject
-	private AdminDAO dao;
-	
-	@Resource(name = "uploadPath")
-	private String uploadPath;
-
-	@Override
-	public void eventRegist(EventVO event) throws Exception {
-		
-		if(event.getEvent_file().isEmpty()) {
-			dao.eventRegist(event);
-		} else {
-			MultipartFile mf = event.getEvent_file();
-			
-			String savedName = uploadFile(mf.getOriginalFilename(), mf.getBytes());
-			
-			event.setEvent_image(savedName);
-			
-			dao.eventRegist(event);
-		}
-
-	}
-	
-	private String uploadFile(String originalName, byte[] fileData) throws Exception {
-
-		UUID uid = UUID.randomUUID();
-
-		String savedName = uid.toString() + "_" + originalName;
-
-		File target = new File(uploadPath, savedName);
-
-		FileCopyUtils.copy(fileData, target);
-
-		return savedName;
-
-	}
-
-
-}
-=======
-package org.gidal.admin.service;
 
 import java.io.File;
 import java.util.UUID;
@@ -119,4 +74,4 @@ public class AdminServiceImpl implements AdminService{
 
 
 }
->>>>>>> 5a3b816f2776eeb5e95d3e4f2644cbffaab11008
+

@@ -5,10 +5,6 @@ package org.gidal.enterprise.service;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.inject.Inject;
-<<<<<<< HEAD
-
-=======
->>>>>>> 5a3b816f2776eeb5e95d3e4f2644cbffaab11008
 import org.gidal.enterprise.dao.EnterpriseDAO;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.util.SHA256;

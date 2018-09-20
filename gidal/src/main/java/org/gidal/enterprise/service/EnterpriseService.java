@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
-import org.gidal.enterprise.domain.FilterVO;
 
 public interface EnterpriseService {
 

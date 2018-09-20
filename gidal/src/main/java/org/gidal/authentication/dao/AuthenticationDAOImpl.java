@@ -1,6 +1,7 @@
 package org.gidal.authentication.dao;
 
 import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.user.domain.UserVO;
@@ -16,13 +17,13 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	private static String namespace = "org.gidal.mapper.AuthenticationMapper";
 
 	@Override
-	public boolean user_login(UserVO vo) {
-		return session.selectOne(namespace + ".user_login", vo);
+	public UserVO user_login(UserVO user) {
+		return session.selectOne(namespace + ".user_login", user);
 	}
 
 	@Override
-	public boolean enterpirse_login(EnterpriseVO vo) {
-		return session.selectOne(namespace + ".enterprise_login");
+	public EnterpriseVO enterpirse_login(EnterpriseVO enterprise) {
+		return session.selectOne(namespace + ".enterprise_login", enterprise);
 	}
 
 

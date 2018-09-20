@@ -559,22 +559,26 @@
 				</h5>
 		      </td> <!-- 휴무일  -->
 		    </tr>
+
+		    <!-- 식당정보를 가지고 넘어가야함. Details페이지 개념  -->
+
+
 			<c:choose>
 				<c:when test = "${EnterpriseVO.enterprise_service == '1'}">
 	  			<tr>
-			      <td>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">웨이팅하기</button>&nbsp;&nbsp;&nbsp;</td> <!-- 버튼넣기  -->
+			      <td>&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅하기</button></a>&nbsp;&nbsp;&nbsp;</td>
 		    	</tr>
 			    </c:when>
 			    <c:when test = "${EnterpriseVO.enterprise_service == '2'}">
 			    <tr>
-			      <td>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">예약하기</button>&nbsp;&nbsp;&nbsp;</td>
+			      <td>&nbsp;&nbsp;&nbsp;<a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약하기</button></a>&nbsp;&nbsp;&nbsp;</td>
 			    </tr>
 			    </c:when>
 
 	      <c:otherwise>
 	      <tr>
-			      <td>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary">웨이팅하기</button>&nbsp;&nbsp;&nbsp; <!-- 버튼넣기  -->
-			      <button type="button" class="btn btn-primary">예약하기</button></td>
+			      <td>&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅하기</button></a>&nbsp;&nbsp;&nbsp;
+			       <td><a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약하기</button></a>&nbsp;&nbsp;&nbsp;</td>
 	       	</tr>
 	       </c:otherwise>
 			</c:choose>

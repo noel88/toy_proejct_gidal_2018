@@ -1,9 +1,0 @@
-diff a/gidal/src/main/java/org/gidal/authentication/controller/AuthenticationController.java b/gidal/src/main/java/org/gidal/authentication/controller/AuthenticationController.java	(rejected hunks)
-@@ -11,7 +11,6 @@
- 
- 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
- 	public String join() {
--
- 		return "authentication/signUp";
- 	}
- 

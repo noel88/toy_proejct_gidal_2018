@@ -5,7 +5,6 @@ package org.gidal.enterprise.controller;
 import javax.inject.Inject;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
-import org.gidal.enterprise.domain.FilterVO;
 import org.gidal.enterprise.service.EnterpriseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

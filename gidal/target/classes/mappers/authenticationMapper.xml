@@ -8,11 +8,21 @@
 
 
 	<select id="user_login" resultType="org.gidal.user.domain.UserVO">
-		select * from user where user_email = #{user_email} and user_password = #{user_password}
+		SELECT 
+			user_email, user_password 
+		FROM 
+			user 
+		WHERE 
+			user_email = #{user_email} AND user_password = #{user_password};
 	</select>
 
 	<select id="enterprise_login" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select * from enterprise where enterprise_email = #{enterprise_email} and enterprise_password = #{enterprise_password}
+		SELECT 
+			enterprise_email, enterprise_password 
+		FROM 
+			enterprise 
+		WHERE 
+			enterprise_email = #{enterprise_email} AND enterprise_password = #{enterprise_password};
 	</select>
 
 	<select id="user_check" resultType="org.gidal.user.domain.UserVO">

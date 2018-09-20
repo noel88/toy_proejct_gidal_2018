@@ -24,13 +24,6 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void eventRegist(EventVO event) throws Exception {
 		
-		System.out.println("**************" + event.getEvent_title());
-		System.out.println("**************" + event.getEvent_startDate());
-		System.out.println("**************" + event.getEvent_endDate());
-		System.out.println("**************" + event.getEvent_image());
-		System.out.println("**************" + event.getEvent_content());
-		System.out.println("**************" + event.getEvent_file());
-		
 		if(event.getEvent_file().isEmpty()) {
 			dao.eventRegist(event);
 		} else {

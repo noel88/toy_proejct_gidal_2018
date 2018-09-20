@@ -29,15 +29,15 @@
 		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "#" method = "post">
+				<form action = "loginPOST" method = "post">
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
-						<input type="email" class="form-control" placeholder="이메일" id="inputDefault">
+						<input type="email" class="form-control" name = "login_email" placeholder="이메일" id="inputDefault">
 						<label class="col-form-label" for="inputDefault">패스워드</label>
-						<input type="text" class="form-control"	placeholder="패스워드" id="inputDefault">
+						<input type="password" class="form-control"	name = "login_password" placeholder="패스워드" id="inputDefault">
 					</p>
 					<p>
-						<button type="button" class="btn btn-primary btn-lg btn-block">로그인</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block">로그인</button>
 					</p>
 					<p>
 						<button type="button" class="btn btn-primary btn-lg btn-block">비밀번호 재발급</button>

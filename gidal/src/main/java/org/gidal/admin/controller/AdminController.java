@@ -1,25 +1,20 @@
 package org.gidal.admin.controller;
 
-import java.io.File;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.UUID;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.gidal.admin.service.AdminService;
 import org.gidal.event.domain.EventVO;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -38,7 +33,17 @@ public class AdminController {
     }
 
 	@RequestMapping(value = "/adminPage", method = RequestMethod.GET)
-	public void adminPage() {
+	public String adminPage(HttpSession session) {
+		
+		String level = (String) session.getAttribute("LEVEL");
+		
+		if(level != null) {
+			if(level.equals("admin")) {
+				return "/admin/adminPage";
+			} 
+		}
+		
+		return "/authentication/noPermission";
 		
 	}
 	
@@ -52,15 +57,7 @@ public class AdminController {
 	    return "redirect:/admin/adminPage";
 	}
 	
-	/*@RequestMapping(value = "/eventRegist", method = RequestMethod.POST)
-	public String eventRegist(EventVO event, RedirectAttributes rttr) throws Exception {
-
-		service.eventRegist(event);
-
-		rttr.addFlashAttribute("msg", "success");
-		
-	    return "redirect:/admin/adminPage";
-	}*/
+	
 	
 
 

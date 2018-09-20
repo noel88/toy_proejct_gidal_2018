@@ -32,22 +32,22 @@
 				<form action = "userjoin" method = "post">
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
-						<input type="email" class="form-control" placeholder="이메일" id="inputDefault">
+						<input type="email" class="form-control" name="user_email" placeholder="이메일" id="inputDefault">
 						
 						<label class="col-form-label" for="inputDefault">패스워드</label>
-						<input type="password" class="form-control" placeholder="패스워드" id="inputDefault">
+						<input type="password" class="form-control" name="user_password" placeholder="패스워드" id="inputDefault">
 						
 						<label class="col-form-label" for="inputDefault">이름</label>
-						<input type="text" class="form-control" placeholder="이름" id="inputDefault">
+						<input type="text" class="form-control" name="user_name" placeholder="이름" id="inputDefault">
 	 
 						<label class="col-form-label" for="inputDefault">성별</label>
-						<select class="custom-select" id="exampleSelect1">
-							<option>남성</option>
+						<input type="text" class="custom-select" id="exampleSelect1" name="user_gender">
+						<!-- 	<option>남성</option>
 							<option>여성</option>
-						</select>
+						</select> -->
 					</p>
 					<p>
-						<button type="button" class="btn btn-primary btn-lg btn-block">회원가입</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>
 					</p>
 				</form>
 			</div>

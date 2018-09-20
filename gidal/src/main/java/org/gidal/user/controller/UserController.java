@@ -27,11 +27,12 @@ public class UserController {
 
 	@RequestMapping(value = "/userjoin", method = RequestMethod.POST)
 	public String user_join(UserVO vo, Model model) {
-		 int result = service.user_join(vo);
-
+		 System.out.println(vo.getUser_email()); 
+		int result = service.user_join(vo);
+		
 		 if(result > 0) {
 			 model.addAttribute("id", vo);
-			 return "redirect:/";
+			 return "redirect:/authentication/signIn";
 		 }else {
 			 //error
 			 return "redirect:/signFail";

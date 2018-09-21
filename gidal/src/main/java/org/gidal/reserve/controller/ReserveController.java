@@ -3,7 +3,7 @@ package org.gidal.reserve.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-
+import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.reserve.service.ReserveService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +31,14 @@ public class ReserveController {
 
 		return model;
 
+	}
 
+	@RequestMapping(value = "/reserve_insert", method = RequestMethod.GET)
+	public String reserve_insert(ReserveVO vo) {
 
+		service.reserve_insert(vo);
+
+		 return "redirect:/";
 	}
 
 }

@@ -20,9 +20,8 @@ public class ReserveDAOImpl implements ReserveDAO{
 
 
 	@Override
-	public int reserve_insert() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int reserve_insert(ReserveVO vo) {
+		return sqlsession.insert(namespace + ".reserve", vo);
 	}
 
 	@Override

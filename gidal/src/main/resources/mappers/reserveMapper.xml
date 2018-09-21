@@ -6,8 +6,7 @@
 <mapper namespace="org.gidal.mapper.ReserveMapper">
 
 	<insert id="reserve">
-		insert into enterprise values (#{enterprise_email},#{enterprise_code},#{enterprise_password},#{enterprise_name},#{enterprise_phoneNum},#{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
-		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_adress},#{enterprise_adressDetail},#{enterprise_operatingTime},#{enterprise_breakTime},#{enterprise_closed})
+		insert into reserve values (#{reserve_code}, #{enterprise_code}, #{reserve_personnel}, #{reserve_datetime}, #{user_name}, #{user_phoneNum})
 	</insert>
 
 	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">

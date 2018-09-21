@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.reserve.dao.ReserveDAO;
+import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.user.domain.UserVO;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,12 @@ public class ReserveServiceImpl implements ReserveService {
 	public UserVO selectOne(String str) {
 
 		return dao.selectUser(str);
+	}
+
+
+	@Override
+	public int reserve_insert(ReserveVO vo) {
+		return dao.reserve_insert(vo);
 	}
 
 

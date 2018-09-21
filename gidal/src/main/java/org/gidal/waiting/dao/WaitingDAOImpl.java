@@ -22,8 +22,7 @@ public class WaitingDAOImpl implements WaitingDAO {
 
 	@Override
 	public int waiting_insert(WaitingVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlsession.insert(namespace + ".waiting", vo);
 	}
 
 	@Override

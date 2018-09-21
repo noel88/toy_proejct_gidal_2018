@@ -3,7 +3,8 @@ package org.gidal.waiting.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-
+import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.waiting.domain.WaitingVO;
 import org.gidal.waiting.service.WaitingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +32,13 @@ public class WaitingController {
 
 	}
 
+	@RequestMapping(value = "/waiting_insert", method = RequestMethod.GET)
+	public String reserve_insert(WaitingVO vo) {
+
+		service.waiting_insert(vo);
+
+		 return "redirect:/";
+	}
 
 
 

@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
 
@@ -110,9 +111,21 @@ public class EnterpriseController {
 
 	//식당목록보기
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
-	public String enterprise_view(Model model) {
-		model.addAttribute("list", service.enterpriseBoard_list());
-		return "/enterprise/enterpriseBoardView";
+	public String enterprise_view(Model model, HttpSession session) {
+
+		String login = (String)session.getAttribute("LOGIN");
+
+
+		if(login == null) {
+
+			return "redirect:/authentication/signIn";
+		}else {
+
+			model.addAttribute("list", service.enterpriseBoard_list());
+			return "/enterprise/enterpriseBoardView";
+
+		}
+
 	}
 
 

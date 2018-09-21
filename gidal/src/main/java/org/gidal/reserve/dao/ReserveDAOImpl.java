@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.user.domain.UserVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -19,9 +20,8 @@ public class ReserveDAOImpl implements ReserveDAO{
 
 
 	@Override
-	public int reserve_insert() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int reserve_insert(ReserveVO vo) {
+		return sqlsession.insert(namespace + ".reserve", vo);
 	}
 
 	@Override
@@ -45,6 +45,11 @@ public class ReserveDAOImpl implements ReserveDAO{
 	@Override
 	public EnterpriseVO selectOne(Integer code) {
 		return sqlsession.selectOne(namespace + ".selectView", code);
+	}
+
+	@Override
+	public UserVO selectUser(String str) {
+		return sqlsession.selectOne(namespace + ".selectOne", str);
 	}
 
 }

@@ -47,6 +47,12 @@ public class UserVO {
 	public void setUser_phoneCertification(String user_phoneCertification) {
 		this.user_phoneCertification = user_phoneCertification;
 	}
+	@Override
+	public String toString() {
+		return "UserVO [user_email=" + user_email + ", user_password=" + user_password + ", user_name=" + user_name
+				+ ", user_gender=" + user_gender + ", user_phoneNum=" + user_phoneNum + ", user_phoneCertification="
+				+ user_phoneCertification + "]";
+	}
 
 
 

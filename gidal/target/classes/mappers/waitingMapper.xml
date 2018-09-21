@@ -7,8 +7,7 @@
 <mapper namespace="org.gidal.mapper.WaitingMapper">
 
 	<insert id="waiting">
-		insert into enterprise values (#{enterprise_email},#{enterprise_code},#{enterprise_password},#{enterprise_name},#{enterprise_phoneNum},#{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
-		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_adress},#{enterprise_adressDetail},#{enterprise_operatingTime},#{enterprise_breakTime},#{enterprise_closed})
+		insert into waiting values (#{waiting_code}, #{enterprise_code}, #{waiting_personnel}, #{user_name}, #{user_phoneNum}, #{waiting_now})
 	</insert>
 
 	<select id="login" resultType="org.gidal.enterprise.domain.EnterpriseVO">
@@ -32,7 +31,9 @@
 	</select>
 
 
-
+	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">
+		select * from user where user_email = #{user_email}
+	</select>
 
 
 </mapper>

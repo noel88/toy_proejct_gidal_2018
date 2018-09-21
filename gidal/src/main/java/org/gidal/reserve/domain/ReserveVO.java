@@ -1,14 +1,16 @@
 package org.gidal.reserve.domain;
 
+
+
 public class ReserveVO {
 
 
-	private String reserve_code;
-	private String reserve_personnel;
-	private String reserve_date;
-	private String reserve_time;
-	private String reserve_name;
-	private String reserve_phone;
+	private int reserve_code;
+	private int enterprise_code;
+	private int reserve_personnel;
+	private String reserve_datetime;
+	private String user_name;
+	private String user_phoneNum;
 
 
 
@@ -18,97 +20,79 @@ public class ReserveVO {
 
 
 
-	public ReserveVO(String reserve_code, String reserve_personnel, String reserve_date, String reserve_time,
-			String reserve_name, String reserve_phone) {
-
-		this.reserve_code = reserve_code;
-		this.reserve_personnel = reserve_personnel;
-		this.reserve_date = reserve_date;
-		this.reserve_time = reserve_time;
-		this.reserve_name = reserve_name;
-		this.reserve_phone = reserve_phone;
+	public int getEnterprise_code() {
+		return enterprise_code;
 	}
 
 
 
-	public String getReserve_code() {
+	public void setEnterprise_code(int enterprise_code) {
+		this.enterprise_code = enterprise_code;
+	}
+
+
+
+	public int getReserve_code() {
 		return reserve_code;
 	}
 
 
 
-	public void setReserve_code(String reserve_code) {
+	public void setReserve_code(int reserve_code) {
 		this.reserve_code = reserve_code;
 	}
 
 
 
-	public String getReserve_personnel() {
+	public int getReserve_personnel() {
 		return reserve_personnel;
 	}
 
 
 
-	public void setReserve_personnel(String reserve_personnel) {
+	public void setReserve_personnel(int reserve_personnel) {
 		this.reserve_personnel = reserve_personnel;
 	}
 
 
 
-	public String getReserve_date() {
-		return reserve_date;
+	public String getReserve_datetime() {
+		return reserve_datetime;
 	}
 
 
 
-	public void setReserve_date(String reserve_date) {
-		this.reserve_date = reserve_date;
+	public void setReserve_datetime(String reserve_datetime) {
+		this.reserve_datetime = reserve_datetime;
 	}
 
 
 
-	public String getReserve_time() {
-		return reserve_time;
+	public String getUser_name() {
+		return user_name;
 	}
 
 
 
-	public void setReserve_time(String reserve_time) {
-		this.reserve_time = reserve_time;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
 
 
-	public String getReserve_name() {
-		return reserve_name;
+	public String getUser_phoneNum() {
+		return user_phoneNum;
 	}
 
 
 
-	public void setReserve_name(String reserve_name) {
-		this.reserve_name = reserve_name;
+	public void setUser_phoneNum(String user_phoneNum) {
+		this.user_phoneNum = user_phoneNum;
 	}
 
 
 
-	public String getReserve_phone() {
-		return reserve_phone;
-	}
 
-
-
-	public void setReserve_phone(String reserve_phone) {
-		this.reserve_phone = reserve_phone;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "ReserveVO [reserve_code=" + reserve_code + ", reserve_personnel=" + reserve_personnel
-				+ ", reserve_date=" + reserve_date + ", reserve_time=" + reserve_time + ", reserve_name=" + reserve_name
-				+ ", reserve_phone=" + reserve_phone + "]";
-	}
 
 
 

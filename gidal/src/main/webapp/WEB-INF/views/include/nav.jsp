@@ -32,7 +32,9 @@
 						<a class="dropdown-item" href="/event/upcomingEvent">진행 예정 이벤트</a>
 					</div>
 				</li>
-					<li class="nav-item active">
+
+
+					<li class="nav-item">
        				 <a class="nav-link" href="/enterprise/view">지역별 검색<span class="sr-only">(current)</span></a>
      			 </li>
 			</ul>

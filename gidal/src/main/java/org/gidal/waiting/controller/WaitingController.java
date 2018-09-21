@@ -1,8 +1,10 @@
 package org.gidal.waiting.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
-import org.gidal.reserve.service.ReserveService;
+import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.waiting.domain.WaitingVO;
 import org.gidal.waiting.service.WaitingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +23,22 @@ public class WaitingController {
 
 
 	@RequestMapping(value = "/waiting", method = RequestMethod.GET)
-	public Model enterprise_details(@RequestParam("enterprise_code") int code, Model model) {
+	public Model enterprise_details(@RequestParam("enterprise_code") int code, HttpSession session, Model model) {
 
+		String email = (String)session.getAttribute("LOGIN");
+		session.setAttribute("user", service.selectOne(email));
 		model.addAttribute(service.selectOne(code));
 		return model;
 
 	}
 
+	@RequestMapping(value = "/waiting_insert", method = RequestMethod.GET)
+	public String reserve_insert(WaitingVO vo) {
+
+		service.waiting_insert(vo);
+
+		 return "redirect:/";
+	}
 
 
 

@@ -41,7 +41,9 @@ public class UserController {
 
 	//수정
 
-
-
-
+	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
+	public String userpage() {
+		return "user/userpage";
+	}
+	
 }

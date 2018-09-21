@@ -18,7 +18,7 @@
 
 	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-<form action="">
+<form action="waiting_insert">
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
@@ -93,13 +93,15 @@
 			<td rowspan="8" style="width: 40%;">
 
 
-<form action="">
+
   <fieldset>
     <legend>웨이팅하기</legend>
 
+	<input type = "hidden" name = "enterprise_code" value = "${enterpriseVO.enterprise_code}">
+
     <div class="form-group">
       <label for="exampleSelect1">인원수</label>
-      <select class="form-control" id="exampleSelect1">
+      <select class="form-control" id="exampleSelect1" name = "waiting_personnel">
         <option value = "1">1</option>
         <option value = "2">2</option>
         <option value = "3">3</option>
@@ -116,13 +118,13 @@
 
     <div class="form-group">
       <label for="exampleInputEmail1">이름</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="exampleInputEmail1" name = "user_name" readonly="readonly" value = "${sessionScope.user.user_name}">
 
     </div>
 
     <div class="form-group">
       <label for="exampleInputEmail1">휴대폰번호</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="exampleInputEmail1" name = "user_phoneNum" readonly="readonly" value = "${sessionScope.user.user_phoneNum}">
 
     </div>
 
@@ -139,7 +141,7 @@
 
 			</td>
 
-
+<td rowspan="8" style="width: 10%;"></td>
 
 
 		</tr>
@@ -194,14 +196,14 @@
 		      </td>
 		    </tr>
 
-  			<tr>
+<%--   			<tr>
 		      <td>
 		      	<h5> <!-- 휴무일  -->
 					  Restaurant Closed <br>
 					  <small class="text-muted"><c:out value="${fn:replace(enterpriseVO.enterprise_closed, ' ', ', ')}"/> 휴무</small>
 				</h5>
 		      </td>
-		    </tr>
+		    </tr> --%>
 
 
 
@@ -209,7 +211,7 @@
 		</div>
 
 	</div>
-	</form>
+
 </body>
 </html>
 

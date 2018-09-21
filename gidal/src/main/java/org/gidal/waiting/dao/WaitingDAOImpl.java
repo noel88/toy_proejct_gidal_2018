@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.user.domain.UserVO;
 import org.gidal.waiting.domain.WaitingVO;
 import org.springframework.stereotype.Repository;
 
@@ -21,8 +22,7 @@ public class WaitingDAOImpl implements WaitingDAO {
 
 	@Override
 	public int waiting_insert(WaitingVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlsession.insert(namespace + ".waiting", vo);
 	}
 
 	@Override
@@ -46,6 +46,11 @@ public class WaitingDAOImpl implements WaitingDAO {
 	@Override
 	public EnterpriseVO selectOne(Integer code) {
 		return sqlsession.selectOne(namespace + ".selectView", code);
+	}
+
+	@Override
+	public UserVO selectUser(String str) {
+		return sqlsession.selectOne(namespace + ".selectOne", str);
 	}
 
 }

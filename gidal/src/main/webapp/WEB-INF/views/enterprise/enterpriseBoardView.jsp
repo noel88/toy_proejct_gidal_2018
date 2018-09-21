@@ -522,16 +522,17 @@
 <c:forEach items = "${list}" var = "EnterpriseVO">
   			<tr>
 		     <td rowspan="5"><img src="../upload/${EnterpriseVO.enterprise_mainImg}" style="margin : auto; height : 100px; width : 200px;"></td><!-- 메인이미지  -->
-<!-- 		     <td rowspan="5"><img src="/resources/img/logo/GiDal.png" style="margin : auto; height : 100px; width : 200px;"></td>메인이미지  -->
-		      <td>
+
+		      <td colspan="2">
 		      	<h5>
 					  Restaurant Name <br>
 					  <small class="text-muted">${EnterpriseVO.enterprise_businessName}</small>
 				</h5>
 				</td> <!--  식당명 -->
 		    </tr>
+
   			<tr>
-		      <td>
+		      <td colspan="2">
 		      	<h5>
 					  Restaurant Address <br>
 					  <small class="text-muted">${EnterpriseVO.enterprise_add2}</small>
@@ -539,7 +540,7 @@
 		      </td> <!-- 도로명주소  -->
 		    </tr>
   			<tr>
-		      <td>
+		      <td colspan="2">
 		      	<h5>
 					  Restaurant Sectors <br>
 					  <small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
@@ -547,18 +548,6 @@
 		      </td> <!-- 업종  -->
 		    </tr>
 
-
-
-
-
-  			<tr>
-		      <td>
-		      	<h5>
-					  Restaurant Closed <br>
-					  <small class="text-muted"><c:out value="${fn:replace(EnterpriseVO.enterprise_closed, ' ', ', ')}"/> 휴무</small>
-				</h5>
-		      </td> <!-- 휴무일  -->
-		    </tr>
 
 		    <!-- 식당정보를 가지고 넘어가야함. Details페이지 개념  -->
 
@@ -577,8 +566,8 @@
 
 	      <c:otherwise>
 	      <tr>
-			      <td>&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅하기</button></a>&nbsp;&nbsp;&nbsp;
-			       <td><a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약하기</button></a>&nbsp;&nbsp;&nbsp;</td>
+			      <td>&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅하기</button></a>
+			       <a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약하기</button></a></td>
 	       	</tr>
 	       </c:otherwise>
 			</c:choose>

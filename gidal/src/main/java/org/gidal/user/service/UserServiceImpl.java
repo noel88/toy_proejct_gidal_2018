@@ -6,17 +6,13 @@ import javax.inject.Inject;
 
 import org.gidal.user.dao.UserDAO;
 import org.gidal.user.domain.UserVO;
-import org.gidal.util.SHA256;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService{
 
-	
 	@Inject
 	private UserDAO dao;
-	
-	
 	
 	@Override
 	public int user_join(UserVO vo) {
@@ -27,28 +23,15 @@ public class UserServiceImpl implements UserService{
 
 	}
 
-
-
 	@Override
 	public int userBoard_update(UserVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-
-
-	@Override
-	public List<UserVO> userBoard_list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
 	@Override
 	public List<UserVO> userBoard_view() {
-		// TODO Auto-generated method stub
-		return dao.userBoard_list();
+		return null;
 	}
 	
 

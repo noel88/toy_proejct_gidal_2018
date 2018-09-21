@@ -63,7 +63,7 @@
 						</c:choose>
 					</c:forEach>
 					<c:choose>
-						<c:when test="${ pageInfo.page == pageInfo.endPage }">
+						<c:when test="${ pageInfo.page == pageInfo.maxPage }">
 							<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
 						</c:when>
 						<c:otherwise>

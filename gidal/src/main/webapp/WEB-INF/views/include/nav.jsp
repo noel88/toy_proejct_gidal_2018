@@ -48,24 +48,24 @@
 				<span class="navbar-text">
 					<c:choose>
 						<c:when test = "${ LEVEL eq 'user' }">
-							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">user</a>
+							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">user</a>
 							 or
-							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그아웃</a>
+							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그아웃</a>
 						</c:when>
 						<c:when test = "${ LEVEL eq 'enterpirse' }">
-							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">enterpirse</a>
+							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">enterpirse</a>
 							 or
-							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그아웃</a>
+							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그아웃</a>
 						</c:when>
 						<c:when test = "${ LEVEL eq 'admin' }">
-							<a href="/admin/adminPage" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">admin</a>
+							<a href="/admin/adminPage" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">admin</a>
 							 or
-							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그아웃</a>
+							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그아웃</a>
 						</c:when>
 						<c:otherwise>
-							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그인</a>
+							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그인</a>
 							 or
-							<a href="/authentication/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">회원가입</a>
+							<a href="/authentication/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">회원가입</a>
 						</c:otherwise>
 					</c:choose>
 				</span>

@@ -31,15 +31,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<UserVO> userBoard_list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<UserVO> userBoard_view() {
-		// TODO Auto-generated method stub
-		return sqlsession.selectList(namespace+".boardlist");
+		return null;
 	}
 
 }

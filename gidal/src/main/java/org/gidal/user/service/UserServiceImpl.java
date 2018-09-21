@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.gidal.user.dao.UserDAO;
 import org.gidal.user.domain.UserVO;
+import org.gidal.util.SHA256;
 import org.springframework.stereotype.Service;
 
 @Service

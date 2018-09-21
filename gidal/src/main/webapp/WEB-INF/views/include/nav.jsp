@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div style = "background-color : #EB6864;">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style = "max-width : 1050px; margin-right : auto; margin-left : auto;">
@@ -43,32 +44,46 @@
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>&nbsp;&nbsp;
 			</form>
 			</div>
-
+		
 			<div>
-				<span class="navbar-text">
-					<c:choose>
-						<c:when test = "${ LEVEL eq 'user' }">
-							<a href="/user/userpage" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">user</a>
-							 or
-							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그아웃</a>
-						</c:when>
-						<c:when test = "${ LEVEL eq 'enterpirse' }">
-							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">enterpirse</a>
-							 or
-							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그아웃</a>
-						</c:when>
-						<c:when test = "${ LEVEL eq 'admin' }">
-							<a href="/admin/adminPage" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">admin</a>
-							 or
-							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그아웃</a>
-						</c:when>
-						<c:otherwise>
+				
+				<c:choose>
+					<c:when test = "${ empty LOGIN }">
+						<span class="navbar-text">
 							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">로그인</a>
 							 or
 							<a href="/authentication/signUp" class="navbar-link" style = "color : #F5B4B2; text-decoration : none;">회원가입</a>
-						</c:otherwise>
-					</c:choose>
-				</span>
+						</span>
+					</c:when>
+					<c:otherwise>
+						<c:set var = "at" value = "${ fn:indexOf(LOGIN, '@') }"></c:set>
+						<c:set var = "name" value = "${ fn:substring(LOGIN, 0, at)}"></c:set>
+
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+									${ name }님
+								</a>
+								<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
+									<c:choose>
+										<c:when test = "${ LEVEL eq 'user' }">
+											<a class="dropdown-item" href="/user/userpage">마이페이지</a>
+											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
+										</c:when>
+										<c:when test = "${ LEVEL eq 'enterpirse' }">
+											<a class="dropdown-item" href="/authentication/signIn">마이페이지</a>
+											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
+										</c:when>
+										<c:when test = "${ LEVEL eq 'admin' }">
+											<a class="dropdown-item" href="/admin/adminPage">마이페이지</a>
+											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
+										</c:when>
+									</c:choose>
+								</div>
+							</li>
+						</ul>
+					</c:otherwise>
+				</c:choose>
 			</div>
 
 

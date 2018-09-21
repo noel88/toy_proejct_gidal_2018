@@ -48,7 +48,7 @@
 				<span class="navbar-text">
 					<c:choose>
 						<c:when test = "${ LEVEL eq 'user' }">
-							<a href="/authentication/signIn" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">user</a>
+							<a href="/user/userpage" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">user</a>
 							 or
 							<a href="/authentication/logout" class="navbar-link" style = "color : #F5B4B2; text-decoration : none">로그아웃</a>
 						</c:when>

@@ -41,8 +41,8 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	}
 
 	@Override
-	public String enterprise_check(String email) {
-		return sqlsession.selectOne(namespace + ".emailCheck", email);
+	public int enterprise_check(EnterpriseVO vo) {
+		return sqlsession.selectOne(namespace + ".emailCheck", vo);
 	}
 
 

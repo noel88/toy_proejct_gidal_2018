@@ -27,9 +27,13 @@
 
 
 
-	<select id="emailCheck" resultType = "java.lang.String">
-		select * from enterprise where enterprise_email = #{enterprise_email}
+	<select id="emailCheck"
+	    parameterType="org.gidal.enterprise.domain.EnterpriseVO"
+	    resultType="java.lang.Integer">
+	    SELECT NVL(COUNT(*),0)
+	    FROM enterprise WHERE enterprise_email=#{enterprise_email}
 	</select>
+
 
 
 

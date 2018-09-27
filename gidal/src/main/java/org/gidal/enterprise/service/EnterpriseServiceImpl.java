@@ -56,6 +56,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	}
 
 
+	@Override
+	public String enterprise_check(String email) {
+		return dao.enterprise_check(email);
+	}
+
+
 
 
 

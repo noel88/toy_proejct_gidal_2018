@@ -61,6 +61,48 @@ function execPostCode() {
 
 
 
+
+<script type="text/javascript">
+
+function checkValue()
+{
+    var form = document.form;
+
+    
+    if(!form.enteprise_password.value){
+        alert("비밀번호를 입력하세요.");
+        return false;
+    }
+    
+    // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+    if(form.enterprise_password.value != form.enterprise_passwordCheck.value ){
+        alert("비밀번호를 동일하게 입력하세요.");
+        return false;
+    }    
+
+
+}
+
+
+// 아이디 중복체크 화면
+
+	
+ 	function check(){
+	 	var sid = document.form.enterprise_email.value;
+	 	if(sid == "") 
+	 		alert("입력된 아이디가 없습니다.");
+	 	else{ 
+	 		location = "emailCheck?enterprise_email="+ sid;
+	 		//$("[name=enterprise_email]").val(sid);
+	 		alert("${msg}");
+ 	}
+}
+
+  
+
+</script>
+
+
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 			<h1>기업 회원가입</h1>
@@ -69,10 +111,15 @@ function execPostCode() {
 
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form name = "form" action = "join" method = "post" enctype="multipart/form-data">
+				<form name = "form" action = "join" method = "post" enctype="multipart/form-data" onsubmit="return checkValue();">
+
+
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
-						<input type="email" class="form-control" name = "enterprise_email" placeholder="이메일" id="inputDefault">
+						<div class="form-group">
+						<input class="form-control" style= "width: 70%; display: inline;" placeholder="이메일" name="enterprise_email" value = "${EntepriseVO.enterprise_email}" type="email">
+						    <button type="button" class="btn btn-default" onclick="check();"><i class="fa fa-search"></i>중복확인</button>
+						</div>
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
 						<input type="password" class="form-control" name = "enterprise_password" placeholder="패스워드" id="inputDefault">

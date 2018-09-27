@@ -38,6 +38,11 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 		return sqlsession.selectList(namespace + ".boardlist");
 	}
 
+	@Override
+	public String enterprise_check(String email) {
+		return sqlsession.selectOne(namespace + ".emailCheck", email);
+	}
+
 
 
 }

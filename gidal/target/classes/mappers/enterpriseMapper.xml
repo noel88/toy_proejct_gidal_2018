@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  "http://ibatis.apache.com/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.gidal.mapper.EnterpriseMapper">
 
@@ -12,12 +12,17 @@
 		#{enterprise_add3},#{enterprise_operatingOpenTime},#{enterprise_operatingCloseTime},#{enterprise_breakStartTime},#{enterprise_breakCloseTime},#{enterprise_closed})
 	</insert>
 
-
+	
 
 
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
 		select enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
 		from enterprise order by enterprise_code DESC;
+	</select>
+	
+	
+	<select id="emailCheck" resultType = "java.lang.String">
+		select * from enterprise where enterprise_email = #{enterprise_email}
 	</select>
 
 

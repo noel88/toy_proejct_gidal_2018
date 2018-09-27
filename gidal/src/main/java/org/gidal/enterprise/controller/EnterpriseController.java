@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.gidal.enterprise.domain.EnterpriseVO;
 
 import org.gidal.enterprise.service.EnterpriseService;
@@ -16,8 +17,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -127,11 +130,28 @@ public class EnterpriseController {
 		}
 
 	}
+	//이메일 중복 확인
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
+	public String enterprise_check(@RequestParam("enterprise_email") String email, EnterpriseVO vo, Model model, RedirectAttributes rttr) {
+		
+		String result = service.enterprise_check(email);
+		
+		
+		vo.setEnterprise_email(email);
+		
+		if(result == null) {
+			rttr.addFlashAttribute("msg", "사용할수 있는 이메일입니다. ");
+			model.addAttribute("email", vo.getEnterprise_email());
+			return "redirect:/enterprise/enterprise";
+			 
+		}else {
+			rttr.addFlashAttribute("msg", "중복된 이메일 주소 입니다. ");
+			return "redirect:/enterprise/enterprise";
+		}
+		
+		
+	}
 
-
-
-	//예약하기
-	//웨이팅하기
 	//수정
 
 

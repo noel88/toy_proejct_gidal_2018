@@ -7,7 +7,7 @@ public class EnterpriseVO {
 	private String enterprise_email; //이메일
 	private int enterprise_code; // 상호코드
 	private String enterprise_password; //비밀번호
-	//private String enterprise_passwordCheck; //비밀번호확인
+	private String enterprise_passwordCheck; //비밀번호확인
 	private String enterprise_name; //이름
 	private String enterprise_businessName; // 매장명
 	private String enterprise_phone; //연락처
@@ -285,6 +285,18 @@ public class EnterpriseVO {
 
 	public void setEnterprise_closed(String enterprise_closed) {
 		this.enterprise_closed = enterprise_closed;
+	}
+
+
+
+	public String getEnterprise_passwordCheck() {
+		return enterprise_passwordCheck;
+	}
+
+
+
+	public void setEnterprise_passwordCheck(String enterprise_passwordCheck) {
+		this.enterprise_passwordCheck = enterprise_passwordCheck;
 	}
 
 

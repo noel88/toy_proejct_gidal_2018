@@ -8,7 +8,9 @@
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/addressapi.js"></script>
+
 <%@ include file = "/WEB-INF/views/include/nav.jsp" %>
 
 <script type="text/javascript">
@@ -64,41 +66,70 @@ function execPostCode() {
 
 <script type="text/javascript">
 
-function checkValue()
-{
-    var form = document.form;
 
-    
-    if(!form.enteprise_password.value){
-        alert("비밀번호를 입력하세요.");
-        return false;
+    //아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+    var idCheck = 0;
+    var pwdCheck = 0;
+    //가입버튼 비활성화, 중복확인.
+
+    function checkEmail() {
+       var inputed = $('.email').val();
+       console.log(inputed);
+        $.ajax({
+            data : {
+                enterprise_email : inputed
+            },
+            url : "emailCheck",
+            success : function(data) {
+                if(inputed=="" && data=='0') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#checkaa").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                } else if (data == '0') {
+                    $("#checkaa").css("background-color", "#fcfadb");
+                    idCheck = 1;
+                    if(idCheck==1 && pwdCheck == 1) {
+                        $(".signupbtn").prop("disabled", false);
+                        $(".signupbtn").css("background-color", "#ff7777");
+                    }
+                } else if (data == '1') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#checkaa").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                }
+            }
+        });
     }
-    
-    // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
-    if(form.enterprise_password.value != form.enterprise_passwordCheck.value ){
-        alert("비밀번호를 동일하게 입력하세요.");
-        return false;
-    }    
 
+  //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
+    function checkPwd() {
+        var inputed = $('.pass').val();
+        var reinputed = $('#repwd').val();
+        console.log(inputed);
+        console.log(reinputed);
+        if(reinputed=="" && (inputed != reinputed || inputed == reinputed)){
+            $(".signupbtn").prop("disabled", true);
+            $(".signupbtn").css("background-color", "#aaaaaa");
+            $("#repwd").css("background-color", "#FFCECE");
+        }
+        else if (inputed == reinputed) {
+            $("#repwd").css("background-color", "#fcfadb");
+            pwdCheck = 1;
+            if(idCheck==1 && pwdCheck == 1) {
+                $(".signupbtn").prop("disabled", false);
+                $(".signupbtn").css("background-color", "#ff7777");
+            }
+        } else if (inputed != reinputed) {
+            pwdCheck = 0;
+            $(".signupbtn").prop("disabled", true);
+            $(".signupbtn").css("background-color", "#aaaaaa");
+            $("#repwd").css("background-color", "#FFCECE");
 
-}
+        }
+    }
 
-
-// 아이디 중복체크 화면
-
-	
- 	function check(){
-	 	var sid = document.form.enterprise_email.value;
-	 	if(sid == "") 
-	 		alert("입력된 아이디가 없습니다.");
-	 	else{ 
-	 		location = "emailCheck?enterprise_email="+ sid;
-	 		//$("[name=enterprise_email]").val(sid);
-	 		alert("${msg}");
- 	}
-}
-
-  
 
 </script>
 
@@ -111,24 +142,21 @@ function checkValue()
 
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form name = "form" action = "join" method = "post" enctype="multipart/form-data" onsubmit="return checkValue();">
+				<form name = "form" action = "join" method = "post" enctype="multipart/form-data">
 
 
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
-						<div class="form-group">
-						<input class="form-control" style= "width: 70%; display: inline;" placeholder="이메일" name="enterprise_email" value = "${EntepriseVO.enterprise_email}" type="email">
-						    <button type="button" class="btn btn-default" onclick="check();"><i class="fa fa-search"></i>중복확인</button>
-						</div>
+						<input type="email" class="form-control email" name="enterprise_email" placeholder="Email" oninput="checkEmail()" id="checkaa" autofocus>
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
-						<input type="password" class="form-control" name = "enterprise_password" placeholder="패스워드" id="inputDefault">
+                        <input type="password" class="form-control pass" name="enterprise_password" placeholder="Password" oninput="checkPwd()">
 
 						<label class="col-form-label" for="inputDefault">패스워드확인</label>
-						<input type="password" class="form-control"name = "enterprise_passwordCheck" placeholder="패스워드확인" id="inputDefault">
+                        <input type="password" class="form-control pass" name="enterprise_passwordCheck" placeholder="Confirm Password" id="repwd" oninput="checkPwd()">
 
 						<label class="col-form-label" for="inputDefault">이름</label>
-						<input type="text" class="form-control" name = "enterprise_name" placeholder="이름" id="inputDefault">
+                        <input type="text" class="form-control" name="enterprise_name">
 
 
 					</p>
@@ -252,7 +280,7 @@ function checkValue()
 
 					</p>
 					<p>
-						<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>
+						<button type="submit" class="form-control btn btn-primary signupbtn"  disabled="disabled">회원가입</button>
 					</p>
 				</form>
 

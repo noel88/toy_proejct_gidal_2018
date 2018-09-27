@@ -34,6 +34,7 @@ public class EnterpriseVO {
 
 
 
+
 	public String getEnterprise_email() {
 		return enterprise_email;
 	}

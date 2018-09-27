@@ -6,15 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
-<script>
-
-	function goList() {
-		var url = "/event/" + "${state}" + "Event?page=" + "${page}";
-		location.href = url;
-	}
-
-</script>
-
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 </head>
@@ -24,17 +15,8 @@
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-			<c:choose>
-				<c:when test = "${ state eq 'closed' }">
-					<h1>종료된 이벤트</h1>
-				</c:when>
-				<c:when test = "${ state eq 'current' }">
-					<h1>진행 중인 이벤트</h1>
-				</c:when>
-				<c:when test = "${ state eq 'upcoming' }">
-					<h1>진행 예정 이벤트</h1>
-				</c:when>
-			</c:choose>
+			<h1>이벤트 삭제</h1>
+
 			<hr class="my-4">
 
 			<div class="card mb-3">
@@ -58,18 +40,16 @@
 						<p class="card-text">${eventVO.event_content}</p>
 					</div>
 					<div class="card-footer text-muted" align="center">
-						<c:choose>
-							<c:when test = "${ LEVEL eq 'admin' }">
-								<div class="btn-group" role="group" aria-label="Basic example">
-									<button type="submit" class="btn btn-secondary btn-lg" formaction = "eventModify">수&nbsp;&nbsp;정</button>
-									<button type="button" class="btn btn-secondary btn-lg" onclick="goList();">목&nbsp;&nbsp;록</button>
-									<button type="submit" class="btn btn-secondary btn-lg" formaction = "eventDelete">삭&nbsp;&nbsp;제</button>
-								</div>
-							</c:when>
-							<c:otherwise>
-								<button type="button" class="btn btn-secondary btn-lg" onclick="goList();" style = "width : 50%">목&nbsp;&nbsp;록</button>
-							</c:otherwise>
-						</c:choose>
+						<p>
+							<label class="col-form-label" for="inputDefault">삭제하시려면 관리자 패스워드 입력</label>
+							<input type="password" class="form-control"	name = "password" placeholder="관리자 패스워드" id="inputDefault">
+						</p>
+						<p>
+							<button type="submit" class="btn btn-primary btn-lg btn-block" formaction = "eventDeleteExcute">이벤트 삭제</button>
+						</p>
+						<p>
+							<button type="button" class="btn btn-primary btn-lg btn-block" onclick="history.back()">뒤로가기</button>
+						</p>
 					</div>
 				</form>
 			</div>

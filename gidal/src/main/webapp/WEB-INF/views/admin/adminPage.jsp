@@ -39,6 +39,18 @@
 	
 </script>
 
+<style>
+
+	#email {
+	    white-space: nowrap; 
+		max-width : 270px;
+	    overflow: hidden;
+	    text-overflow: ellipsis; 
+		
+	}
+	
+</style>
+
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 </head>
@@ -81,7 +93,7 @@
 												<label class="custom-control-label" for="userCheck${ i }">&nbsp;</label>
 											</div>
 										</td>
-										<td style="text-align: left;">
+										<td id = "email" style="text-align: left;">
 											<small>${userVO.user_email}</small>
 											<%-- <small><a href="/event/detailEvent?event_no=${eventVO.event_no}">${userVO.user_email}</a></small> --%>
 										</td>
@@ -102,16 +114,16 @@
 									<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li class="page-item"><a class="page-link" href="/admin/adminPage?userPage=${ userPageInfo.page - 1 }">&laquo;</a></li>
+									<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page }&userPage=${ userPageInfo.page - 1 }">&laquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 							<c:forEach var = "userPage" begin = "${ userPageInfo.startPage }" end = "${ userPageInfo.endPage }" step = "1">
 								<c:choose>
 									<c:when test="${ userPageInfo.page == userPage }">
-										<li class="page-item active"><a class="page-link" href="/admin/adminPage?userPage=${ userPage }">${ userPage }</a></li>
+										<li class="page-item active"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page }&userPage=${ userPage }">${ userPage }</a></li>
 									</c:when>
 									<c:otherwise>
-										<li class="page-item"><a class="page-link" href="/admin/adminPage?userPage=${ userPage }">${ userPage }</a></li>
+										<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page }&userPage=${ userPage }">${ userPage }</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -120,7 +132,7 @@
 									<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li class="page-item"><a class="page-link" href="/admin/adminPage?userPage=${ userPageInfo.page + 1 }">&raquo;</a></li>
+									<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page }&userPage=${ userPageInfo.page + 1 }">&raquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 						</ul>
@@ -154,7 +166,7 @@
 												<label class="custom-control-label" for="enterpriseCheck${ i }">&nbsp;</label>
 											</div>
 										</td>
-										<td style="text-align: left;">
+										<td id = "email" style="text-align: left;">
 											<small>${enterpriseVO.enterprise_email}</small>
 											<%-- <small><a href="/event/detailEvent?event_no=${eventVO.event_no}">${enterpriseVO.enterprise_email}</a></small> --%>
 										</td>
@@ -175,16 +187,16 @@
 									<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page - 1 }">&laquo;</a></li>
+									<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page - 1 }&userPage=${ userPageInfo.page }">&laquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 							<c:forEach var = "enterprisePage" begin = "${ enterprisePageInfo.startPage }" end = "${ enterprisePageInfo.endPage }" step = "1">
 								<c:choose>
 									<c:when test="${ enterprisePageInfo.page == enterprisePage }">
-										<li class="page-item active"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePage }">${ enterprisePage }</a></li>
+										<li class="page-item active"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePage }&userPage=${ userPageInfo.page }">${ enterprisePage }</a></li>
 									</c:when>
 									<c:otherwise>
-										<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePage }">${ enterprisePage }</a></li>
+										<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePage }&userPage=${ userPageInfo.page }">${ enterprisePage }</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -193,7 +205,7 @@
 									<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
 								</c:when>
 								<c:otherwise>
-									<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page + 1 }">&raquo;</a></li>
+									<li class="page-item"><a class="page-link" href="/admin/adminPage?enterprisePage=${ enterprisePageInfo.page + 1 }&userPage=${ userPageInfo.page }">&raquo;</a></li>
 								</c:otherwise>
 							</c:choose>
 						</ul>

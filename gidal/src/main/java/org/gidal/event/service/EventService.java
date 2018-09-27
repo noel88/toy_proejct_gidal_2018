@@ -23,5 +23,9 @@ public interface EventService {
 
 	public PageInfo pageInfo(int page, int LIMIT, int upcomingEventListCount);
 
+	public void eventModify(EventVO event) throws Exception;
+
+	public void eventDelete(EventVO event) throws Exception;
+
 
 }

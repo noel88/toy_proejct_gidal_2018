@@ -23,4 +23,8 @@ public interface EventDAO {
 
 	public PageInfo pageInfo();
 
+	public void eventModify(EventVO event);
+
+	public void eventDelete(EventVO event);
+
 }

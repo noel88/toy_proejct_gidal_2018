@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.event.domain.EventVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -35,6 +36,7 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	@Override
 	public List<EnterpriseVO> enterpriseBoard_list() {
+
 		return sqlsession.selectList(namespace + ".boardlist");
 	}
 

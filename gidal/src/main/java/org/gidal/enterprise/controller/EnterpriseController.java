@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.gidal.enterprise.domain.EnterpriseVO;
-
+import org.gidal.enterprise.domain.PagingVO;
 import org.gidal.enterprise.service.EnterpriseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -119,6 +119,7 @@ public class EnterpriseController {
 		String login = (String)session.getAttribute("LOGIN");
 
 
+
 		if(login == null) {
 
 			return "redirect:/authentication/signIn";
@@ -130,27 +131,41 @@ public class EnterpriseController {
 		}
 
 	}
+
+
+
+
+
 	//이메일 중복 확인
 	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
 	public String enterprise_check(@RequestParam("enterprise_email") String email, EnterpriseVO vo, Model model, RedirectAttributes rttr) {
-		
+
 		String result = service.enterprise_check(email);
-		
-		
+
+
 		vo.setEnterprise_email(email);
-		
+
 		if(result == null) {
 			rttr.addFlashAttribute("msg", "사용할수 있는 이메일입니다. ");
 			model.addAttribute("email", vo.getEnterprise_email());
 			return "redirect:/enterprise/enterprise";
-			 
+
 		}else {
 			rttr.addFlashAttribute("msg", "중복된 이메일 주소 입니다. ");
 			return "redirect:/enterprise/enterprise";
 		}
-		
-		
+
+
 	}
+
+
+
+
+
+
+
+
+
 
 	//수정
 

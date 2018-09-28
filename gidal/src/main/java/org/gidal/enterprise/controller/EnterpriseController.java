@@ -140,10 +140,21 @@ public class EnterpriseController {
 
 
 
+/*
+	//이메일 중복 확인
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
+	public void enterprise_check(@RequestParam("enterprise_email") String email, EnterpriseVO vo, Model model) {
+
+		vo.setEnterprise_email(email);
+		model.addAttribute("result",service.enterprise_check(email));
+
+
+	}*/
+
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int idCheck(EnterpriseVO vo, Model model) {
         return service.enterprise_check(vo);
-    }
+    }//
 
 
 

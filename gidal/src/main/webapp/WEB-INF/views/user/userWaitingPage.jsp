@@ -46,22 +46,22 @@
 			</table>
 			
 			<div style = "width : 100%;">
-				<ul class="pagination" style = "width : 30%; margin : auto;">
+				<ul class="pagination" style = "width : 30%; ">
 					<c:choose>
 						<c:when test="${ (pageInfo1.page - 1) == 0 }">
 							<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="page-item"><a class="page-link" href="/user/userpage?page=${ pageInfo1.page - 1 }">&laquo;</a></li>
+							<li class="page-item"><a class="page-link" href="/user/userWaitingPage?page=${ pageInfo1.page - 1 }">&laquo;</a></li>
 						</c:otherwise>
 					</c:choose>
 					<c:forEach var = "page" begin = "${ pageInfo1.startPage }" end = "${ pageInfo1.endPage }" step = "1">
 						<c:choose>
 							<c:when test="${ pageInfo1.page == page }">
-								<li class="page-item active"><a class="page-link" href="/user/userpage?page=${ page }">${ page }</a></li>
+								<li class="page-item active"><a class="page-link" href="/user/userWaitingPage?page=${ page }">${ page }</a></li>
 							</c:when>
 							<c:otherwise>
-								<li class="page-item"><a class="page-link" href="/user/userpage?page=${ page }">${ page }</a></li>
+								<li class="page-item"><a class="page-link" href="/user/userWaitingPage?page=${ page }">${ page }</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -70,7 +70,7 @@
 							<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="page-item"><a class="page-link" href="/user/userpage?page=${ pageInfo1.page + 1 }">&raquo;</a></li>
+							<li class="page-item"><a class="page-link" href="/user/uuserWaitingPage?page=${ pageInfo1.page + 1 }">&raquo;</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>

@@ -12,13 +12,12 @@
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 
 
-
 </head>
 <body>
 
 	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-<form action="waiting_insert">
+
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
@@ -26,8 +25,7 @@
 
 
 
-  			<div id="carouselExampleIndicators" class="carousel slide"
-				data-ride="carousel">
+  			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0"
 						class="active"></li>
@@ -92,8 +90,20 @@
 		<tr>
 			<td rowspan="8" style="width: 40%;">
 
+<fieldset>
+    <legend>웨이팅 현황 [${count}명 대기중]</legend>
 
 
+<div style="overflow:auto; height:150px;">
+    <c:forEach items = "${list}" var = "WaitingVO">
+	<b><c:out value='${fn:substring(WaitingVO.waiting_now, 10, 19)}' /></b> ${WaitingVO.user_name} ${WaitingVO.waiting_personnel}명
+	<br>
+  	</c:forEach>
+</div>
+
+    </fieldset>
+<hr>
+<form action="waiting_insert">
   <fieldset>
     <legend>웨이팅하기</legend>
 
@@ -141,7 +151,7 @@
 
 			</td>
 
-<td rowspan="8" style="width: 10%;"></td>
+<td rowspan="8" style="width: 5%;"></td>
 
 
 		</tr>

@@ -26,22 +26,10 @@ public class WaitingDAOImpl implements WaitingDAO {
 	}
 
 	@Override
-	public List<WaitingVO> waiting_view() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<WaitingVO> waiting_view(Integer code) {
+		return sqlsession.selectList(namespace + ".selectList", code);
 	}
 
-	@Override
-	public int waiting_update() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void waiting_cancel() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public EnterpriseVO selectOne(Integer code) {
@@ -51,6 +39,11 @@ public class WaitingDAOImpl implements WaitingDAO {
 	@Override
 	public UserVO selectUser(String str) {
 		return sqlsession.selectOne(namespace + ".selectOne", str);
+	}
+
+	@Override
+	public int waiting_count(Integer code) {
+		return sqlsession.selectOne(namespace + ".selectList_count", code);
 	}
 
 }

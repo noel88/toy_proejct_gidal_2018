@@ -28,17 +28,20 @@ public class WaitingController {
 		String email = (String)session.getAttribute("LOGIN");
 		session.setAttribute("user", service.selectOne(email));
 		model.addAttribute(service.selectOne(code));
+		model.addAttribute("list",service.waiting_view(code));
+		model.addAttribute("count",service.waiting_count(code));
 		return model;
 
 	}
 
 	@RequestMapping(value = "/waiting_insert", method = RequestMethod.GET)
-	public String reserve_insert(WaitingVO vo) {
+	public String waiting_insert(WaitingVO vo) {
 
 		service.waiting_insert(vo);
 
 		 return "redirect:/";
 	}
+
 
 
 

@@ -1,6 +1,7 @@
 package org.gidal.user.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.user.domain.UserVO;
@@ -33,7 +34,7 @@ public class UserController {
 
 	@RequestMapping(value = "/userjoin", method = RequestMethod.POST)
 	public String user_join(UserVO vo, Model model) {
-		 System.out.println(vo.getUser_email());
+		 
 		int result = service.user_join(vo);
 
 		 if(result > 0) {
@@ -80,7 +81,31 @@ public class UserController {
 		model.addAttribute("list1",service.UserPageWaiting(page));
 	}
 	
+	@RequestMapping(value = "/userRevise", method = RequestMethod.POST)
+	public String userRevise(UserVO vo, Model model) {
+		service.user_revise(vo);
+		
+		return "redirect:/";
 
+	}
+	@RequestMapping(value = "/userReviseForm", method = RequestMethod.GET)
+	public String userReviseForm() {
 
+		return "user/userRevise";
+
+	}
+	@RequestMapping(value = "/userDeleteForm", method = RequestMethod.GET)
+	public String userDeleteForm() {
+
+		return "user/userDelete";
+
+	}
+	@RequestMapping(value = "/userDelete", method = RequestMethod.POST)
+	public String userDelete(UserVO vo, Model model,HttpSession session) {
+		service.userDelete(vo);
+		session.invalidate();
+		return "redirect:/";
+
+	}
 
 }

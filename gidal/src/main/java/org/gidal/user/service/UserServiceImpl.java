@@ -29,9 +29,12 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int userBoard_update(UserVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int user_revise(UserVO vo) {
+		SHA256 sha = new SHA256();
+
+
+		vo.setUser_password(sha.getSHA256(vo.getUser_password()));
+		return dao.user_revise(vo);
 	}
 
 	@Override
@@ -98,6 +101,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public int UserPageWaitingCount() {
 		return dao.UserPageWaitingCount();
+	}
+
+	@Override
+	public int userDelete(UserVO vo) {
+		return dao.userDelete(vo);
 	}
 	
 

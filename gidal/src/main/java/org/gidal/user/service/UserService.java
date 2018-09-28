@@ -10,7 +10,8 @@ import org.gidal.user.domain.UserVO;
 public interface UserService {
 
 	public int user_join(UserVO vo);
-	public int userBoard_update(UserVO vo);
+	public int user_revise(UserVO vo);
+	public int userDelete(UserVO vo);
 	public List<UserVO> userBoard_view();
 
 	public List<UserPageVO> UserPageReserve(int page) throws Exception;
@@ -20,5 +21,6 @@ public interface UserService {
 	public int UserPageWaitingCount();
 
 	public int user_check(UserVO vo);
+	
 
 }

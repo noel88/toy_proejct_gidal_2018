@@ -10,7 +10,8 @@ import org.gidal.user.domain.UserVO;
 public interface UserDAO {
 
 	public int user_join(UserVO vo);
-	public int userBoard_update(UserVO vo );
+	public int user_revise(UserVO vo );
+	public int userDelete(UserVO vo);
 	public List<UserVO> userBoard_view();
 
 	public List<UserPageVO> UserPageReserve(int startRow) throws Exception;

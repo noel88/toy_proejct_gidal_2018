@@ -8,7 +8,9 @@
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/addressapi.js"></script>
+
 <%@ include file = "/WEB-INF/views/include/nav.jsp" %>
 
 <script type="text/javascript">
@@ -61,6 +63,82 @@ function execPostCode() {
 
 
 
+
+<script type="text/javascript">
+
+
+    //아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+    var idCheck = 0;
+    var pwdCheck = 0;
+    //가입버튼 비활성화, 중복확인.
+
+    function checkEmail() {
+       var inputed = $('.email').val();
+       console.log(inputed);
+        $.ajax({
+            data : {
+                enterprise_email : inputed
+            },
+            url : "emailCheck",
+            success : function(data) {
+                if(inputed=="" && data=='0') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#checkaa").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                } else if (data == '0') {
+                    $("#checkaa").css("background-color", "#fcfadb");
+                    idCheck = 1;
+                    if(idCheck==1 && pwdCheck == 1) {
+                        $(".signupbtn").prop("disabled", false);
+                        $(".signupbtn").css("background-color", "#ff7777");
+                    }
+                } else if (data == '1') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#checkaa").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                }
+            }
+        });
+    }
+
+  //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
+    function checkPwd() {
+        var inputed = $('.pass').val();
+        var reinputed = $('#repwd').val();
+        console.log(inputed);
+        console.log(reinputed);
+        if(reinputed=="" && (inputed != reinputed || inputed == reinputed)){
+            $(".signupbtn").prop("disabled", true);
+            $(".signupbtn").css("background-color", "#aaaaaa");
+            $("#repwd").css("background-color", "#FFCECE");
+        }
+        else if (inputed == reinputed) {
+            $("#repwd").css("background-color", "#fcfadb");
+            pwdCheck = 1;
+            if(idCheck==1 && pwdCheck == 1) {
+                $(".signupbtn").prop("disabled", false);
+                $(".signupbtn").css("background-color", "#ff7777");
+            }
+        } else if (inputed != reinputed) {
+            pwdCheck = 0;
+            $(".signupbtn").prop("disabled", true);
+            $(".signupbtn").css("background-color", "#aaaaaa");
+            $("#repwd").css("background-color", "#FFCECE");
+
+        }
+    }
+
+
+  function join() {
+	  alert('회원가입이 완료되었습니다');
+  }
+
+
+</script>
+
+
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 			<h1>기업 회원가입</h1>
@@ -69,19 +147,21 @@ function execPostCode() {
 
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form name = "form" action = "join" method = "post" enctype="multipart/form-data">
+				<form name = "form" action = "join" method = "post" enctype="multipart/form-data" onsubmit="return join();">
+
+
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
-						<input type="email" class="form-control" name = "enterprise_email" placeholder="이메일" id="inputDefault">
+						<input type="email" class="form-control email" name="enterprise_email" placeholder="Email" oninput="checkEmail()" id="checkaa" autofocus>
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
-						<input type="password" class="form-control" name = "enterprise_password" placeholder="패스워드" id="inputDefault">
+                        <input type="password" class="form-control pass" name="enterprise_password" placeholder="Password" oninput="checkPwd()">
 
 						<label class="col-form-label" for="inputDefault">패스워드확인</label>
-						<input type="password" class="form-control"name = "enterprise_passwordCheck" placeholder="패스워드확인" id="inputDefault">
+                        <input type="password" class="form-control pass" name="enterprise_passwordCheck" placeholder="Confirm Password" id="repwd" oninput="checkPwd()">
 
 						<label class="col-form-label" for="inputDefault">이름</label>
-						<input type="text" class="form-control" name = "enterprise_name" placeholder="이름" id="inputDefault">
+                        <input type="text" class="form-control" name="enterprise_name">
 
 
 					</p>
@@ -144,7 +224,7 @@ function execPostCode() {
 
 						   for(var i=0; i < count; i++ ){
 						       if( frm.chkbox[i].checked == true ){
-							    sum += frm.chkbox[i].value + " ";
+							    sum += frm.chkbox[i].value + ",";
 						       }
 						   }
 						   frm.enterprise_closed.value = sum;
@@ -154,15 +234,15 @@ function execPostCode() {
 
 
 
-				 		<label class="col-form-label" for="inputDefault">휴무일</label>
+				 		<label class="col-form-label" for="inputDefault">영업일 체크</label>
 						<div class="form-group">
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '월'>월요일
-						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '화'>화요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '수'>수요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '목'>목요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '금'>금요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '토'>토요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '일'>일요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '1'>월요일
+						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '2'>화요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '3'>수요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '4'>목요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '5'>금요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '6'>토요일
+							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0'>일요일
 							<input type = "hidden" name = "enterprise_closed">
 
 						</div>
@@ -205,7 +285,7 @@ function execPostCode() {
 
 					</p>
 					<p>
-						<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>
+						<button type="submit" class="form-control btn btn-primary signupbtn"  disabled="disabled">회원가입</button>
 					</p>
 				</form>
 

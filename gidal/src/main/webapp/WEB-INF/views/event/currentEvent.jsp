@@ -6,6 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
+<script>
+
+	var result = '${msg}';
+	
+	if(result == 'eventModifySuccess') {
+		alert("이벤트가 수정되었습니다.");
+	} else if(result == 'eventDeleteSuccess') {
+		alert("이벤트가 삭제되었습니다.");
+	}
+	
+</script>
+
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 </head>
@@ -33,7 +45,7 @@
 						<tr>
 							<td><small>${eventVO.event_no}</small></td>
 							<td style = "text-align : left; width : 50%;">
-								<small><a href="/event/detailEvent?event_no=${eventVO.event_no}">${eventVO.event_title}</a></small>
+								<small><a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=${pageInfo.page}">${eventVO.event_title}</a></small>
 							</td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd" value="${eventVO.event_startDate}" /></small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd" value="${eventVO.event_endDate}" /></small></td>
@@ -49,25 +61,25 @@
 							<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="page-item"><a class="page-link" href="/event/closedEvent?page=${ pageInfo.page - 1 }">&laquo;</a></li>
+							<li class="page-item"><a class="page-link" href="/event/currentEvent?page=${ pageInfo.page - 1 }">&laquo;</a></li>
 						</c:otherwise>
 					</c:choose>
 					<c:forEach var = "page" begin = "${ pageInfo.startPage }" end = "${ pageInfo.endPage }" step = "1">
 						<c:choose>
 							<c:when test="${ pageInfo.page == page }">
-								<li class="page-item active"><a class="page-link" href="/event/closedEvent?page=${ page }">${ page }</a></li>
+								<li class="page-item active"><a class="page-link" href="/event/currentEvent?page=${ page }">${ page }</a></li>
 							</c:when>
 							<c:otherwise>
-								<li class="page-item"><a class="page-link" href="/event/closedEvent?page=${ page }">${ page }</a></li>
+								<li class="page-item"><a class="page-link" href="/event/currentEvent?page=${ page }">${ page }</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					<c:choose>
-						<c:when test="${ pageInfo.page == pageInfo.endPage }">
+						<c:when test="${ pageInfo.page == pageInfo.maxPage }">
 							<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="page-item"><a class="page-link" href="/event/closedEvent?page=${ pageInfo.page + 1 }">&raquo;</a></li>
+							<li class="page-item"><a class="page-link" href="/event/currentEvent?page=${ pageInfo.page + 1 }">&raquo;</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>

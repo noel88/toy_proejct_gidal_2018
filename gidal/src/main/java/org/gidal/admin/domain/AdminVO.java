@@ -7,6 +7,7 @@ public class AdminVO {
 	static private String admin_password = "admin";
 	
 	
+	
 
 
 	public static String getAdmin_id() {

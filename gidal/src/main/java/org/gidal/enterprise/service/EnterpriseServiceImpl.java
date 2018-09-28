@@ -19,8 +19,6 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	@Inject
 	private EnterpriseDAO dao;
 
-	@Resource(name = "uploadPath")
-	private String uploadPath;
 
 
 	@Override
@@ -53,6 +51,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	@Override
 	public List<EnterpriseVO> enterpriseBoard_list() {
 		return dao.enterpriseBoard_list();
+	}
+
+
+	@Override
+	public int enterprise_check(EnterpriseVO vo) {
+		return dao.enterprise_check(vo);
 	}
 
 

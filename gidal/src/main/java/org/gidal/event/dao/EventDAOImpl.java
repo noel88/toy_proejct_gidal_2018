@@ -55,5 +55,16 @@ public class EventDAOImpl implements EventDAO {
 	public PageInfo pageInfo() {
 		return session.selectOne(namespace + ".pageInfo");
 	}
+
+	@Override
+	public void eventModify(EventVO event) {
+	    session.update(namespace + ".eventModify", event);
+		
+	}
+
+	@Override
+	public void eventDelete(EventVO event) {
+		session.delete(namespace + ".eventDelete", event);
+	}
 	
 }

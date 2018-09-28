@@ -21,7 +21,7 @@
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
 				<p class="lead">이메일 또는 비밀번호를 확인해주세요.</p>
-				<a href = "/authentication/signIn">
+				<a href = "/authentication/signIn" style = "text-decoration : none;">
 					<button type="button" class="btn btn-primary btn-lg btn-block">
 						로그인 페이지로 돌아가기
 						

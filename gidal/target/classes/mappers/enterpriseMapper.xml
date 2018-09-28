@@ -17,8 +17,22 @@
 
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
 		select enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
-		from enterprise order by enterprise_code DESC;
+		from enterprise order by enterprise_code DESC
+
 	</select>
+
+	<select id="selectTotalRecords" resultType="int">
+	        SELECT FOUND_ROWS();
+	</select>
+
+
+
+	<select id="emailCheck"
+	    parameterType="org.gidal.enterprise.domain.EnterpriseVO" resultType="java.lang.Integer">
+	    SELECT IFNULL(COUNT(*),0)
+	    FROM enterprise WHERE enterprise_email=#{enterprise_email}
+	</select>
+
 
 
 

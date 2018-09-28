@@ -100,6 +100,7 @@
 
 
 
+
   <fieldset>
     <legend>예약하기</legend>
 
@@ -124,7 +125,8 @@
  	<script>
 
  	$(function(){
- 	    $('.datetimepicker').appendDtpicker({'locale':'ko' ,"futureOnly": true});
+ 	    $('.datetimepicker').appendDtpicker({'locale':'ko' ,"futureOnly": true,"minTime":"${enterpriseVO.enterprise_operatingOpenTime}", "maxTime":"${enterpriseVO.enterprise_operatingCloseTime}",
+ 	    	"inline": true, "allowWdays": [${enterpriseVO.enterprise_closed}] });
  	});
 	</script>
 
@@ -162,7 +164,7 @@
 
 
 			</td>
-
+	<td rowspan="8" style="width: 10%;"></td>
 
 
 
@@ -218,14 +220,14 @@
 		      </td>
 		    </tr>
 
-  			<tr>
+  			<%-- <tr>
 		      <td>
 		      	<h5> <!-- 휴무일  -->
 					  Restaurant Closed <br>
 					  <small class="text-muted"><c:out value="${fn:replace(enterpriseVO.enterprise_closed, ' ', ', ')}"/> 휴무</small>
 				</h5>
 		      </td>
-		    </tr>
+		    </tr> --%>
 
 
 

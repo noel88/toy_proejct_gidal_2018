@@ -16,10 +16,10 @@ import org.springframework.stereotype.Repository;
 public class UserDAOImpl implements UserDAO {
 
 	@Inject
-	private SqlSession sqlsession; 
-	
+	private SqlSession sqlsession;
+
 	private static String namespace = "org.gidal.mapper.UserMapper";
-	
+
 	@Override
 	public int user_join(UserVO vo) {
 		
@@ -34,15 +34,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<UserVO> userBoard_list() {
-		// TODO Auto-generated method stub
+	public List<UserVO> userBoard_view() {
 		return null;
 	}
 
 	@Override
-	public List<UserVO> userBoard_view() {
-		// TODO Auto-generated method stub
-		return sqlsession.selectList(namespace+".boardlist");
+	public int user_check(UserVO vo) {
+		return sqlsession.selectOne(namespace + ".emailCheck", vo);
 	}
 
 	@Override

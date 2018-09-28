@@ -141,7 +141,7 @@
 
 			</td>
 
-
+<td rowspan="8" style="width: 10%;"></td>
 
 
 		</tr>
@@ -196,14 +196,14 @@
 		      </td>
 		    </tr>
 
-  			<tr>
+<%--   			<tr>
 		      <td>
 		      	<h5> <!-- 휴무일  -->
 					  Restaurant Closed <br>
 					  <small class="text-muted"><c:out value="${fn:replace(enterpriseVO.enterprise_closed, ' ', ', ')}"/> 휴무</small>
 				</h5>
 		      </td>
-		    </tr>
+		    </tr> --%>
 
 
 

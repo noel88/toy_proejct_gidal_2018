@@ -5,19 +5,27 @@ package org.gidal.enterprise.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.gidal.enterprise.domain.EnterpriseVO;
-
+import org.gidal.enterprise.domain.PagingVO;
 import org.gidal.enterprise.service.EnterpriseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -116,6 +124,7 @@ public class EnterpriseController {
 		String login = (String)session.getAttribute("LOGIN");
 
 
+
 		if(login == null) {
 
 			return "redirect:/authentication/signIn";
@@ -130,8 +139,30 @@ public class EnterpriseController {
 
 
 
-	//예약하기
-	//웨이팅하기
+
+/*
+	//이메일 중복 확인
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
+	public void enterprise_check(@RequestParam("enterprise_email") String email, EnterpriseVO vo, Model model) {
+
+		vo.setEnterprise_email(email);
+		model.addAttribute("result",service.enterprise_check(email));
+
+
+	}*/
+
+	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
+    public @ResponseBody int idCheck(EnterpriseVO vo, Model model) {
+        return service.enterprise_check(vo);
+    }
+
+
+
+
+
+
+
+
 	//수정
 
 

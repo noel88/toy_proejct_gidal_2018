@@ -28,6 +28,8 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void eventRegist(EventVO event) throws Exception {
 		
+		event.setEvent_content(event.getEvent_content().replaceAll("\r\n", "<br />"));
+		
 		if(event.getEvent_file().isEmpty()) {
 			dao.eventRegist(event);
 		} else {

@@ -7,11 +7,11 @@
 		<a class="navbar-brand" href="/">
 			<img src="/resources/img/logo/GiDal.png" style="margin : auto; height : 30px; width : auto;">
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
+		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="navbar-collapse collapse show" id="navbarColor01" style="">
+		<div class="navbar-collapse collapse" id="navbarColor01" style="">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

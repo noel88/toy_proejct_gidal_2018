@@ -6,6 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
+<script>
+
+	var result = '${msg}';
+	
+	if(result == 'eventModifySuccess') {
+		alert("이벤트가 수정되었습니다.");
+	} else if(result == 'eventDeleteSuccess') {
+		alert("이벤트가 삭제되었습니다.");
+	}
+	
+</script>
+
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 </head>
@@ -33,7 +45,7 @@
 						<tr>
 							<td><small>${eventVO.event_no}</small></td>
 							<td style = "text-align : left; width : 50%;">
-								<small><a href="/event/detailEvent?event_no=${eventVO.event_no}">${eventVO.event_title}</a></small>
+								<small><a href="/event/detailEvent?event_no=${eventVO.event_no}&state=closed&page=${pageInfo.page}">${eventVO.event_title}</a></small>
 							</td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd" value="${eventVO.event_startDate}" /></small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd" value="${eventVO.event_endDate}" /></small></td>

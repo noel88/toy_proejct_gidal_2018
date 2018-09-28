@@ -92,4 +92,29 @@
 		]]>
 	</select>
 	
+	<update id="eventModify">
+		UPDATE 
+			event 
+		SET
+		<choose>
+		<when test = "event_image == null">
+			event_title = #{event_title}, event_startDate = #{event_startDate}, 
+			event_endDate = #{event_endDate}, event_content = #{event_content} 
+		</when>
+		<otherwise>
+			event_title = #{event_title}, event_startDate = #{event_startDate}, 
+			event_endDate = #{event_endDate}, event_image = #{event_image}, 
+			event_content = #{event_content} 
+		</otherwise>
+		</choose> 
+		WHERE  
+			event_no=#{event_no};
+	</update>
+	
+	<delete id="eventDelete">
+		DELETE FROM 
+			event 
+		WHERE event_no = #{event_no};
+	</delete>
+	
 </mapper>

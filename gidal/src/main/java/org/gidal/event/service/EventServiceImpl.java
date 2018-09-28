@@ -1,13 +1,19 @@
 package org.gidal.event.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.gidal.event.dao.EventDAO;
 import org.gidal.event.domain.EventVO;
 import org.gidal.event.domain.PageInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -15,6 +21,9 @@ public class EventServiceImpl implements EventService {
 	@Inject
 	private EventDAO dao;
 	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
+
 	@Override
 	public List<EventVO> closedEventList(int page) throws Exception {
 		
@@ -79,6 +88,68 @@ public class EventServiceImpl implements EventService {
 		pageInfo.setStartPage(startPage);
 		
 		return pageInfo;
+	}
+
+	@Override
+	public void eventModify(EventVO event) throws Exception {
+		event.setEvent_content(event.getEvent_content().replaceAll("\r\n", "<br />"));
+		
+		if(event.getEvent_file().isEmpty()) {
+			dao.eventModify(event);
+		} else {
+			EventVO oldEventVO = dao.detailEvent(event.getEvent_no());
+			String oldFile = oldEventVO.getEvent_image();
+			deleteFile(oldFile);
+			
+			MultipartFile mf = event.getEvent_file();
+			
+			String savedName = uploadFile(mf.getOriginalFilename(), mf.getBytes());
+			
+			event.setEvent_image(savedName);
+			
+			dao.eventModify(event);
+		}
+		
+	}
+		
+	@Override
+	public void eventDelete(EventVO event) throws Exception {
+
+			EventVO oldEventVO = dao.detailEvent(event.getEvent_no());
+			String oldFile = oldEventVO.getEvent_image();
+			
+			System.out.println("***********************************");
+			System.out.println(oldFile);
+			
+			if(oldFile != null) {
+				deleteFile(oldFile);
+			}
+			dao.eventDelete(event);
+		
+	}
+
+	private String uploadFile(String originalName, byte[] fileData) throws Exception {
+
+		UUID uid = UUID.randomUUID();
+
+		String savedName = uid.toString() + "_" + originalName;
+
+		File target = new File(uploadPath, savedName);
+
+		FileCopyUtils.copy(fileData, target);
+
+		return savedName;
+
+	}
+	
+	private boolean deleteFile(String oldFile) throws Exception {
+		boolean check = false;
+		
+		File target = new File(uploadPath, oldFile);
+		
+		check = target.delete();
+		
+		return check;
 	}
 
 

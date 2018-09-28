@@ -1,7 +1,6 @@
 package org.gidal.event.service;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -118,9 +117,6 @@ public class EventServiceImpl implements EventService {
 			EventVO oldEventVO = dao.detailEvent(event.getEvent_no());
 			String oldFile = oldEventVO.getEvent_image();
 			
-			System.out.println("***********************************");
-			System.out.println(oldFile);
-			
 			if(oldFile != null) {
 				deleteFile(oldFile);
 			}
@@ -130,11 +126,12 @@ public class EventServiceImpl implements EventService {
 
 	private String uploadFile(String originalName, byte[] fileData) throws Exception {
 
+		String EventUploadPath = uploadPath + "\\event";
 		UUID uid = UUID.randomUUID();
 
 		String savedName = uid.toString() + "_" + originalName;
 
-		File target = new File(uploadPath, savedName);
+		File target = new File(EventUploadPath, savedName);
 
 		FileCopyUtils.copy(fileData, target);
 
@@ -144,8 +141,9 @@ public class EventServiceImpl implements EventService {
 	
 	private boolean deleteFile(String oldFile) throws Exception {
 		boolean check = false;
-		
-		File target = new File(uploadPath, oldFile);
+		String EventUploadPath = uploadPath + "\\event";
+
+		File target = new File(EventUploadPath, oldFile);
 		
 		check = target.delete();
 		

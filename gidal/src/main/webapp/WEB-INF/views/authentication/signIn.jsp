@@ -6,6 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
+<script>
+
+	var result = '${msg}';
+	var newPassword = '${newPassword}';
+	
+	if(result == 'reissuePasswordSuccess') {
+		alert("비밀번호 재발급이 완료되었습니다.\n새로운 비밀번호는 " + newPassword);
+	} else if(result == 'reissuePasswordFail') {
+		alert("비밀번호 재발급이 실패했습니다.\n정보를 확인해주세요.");
+	}
+	
+</script>
+
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 </head>
@@ -40,7 +53,7 @@
 						<button type="submit" class="btn btn-primary btn-lg btn-block">로그인</button>
 					</p>
 					<p>
-						<button type="button" class="btn btn-primary btn-lg btn-block">비밀번호 재발급</button>
+						<button type="button" class="btn btn-primary btn-lg btn-block" onclick = "location.href='reissuePassword'">비밀번호 재발급</button>
 					</p>
 				</form>
 			</div>

@@ -17,17 +17,6 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	private static String namespace = "org.gidal.mapper.AuthenticationMapper";
 
 	@Override
-	public UserVO user_login(UserVO user) {
-		return session.selectOne(namespace + ".user_login", user);
-	}
-
-	@Override
-	public EnterpriseVO enterpirse_login(EnterpriseVO enterprise) {
-		return session.selectOne(namespace + ".enterprise_login", enterprise);
-	}
-
-
-	@Override
 	public int user_password_foget(UserVO vo) {
 		return session.update(namespace + ".user_forget", vo);
 	}
@@ -38,24 +27,13 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	}
 
 	@Override
-	public void user_delete(UserVO vo) {
-		session.delete(namespace + "user_delete");
+	public UserVO user_check(UserVO vo) {
+		return session.selectOne(namespace + ".user_check", vo);
 	}
 
 	@Override
-	public void enterprise_delete(EnterpriseVO vo) {
-		session.delete(namespace + ".enterprise");
-	}
-
-	@Override
-	public boolean user_check(UserVO vo) {
-		return session.selectOne(namespace + ".user_check");
-
-	}
-
-	@Override
-	public boolean enterprise_check(EnterpriseVO vo) {
-		return session.selectOne(namespace + ".enterprise_check");
+	public EnterpriseVO enterprise_check(EnterpriseVO vo) {
+		return session.selectOne(namespace + ".enterprise_check", vo);
 	}
 
 

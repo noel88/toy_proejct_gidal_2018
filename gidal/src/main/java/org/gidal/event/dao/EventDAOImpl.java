@@ -59,7 +59,6 @@ public class EventDAOImpl implements EventDAO {
 	@Override
 	public void eventModify(EventVO event) {
 	    session.update(namespace + ".eventModify", event);
-		
 	}
 
 	@Override

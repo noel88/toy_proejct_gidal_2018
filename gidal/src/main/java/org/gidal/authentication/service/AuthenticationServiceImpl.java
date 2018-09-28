@@ -1,11 +1,14 @@
 package org.gidal.authentication.service;
 
+import java.util.Random;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.gidal.authentication.dao.AuthenticationDAO;
 import org.gidal.authentication.dto.LoginDTO;
+import org.gidal.authentication.dto.ReissuePasswordDTO;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.user.domain.UserVO;
 import org.gidal.util.SHA256;
@@ -23,9 +26,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	@Resource(name = "adminPW")
 	private String adminPW;
 
-
-	
-
 	@Override
 	public String login(LoginDTO loginInfo) {
 	
@@ -42,125 +42,90 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		vo1.setUser_email(loginInfo.getLogin_email());
 		vo1.setUser_password(loginInfo.getLogin_password());
 		
-		vo1 = dao.user_login(vo1);
+		vo1 = dao.user_check(vo1);
 
-		if(vo1 == null) {
+		if(vo1 != null) {
+			loginCheck = "user";
+		} else {
 			vo2.setEnterprise_email(loginInfo.getLogin_email());
 			vo2.setEnterprise_password(loginInfo.getLogin_password());
+
+			vo2 = dao.enterprise_check(vo2);
 			
-			vo2 = dao.enterpirse_login(vo2);
-			
-			if(vo2 == null) {
-				
-				if(loginInfo.getLogin_email().equals(adminID) && loginInfo.getLogin_password().equals(sha.getSHA256(adminPW))) {
-					loginCheck = "admin";
-				}
-		
-			} else {
+			if(vo2 != null) {
 				loginCheck = "enterpirse";
+			} else if(loginInfo.getLogin_email().equals(adminID) && loginInfo.getLogin_password().equals(sha.getSHA256(adminPW))) {
+				loginCheck = "admin";
 			}
-		} else {
-			loginCheck = "user";
 		}
 		
 		return loginCheck;
-		
-
-/*
-		if(dao.user_login(vo1)) {
-
-			session.setAttribute("email", email);
-
-			return true;
-
-		}else if (dao.enterpirse_login(vo2)) {
-
-			session.setAttribute("email", vo2.getEnterprise_email());
-			session.setAttribute("cod", vo2.getEnterprise_code());
-
-			return true;
-
-		}else {
-
-			//둘다 일치하지 않음
-			return false;
-
-		}
-*/
 
 	}
-
+	
 	@Override
-	public String password_foget(String email) {
+	public String reissuePassword(ReissuePasswordDTO reissuePassword) {
+		
+		String newPassword = "";
 
 		SHA256 sha = new SHA256();
 		UserVO vo1 = new UserVO();
 		EnterpriseVO vo2 = new EnterpriseVO();
-		String new_password;
-
-		if (dao.user_check(vo1)) {
-
-			new_password = sha.getSHA256(email);
-			vo1.setUser_password(new_password);
+		
+		vo1.setUser_email(reissuePassword.getReissuePassword_email());
+		vo1.setUser_name(reissuePassword.getReissuePassword_name());
+		vo1.setUser_phoneNum(reissuePassword.getReissuePassword_phoneNum());
+		
+		vo1 = dao.user_check(vo1);
+		
+		if(vo1 != null) {
+			newPassword = createNewPassword();
+			vo1.setUser_password(sha.getSHA256(newPassword));
 			dao.user_password_foget(vo1);
-
-			return new_password;
-
-		} else if (dao.enterprise_check(vo2)) {
-
-			new_password = sha.getSHA256(email);
-			vo2.setEnterprise_password(new_password);
-			dao.enterprise_password_foget(vo2);
-
-			return new_password;
-
 		} else {
-
-			// 회원, 기업 둘다 아니므로 오류
-			return null;
-
+			vo2.setEnterprise_email(reissuePassword.getReissuePassword_email());
+			vo2.setEnterprise_name(reissuePassword.getReissuePassword_name());
+			vo2.setEnterprise_phone(reissuePassword.getReissuePassword_phoneNum());
+			
+			vo2 = dao.enterprise_check(vo2);
+			
+			if(vo2 != null) {
+				newPassword = createNewPassword();
+				vo2.setEnterprise_password(sha.getSHA256(newPassword));
+				dao.enterprise_password_foget(vo2);
+			}
 		}
-
-
+		
+		return newPassword;
 	}
 
+	public String createNewPassword() {
+		String newPassword = "";
 
+		for (int i = 0; i < 10; i++) {
 
+			Random ran = new Random();
+
+			int category = ran.nextInt(3);
+				
+			if (category == 0) {
+				newPassword = newPassword + (char)(ran.nextInt(26) + 65); 
+			} else if (category == 1) {
+				newPassword = newPassword + (char)(ran.nextInt(26) + 97); 
+			} else {
+				newPassword = newPassword + ran.nextInt(10); 
+			}
+
+		}
+		
+		return newPassword;
+
+	}
 
 	@Override
 	public void logout(HttpSession session) {
 		session.invalidate();
 	}
-
-
-	@Override
-	public void delete(String email) {
-
-
-		UserVO vo1 = new UserVO();
-		EnterpriseVO vo2 = new EnterpriseVO();
-
-
-		if (dao.user_check(vo1)) {
-
-			dao.user_delete(vo1);
-
-		} else if (dao.enterprise_check(vo2)) {
-
-			dao.enterprise_delete(vo2);
-
-		} else {
-
-			// 회원, 기업 둘다 아니므로 오류
-
-		}
-
-
-	}
-
-
-
-
 
 
 }

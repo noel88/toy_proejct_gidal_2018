@@ -46,11 +46,12 @@ public class AdminServiceImpl implements AdminService{
 	
 	private String uploadFile(String originalName, byte[] fileData) throws Exception {
 
+		String EventUploadPath = uploadPath + "\\event";
 		UUID uid = UUID.randomUUID();
 
 		String savedName = uid.toString() + "_" + originalName;
 
-		File target = new File(uploadPath, savedName);
+		File target = new File(EventUploadPath, savedName);
 
 		FileCopyUtils.copy(fileData, target);
 

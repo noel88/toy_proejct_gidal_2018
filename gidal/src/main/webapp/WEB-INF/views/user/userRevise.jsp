@@ -13,41 +13,6 @@
 <script type="text/javascript">
 
 
-    //아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
-    var idCheck = 0;
-    var pwdCheck = 0;
-    //가입버튼 비활성화, 중복확인.
-
-    function checkEmail() {
-       var inputed = $('.email').val();
-       console.log(inputed);
-        $.ajax({
-            data : {
-            	user_email : inputed
-            },
-            url : "emailCheck",
-            success : function(data) {
-                if(inputed=="" && data=='0') {
-                    $(".signupbtn").prop("disabled", true);
-                    $(".signupbtn").css("background-color", "#aaaaaa");
-                    $("#checkaa").css("background-color", "#FFCECE");
-                    idCheck = 0;
-                } else if (data == '0') {
-                    $("#checkaa").css("background-color", "#fcfadb");
-                    idCheck = 1;
-                    if(idCheck==1 && pwdCheck == 1) {
-                        $(".signupbtn").prop("disabled", false);
-                        $(".signupbtn").css("background-color", "#ff7777");
-                    }
-                } else if (data == '1') {
-                    $(".signupbtn").prop("disabled", true);
-                    $(".signupbtn").css("background-color", "#aaaaaa");
-                    $("#checkaa").css("background-color", "#FFCECE");
-                    idCheck = 0;
-                }
-            }
-        });
-    }
 
   //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
     function checkPwd() {
@@ -78,7 +43,7 @@
 
 
   function join() {
-	  alert('회원가입이 완료되었습니다');
+	  alert('회원정보수정이 완료되었습니다');
   }
 
 
@@ -95,7 +60,7 @@
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-			<h1>개인 회원가입</h1>
+			<h1>개인 정보 수정</h1>
 
 			<hr class="my-4">
 			<!-- <p class="lead">This is a simple hero unit, a simple
@@ -109,14 +74,14 @@
 		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "userjoin" onsubmit="return tocheckpw2()" data-ajax="false" method = "post" onsubmit="return join();">
+				<form action = "userRevise" onsubmit="return tocheckpw2()" data-ajax="false" method = "post" onsubmit="return join();">
 					<p>
 
 						<label class="col-form-label" for="inputDefault">휴대폰번호</label>
 						<input type="text" name="user_phoneNum" class="form-control" id="phone" placeholder="휴대폰번호" maxlength="13"  />
 
-						<label class="col-form-label" for="inputDefault">이메일</label>
-						<input type="email" class="form-control email" name="user_email" placeholder="이메일"  oninput="checkEmail()" id="checkaa" autofocus>
+						
+						<input type="hidden"  name="user_email" value="${LOGIN}" >
 
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
@@ -139,7 +104,7 @@
 						</select>
 					</p>
 					<p>
-						<button type="submit" class="btn btn-primary btn-lg btn-block signupbtn"  disabled="disabled">회원가입</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block "  >정보수정</button>
 					</p>
 				</form>
 			</div>

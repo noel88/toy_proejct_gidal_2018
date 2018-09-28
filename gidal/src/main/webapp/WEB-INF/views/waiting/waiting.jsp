@@ -12,13 +12,15 @@
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 
 
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=yglvoY5wuWlYxRRuFuXP&submodules=geocoder"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 </head>
 <body>
 
 	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-<form action="waiting_insert">
+
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
@@ -26,8 +28,7 @@
 
 
 
-  			<div id="carouselExampleIndicators" class="carousel slide"
-				data-ride="carousel">
+  			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0"
 						class="active"></li>
@@ -92,8 +93,23 @@
 		<tr>
 			<td rowspan="8" style="width: 40%;">
 
+<fieldset>
+    <legend><i class="fas fa-clock"></i>&nbsp;웨이팅 현황 [${count}명 대기중]</legend>
+
+<div style="overflow:auto; height:150px;">
+    <c:forEach items = "${list}" var = "WaitingVO">
+		<c:set var= "cnt" value="${cnt + 1}"/>
+		<fmt:formatNumber var="cnt" minIntegerDigits="2" value="${cnt}" type="number"/>
+		[<c:out value="${cnt}"/>]<b><c:out value='${fn:substring(WaitingVO.waiting_now, 10, 19)}'/></b> ${WaitingVO.user_name} ${WaitingVO.waiting_personnel}명&nbsp;<i class="fas fa-history"></i>
+	<br>
+  	</c:forEach>
+</div>
+
+    </fieldset>
+<hr>
 
 
+<form action="waiting_insert">
   <fieldset>
     <legend>웨이팅하기</legend>
 
@@ -129,26 +145,21 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary">웨이팅하기</button>
+    <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-right">&nbsp;웨이팅하기</i></button>
   </fieldset>
 </form>
 
 
-
-
-
-
-
 			</td>
 
-<td rowspan="8" style="width: 10%;"></td>
+<td rowspan="8" style="width: 5%;"></td>
 
 
 		</tr>
 			<tr>
 		      <td>
 		      	<h5><!--  식당명 -->
-					  Restaurant Name <br>
+					  <i class="fas fa-check">&nbsp;Restaurant Name</i> <br>
 					  <small class="text-muted">${enterpriseVO.enterprise_businessName}</small>
 				</h5>
 				</td>
@@ -156,7 +167,7 @@
   			<tr>
 		      <td>
 		      	<h5><!-- 연락처  -->
-					  Restaurant Phone <br>
+					  <i class="fas fa-check">&nbsp;Restaurant Phone</i> <br>
 					  <small class="text-muted">${enterpriseVO.enterprise_phone}</small>
 				</h5>
 		      </td>
@@ -165,7 +176,8 @@
   			<tr>
 		      <td>
 		      	<h5> <!-- 엄종  -->
-					  Restaurant Sectors <br>
+					   <i class="fas fa-check">&nbsp;Restaurant Sectors</i> <br>
+
 					  <small class="text-muted">${enterpriseVO.enterprise_sectors}</small>
 				</h5>
 		      </td>
@@ -174,7 +186,7 @@
   			<tr>
 		      <td>
 		      	<h5> <!-- 도로명주소(상세주소 포함)  -->
-					  Restaurant Address <br>
+					  <i class="fas fa-check">&nbsp;Restaurant Address </i><br>
 					  <small class="text-muted">${enterpriseVO.enterprise_add2}, ${enterpriseVO.enterprise_add3}</small>
 				</h5>
 		      </td>
@@ -182,7 +194,7 @@
   			<tr>
 		      <td>
 		      	<h5><!-- 영업시간  -->
-					  Restaurant Time <br>
+					  <i class="fas fa-check">&nbsp;Restaurant Time </i><br>
 					  <small class="text-muted">${enterpriseVO.enterprise_operatingOpenTime} ~ ${enterpriseVO.enterprise_operatingCloseTime}</small>
 				</h5>
 		      </td>
@@ -190,7 +202,7 @@
   			 <tr>
 		      <td>
 		      	<h5><!-- 브레이크 타임  -->
-					  Restaurant Break Time <br>
+					  <i class="fas fa-check">&nbsp;Restaurant Break Time</i> <br>
 					  <small class="text-muted">${enterpriseVO.enterprise_breakStartTime} ~ ${enterpriseVO.enterprise_breakCloseTime}</small>
 				</h5>
 		      </td>
@@ -208,10 +220,111 @@
 
 
 </table>
+
+<div id="map" style="width:100%;height:400px;">
+					</div>
 		</div>
-
 	</div>
+					<script>
 
+
+					var map = new naver.maps.Map("map", {
+					    center: new naver.maps.LatLng(37.3595316, 127.1052133),
+					    zoom: 10,
+					    mapTypeControl: true
+					});
+
+					var infoWindow = new naver.maps.InfoWindow({
+					    anchorSkew: true
+					});
+
+					map.setCursor('pointer');
+
+					// search by tm128 coordinate
+					function searchCoordinateToAddress(latlng) {
+					    var tm128 = naver.maps.TransCoord.fromLatLngToTM128(latlng);
+
+					    infoWindow.close();
+
+					    naver.maps.Service.reverseGeocode({
+					        location: tm128,
+					        coordType: naver.maps.Service.CoordType.TM128
+					    }, function(status, response) {
+					        if (status === naver.maps.Service.Status.ERROR) {
+					            return alert('Something Wrong!');
+					        }
+
+					        var items = response.result.items,
+					            htmlAddresses = [];
+
+					        for (var i=0, ii=items.length, item, addrType; i<ii; i++) {
+					            item = items[i];
+					            addrType = item.isRoadAddress ? '[도로명 주소]' : '[지번 주소]';
+
+					            htmlAddresses.push((i+1) +'. '+ addrType +' '+ item.address);
+					        }
+
+					        infoWindow.setContent([
+					                '<div style="padding:10px;min-width:200px;line-height:150%;">',
+					                '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
+					                htmlAddresses.join('<br />'),
+					                '</div>'
+					            ].join('\n'));
+
+					        infoWindow.open(map, latlng);
+					    });
+					}
+
+					// result by latlng coordinate
+					function searchAddressToCoordinate(address) {
+					    naver.maps.Service.geocode({
+					        address: address
+					    }, function(status, response) {
+					        if (status === naver.maps.Service.Status.ERROR) {
+					            return alert('Something Wrong!');
+					        }
+
+					        var item = response.result.items[0],
+					            addrType = item.isRoadAddress ? '[도로명 주소]' : '[지번 주소]',
+					            point = new naver.maps.Point(item.point.x, item.point.y);
+
+					        infoWindow.setContent([
+					                '<div style="padding:10px;min-width:200px;line-height:150%;">',
+					                '<h4 style="margin-top:5px;">검색 주소 : '+ response.result.userquery +'</h4><br />',
+					                addrType +' '+ item.address +'<br />',
+					                '</div>'
+					            ].join('\n'));
+
+
+					        map.setCenter(point);
+					        infoWindow.open(map, point);
+					    });
+					}
+
+					function initGeocoder() {
+					    map.addListener('click', function(e) {
+					        searchCoordinateToAddress(e.coord);
+					    });
+
+					    $('#address').on('keydown', function(e) {
+					        var keyCode = e.which;
+
+					        if (keyCode === 13) { // Enter Key
+					            searchAddressToCoordinate($('#address').val());
+					        }
+					    });
+
+					    $('#submit').on('click', function(e) {
+					        e.preventDefault();
+
+					        searchAddressToCoordinate($('#address').val());
+					    });
+					    <c:set var="address" value="${enterpriseVO.enterprise_add2} / ${enterpriseVO.enterprise_add3}"/>
+					    searchAddressToCoordinate('${enterpriseVO.enterprise_add2}');
+					}
+
+					naver.maps.onJSContentLoaded = initGeocoder;
+					</script>
 </body>
 </html>
 

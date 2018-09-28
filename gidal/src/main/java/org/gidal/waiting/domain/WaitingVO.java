@@ -8,8 +8,18 @@ public class WaitingVO {
 	private String user_name;
 	private String user_phoneNum;
 	private String waiting_now;
+	private String waiting_yn;
 	private String waiting_wait_personnel;
 
+
+
+
+	public String getWaiting_yn() {
+		return waiting_yn;
+	}
+	public void setWaiting_yn(String waiting_yn) {
+		this.waiting_yn = waiting_yn;
+	}
 	public int getWaiting_code() {
 		return waiting_code;
 	}

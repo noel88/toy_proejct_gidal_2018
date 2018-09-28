@@ -20,14 +20,66 @@
 		enterprise_operatingTime = #{enterprise_operatingTime}, enterprise_breakTime = #{enterprise_breakTime}, enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
 	</update> -->
 
-	<delete id="delete">
-		delete from user where user_email = #{user_email}
+	<delete id="userDelete">
+		DELETE FROM `gidal`.`user` WHERE  `user_email`=#{user_email};
 	</delete>
 
 
+	<select id="UserPageReserve" resultType="org.gidal.user.domain.UserPageVO">
+		select 
+		a.enterprise_businessName,b.reserve_personnel,b.reserve_datetime,b.user_name 
+		from enterprise a inner join reserve b 
+		on a.enterprise_code = b.enterprise_code
+		ORDER BY 
+			reserve_code DESC
+		LIMIT 
+			#{startRow}, 10;
+	</select>
+	
+	<select id="UserPageReserveCount" resultType="int">
+		<![CDATA[
+		SELECT 
+			count(reserve_code) 
+		FROM 
+			reserve 
+		
+		]]>
+	</select>
+	
+	<select id="UserPageWaiting" resultType="org.gidal.user.domain.UserPageWaitingVO">
+			select a.enterprise_businessName,b.waiting_personnel,b.waiting_now,b.user_name 
+			from enterprise a inner join waiting b 
+			on a.enterprise_code = b.enterprise_code
+			ORDER BY 
+			waiting_code DESC
+			LIMIT 
+			#{startRow}, 10;		
+	</select>
 
+	<select id="emailCheck"
+	    parameterType="org.gidal.enterprise.domain.EnterpriseVO" resultType="java.lang.Integer">
+	    SELECT IFNULL(COUNT(*),0)
+	    FROM user WHERE user_email=#{user_email}
 
+	</select>
 
+	<select id="UserPageWaitingCount" resultType="int">
+		<![CDATA[
+		SELECT 
+			count(waiting_code) 
+		FROM 
+			waiting
+		
+		]]>
+	</select>
+	
+	<insert id="userRevise">
+		UPDATE `gidal`.`user` 
+		SET  `user_phoneNum`=#{user_phoneNum},`user_password`=#{user_password}, `user_name`=#{user_name}, `user_gender`=#{user_gender} 
+		WHERE  `user_email`=#{user_email};
+	</insert>
 
-
-</mapper>
+	</mapper>
+	
+	
+	

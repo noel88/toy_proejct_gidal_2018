@@ -1,5 +1,7 @@
 package org.gidal.waiting.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
@@ -32,7 +34,22 @@ public class WaitingServiceImpl implements WaitingService{
 
 	@Override
 	public int waiting_insert(WaitingVO vo) {
+		vo.setWaiting_yn("n");
 		return dao.waiting_insert(vo);
+	}
+
+
+
+	@Override
+	public List<WaitingVO> waiting_view(Integer code) {
+		return dao.waiting_view(code);
+	}
+
+
+
+	@Override
+	public int waiting_count(Integer code) {
+		return dao.waiting_count(code);
 	}
 
 }

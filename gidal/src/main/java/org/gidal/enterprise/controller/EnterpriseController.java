@@ -46,6 +46,13 @@ public class EnterpriseController {
 
 	}
 
+	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
+	public String enterprise_page() {
+
+		return "/enterprise/enter_page";
+
+	}
+
 
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -154,7 +161,7 @@ public class EnterpriseController {
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int idCheck(EnterpriseVO vo, Model model) {
         return service.enterprise_check(vo);
-    }//
+    }
 
 
 

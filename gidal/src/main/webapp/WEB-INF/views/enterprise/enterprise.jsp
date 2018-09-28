@@ -131,6 +131,11 @@ function execPostCode() {
     }
 
 
+  function join() {
+	  alert('회원가입이 완료되었습니다');
+  }
+
+
 </script>
 
 
@@ -142,7 +147,7 @@ function execPostCode() {
 
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form name = "form" action = "join" method = "post" enctype="multipart/form-data">
+				<form name = "form" action = "join" method = "post" enctype="multipart/form-data" onsubmit="return join();">
 
 
 					<p>

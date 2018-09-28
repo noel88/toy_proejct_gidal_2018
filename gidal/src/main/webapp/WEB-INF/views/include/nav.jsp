@@ -44,9 +44,9 @@
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>&nbsp;&nbsp;
 			</form>
 			</div>
-		
+
 			<div>
-				
+
 				<c:choose>
 					<c:when test = "${ empty LOGIN }">
 						<span class="navbar-text">
@@ -71,7 +71,7 @@
 											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
 										</c:when>
 										<c:when test = "${ LEVEL eq 'enterpirse' }">
-											<a class="dropdown-item" href="/authentication/signIn">마이페이지</a>
+											<a class="dropdown-item" href="/enterprise/enter_page">마이페이지</a>
 											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
 										</c:when>
 										<c:when test = "${ LEVEL eq 'admin' }">

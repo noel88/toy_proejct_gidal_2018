@@ -20,8 +20,8 @@
 		enterprise_operatingTime = #{enterprise_operatingTime}, enterprise_breakTime = #{enterprise_breakTime}, enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
 	</update> -->
 
-	<delete id="delete">
-		delete from user where user_email = #{user_email}
+	<delete id="userDelete">
+		DELETE FROM `gidal`.`user` WHERE  `user_email`=#{user_email};
 	</delete>
 
 
@@ -73,7 +73,11 @@
 		]]>
 	</select>
 	
-	
+	<insert id="userRevise">
+		UPDATE `gidal`.`user` 
+		SET  `user_phoneNum`=#{user_phoneNum},`user_password`=#{user_password}, `user_name`=#{user_name}, `user_gender`=#{user_gender} 
+		WHERE  `user_email`=#{user_email};
+	</insert>
 
 	</mapper>
 	

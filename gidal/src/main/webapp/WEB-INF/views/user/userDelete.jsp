@@ -16,10 +16,12 @@
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-			<h1><a href="userReservePage">예약</a></h1><h1><a href="userWaitingPage">웨이팅</a></h1>
-			<h1><a href="userReviseForm">회원 정보수정</a></h1>
-			<h1><a href="userDeleteForm">회원 탈퇴</a></h1>
-			
+			<form action="userDelete" method = "post">
+			<h1>회원탈퇴</h1>
+			<input type="hidden"  name="user_email" value="${LOGIN}" >
+			정말 탈퇴하시겠습니까?<br />
+			<button type="submit">예</button>
+			</form>
 			<hr class="my-4">
 			<!-- <p class="lead">This is a simple hero unit, a simple
 			jumbotron-style component for calling extra attention to featured

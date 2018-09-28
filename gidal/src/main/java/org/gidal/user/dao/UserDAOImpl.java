@@ -23,14 +23,14 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public int user_join(UserVO vo) {
 		
-		System.out.println(vo.getUser_email());
+		
 		return sqlsession.insert(namespace + ".userjoin", vo);
 	}
 
 	@Override
-	public int userBoard_update(UserVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int user_revise(UserVO vo) {
+	
+		return sqlsession.insert(namespace + ".userRevise", vo) ;
 	}
 
 	@Override
@@ -67,6 +67,12 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public int UserPageWaitingCount() {
 		return sqlsession.selectOne(namespace + ".UserPageWaitingCount");
+	}
+
+	@Override
+	public int userDelete(UserVO vo) {
+		
+		return sqlsession.insert(namespace + ".userDelete", vo) ;
 	}
 
 }

@@ -24,7 +24,11 @@
 		delete from user where user_email = #{user_email}
 	</delete>
 
-
+	<select id="emailCheck"
+	    parameterType="org.gidal.enterprise.domain.EnterpriseVO" resultType="java.lang.Integer">
+	    SELECT IFNULL(COUNT(*),0)
+	    FROM user WHERE user_email=#{user_email}
+	</select>
 
 
 

@@ -154,7 +154,7 @@ public class EnterpriseController {
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int idCheck(EnterpriseVO vo, Model model) {
         return service.enterprise_check(vo);
-    }//
+    }
 
 
 

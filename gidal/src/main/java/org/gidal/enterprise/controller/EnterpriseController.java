@@ -46,6 +46,13 @@ public class EnterpriseController {
 
 	}
 
+	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
+	public String enterprise_page() {
+
+		return "/enterprise/enter_page";
+
+	}
+
 
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)

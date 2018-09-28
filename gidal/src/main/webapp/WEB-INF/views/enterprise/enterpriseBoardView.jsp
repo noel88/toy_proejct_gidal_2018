@@ -714,19 +714,19 @@ function load(id, cnt, btn) {
 			<c:choose>
 				<c:when test = "${EnterpriseVO.enterprise_service == '1'}">
 	  			<tr>
-			      <td colspan="2">&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅하기</button></a>&nbsp;&nbsp;&nbsp;</td>
+			      <td colspan="2" style="float: left;">&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a></td>
 		    	<tr>
 			    </c:when>
 			    <c:when test = "${EnterpriseVO.enterprise_service == '2'}">
 			    <tr>
-			      <td colspan="2">&nbsp;&nbsp;&nbsp;<a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약하기</button></a>&nbsp;&nbsp;&nbsp;</td>
+			      <td colspan="2" style="float: left;">&nbsp;&nbsp;&nbsp;<a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약</button></a></td>
 			    </tr>
 			    </c:when>
 
 	      <c:otherwise>
 	    		  <tr>
-			      <td colspan="2">&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅하기</button></a>
-			       <a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약하기</button></a></td>
+			      <td colspan="2">&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a>
+			       <a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약</button></a></td>
 	     	  	</tr>
 	       </c:otherwise>
 			</c:choose>

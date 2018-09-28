@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService{
 		return dao.user_check(vo);
 	}
 
-<<<<<<< HEAD
+
 
 
 	@Override
@@ -100,8 +100,6 @@ public class UserServiceImpl implements UserService{
 		return dao.UserPageWaitingCount();
 	}
 	
-=======
->>>>>>> branch 'master' of https://github.com/noel88/gidal.git
 
 
 

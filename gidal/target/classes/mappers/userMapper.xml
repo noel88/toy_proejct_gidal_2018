@@ -24,7 +24,7 @@
 		delete from user where user_email = #{user_email}
 	</delete>
 
-<<<<<<< HEAD
+
 	<select id="UserPageReserve" resultType="org.gidal.user.domain.UserPageVO">
 		select 
 		a.enterprise_businessName,b.reserve_personnel,b.reserve_datetime,b.user_name 
@@ -54,13 +54,13 @@
 			waiting_code DESC
 			LIMIT 
 			#{startRow}, 10;		
-			
-=======
+	</select>
+
 	<select id="emailCheck"
 	    parameterType="org.gidal.enterprise.domain.EnterpriseVO" resultType="java.lang.Integer">
 	    SELECT IFNULL(COUNT(*),0)
 	    FROM user WHERE user_email=#{user_email}
->>>>>>> branch 'master' of https://github.com/noel88/gidal.git
+
 	</select>
 
 	<select id="UserPageWaitingCount" resultType="int">
@@ -72,5 +72,10 @@
 		
 		]]>
 	</select>
+	
+	
 
-</mapper>
+	</mapper>
+	
+	
+	

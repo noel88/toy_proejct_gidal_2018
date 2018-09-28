@@ -9,11 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.RequestParam;
-=======
+
 import org.springframework.web.bind.annotation.ResponseBody;
->>>>>>> branch 'master' of https://github.com/noel88/gidal.git
+
 
 @Controller
 @RequestMapping("/user/")
@@ -60,7 +60,7 @@ public class UserController {
 	public String userpage() {
 		return "user/userpage";
 	}
-<<<<<<< HEAD
+
 	@RequestMapping(value = "/userReservePage", method = RequestMethod.GET)
 	public void userReservePage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)throws Exception  {
 		int UserPageReserveCount = service.UserPageReserveCount();
@@ -80,7 +80,7 @@ public class UserController {
 		model.addAttribute("list1",service.UserPageWaiting(page));
 	}
 	
-=======
 
->>>>>>> branch 'master' of https://github.com/noel88/gidal.git
+
+
 }

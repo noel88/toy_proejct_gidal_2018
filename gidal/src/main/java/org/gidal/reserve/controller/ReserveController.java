@@ -19,7 +19,16 @@ public class ReserveController {
 	@Inject
 	private ReserveService service;
 
-
+	/**
+	 * 예약 페이지 이동 
+	 * 
+	 * 로그인 세션을 이용하여, 이름과 전화번호를 세션에 넣어주어 페이지 이동.
+	 * 
+	 * @param int, HttpSession, Model
+	 * @return Model
+	 * @throws 
+	 */
+	
 	@RequestMapping(value = "/reserve", method = RequestMethod.GET)
 	public Model enterprise_details(@RequestParam("enterprise_code") int code, HttpSession session, Model model) {
 
@@ -33,6 +42,14 @@ public class ReserveController {
 
 	}
 
+	/**
+	 * 예약 처리 메소드
+	 * 
+	 * @param ReserveVO
+	 * @return String
+	 * @throws 
+	 */
+	
 	@RequestMapping(value = "/reserve_insert", method = RequestMethod.GET)
 	public String reserve_insert(ReserveVO vo) {
 

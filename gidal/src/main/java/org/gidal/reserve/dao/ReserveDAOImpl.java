@@ -26,19 +26,16 @@ public class ReserveDAOImpl implements ReserveDAO{
 
 	@Override
 	public List<ReserveVO> reserve_view() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int reserve_update() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void reserve_cancel() {
-		// TODO Auto-generated method stub
 
 	}
 

@@ -29,7 +29,6 @@ public class EnterpriseVO {
 
 
 	public EnterpriseVO() {
-		// TODO Auto-generated constructor stub
 	}
 
 

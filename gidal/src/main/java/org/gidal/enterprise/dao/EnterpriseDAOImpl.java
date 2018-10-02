@@ -24,7 +24,6 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	@Override
 	public int enterpriseBoard_update(EnterpriseVO vo) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

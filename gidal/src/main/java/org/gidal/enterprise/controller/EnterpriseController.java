@@ -1,8 +1,5 @@
 package org.gidal.enterprise.controller;
 
-
-
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -38,6 +35,13 @@ public class EnterpriseController {
 
 
 
+	/**
+	 * 기업 회원가입 페이지 이동
+	 * 
+	 * @param 
+	 * @return String
+	 * @throws 
+	 */	
 
 	@RequestMapping(value = "/enterprise", method = RequestMethod.GET)
 	public String enterprise_joinForm() {
@@ -46,6 +50,16 @@ public class EnterpriseController {
 
 	}
 
+
+	/**
+	 * 기업페이지 이동
+	 * 
+	 * @param 
+	 * @return String
+	 * @throws 
+	 */	
+
+	
 	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
 	public String enterprise_page() {
 
@@ -54,11 +68,19 @@ public class EnterpriseController {
 	}
 
 
+	/**
+	 * 글쓰기 폼으로 이동
+	 * 
+	 * @param MultipartHttpServletRequest 
+	 * @return String
+	 * @throws IOException, Exception
+	 */	
 
+	//FIXME 파일 업로드 관련 정리, 파일명 [상포명+파일이름]으로 변경될수 있게.
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String enterprise_join(MultipartHttpServletRequest request) throws IOException, Exception {
 
-			EnterpriseVO vo = new EnterpriseVO();
+		EnterpriseVO vo = new EnterpriseVO();
 
 			//파일업로드
 
@@ -77,7 +99,6 @@ public class EnterpriseController {
 			vo.setEnterprise_closed(request.getParameter("enterprise_closed"));
 			vo.setEnterprise_sectors(request.getParameter("enterprise_sectors"));
 			vo.setEnterprise_service(request.getParameter("enterprise_service"));
-
 
 			MultipartFile mf = request.getFile("enterprise_mainImg");
 			MultipartFile mf1 = request.getFile("enterprise_img1");
@@ -116,61 +137,48 @@ public class EnterpriseController {
 			vo.setEnterprise_img4(filename4);
 
 		        service.enterprise_join(vo);
-
-
 		        return "redirect:/authentication/signIn";
 
 	}
 
-
-
-	//식당목록보기
+	/**
+	 * 식당 게시판 전체 목록 페이지
+	 * 
+	 * 비회원은 페이지에 들어갈수 없다.
+	 * 
+	 * @param Model, HttpSession
+	 * @return String
+	 * @throws 
+	 */	
+	
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public String enterprise_view(Model model, HttpSession session) {
 
 		String login = (String)session.getAttribute("LOGIN");
 
-
-
 		if(login == null) {
-
 			return "redirect:/authentication/signIn";
 		}else {
-
 			model.addAttribute("list", service.enterpriseBoard_list());
 			return "/enterprise/enterpriseBoardView";
-
 		}
 
 	}
 
-
-
-
-/*
-	//이메일 중복 확인
-	@RequestMapping(value = "/emailCheck", method = RequestMethod.GET)
-	public void enterprise_check(@RequestParam("enterprise_email") String email, EnterpriseVO vo, Model model) {
-
-		vo.setEnterprise_email(email);
-		model.addAttribute("result",service.enterprise_check(email));
-
-
-	}*/
+	/**
+	 * 식당 게시판 전체 목록 페이지
+	 * 
+	 * 비회원은 페이지에 들어갈수 없다.
+	 * 
+	 * @param EnterpriseVO, Model
+	 * @return @ResponseBody int
+	 * @throws 
+	 */	
 
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int idCheck(EnterpriseVO vo, Model model) {
         return service.enterprise_check(vo);
     }
-
-
-
-
-
-
-
-
-	//수정
 
 
 

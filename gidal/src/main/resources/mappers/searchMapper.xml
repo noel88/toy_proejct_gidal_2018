@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gidal.mapper.SearchMapper">
+
+	<select id="searchList" resultType="org.gidal.enterprise.domain.EnterpriseVO">
+		SELECT 
+			enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg, 
+			enterprise_service, enterprise_add2, enterprise_closed, enterprise_service 
+		FROM 
+			enterprise 
+		WHERE 
+			enterprise_businessname LIKE #{search};
+	</select>
+
+	
+</mapper>

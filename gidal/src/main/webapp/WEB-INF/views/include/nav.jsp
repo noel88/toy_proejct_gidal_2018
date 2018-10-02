@@ -3,6 +3,8 @@
 	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div style = "background-color : #EB6864;">
+<!-- <div style = "background-color : #EB6864; position : fixed; width : 100%; z-index : 1;"> -->
+<!-- 각 JSP파일 수정 시 상단바 고정됨 <div style="max-width: 1000px; padding-top : 60px; margin-right: auto; margin-left: auto;"> -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style = "max-width : 1050px; margin-right : auto; margin-left : auto;">
 		<a class="navbar-brand" href="/">
 			<img src="/resources/img/logo/GiDal.png" style="margin : auto; height : 30px; width : auto;">
@@ -38,9 +40,9 @@
      			</li>
 			</ul>
 			<div>
-			<form class="form-inline my-2 my-lg-0" action = "/WEB-INF/views/search/search" method = "post">
+			<form class="form-inline my-2 my-lg-0" action = "/search/search" method = "get">
 
-				<input class="form-control mr-sm-2" type="text" placeholder="업체검색">
+				<input class="form-control mr-sm-2" name = "search" type="text" placeholder="업체검색">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>&nbsp;&nbsp;
 			</form>
 			</div>

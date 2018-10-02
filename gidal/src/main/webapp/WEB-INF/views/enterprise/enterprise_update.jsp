@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -99,8 +102,8 @@ function execPostCode() {
 
 
 <div style="width: 50%; margin-right: auto; margin-left: auto;">
-
 				<form name = "form" action = "update" method = "post" enctype="multipart/form-data" onsubmit="return update();">
+
 
 
 					<p>
@@ -119,46 +122,46 @@ function execPostCode() {
 
 					 <p>
 						<label class="col-form-label" for="inputDefault">매장명</label>
-						<input type="text" class="form-control" name = "enterprise_businessName" placeholder="매장명" id="inputDefault">
+						<input type="text" class="form-control" name = "enterprise_businessName" value = "${list.enterprise_businessName}">
 
 						<label class="col-form-label" for="inputDefault">매장 전화번호</label>
-						<input type="text" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="inputDefault">
+						<input type="text" class="form-control" name = "enterprise_phone" value = "${list.enterprise_phone}">
 
 
 
 						<label class="col-form-label" for="inputDefault">매장 주소</label>
 						<div class="form-group">
-						<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="enterprise_add1" id="add1" type="text" readonly="readonly" >
+						<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="enterprise_add1" id="add1" type="text"  value = "${list.enterprise_add1}" readonly="readonly" >
 						    <button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
 						</div>
 						<div class="form-group">
-						    <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="enterprise_add2" id="add2" type="text" readonly="readonly" />
+						    <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="enterprise_add2" id="add2"  value = "${list.enterprise_add2}" type="text" readonly="readonly" />
 						</div>
 						<div class="form-group">
-						    <input class="form-control" placeholder="상세주소" name="enterprise_add3" id="add3" type="text"  />
+						    <input class="form-control" placeholder="상세주소" name="enterprise_add3"  value = "${list.enterprise_add3}" id="add3" type="text"  />
 						</div>
 
 
 
 						<label class="col-form-label" for="inputDefault">영업시작시간</label>
-						<select class="custom-select" name = "enterprise_operatingOpenTime" id="exampleSelect1">
+						<select class="custom-select" name = "enterprise_operatingOpenTime">
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
 
 
 						<label class="col-form-label" for="inputDefault" >영업종료시간</label>
-						<select class="custom-select"  name = "enterprise_operatingCloseTime" id="exampleSelect1">
+						<select class="custom-select"  name = "enterprise_operatingCloseTime">
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
 
 						<label class="col-form-label" for="inputDefault">브레이크타임시작시간 </label>
 
-						<select class="custom-select"  name = "enterprise_breakStartTime" id="exampleSelect1">
+						<select class="custom-select"  name = "enterprise_breakStartTime">
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
 
 						<label class="col-form-label" for="inputDefault">브레이크타임종료시간 </label>
-						<select class="custom-select" name = "enterprise_breakCloseTime" id="exampleSelect1">
+						<select class="custom-select" name = "enterprise_breakCloseTime">
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
 

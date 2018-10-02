@@ -26,12 +26,12 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	@Override
 	public int enterpriseBoard_update(EnterpriseVO vo) {
-		return 0;
+		return sqlsession.update(namespace + "enterprise_update", vo);
 	}
 
 	@Override
-	public List<EnterpriseVO> enterpriseBoard_view() {
-		return null;
+	public EnterpriseVO enterpriseBoard_view(Integer code) {
+		return sqlsession.selectOne(namespace + ".allInfo_enterprise", code);
 
 	}
 
@@ -65,6 +65,13 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	public List<ReserveVO> reserve_list(Integer code) {
 		return sqlsession.selectList(namespace + ".reserve_list", code);
 	}
+
+	@Override
+	public void delete(Integer code) {
+		sqlsession.delete(namespace + ".enterprise_delete", code);
+
+	}
+
 
 
 

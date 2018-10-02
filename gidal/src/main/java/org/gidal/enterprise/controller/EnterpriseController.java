@@ -58,26 +58,25 @@ public class EnterpriseController {
 	/**
 	 * 기업페이지 이동
 	 *
-	 * 예약현황, 웨이팅 목록을 가져감.
+	 * 예약현황, 웨이팅 목록, 기업정보를 가지고 감.
 	 *
-	 * @param
+	 * @param HttpSession, Model
 	 * @return String
 	 * @throws
 	 */
 
 
 	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
-	public String enterprise_page(HttpSession session, Model model) {
+	public Model enterprise_page(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
 
 		model.addAttribute("waiting",service.waiting_list(code));
-
-		Gson jsonParser = new Gson();
-
 		model.addAttribute("reserve",service.reserve_list(code));
-	/*	model.addAttribute("reserve",jsonParser.toJson(service.reserve_list(code)));*/
-		return "/enterprise/enter_page";
+		model.addAttribute("list", service.enterpriseBoard_view(code));
+
+
+		return model;
 
 	}
 
@@ -198,9 +197,7 @@ public class EnterpriseController {
 	}
 
 	/**
-	 * 식당 게시판 전체 목록 페이지
-	 *
-	 * 비회원은 페이지에 들어갈수 없다.
+	 * 이메일 체크
 	 *
 	 * @param EnterpriseVO, Model
 	 * @return @ResponseBody int
@@ -213,7 +210,7 @@ public class EnterpriseController {
     }
 
 	/**
-	 * 기업 탈퇴 페이지
+	 * 기업 탈퇴 페이지 이동
 	 *
 	 * @param
 	 * @return String
@@ -223,6 +220,24 @@ public class EnterpriseController {
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete() {
 		return "enterprise/delete";
+	}
+
+
+	/**
+	 * 기업 탈퇴 처리
+	 *
+	 * @param HttpSession
+	 * @return String
+	 * @throws
+	 */
+
+	@RequestMapping(value = "/delete_out", method = RequestMethod.GET)
+	public String delete_out(HttpSession session) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+		service.delete(code);
+		session.invalidate();
+		return "redirect:/";
 	}
 
 

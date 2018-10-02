@@ -569,7 +569,7 @@
 
 	      <c:otherwise>
 	    		  <tr>
-			      <td colspan="2">&nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a>
+			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a>
 			       <a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약</button></a></td>
 	     	  	</tr>
 	       </c:otherwise>

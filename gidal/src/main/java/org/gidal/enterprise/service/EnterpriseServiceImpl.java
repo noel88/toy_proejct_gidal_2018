@@ -41,12 +41,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	@Override
 	public int enterpriseBoard_update(EnterpriseVO vo) {
-		return 0;
+		return dao.enterpriseBoard_update(vo);
 	}
 
 	@Override
-	public List<EnterpriseVO> enterpriseBoard_view() {
-		return null;
+	public EnterpriseVO enterpriseBoard_view(Integer code) {
+		return dao.enterpriseBoard_view(code);
 	}
 
 	/**
@@ -77,28 +77,79 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		return dao.enterprise_check(vo);
 	}
 
+	/**
+	 * 기업 페이지에서 웨이팅 목록 조회하기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#waiting_list(Integer)
+	 * @param Integer
+	 * @return List
+	 * @throws
+	 */
+
 	@Override
 	public List<WaitingVO> waiting_list(Integer code) {
 		return dao.waiting_list(code);
 	}
+
+	/**
+	 * 로그인 세션으로 기업 코드 찾기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#find_enterprise_code(String)
+	 * @param String
+	 * @return int
+	 * @throws
+	 */
+
 
 	@Override
 	public int find_enterprise_code(String str) {
 		return dao.find_enterprise_code(str);
 	}
 
+	/**
+	 * 기업 페이지에서 웨이팅 현황 업데이트 하기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#waiting_update(Integer)
+	 * @param Integer
+	 * @return int
+	 * @throws
+	 */
+
+
 	@Override
 	public int waiting_update(Integer no) {
 		return dao.waiting_update(no);
 	}
+
+	/**
+	 * 기업 페이지에서 예약 목록 조회하기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#reserve_list(Integer)
+	 * @param Integer
+	 * @return List
+	 * @throws
+	 */
+
 
 	@Override
 	public List<ReserveVO> reserve_list(Integer code) {
 		return dao.reserve_list(code);
 	}
 
+	/**
+	 * 기업 페이지에서 탈퇴하기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#delete(Integer)
+	 * @param Integer
+	 * @return void
+	 * @throws
+	 */
 
+	@Override
+	public void delete(Integer code) {
+		dao.delete(code);
 
+	}
 
 
 

@@ -64,7 +64,7 @@ $(document).ready(function() {
 		eventLimit: false, // allow "more" link when too many events
 		events: [
 		     <c:forEach var='ReserveVO' items='${reserve}'>
-		     <c:set var="title" value="${ReserveVO.user_name} / ${ReserveVO.reserve_personnel}명 / ${ReserveVO.user_phoneNum}" />
+		     <c:set var="title" value="${ReserveVO.user_name} / ${ReserveVO.reserve_personnel}명" />
              { title: '${title}', start: '${ReserveVO.reserve_datetime}'},
            	</c:forEach>
 

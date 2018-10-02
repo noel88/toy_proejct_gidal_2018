@@ -4,6 +4,7 @@
 <html>
 <head>
 
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
@@ -39,19 +40,20 @@
 	<div id="myTabContent" class="tab-content">
 		<!-- 예약목록확인 페이지 -->
 		<div class="tab-pane fade active show" id="reserve">
+
 			<%@ include file = "/WEB-INF/views/enterprise/enterprise_reserveList.jsp" %>
 		<hr class="my-4">
 		</div>
 		<!-- 웨이팅 목록 확인 페이지 -->
 		<div class="tab-pane fade show" id="waiting">
 			<%@ include file = "/WEB-INF/views/enterprise/enterprise_waitingList.jsp" %>
+
 		<hr class="my-4">
 		</div>
 		<!-- 기업정보 수정 페이지 -->
 		<div class="tab-pane fade show" id="update">
 
 			<%@ include file = "/WEB-INF/views/enterprise/enterprise_update.jsp" %>
-
 
 		<hr class="my-4">
 		</div>

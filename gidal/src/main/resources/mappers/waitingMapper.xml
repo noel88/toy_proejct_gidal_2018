@@ -20,7 +20,7 @@
 	</select>
 
 	<select id="selectList_count" parameterType = "org.gidal.waiting.domain.WaitingVO" resultType="java.lang.Integer">
-		SELECT IFNULL(COUNT(*),0) FROM waiting WHERE enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59');
+		SELECT IFNULL(COUNT(*),0) FROM waiting WHERE enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'n';
 	</select>
 
 

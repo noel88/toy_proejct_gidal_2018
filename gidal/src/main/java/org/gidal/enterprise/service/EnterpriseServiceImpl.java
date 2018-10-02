@@ -5,7 +5,9 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import org.gidal.enterprise.dao.EnterpriseDAO;
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.util.SHA256;
+import org.gidal.waiting.domain.WaitingVO;
 import org.springframework.stereotype.Service;
 
 
@@ -16,10 +18,10 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	private EnterpriseDAO dao;
 
 	/**
-	 * 기업 회원가입 
-	 * 
+	 * 기업 회원가입
+	 *
 	 * 비밀번호 패스워드 암호화를 하여 등록.
-	 * 
+	 *
 	 * @see org.gidal.enterprise.service.EnterpriseService#enterprise_join(org.gidal.enterprise.domain.EnterpriseVO)
 	 * @param EnterpriseVO
 	 * @return void
@@ -41,19 +43,19 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	public int enterpriseBoard_update(EnterpriseVO vo) {
 		return 0;
 	}
-	
+
 	@Override
 	public List<EnterpriseVO> enterpriseBoard_view() {
 		return null;
 	}
 
 	/**
-	 * 기업 식당페이지 전체 목록 
-	 * 
+	 * 기업 식당페이지 전체 목록
+	 *
 	 * @see org.gidal.enterprise.service.EnterpriseService#enterpriseBoard_list()
-	 * @param 
+	 * @param
 	 * @return List
-	 * @throws 
+	 * @throws
 	 */
 
 	@Override
@@ -63,16 +65,36 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	/**
 	 * 기업 이메일 중복 체크
-	 * 
+	 *
 	 * @see org.gidal.enterprise.service.EnterpriseService#enterprise_check(org.gidal.enterprise.domain.EnterpriseVO)
 	 * @param EnterpriseVO
 	 * @return int
-	 * @throws 
+	 * @throws
 	 */
 
 	@Override
 	public int enterprise_check(EnterpriseVO vo) {
 		return dao.enterprise_check(vo);
+	}
+
+	@Override
+	public List<WaitingVO> waiting_list(Integer code) {
+		return dao.waiting_list(code);
+	}
+
+	@Override
+	public int find_enterprise_code(String str) {
+		return dao.find_enterprise_code(str);
+	}
+
+	@Override
+	public int waiting_update(Integer no) {
+		return dao.waiting_update(no);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_list(Integer code) {
+		return dao.reserve_list(code);
 	}
 
 

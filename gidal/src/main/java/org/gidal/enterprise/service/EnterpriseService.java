@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.waiting.domain.WaitingVO;
 
 public interface EnterpriseService {
 
@@ -12,6 +14,10 @@ public interface EnterpriseService {
 	public int enterpriseBoard_update(EnterpriseVO vo);
 	public List<EnterpriseVO> enterpriseBoard_list();
 	public List<EnterpriseVO> enterpriseBoard_view();
+	public List<WaitingVO> waiting_list(Integer code);
+	public List<ReserveVO> reserve_list(Integer code);
+	public int find_enterprise_code(String str);
+	public int waiting_update(Integer no);
 
 
 

@@ -24,6 +24,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+
+import net.sf.json.JSONObject;
+
 
 @Controller
 @RequestMapping("/enterprise/")
@@ -54,6 +58,8 @@ public class EnterpriseController {
 	/**
 	 * 기업페이지 이동
 	 *
+	 * 예약현황, 웨이팅 목록을 가져감.
+	 *
 	 * @param
 	 * @return String
 	 * @throws
@@ -61,9 +67,35 @@ public class EnterpriseController {
 
 
 	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
-	public String enterprise_page() {
+	public String enterprise_page(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
 
+		model.addAttribute("waiting",service.waiting_list(code));
+
+		Gson jsonParser = new Gson();
+
+		model.addAttribute("reserve",service.reserve_list(code));
+	/*	model.addAttribute("reserve",jsonParser.toJson(service.reserve_list(code)));*/
 		return "/enterprise/enter_page";
+
+	}
+
+	/**
+	 * 웨이팅 현황 업데이트 하기
+	 *
+	 * @param int
+	 * @return String
+	 * @throws
+	 */
+
+
+	@RequestMapping(value = "/update_yn", method = RequestMethod.GET)
+	public String enterprise_page(@RequestParam("waiting_code") int code) {
+
+
+		service.waiting_update(code);
+		return "redirect:/enterprise/enter_page";
 
 	}
 
@@ -181,7 +213,7 @@ public class EnterpriseController {
     }
 
 	/**
-	 * 기업 탈퇴 페이지 confirm 이동
+	 * 기업 탈퇴 페이지
 	 *
 	 * @param
 	 * @return String
@@ -192,6 +224,7 @@ public class EnterpriseController {
 	public String delete() {
 		return "enterprise/delete";
 	}
+
 
 
 }

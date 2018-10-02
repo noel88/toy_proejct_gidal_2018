@@ -37,11 +37,11 @@ public class EnterpriseController {
 
 	/**
 	 * 기업 회원가입 페이지 이동
-	 * 
-	 * @param 
+	 *
+	 * @param
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/enterprise", method = RequestMethod.GET)
 	public String enterprise_joinForm() {
@@ -53,13 +53,13 @@ public class EnterpriseController {
 
 	/**
 	 * 기업페이지 이동
-	 * 
-	 * @param 
+	 *
+	 * @param
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
-	
+
 	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
 	public String enterprise_page() {
 
@@ -70,11 +70,11 @@ public class EnterpriseController {
 
 	/**
 	 * 글쓰기 폼으로 이동
-	 * 
-	 * @param MultipartHttpServletRequest 
+	 *
+	 * @param MultipartHttpServletRequest
 	 * @return String
 	 * @throws IOException, Exception
-	 */	
+	 */
 
 	//FIXME 파일 업로드 관련 정리, 파일명 [상포명+파일이름]으로 변경될수 있게.
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -143,14 +143,14 @@ public class EnterpriseController {
 
 	/**
 	 * 식당 게시판 전체 목록 페이지
-	 * 
+	 *
 	 * 비회원은 페이지에 들어갈수 없다.
-	 * 
+	 *
 	 * @param Model, HttpSession
 	 * @return String
-	 * @throws 
-	 */	
-	
+	 * @throws
+	 */
+
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public String enterprise_view(Model model, HttpSession session) {
 
@@ -167,20 +167,31 @@ public class EnterpriseController {
 
 	/**
 	 * 식당 게시판 전체 목록 페이지
-	 * 
+	 *
 	 * 비회원은 페이지에 들어갈수 없다.
-	 * 
+	 *
 	 * @param EnterpriseVO, Model
 	 * @return @ResponseBody int
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int idCheck(EnterpriseVO vo, Model model) {
         return service.enterprise_check(vo);
     }
 
+	/**
+	 * 기업 탈퇴 페이지 confirm 이동
+	 *
+	 * @param
+	 * @return String
+	 * @throws
+	 */
 
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete() {
+		return "enterprise/delete";
+	}
 
 
 }

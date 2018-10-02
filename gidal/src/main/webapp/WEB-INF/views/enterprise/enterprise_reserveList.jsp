@@ -87,7 +87,7 @@ $(document).ready(function() {
 						<th scope="col">이름</th>
 						<th scope="col">전화번호</th>
 						<th scope="col">인원수</th>
-						<th scope="col">웨이팅 시간</th>
+						<th scope="col">예약날짜</th>
 
 					</tr>
 				</thead>

@@ -145,11 +145,11 @@ public class EnterpriseController {
 			String filename3 = mf3.getOriginalFilename();
 			String filename4 = mf4.getOriginalFilename();
 
-			File uploadFile = new File("c://upload//" + filename);
-			File uploadFile1 = new File("c://upload//" + filename1);
-			File uploadFile2 = new File("c://upload//" + filename2);
-			File uploadFile3 = new File("c://upload//" + filename3);
-			File uploadFile4 = new File("c://upload//" + filename4);
+			File uploadFile = new File("//var//webapps//upload//enterprise" + filename);
+			File uploadFile1 = new File("//var//webapps//upload//enterprise" + filename1);
+			File uploadFile2 = new File("//var//webapps//upload//enterprise" + filename2);
+			File uploadFile3 = new File("//var//webapps//upload//enterprise" + filename3);
+			File uploadFile4 = new File("//var//webapps//upload//enterprise" + filename4);
 
 			try {
 
@@ -219,11 +219,11 @@ public class EnterpriseController {
 		String filename3 = mf3.getOriginalFilename();
 		String filename4 = mf4.getOriginalFilename();
 
-		File uploadFile = new File("c://upload//" + filename);
-		File uploadFile1 = new File("c://upload//" + filename1);
-		File uploadFile2 = new File("c://upload//" + filename2);
-		File uploadFile3 = new File("c://upload//" + filename3);
-		File uploadFile4 = new File("c://upload//" + filename4);
+		File uploadFile = new File("//var//webapps//upload//enterprise" + filename);
+		File uploadFile1 = new File("//var//webapps//upload//enterprise" + filename1);
+		File uploadFile2 = new File("//var//webapps//upload//enterprise" + filename2);
+		File uploadFile3 = new File("//var//webapps//upload//enterprise" + filename3);
+		File uploadFile4 = new File("//var//webapps//upload//enterprise" + filename4);
 
 		try {
 

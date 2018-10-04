@@ -150,11 +150,11 @@ public class EnterpriseController {
 			String filename3 = mf3.getOriginalFilename();
 			String filename4 = mf4.getOriginalFilename();
 
-			File uploadFile = new File("../var/webapps/upload/enterprise" + filename);
-			File uploadFile1 = new File("../var/webapps/upload/enterprise" + filename1);
-			File uploadFile2 = new File("../var/webapps/upload/enterprise" + filename2);
-			File uploadFile3 = new File("../var/webapps/upload/enterprise" + filename3);
-			File uploadFile4 = new File("../var/webapps/upload/enterprise" + filename4);
+			File uploadFile = new File("//var//webapps//upload//enterprise//" + vo.getEnterprise_businessName() + "_"+ filename);
+			File uploadFile1 = new File("//var//webapps//upload//enterprise//" +  vo.getEnterprise_businessName() +"_"+ filename1);
+			File uploadFile2 = new File("//var//webapps//upload//enterprise//" +  vo.getEnterprise_businessName() +"_"+ filename2);
+			File uploadFile3 = new File("//var//webapps//upload//enterprise//" +  vo.getEnterprise_businessName() +"_"+ filename3);
+			File uploadFile4 = new File("//var//webapps//upload//enterprise//" +  vo.getEnterprise_businessName() +"_"+ filename4);
 
 			try {
 

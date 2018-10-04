@@ -138,11 +138,11 @@ public class EnterpriseController {
 			vo.setEnterprise_sectors(request.getParameter("enterprise_sectors"));
 			vo.setEnterprise_service(request.getParameter("enterprise_service"));
 
-			MultipartFile mf = request.getFile(str+"_"+ vo.getEnterprise_code() +"_"+"enterprise_mainImg");
-			MultipartFile mf1 = request.getFile(str+"_"+ vo.getEnterprise_code() +"_"+"enterprise_img1");
-			MultipartFile mf2 = request.getFile(str+"_"+ vo.getEnterprise_code() +"_"+"enterprise_img2");
-			MultipartFile mf3 = request.getFile(str+"_"+ vo.getEnterprise_code()+"_"+"enterprise_img3");
-			MultipartFile mf4 = request.getFile(str+"_"+ vo.getEnterprise_code() +"_"+"enterprise_img4");
+			MultipartFile mf = request.getFile(str+"_"+ vo.getEnterprise_businessName() +"_"+"enterprise_mainImg");
+			MultipartFile mf1 = request.getFile(str+"_"+ vo.getEnterprise_businessName() +"_"+"enterprise_img1");
+			MultipartFile mf2 = request.getFile(str+"_"+ vo.getEnterprise_businessName() +"_"+"enterprise_img2");
+			MultipartFile mf3 = request.getFile(str+"_"+ vo.getEnterprise_businessName()+"_"+"enterprise_img3");
+			MultipartFile mf4 = request.getFile(str+"_"+ vo.getEnterprise_businessName() +"_"+"enterprise_img4");
 
 			String filename = mf.getOriginalFilename();
 			String filename1 = mf1.getOriginalFilename();
@@ -150,11 +150,11 @@ public class EnterpriseController {
 			String filename3 = mf3.getOriginalFilename();
 			String filename4 = mf4.getOriginalFilename();
 
-			File uploadFile = new File("./var/webapps/upload/enterprise" + filename);
-			File uploadFile1 = new File("./var/webapps/upload/enterprise" + filename1);
-			File uploadFile2 = new File("./var/webapps/upload/enterprise" + filename2);
-			File uploadFile3 = new File("./var/webapps/upload/enterprise" + filename3);
-			File uploadFile4 = new File("./var/webapps/upload/enterprise" + filename4);
+			File uploadFile = new File("/var/webapps/upload/enterprise" + filename);
+			File uploadFile1 = new File("/var/webapps/upload/enterprise" + filename1);
+			File uploadFile2 = new File("/var/webapps/upload/enterprise" + filename2);
+			File uploadFile3 = new File("/var/webapps/upload/enterprise" + filename3);
+			File uploadFile4 = new File("/var/webapps/upload/enterprise" + filename4);
 
 			try {
 

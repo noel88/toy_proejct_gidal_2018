@@ -46,7 +46,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	private String uploadFile(String originalName, byte[] fileData) throws Exception {
 
-		String EventUploadPath = uploadPath + "\\event";
+		String EventUploadPath = uploadPath + "/event";
 		UUID uid = UUID.randomUUID();
 
 		String savedName = uid.toString() + "_" + originalName;

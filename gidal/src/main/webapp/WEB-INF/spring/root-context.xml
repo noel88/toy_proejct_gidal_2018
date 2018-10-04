@@ -35,17 +35,16 @@
 	</bean>
 	<!-- 경로설정  -->
 	<bean id = "uploadPath" class="java.lang.String">
-		<constructor-arg value="C:\upload">
-
-		</constructor-arg>
+		<!-- <constructor-arg value="C:\upload"></constructor-arg> -->
+		<constructor-arg value="/var/webapps/upload"></constructor-arg>
 	</bean>
-
+	
 	<bean id = "adminID" class="java.lang.String">
 		<constructor-arg value="admin@admin.com">
 
 		</constructor-arg>
 	</bean>
-
+	
 	<bean id = "adminPW" class="java.lang.String">
 		<constructor-arg value="admin">
 

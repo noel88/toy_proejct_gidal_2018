@@ -97,8 +97,12 @@ public class EventServiceImpl implements EventService {
 			dao.eventModify(event);
 		} else {
 			EventVO oldEventVO = dao.detailEvent(event.getEvent_no());
-			String oldFile = oldEventVO.getEvent_image();
-			deleteFile(oldFile);
+			String oldFile = "";
+			
+			if(oldEventVO.getEvent_image() != null) {
+				oldFile = oldEventVO.getEvent_image();
+				deleteFile(oldFile);
+			}
 			
 			MultipartFile mf = event.getEvent_file();
 			
@@ -126,7 +130,7 @@ public class EventServiceImpl implements EventService {
 
 	private String uploadFile(String originalName, byte[] fileData) throws Exception {
 
-		String EventUploadPath = uploadPath + "\\event";
+		String EventUploadPath = uploadPath + "/event";
 		UUID uid = UUID.randomUUID();
 
 		String savedName = uid.toString() + "_" + originalName;
@@ -141,7 +145,7 @@ public class EventServiceImpl implements EventService {
 	
 	private boolean deleteFile(String oldFile) throws Exception {
 		boolean check = false;
-		String EventUploadPath = uploadPath + "\\event";
+		String EventUploadPath = uploadPath + "/event";
 
 		File target = new File(EventUploadPath, oldFile);
 		

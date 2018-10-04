@@ -76,7 +76,7 @@ function execPostCode() {
         else if (inputed == reinputed) {
             $("#repwd").css("background-color", "#fcfadb");
             pwdCheck = 1;
-            if(idCheck==1 && pwdCheck == 1) {
+            if(pwdCheck == 1) {
                 $(".signupbtn").prop("disabled", false);
                 $(".signupbtn").css("background-color", "#ff7777");
             }
@@ -107,7 +107,7 @@ function execPostCode() {
 
 
 					<p>
-
+						<input type = "hidden" name = "enterprise_code" value="${list.enterprise_code}">
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
                         <input type="password" class="form-control pass" name="enterprise_password" placeholder="Password" oninput="checkPwd()">
@@ -144,25 +144,217 @@ function execPostCode() {
 
 
 						<label class="col-form-label" for="inputDefault">영업시작시간</label>
-						<select class="custom-select" name = "enterprise_operatingOpenTime">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
+						<select class="custom-select" name = "enterprise_operatingOpenTime" >
+							<option value = "00:00" <c:if test = "${list.enterprise_operatingOpenTime eq '00:00'}" > selected = "selected" </c:if>>00:00</option>
+							<option value = "00:30" <c:if test = "${list.enterprise_operatingOpenTime eq '00:30'}" > selected = "selected" </c:if>>00:30</option>
+							<option value = "01:00" <c:if test = "${list.enterprise_operatingOpenTime eq '01:00'}" > selected = "selected" </c:if>>01:00</option>
+							<option value = "01:30" <c:if test = "${list.enterprise_operatingOpenTime eq '01:30'}" > selected = "selected" </c:if>>01:30</option>
+							<option value = "02:00" <c:if test = "${list.enterprise_operatingOpenTime eq '02:00'}" > selected = "selected" </c:if>>02:00</option>
+							<option value = "02:30" <c:if test = "${list.enterprise_operatingOpenTime eq '02:30'}" > selected = "selected" </c:if>>02:30</option>
+							<option value = "03:00" <c:if test = "${list.enterprise_operatingOpenTime eq '03:00'}" > selected = "selected" </c:if>>03:00</option>
+							<option value = "03:30" <c:if test = "${list.enterprise_operatingOpenTime eq '03:30'}" > selected = "selected" </c:if>>03:30</option>
+							<option value = "04:00" <c:if test = "${list.enterprise_operatingOpenTime eq '04:00'}" > selected = "selected" </c:if>>04:00</option>
+							<option value = "04:30" <c:if test = "${list.enterprise_operatingOpenTime eq '04:30'}" > selected = "selected" </c:if>>04:30</option>
+							<option value = "05:00" <c:if test = "${list.enterprise_operatingOpenTime eq '05:00'}" > selected = "selected" </c:if>>05:00</option>
+							<option value = "05:30" <c:if test = "${list.enterprise_operatingOpenTime eq '05:30'}" > selected = "selected" </c:if>>05:30</option>
+							<option value = "06:00" <c:if test = "${list.enterprise_operatingOpenTime eq '06:00'}" > selected = "selected" </c:if>>06:00</option>
+							<option value = "06:30" <c:if test = "${list.enterprise_operatingOpenTime eq '06:30'}" > selected = "selected" </c:if>>06:30</option>
+							<option value = "07:00" <c:if test = "${list.enterprise_operatingOpenTime eq '07:00'}" > selected = "selected" </c:if>>07:00</option>
+							<option value = "07:30" <c:if test = "${list.enterprise_operatingOpenTime eq '07:30'}" > selected = "selected" </c:if>>07:30</option>
+							<option value = "08:00" <c:if test = "${list.enterprise_operatingOpenTime eq '08:00'}" > selected = "selected" </c:if>>08:00</option>
+							<option value = "08:30" <c:if test = "${list.enterprise_operatingOpenTime eq '08:30'}" > selected = "selected" </c:if>>08:30</option>
+							<option value = "09:00" <c:if test = "${list.enterprise_operatingOpenTime eq '09:00'}" > selected = "selected" </c:if>>09:00</option>
+							<option value = "09:30" <c:if test = "${list.enterprise_operatingOpenTime eq '09:30'}" > selected = "selected" </c:if>>09:30</option>
+							<option value = "10:00" <c:if test = "${list.enterprise_operatingOpenTime eq '10:00'}" > selected = "selected" </c:if>>10:00</option>
+							<option value = "10:30" <c:if test = "${list.enterprise_operatingOpenTime eq '10:30'}" > selected = "selected" </c:if>>10:30</option>
+							<option value = "11:00" <c:if test = "${list.enterprise_operatingOpenTime eq '11:00'}" > selected = "selected" </c:if>>11:00</option>
+							<option value = "11:30" <c:if test = "${list.enterprise_operatingOpenTime eq '11:30'}" > selected = "selected" </c:if>>11:30</option>
+							<option value = "12:00" <c:if test = "${list.enterprise_operatingOpenTime eq '12:00'}" > selected = "selected" </c:if>>12:00</option>
+							<option value = "12:30" <c:if test = "${list.enterprise_operatingOpenTime eq '12:30'}" > selected = "selected" </c:if>>12:30</option>
+							<option value = "13:00" <c:if test = "${list.enterprise_operatingOpenTime eq '13:00'}" > selected = "selected" </c:if>>13:00</option>
+							<option value = "13:30" <c:if test = "${list.enterprise_operatingOpenTime eq '13:30'}" > selected = "selected" </c:if>>13:30</option>
+							<option value = "14:00" <c:if test = "${list.enterprise_operatingOpenTime eq '14:00'}" > selected = "selected" </c:if>>14:00</option>
+							<option value = "14:30" <c:if test = "${list.enterprise_operatingOpenTime eq '14:30'}" > selected = "selected" </c:if>>14:30</option>
+							<option value = "15:00" <c:if test = "${list.enterprise_operatingOpenTime eq '15:00'}" > selected = "selected" </c:if>>15:00</option>
+							<option value = "15:30" <c:if test = "${list.enterprise_operatingOpenTime eq '15:30'}" > selected = "selected" </c:if>>15:30</option>
+							<option value = "16:00" <c:if test = "${list.enterprise_operatingOpenTime eq '16:00'}" > selected = "selected" </c:if>>16:00</option>
+							<option value = "16:30" <c:if test = "${list.enterprise_operatingOpenTime eq '16:30'}" > selected = "selected" </c:if>>16:30</option>
+							<option value = "17:00" <c:if test = "${list.enterprise_operatingOpenTime eq '17:00'}" > selected = "selected" </c:if>>17:00</option>
+							<option value = "17:30" <c:if test = "${list.enterprise_operatingOpenTime eq '17:30'}" > selected = "selected" </c:if>>17:30</option>
+							<option value = "18:00" <c:if test = "${list.enterprise_operatingOpenTime eq '18:00'}" > selected = "selected" </c:if>>18:00</option>
+							<option value = "18:30" <c:if test = "${list.enterprise_operatingOpenTime eq '18:30'}" > selected = "selected" </c:if>>18:30</option>
+							<option value = "19:00" <c:if test = "${list.enterprise_operatingOpenTime eq '19:00'}" > selected = "selected" </c:if>>19:00</option>
+							<option value = "19:30" <c:if test = "${list.enterprise_operatingOpenTime eq '19:30'}" > selected = "selected" </c:if>>19:30</option>
+							<option value = "20:00" <c:if test = "${list.enterprise_operatingOpenTime eq '20:00'}" > selected = "selected" </c:if>>20:00</option>
+							<option value = "20:30" <c:if test = "${list.enterprise_operatingOpenTime eq '20:30'}" > selected = "selected" </c:if>>20:30</option>
+							<option value = "21:00" <c:if test = "${list.enterprise_operatingOpenTime eq '21:00'}" > selected = "selected" </c:if>>21:00</option>
+							<option value = "21:30" <c:if test = "${list.enterprise_operatingOpenTime eq '21:30'}" > selected = "selected" </c:if>>21:30</option>
+							<option value = "22:00" <c:if test = "${list.enterprise_operatingOpenTime eq '22:00'}" > selected = "selected" </c:if>>22:00</option>
+							<option value = "22:30" <c:if test = "${list.enterprise_operatingOpenTime eq '22:30'}" > selected = "selected" </c:if>>22:30</option>
+							<option value = "23:00" <c:if test = "${list.enterprise_operatingOpenTime eq '23:00'}" > selected = "selected" </c:if>>23:00</option>
+							<option value = "23:30" <c:if test = "${list.enterprise_operatingOpenTime eq '23:30'}" > selected = "selected" </c:if>>23:30</option>
+							<option value = "24:00" <c:if test = "${list.enterprise_operatingOpenTime eq '24:00'}" > selected = "selected" </c:if>>24:00</option>
 						</select>
 
 
 						<label class="col-form-label" for="inputDefault" >영업종료시간</label>
 						<select class="custom-select"  name = "enterprise_operatingCloseTime">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
+							<option value = "00:00" <c:if test = "${list.enterprise_operatingCloseTime eq '00:00'}" > selected = "selected" </c:if>>00:00</option>
+							<option value = "00:30" <c:if test = "${list.enterprise_operatingCloseTime eq '00:30'}" > selected = "selected" </c:if>>00:30</option>
+							<option value = "01:00" <c:if test = "${list.enterprise_operatingCloseTime eq '01:00'}" > selected = "selected" </c:if>>01:00</option>
+							<option value = "01:30" <c:if test = "${list.enterprise_operatingCloseTime eq '01:30'}" > selected = "selected" </c:if>>01:30</option>
+							<option value = "02:00" <c:if test = "${list.enterprise_operatingCloseTime eq '02:00'}" > selected = "selected" </c:if>>02:00</option>
+							<option value = "02:30" <c:if test = "${list.enterprise_operatingCloseTime eq '02:30'}" > selected = "selected" </c:if>>02:30</option>
+							<option value = "03:00" <c:if test = "${list.enterprise_operatingCloseTime eq '03:00'}" > selected = "selected" </c:if>>03:00</option>
+							<option value = "03:30" <c:if test = "${list.enterprise_operatingCloseTime eq '03:30'}" > selected = "selected" </c:if>>03:30</option>
+							<option value = "04:00" <c:if test = "${list.enterprise_operatingCloseTime eq '04:00'}" > selected = "selected" </c:if>>04:00</option>
+							<option value = "04:30" <c:if test = "${list.enterprise_operatingCloseTime eq '04:30'}" > selected = "selected" </c:if>>04:30</option>
+							<option value = "05:00" <c:if test = "${list.enterprise_operatingCloseTime eq '05:00'}" > selected = "selected" </c:if>>05:00</option>
+							<option value = "05:30" <c:if test = "${list.enterprise_operatingCloseTime eq '05:30'}" > selected = "selected" </c:if>>05:30</option>
+							<option value = "06:00" <c:if test = "${list.enterprise_operatingCloseTime eq '06:00'}" > selected = "selected" </c:if>>06:00</option>
+							<option value = "06:30" <c:if test = "${list.enterprise_operatingCloseTime eq '06:30'}" > selected = "selected" </c:if>>06:30</option>
+							<option value = "07:00" <c:if test = "${list.enterprise_operatingCloseTime eq '07:00'}" > selected = "selected" </c:if>>07:00</option>
+							<option value = "07:30" <c:if test = "${list.enterprise_operatingCloseTime eq '07:30'}" > selected = "selected" </c:if>>07:30</option>
+							<option value = "08:00" <c:if test = "${list.enterprise_operatingCloseTime eq '08:00'}" > selected = "selected" </c:if>>08:00</option>
+							<option value = "08:30" <c:if test = "${list.enterprise_operatingCloseTime eq '08:30'}" > selected = "selected" </c:if>>08:30</option>
+							<option value = "09:00" <c:if test = "${list.enterprise_operatingCloseTime eq '09:00'}" > selected = "selected" </c:if>>09:00</option>
+							<option value = "09:30" <c:if test = "${list.enterprise_operatingCloseTime eq '09:30'}" > selected = "selected" </c:if>>09:30</option>
+							<option value = "10:00" <c:if test = "${list.enterprise_operatingCloseTime eq '10:00'}" > selected = "selected" </c:if>>10:00</option>
+							<option value = "10:30" <c:if test = "${list.enterprise_operatingCloseTime eq '10:30'}" > selected = "selected" </c:if>>10:30</option>
+							<option value = "11:00" <c:if test = "${list.enterprise_operatingCloseTime eq '11:00'}" > selected = "selected" </c:if>>11:00</option>
+							<option value = "11:30" <c:if test = "${list.enterprise_operatingCloseTime eq '11:30'}" > selected = "selected" </c:if>>11:30</option>
+							<option value = "12:00" <c:if test = "${list.enterprise_operatingCloseTime eq '12:00'}" > selected = "selected" </c:if>>12:00</option>
+							<option value = "12:30" <c:if test = "${list.enterprise_operatingCloseTime eq '12:30'}" > selected = "selected" </c:if>>12:30</option>
+							<option value = "13:00" <c:if test = "${list.enterprise_operatingCloseTime eq '13:00'}" > selected = "selected" </c:if>>13:00</option>
+							<option value = "13:30" <c:if test = "${list.enterprise_operatingCloseTime eq '13:30'}" > selected = "selected" </c:if>>13:30</option>
+							<option value = "14:00" <c:if test = "${list.enterprise_operatingCloseTime eq '14:00'}" > selected = "selected" </c:if>>14:00</option>
+							<option value = "14:30" <c:if test = "${list.enterprise_operatingCloseTime eq '14:30'}" > selected = "selected" </c:if>>14:30</option>
+							<option value = "15:00" <c:if test = "${list.enterprise_operatingCloseTime eq '15:00'}" > selected = "selected" </c:if>>15:00</option>
+							<option value = "15:30" <c:if test = "${list.enterprise_operatingCloseTime eq '15:30'}" > selected = "selected" </c:if>>15:30</option>
+							<option value = "16:00" <c:if test = "${list.enterprise_operatingCloseTime eq '16:00'}" > selected = "selected" </c:if>>16:00</option>
+							<option value = "16:30" <c:if test = "${list.enterprise_operatingCloseTime eq '16:30'}" > selected = "selected" </c:if>>16:30</option>
+							<option value = "17:00" <c:if test = "${list.enterprise_operatingCloseTime eq '17:00'}" > selected = "selected" </c:if>>17:00</option>
+							<option value = "17:30" <c:if test = "${list.enterprise_operatingCloseTime eq '17:30'}" > selected = "selected" </c:if>>17:30</option>
+							<option value = "18:00" <c:if test = "${list.enterprise_operatingCloseTime eq '18:00'}" > selected = "selected" </c:if>>18:00</option>
+							<option value = "18:30" <c:if test = "${list.enterprise_operatingCloseTime eq '18:30'}" > selected = "selected" </c:if>>18:30</option>
+							<option value = "19:00" <c:if test = "${list.enterprise_operatingCloseTime eq '19:00'}" > selected = "selected" </c:if>>19:00</option>
+							<option value = "19:30" <c:if test = "${list.enterprise_operatingCloseTime eq '19:30'}" > selected = "selected" </c:if>>19:30</option>
+							<option value = "20:00" <c:if test = "${list.enterprise_operatingCloseTime eq '20:00'}" > selected = "selected" </c:if>>20:00</option>
+							<option value = "20:30" <c:if test = "${list.enterprise_operatingCloseTime eq '20:30'}" > selected = "selected" </c:if>>20:30</option>
+							<option value = "21:00" <c:if test = "${list.enterprise_operatingCloseTime eq '21:00'}" > selected = "selected" </c:if>>21:00</option>
+							<option value = "21:30" <c:if test = "${list.enterprise_operatingCloseTime eq '21:30'}" > selected = "selected" </c:if>>21:30</option>
+							<option value = "22:00" <c:if test = "${list.enterprise_operatingCloseTime eq '22:00'}" > selected = "selected" </c:if>>22:00</option>
+							<option value = "22:30" <c:if test = "${list.enterprise_operatingCloseTime eq '22:30'}" > selected = "selected" </c:if>>22:30</option>
+							<option value = "23:00" <c:if test = "${list.enterprise_operatingCloseTime eq '23:00'}" > selected = "selected" </c:if>>23:00</option>
+							<option value = "23:30" <c:if test = "${list.enterprise_operatingCloseTime eq '23:30'}" > selected = "selected" </c:if>>23:30</option>
+							<option value = "24:00" <c:if test = "${list.enterprise_operatingCloseTime eq '24:00'}" > selected = "selected" </c:if>>24:00</option>
 						</select>
 
 						<label class="col-form-label" for="inputDefault">브레이크타임시작시간 </label>
 
 						<select class="custom-select"  name = "enterprise_breakStartTime">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
+							<option value = "00:00" <c:if test = "${list.enterprise_breakStartTime eq '00:00'}" > selected = "selected" </c:if>>00:00</option>
+							<option value = "00:30" <c:if test = "${list.enterprise_breakStartTime eq '00:30'}" > selected = "selected" </c:if>>00:30</option>
+							<option value = "01:00" <c:if test = "${list.enterprise_breakStartTime eq '01:00'}" > selected = "selected" </c:if>>01:00</option>
+							<option value = "01:30" <c:if test = "${list.enterprise_breakStartTime eq '01:30'}" > selected = "selected" </c:if>>01:30</option>
+							<option value = "02:00" <c:if test = "${list.enterprise_breakStartTime eq '02:00'}" > selected = "selected" </c:if>>02:00</option>
+							<option value = "02:30" <c:if test = "${list.enterprise_breakStartTime eq '02:30'}" > selected = "selected" </c:if>>02:30</option>
+							<option value = "03:00" <c:if test = "${list.enterprise_breakStartTime eq '03:00'}" > selected = "selected" </c:if>>03:00</option>
+							<option value = "03:30" <c:if test = "${list.enterprise_breakStartTime eq '03:30'}" > selected = "selected" </c:if>>03:30</option>
+							<option value = "04:00" <c:if test = "${list.enterprise_breakStartTime eq '04:00'}" > selected = "selected" </c:if>>04:00</option>
+							<option value = "04:30" <c:if test = "${list.enterprise_breakStartTime eq '04:30'}" > selected = "selected" </c:if>>04:30</option>
+							<option value = "05:00" <c:if test = "${list.enterprise_breakStartTime eq '05:00'}" > selected = "selected" </c:if>>05:00</option>
+							<option value = "05:30" <c:if test = "${list.enterprise_breakStartTime eq '05:30'}" > selected = "selected" </c:if>>05:30</option>
+							<option value = "06:00" <c:if test = "${list.enterprise_breakStartTime eq '06:00'}" > selected = "selected" </c:if>>06:00</option>
+							<option value = "06:30" <c:if test = "${list.enterprise_breakStartTime eq '06:30'}" > selected = "selected" </c:if>>06:30</option>
+							<option value = "07:00" <c:if test = "${list.enterprise_breakStartTime eq '07:00'}" > selected = "selected" </c:if>>07:00</option>
+							<option value = "07:30" <c:if test = "${list.enterprise_breakStartTime eq '07:30'}" > selected = "selected" </c:if>>07:30</option>
+							<option value = "08:00" <c:if test = "${list.enterprise_breakStartTime eq '08:00'}" > selected = "selected" </c:if>>08:00</option>
+							<option value = "08:30" <c:if test = "${list.enterprise_breakStartTime eq '08:30'}" > selected = "selected" </c:if>>08:30</option>
+							<option value = "09:00" <c:if test = "${list.enterprise_breakStartTime eq '09:00'}" > selected = "selected" </c:if>>09:00</option>
+							<option value = "09:30" <c:if test = "${list.enterprise_breakStartTime eq '09:30'}" > selected = "selected" </c:if>>09:30</option>
+							<option value = "10:00" <c:if test = "${list.enterprise_breakStartTime eq '10:00'}" > selected = "selected" </c:if>>10:00</option>
+							<option value = "10:30" <c:if test = "${list.enterprise_breakStartTime eq '10:30'}" > selected = "selected" </c:if>>10:30</option>
+							<option value = "11:00" <c:if test = "${list.enterprise_breakStartTime eq '11:00'}" > selected = "selected" </c:if>>11:00</option>
+							<option value = "11:30" <c:if test = "${list.enterprise_breakStartTime eq '11:30'}" > selected = "selected" </c:if>>11:30</option>
+							<option value = "12:00" <c:if test = "${list.enterprise_breakStartTime eq '12:00'}" > selected = "selected" </c:if>>12:00</option>
+							<option value = "12:30" <c:if test = "${list.enterprise_breakStartTime eq '12:30'}" > selected = "selected" </c:if>>12:30</option>
+							<option value = "13:00" <c:if test = "${list.enterprise_breakStartTime eq '13:00'}" > selected = "selected" </c:if>>13:00</option>
+							<option value = "13:30" <c:if test = "${list.enterprise_breakStartTime eq '13:30'}" > selected = "selected" </c:if>>13:30</option>
+							<option value = "14:00" <c:if test = "${list.enterprise_breakStartTime eq '14:00'}" > selected = "selected" </c:if>>14:00</option>
+							<option value = "14:30" <c:if test = "${list.enterprise_breakStartTime eq '14:30'}" > selected = "selected" </c:if>>14:30</option>
+							<option value = "15:00" <c:if test = "${list.enterprise_breakStartTime eq '15:00'}" > selected = "selected" </c:if>>15:00</option>
+							<option value = "15:30" <c:if test = "${list.enterprise_breakStartTime eq '15:30'}" > selected = "selected" </c:if>>15:30</option>
+							<option value = "16:00" <c:if test = "${list.enterprise_breakStartTime eq '16:00'}" > selected = "selected" </c:if>>16:00</option>
+							<option value = "16:30" <c:if test = "${list.enterprise_breakStartTime eq '16:30'}" > selected = "selected" </c:if>>16:30</option>
+							<option value = "17:00" <c:if test = "${list.enterprise_breakStartTime eq '17:00'}" > selected = "selected" </c:if>>17:00</option>
+							<option value = "17:30" <c:if test = "${list.enterprise_breakStartTime eq '17:30'}" > selected = "selected" </c:if>>17:30</option>
+							<option value = "18:00" <c:if test = "${list.enterprise_breakStartTime eq '18:00'}" > selected = "selected" </c:if>>18:00</option>
+							<option value = "18:30" <c:if test = "${list.enterprise_breakStartTime eq '18:30'}" > selected = "selected" </c:if>>18:30</option>
+							<option value = "19:00" <c:if test = "${list.enterprise_breakStartTime eq '19:00'}" > selected = "selected" </c:if>>19:00</option>
+							<option value = "19:30" <c:if test = "${list.enterprise_breakStartTime eq '19:30'}" > selected = "selected" </c:if>>19:30</option>
+							<option value = "20:00" <c:if test = "${list.enterprise_breakStartTime eq '20:00'}" > selected = "selected" </c:if>>20:00</option>
+							<option value = "20:30" <c:if test = "${list.enterprise_breakStartTime eq '20:30'}" > selected = "selected" </c:if>>20:30</option>
+							<option value = "21:00" <c:if test = "${list.enterprise_breakStartTime eq '21:00'}" > selected = "selected" </c:if>>21:00</option>
+							<option value = "21:30" <c:if test = "${list.enterprise_breakStartTime eq '21:30'}" > selected = "selected" </c:if>>21:30</option>
+							<option value = "22:00" <c:if test = "${list.enterprise_breakStartTime eq '22:00'}" > selected = "selected" </c:if>>22:00</option>
+							<option value = "22:30" <c:if test = "${list.enterprise_breakStartTime eq '22:30'}" > selected = "selected" </c:if>>22:30</option>
+							<option value = "23:00" <c:if test = "${list.enterprise_breakStartTime eq '23:00'}" > selected = "selected" </c:if>>23:00</option>
+							<option value = "23:30" <c:if test = "${list.enterprise_breakStartTime eq '23:30'}" > selected = "selected" </c:if>>23:30</option>
+							<option value = "24:00" <c:if test = "${list.enterprise_breakStartTime eq '24:00'}" > selected = "selected" </c:if>>24:00</option>
 						</select>
 
 						<label class="col-form-label" for="inputDefault">브레이크타임종료시간 </label>
 						<select class="custom-select" name = "enterprise_breakCloseTime">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
+							<option value = "00:00" <c:if test = "${list.enterprise_breakCloseTime eq '00:00'}" > selected = "selected" </c:if>>00:00</option>
+							<option value = "00:30" <c:if test = "${list.enterprise_breakCloseTime eq '00:30'}" > selected = "selected" </c:if>>00:30</option>
+							<option value = "01:00" <c:if test = "${list.enterprise_breakCloseTime eq '01:00'}" > selected = "selected" </c:if>>01:00</option>
+							<option value = "01:30" <c:if test = "${list.enterprise_breakCloseTime eq '01:30'}" > selected = "selected" </c:if>>01:30</option>
+							<option value = "02:00" <c:if test = "${list.enterprise_breakCloseTime eq '02:00'}" > selected = "selected" </c:if>>02:00</option>
+							<option value = "02:30" <c:if test = "${list.enterprise_breakCloseTime eq '02:30'}" > selected = "selected" </c:if>>02:30</option>
+							<option value = "03:00" <c:if test = "${list.enterprise_breakCloseTime eq '03:00'}" > selected = "selected" </c:if>>03:00</option>
+							<option value = "03:30" <c:if test = "${list.enterprise_breakCloseTime eq '03:30'}" > selected = "selected" </c:if>>03:30</option>
+							<option value = "04:00" <c:if test = "${list.enterprise_breakCloseTime eq '04:00'}" > selected = "selected" </c:if>>04:00</option>
+							<option value = "04:30" <c:if test = "${list.enterprise_breakCloseTime eq '04:30'}" > selected = "selected" </c:if>>04:30</option>
+							<option value = "05:00" <c:if test = "${list.enterprise_breakCloseTime eq '05:00'}" > selected = "selected" </c:if>>05:00</option>
+							<option value = "05:30" <c:if test = "${list.enterprise_breakCloseTime eq '05:30'}" > selected = "selected" </c:if>>05:30</option>
+							<option value = "06:00" <c:if test = "${list.enterprise_breakCloseTime eq '06:00'}" > selected = "selected" </c:if>>06:00</option>
+							<option value = "06:30" <c:if test = "${list.enterprise_breakCloseTime eq '06:30'}" > selected = "selected" </c:if>>06:30</option>
+							<option value = "07:00" <c:if test = "${list.enterprise_breakCloseTime eq '07:00'}" > selected = "selected" </c:if>>07:00</option>
+							<option value = "07:30" <c:if test = "${list.enterprise_breakCloseTime eq '07:30'}" > selected = "selected" </c:if>>07:30</option>
+							<option value = "08:00" <c:if test = "${list.enterprise_breakCloseTime eq '08:00'}" > selected = "selected" </c:if>>08:00</option>
+							<option value = "08:30" <c:if test = "${list.enterprise_breakCloseTime eq '08:30'}" > selected = "selected" </c:if>>08:30</option>
+							<option value = "09:00" <c:if test = "${list.enterprise_breakCloseTime eq '09:00'}" > selected = "selected" </c:if>>09:00</option>
+							<option value = "09:30" <c:if test = "${list.enterprise_breakCloseTime eq '09:30'}" > selected = "selected" </c:if>>09:30</option>
+							<option value = "10:00" <c:if test = "${list.enterprise_breakCloseTime eq '10:00'}" > selected = "selected" </c:if>>10:00</option>
+							<option value = "10:30" <c:if test = "${list.enterprise_breakCloseTime eq '10:30'}" > selected = "selected" </c:if>>10:30</option>
+							<option value = "11:00" <c:if test = "${list.enterprise_breakCloseTime eq '11:00'}" > selected = "selected" </c:if>>11:00</option>
+							<option value = "11:30" <c:if test = "${list.enterprise_breakCloseTime eq '11:30'}" > selected = "selected" </c:if>>11:30</option>
+							<option value = "12:00" <c:if test = "${list.enterprise_breakCloseTime eq '12:00'}" > selected = "selected" </c:if>>12:00</option>
+							<option value = "12:30" <c:if test = "${list.enterprise_breakCloseTime eq '12:30'}" > selected = "selected" </c:if>>12:30</option>
+							<option value = "13:00" <c:if test = "${list.enterprise_breakCloseTime eq '13:00'}" > selected = "selected" </c:if>>13:00</option>
+							<option value = "13:30" <c:if test = "${list.enterprise_breakCloseTime eq '13:30'}" > selected = "selected" </c:if>>13:30</option>
+							<option value = "14:00" <c:if test = "${list.enterprise_breakCloseTime eq '14:00'}" > selected = "selected" </c:if>>14:00</option>
+							<option value = "14:30" <c:if test = "${list.enterprise_breakCloseTime eq '14:30'}" > selected = "selected" </c:if>>14:30</option>
+							<option value = "15:00" <c:if test = "${list.enterprise_breakCloseTime eq '15:00'}" > selected = "selected" </c:if>>15:00</option>
+							<option value = "15:30" <c:if test = "${list.enterprise_breakCloseTime eq '15:30'}" > selected = "selected" </c:if>>15:30</option>
+							<option value = "16:00" <c:if test = "${list.enterprise_breakCloseTime eq '16:00'}" > selected = "selected" </c:if>>16:00</option>
+							<option value = "16:30" <c:if test = "${list.enterprise_breakCloseTime eq '16:30'}" > selected = "selected" </c:if>>16:30</option>
+							<option value = "17:00" <c:if test = "${list.enterprise_breakCloseTime eq '17:00'}" > selected = "selected" </c:if>>17:00</option>
+							<option value = "17:30" <c:if test = "${list.enterprise_breakCloseTime eq '17:30'}" > selected = "selected" </c:if>>17:30</option>
+							<option value = "18:00" <c:if test = "${list.enterprise_breakCloseTime eq '18:00'}" > selected = "selected" </c:if>>18:00</option>
+							<option value = "18:30" <c:if test = "${list.enterprise_breakCloseTime eq '18:30'}" > selected = "selected" </c:if>>18:30</option>
+							<option value = "19:00" <c:if test = "${list.enterprise_breakCloseTime eq '19:00'}" > selected = "selected" </c:if>>19:00</option>
+							<option value = "19:30" <c:if test = "${list.enterprise_breakCloseTime eq '19:30'}" > selected = "selected" </c:if>>19:30</option>
+							<option value = "20:00" <c:if test = "${list.enterprise_breakCloseTime eq '20:00'}" > selected = "selected" </c:if>>20:00</option>
+							<option value = "20:30" <c:if test = "${list.enterprise_breakCloseTime eq '20:30'}" > selected = "selected" </c:if>>20:30</option>
+							<option value = "21:00" <c:if test = "${list.enterprise_breakCloseTime eq '21:00'}" > selected = "selected" </c:if>>21:00</option>
+							<option value = "21:30" <c:if test = "${list.enterprise_breakCloseTime eq '21:30'}" > selected = "selected" </c:if>>21:30</option>
+							<option value = "22:00" <c:if test = "${list.enterprise_breakCloseTime eq '22:00'}" > selected = "selected" </c:if>>22:00</option>
+							<option value = "22:30" <c:if test = "${list.enterprise_breakCloseTime eq '22:30'}" > selected = "selected" </c:if>>22:30</option>
+							<option value = "23:00" <c:if test = "${list.enterprise_breakCloseTime eq '23:00'}" > selected = "selected" </c:if>>23:00</option>
+							<option value = "23:30" <c:if test = "${list.enterprise_breakCloseTime eq '23:30'}" > selected = "selected" </c:if>>23:30</option>
+							<option value = "24:00" <c:if test = "${list.enterprise_breakCloseTime eq '24:00'}" > selected = "selected" </c:if>>24:00</option>
 						</select>
 
 
@@ -200,28 +392,29 @@ function execPostCode() {
 						</div>
 
 
-						<label class="col-form-label" for="inputDefault">업종</label>
-						<select class="custom-select" name = "enterprise_sectors" id="exampleSelect1">
-							<option value = "0" selected>선택해주세요</option>
-							<option value = "default">음식전체</option>
-							<option value = "한식">한식</option>
-							<option value = "양식">양식</option>
-							<option value = "중식">중식</option>
-							<option value = "일식">일식</option>
-							<option value = "아시아식">아시아식</option>
-							<option value = "컨템퍼러리">컨템퍼러리</option>
-							<option value = "붸페">뷔페</option>
-							<option value = "구이">구이</option>
-							<option value = "술집">술집</option>
-							<option value = "카페/베이커리">카페/베이커리</option>
+						<label class="col-form-label" for="sectors_select">업종</label>
+						<select class="custom-select" name = "enterprise_sectors" id="sectors_select" >
+
+							<option value = "0" <c:if test = "${list.enterprise_sectors eq '0'}" > selected = "selected" </c:if>>선택해주세요</option>
+							<option value = "default" <c:if test = "${list.enterprise_sectors eq 'default'}" > selected = "selected" </c:if>>음식전체</option>
+							<option value = "한식" <c:if test = "${list.enterprise_sectors eq '한식'}" > selected = "selected" </c:if>>한식</option>
+							<option value = "양식" <c:if test = "${list.enterprise_sectors eq '양식'}" > selected = "selected" </c:if>>양식</option>
+							<option value = "중식" <c:if test = "${list.enterprise_sectors eq '중식'}" > selected = "selected" </c:if>>중식</option>
+							<option value = "일식" <c:if test = "${list.enterprise_sectors eq '일식'}" > selected = "selected" </c:if>>일식</option>
+							<option value = "아시아식" <c:if test = "${list.enterprise_sectors eq '아시아식'}" > selected = "selected" </c:if>>아시아식</option>
+							<option value = "컨템퍼러리" <c:if test = "${list.enterprise_sectors eq '컨템퍼러리'}" > selected = "selected" </c:if>>컨템퍼러리</option>
+							<option value = "뷔페" <c:if test = "${list.enterprise_sectors eq '뷔페'}" > selected = "selected" </c:if>>뷔페</option>
+							<option value = "구이" <c:if test = "${list.enterprise_sectors eq '구이'}" > selected = "selected" </c:if>>구이</option>
+							<option value = "술집" <c:if test = "${list.enterprise_sectors eq '술집'}" > selected = "selected" </c:if>>술집</option>
+							<option value = "카페/베이커리" <c:if test = "${list.enterprise_sectors eq '카페/베이커리'}" > selected = "selected" </c:if>>카페/베이커리</option>
 						</select>
 
 						 <label class="col-form-label" for="inputDefault">서비스</label>
 						<select class="custom-select" name = "enterprise_service" id="exampleSelect1">
-							<option value = "0" selected>선택해주세요</option>
-							<option value = "1">웨이팅 서비스</option>
-							<option value = "2">예약 서비스</option>
-							<option value = "3">웨이팅 + 예약 서비스</option>
+							<option value = "0" <c:if test = "${list.enterprise_service eq '0'}" > selected = "selected" </c:if>>선택해주세요</option>
+							<option value = "1" <c:if test = "${list.enterprise_service eq '1'}" > selected = "selected" </c:if>>웨이팅 서비스</option>
+							<option value = "2" <c:if test = "${list.enterprise_service eq '2'}" > selected = "selected" </c:if>>예약 서비스</option>
+							<option value = "3" <c:if test = "${list.enterprise_service eq '3'}" > selected = "selected" </c:if>>웨이팅 + 예약 서비스</option>
 						</select>
 
 

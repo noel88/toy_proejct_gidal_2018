@@ -11,9 +11,14 @@
 </script>
 
 <div style="width: 50%; margin-right: auto; margin-left: auto;">
-
+<form action="delete_out">
 	<p>정말로 탈퇴하시겠습니까?</p>
-	<a href= "delete"><button type="button" class="form-control btn btn-primary" onclick="delete_enterprise();">탈퇴하기</button></a>
+	<p>탈퇴하시려면 패스워드 입력후 탈퇴하기 버튼을 눌러주세요</p>
+
+    <input type="password" class="form-control pass" name="enterprise_password" placeholder="Password" oninput="checkPwd()">
+    <br>
+	<button type="submit" class="form-control btn btn-primary" onclick="delete_enterprise();">탈퇴하기</button>
+</form>
 
 
 </div>

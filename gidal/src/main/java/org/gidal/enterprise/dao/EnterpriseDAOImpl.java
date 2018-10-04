@@ -26,7 +26,7 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	@Override
 	public int enterpriseBoard_update(EnterpriseVO vo) {
-		return sqlsession.update(namespace + "enterprise_update", vo);
+		return sqlsession.update(namespace + ".enterprise_update", vo);
 	}
 
 	@Override
@@ -67,8 +67,8 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	}
 
 	@Override
-	public void delete(Integer code) {
-		sqlsession.delete(namespace + ".enterprise_delete", code);
+	public void delete(EnterpriseVO vo) {
+		sqlsession.delete(namespace + ".enterprise_delete", vo);
 
 	}
 

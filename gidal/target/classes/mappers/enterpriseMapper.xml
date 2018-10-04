@@ -34,11 +34,13 @@
 	</select>
 
 	<update id="enterprise_update">
-		update enterprise set enterprise_sectors = #{enterprise_sectors}, enterprise_service = #{enterprise_service}, enterprise_mainImg = #{enterprise_mainImg}, enterprise_img1 = #{enterprise_img1},
-		enterprise_img2 = #{enterprise_img2}, enterprise_img3 = #{enterprise_img3}, enterprise_img4 = #{enterprise_img4}, enterprise_address = #{enterprise_address}, enterprise_addressDetail = #{enterprise_addressDetail},
-		enterprise_operatingOpenTime = #{enterprise_operatingOpenTime}, enterprise_operatingCloseTime = #{enterprise_operatingCloseTime}, enterprise_breakStartTime = #{enterprise_breakStartTime},
+		update enterprise set enterprise_password = #{enterprise_password}, enterprise_businessName = #{enterprise_businessName}, enterprise_phone = #{enterprise_phone}, enterprise_sectors = #{enterprise_sectors}, enterprise_service = #{enterprise_service}, enterprise_mainImg = #{enterprise_mainImg}, enterprise_img1 = #{enterprise_img1},
+		enterprise_img2 = #{enterprise_img2}, enterprise_img3 = #{enterprise_img3}, enterprise_img4 = #{enterprise_img4}, enterprise_add1 = #{enterprise_add1}, enterprise_add2 = #{enterprise_add2},
+		 enterprise_add3 = #{enterprise_add3}, enterprise_operatingOpenTime = #{enterprise_operatingOpenTime}, enterprise_operatingCloseTime = #{enterprise_operatingCloseTime}, enterprise_breakStartTime = #{enterprise_breakStartTime},
 		 enterprise_breakCloseTime = #{enterprise_breakCloseTime}, enterprise_closed = #{enterprise_closed} where enterprise_code = #{enterprise_code}
 	</update>
+
+
 
 	<select id="waiting_list" resultType = "org.gidal.waiting.domain.WaitingVO">
 		select * from waiting where enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
@@ -58,7 +60,7 @@
 
 
 	<delete id="enterprise_delete">
-		delete from enterprise where enterprise_code = #{enterprise_code}
+		delete from enterprise where enterprise_code = #{enterprise_code} and enterprise_password = #{enterprise_password}
 	</delete>
 
 </mapper>

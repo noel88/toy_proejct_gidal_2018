@@ -41,6 +41,10 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	@Override
 	public int enterpriseBoard_update(EnterpriseVO vo) {
+		SHA256 sha = new SHA256();
+		String pwd = sha.getSHA256(vo.getEnterprise_password());
+
+		vo.setEnterprise_password(pwd);
 		return dao.enterpriseBoard_update(vo);
 	}
 
@@ -145,9 +149,17 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	 * @throws
 	 */
 
+
+
+
+
 	@Override
-	public void delete(Integer code) {
-		dao.delete(code);
+	public void delete(EnterpriseVO vo) {
+		SHA256 sha = new SHA256();
+		String pwd = sha.getSHA256(vo.getEnterprise_password());
+
+		vo.setEnterprise_password(pwd);
+		dao.delete(vo);
 
 	}
 

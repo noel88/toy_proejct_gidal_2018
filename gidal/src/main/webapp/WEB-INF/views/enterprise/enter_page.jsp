@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
+
+
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
 </head>

@@ -1,19 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <br>
 
 <title>Insert title here</title>
-<link rel='stylesheet' type='text/css' href='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.css' />
+
+<!-- <link rel='stylesheet' type='text/css' href='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.css' />
 <link rel='stylesheet' type='text/css' href='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.print.css' media='print' />
-<script src='https://fullcalendar.io/js/fullcalendar-3.0.1/lib/moment.min.js'></script>
+ <script src='https://fullcalendar.io/js/fullcalendar-3.0.1/lib/moment.min.js'></script>
 <script src='https://fullcalendar.io/js/fullcalendar-3.0.1/lib/jquery.min.js'></script>
-<script src='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.min.js'></script>
+<script src='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.min.js'></script> -->
 
 
+<link href="<c:url value="/resources/css/fullcalendar.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/fullcalendar.print.css" />" rel="stylesheet" media='print'>
+<script src="<c:url value="/resources/js/moment.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script src="<c:url value="/resources/js/fullcalendar.min.js" />"></script>
 
 
 
@@ -52,7 +59,6 @@ $(document).ready(function() {
 
 	$('#calendar').fullCalendar({
 		header: {
-			lang:'ko',
 			left: 'prev,next today',
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay,listWeek',
@@ -74,8 +80,8 @@ $(document).ready(function() {
 
 });
 
-</script>
 
+</script>
 <div id='calendar'></div>
 	<div style= "width:100%; auto; margin-left: auto;">
 

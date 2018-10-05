@@ -6,9 +6,9 @@
 
 <mapper namespace="org.gidal.mapper.ReviewMapper">
 
-	<insert id="create">
-		insert into review (review_num, enterprise_code, user_email, review_scope, review_text)
-		values (#{review_num},#{enterprise_code},#{user_email},#{review_scope},#{review_text})
+	<insert id="userReview">
+		insert into review (user_email, review_text)
+		values (#{user_email},#{review_text})
 	</insert>
 
 	<select id="view" resultType="org.gidal.review.domain.ReviewVO">

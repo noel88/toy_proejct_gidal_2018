@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.gidal.event.domain.PageInfo;
 import org.gidal.user.dao.UserDAO;
+import org.gidal.user.domain.SessionPageVO;
 import org.gidal.user.domain.UserPageVO;
 import org.gidal.user.domain.UserPageWaitingVO;
 import org.gidal.user.domain.UserVO;
@@ -17,6 +18,7 @@ public class UserServiceImpl implements UserService{
 
 	@Inject
 	private UserDAO dao;
+	
 
 	@Override
 	public int user_join(UserVO vo) {
@@ -51,10 +53,14 @@ public class UserServiceImpl implements UserService{
 
 
 	@Override
-	public List<UserPageVO> UserPageReserve(int page) throws Exception {
+	public List<UserPageVO> UserPageReserve(int page,String user_email) throws Exception {
+		SessionPageVO vo = new SessionPageVO();
 		int startRow = (page - 1) * 10;
 		
-		return dao.UserPageReserve(startRow);
+		
+		vo.setStartRow(startRow);
+		vo.setUser_email(user_email);
+		return dao.UserPageReserve(vo);
 	}
 
 
@@ -90,10 +96,12 @@ public class UserServiceImpl implements UserService{
 
 
 	@Override
-	public List<UserPageWaitingVO> UserPageWaiting(int page) throws Exception {
-			int startRow = (page - 1) * 10;
-		
-		return dao.UserPageWaiting(startRow);
+	public List<UserPageWaitingVO> UserPageWaiting(int page,String user_email) throws Exception {
+		SessionPageVO vo = new SessionPageVO();	
+		int startRow = (page - 1) * 10;
+		vo.setStartRow(startRow);
+		vo.setUser_email(user_email);
+		return dao.UserPageWaiting(vo);
 	}
 
 

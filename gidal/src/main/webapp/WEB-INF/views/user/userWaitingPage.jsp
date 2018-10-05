@@ -31,6 +31,7 @@
 						<th scope="col">인원</th>
 						<th scope="col" style = "min-width : 90px;">날짜</th>
 						<th scope="col" style = "min-width : 90px;">예약자</th>
+						<th>&nbsp;</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -40,6 +41,7 @@
 							<td><small>${UserPageWaitingVO.waiting_personnel}</small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${UserPageWaitingVO.waiting_now}" /></small></td>
 							<td><small>${UserPageWaitingVO.user_name}</small></td>
+							<td><button type="submit"><a href="/review/show">리뷰쓰기</a></button></td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -1,5 +1,7 @@
 package org.gidal.review.service;
 
-public interface ReviewService {
+import org.gidal.review.domain.ReviewVO;
 
+public interface ReviewService {
+	public int userReview(ReviewVO vo);
 }

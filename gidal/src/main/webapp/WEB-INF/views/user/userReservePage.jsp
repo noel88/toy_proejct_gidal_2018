@@ -53,8 +53,8 @@
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${UserPageVO.reserve_datetime}" /></small></td>
 							<td><small>${UserPageVO.user_name}</small></td>
 							
-						<td><button type="submit">리뷰쓰기</button></td>
-					
+						<td><button type="submit"><a href="/review/show">리뷰쓰기</a></button></td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>

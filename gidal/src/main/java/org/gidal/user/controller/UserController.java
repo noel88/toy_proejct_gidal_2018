@@ -3,7 +3,6 @@ package org.gidal.user.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.user.domain.UserVO;
 import org.gidal.user.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -63,22 +62,26 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/userReservePage", method = RequestMethod.GET)
-	public void userReservePage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)throws Exception  {
+	public void userReservePage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model,HttpSession session)throws Exception  {
 		int UserPageReserveCount = service.UserPageReserveCount();
+		String user_email = (String)session.getAttribute("LOGIN");
 		
+		
+	
 		model.addAttribute("pageInfo", service.pageInfo(page, LIMIT, UserPageReserveCount));
 		
-		model.addAttribute("list",service.UserPageReserve(page));
+		model.addAttribute("list",service.UserPageReserve(page,user_email));
 		
 	}
 	@RequestMapping(value = "/userWaitingPage", method = RequestMethod.GET)
-	public void userWaitingPage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)throws Exception  {
+	public void userWaitingPage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model,HttpSession session)throws Exception  {
 		
 		int UserPageWaitingCount = service.UserPageWaitingCount();
+		String user_email = (String)session.getAttribute("LOGIN");
 		
 		model.addAttribute("pageInfo1", service.pageInfo(page, LIMIT, UserPageWaitingCount));
 		
-		model.addAttribute("list1",service.UserPageWaiting(page));
+		model.addAttribute("list1",service.UserPageWaiting(page,user_email));
 	}
 	
 	@RequestMapping(value = "/userRevise", method = RequestMethod.POST)
@@ -107,5 +110,5 @@ public class UserController {
 		return "redirect:/";
 
 	}
-
+	
 }

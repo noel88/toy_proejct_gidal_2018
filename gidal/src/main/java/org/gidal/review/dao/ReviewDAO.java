@@ -1,5 +1,9 @@
 package org.gidal.review.dao;
 
-public interface ReviewDAO {
+import org.gidal.review.domain.ReviewVO;
 
+public interface ReviewDAO {
+	
+	
+	public int userReview(ReviewVO vo);
 }

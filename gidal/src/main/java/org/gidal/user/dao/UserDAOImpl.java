@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.gidal.event.domain.PageInfo;
+import org.gidal.user.domain.SessionPageVO;
 import org.gidal.user.domain.UserPageVO;
 import org.gidal.user.domain.UserPageWaitingVO;
 import org.gidal.user.domain.UserVO;
@@ -44,8 +45,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<UserPageVO> UserPageReserve(int startRow) throws Exception {
-		return sqlsession.selectList(namespace + ".UserPageReserve", startRow);
+	public List<UserPageVO> UserPageReserve(SessionPageVO vo) throws Exception {
+		
+		return sqlsession.selectList(namespace + ".UserPageReserve",vo);
 		
 	}
 
@@ -60,8 +62,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<UserPageWaitingVO> UserPageWaiting(int startRow) throws Exception {
-		return sqlsession.selectList(namespace + ".UserPageWaiting", startRow);
+	public List<UserPageWaitingVO> UserPageWaiting(SessionPageVO vo) throws Exception {
+		return sqlsession.selectList(namespace + ".UserPageWaiting", vo);
 	}
 
 	@Override

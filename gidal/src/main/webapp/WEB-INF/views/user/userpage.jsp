@@ -16,7 +16,8 @@
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-			<h1><a href="userReservePage">예약</a></h1><h1><a href="userWaitingPage">웨이팅</a></h1>
+			<h1><a href="userReservePage">예약</a></h1>
+			<h1><a href="userWaitingPage">웨이팅</a></h1>
 			<h1><a href="userReviseForm">회원 정보수정</a></h1>
 			<h1><a href="userDeleteForm">회원 탈퇴</a></h1>
 			

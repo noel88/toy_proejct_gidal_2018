@@ -52,7 +52,7 @@
 					</div>
 					<c:if test = "${eventVO.event_image != null}">
 						<img style="height: auto; width: 100%; display: block;"
-							src="/upload/${eventVO.event_image}" alt="Card image">
+							src="/upload/event/${eventVO.event_image}" alt="Card image">
 					</c:if>
 					<div class="card-body">
 						<p class="card-text">${eventVO.event_content}</p>

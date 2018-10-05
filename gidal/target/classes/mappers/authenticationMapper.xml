@@ -6,53 +6,54 @@
 
 <mapper namespace="org.gidal.mapper.AuthenticationMapper">
 
-
-	<select id="user_login" resultType="org.gidal.user.domain.UserVO">
+	<select id="user_check" resultType="org.gidal.user.domain.UserVO">
 		SELECT 
-			user_email, user_password 
+			* 
 		FROM 
 			user 
 		WHERE 
-			user_email = #{user_email} AND user_password = #{user_password};
-	</select>
-
-	<select id="enterprise_login" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		SELECT 
-			enterprise_email, enterprise_password 
-		FROM 
-			enterprise 
-		WHERE 
-			enterprise_email = #{enterprise_email} AND enterprise_password = #{enterprise_password};
-	</select>
-
-	<select id="user_check" resultType="org.gidal.user.domain.UserVO">
-		select * from user where user_email = #{user_email}
+		<choose>
+			<when test="user_email != null and user_phoneNum != null and user_name != null">
+				user_email = #{user_email} AND user_phoneNum = #{user_phoneNum} AND user_name = #{user_name};
+			</when>
+			<when test="user_email != null and user_password != null">
+				user_email = #{user_email} AND user_password = #{user_password};
+			</when>
+		</choose>
 	</select>
 
 	<select id="enterprise_check" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select * from enterprise where enterprise_email = #{enterprise_email}
+		SELECT 
+			* 
+		FROM 
+			enterprise 
+		WHERE 
+		<choose>
+			<when test="enterprise_email != null and enterprise_phone != null and enterprise_name != null">
+				enterprise_email = #{enterprise_email} AND enterprise_phone = #{enterprise_phone} AND enterprise_name = #{enterprise_name};
+			</when>
+			<when test="enterprise_email != null and enterprise_password != null">
+				enterprise_email = #{enterprise_email} AND enterprise_password = #{enterprise_password};
+			</when>
+		</choose>
 	</select>
 
 	<update id="user_forget">
-		update user set user_password = #{user_password} where user_email = #{user_email}
+		UPDATE 
+			user 
+		SET 
+			user_password = #{user_password} 
+		WHERE 
+			user_email = #{user_email};
 	</update>
 
 	<update id="enterprise_forget">
-		update enterprise set enterprise_password = #{enterprise_password} where enterprise_email = #{enterprise_email}
+		UPDATE 
+			enterprise 
+		SET 
+			enterprise_password = #{enterprise_password} 
+		WHERE 
+			enterprise_email = #{enterprise_email};
 	</update>
-
-	<delete id="user_delete">
-		delete from user where user_email = #{user_email}
-	</delete>
-
-	<delete id="enterprise_delete">
-		delete from enterprise where enterprise_email = #{enterprise_email}
-	</delete>
-
-
-
-
-
-
 
 </mapper>

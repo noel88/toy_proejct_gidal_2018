@@ -4,11 +4,13 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.gidal.authentication.dto.LoginDTO;
+import org.gidal.authentication.dto.ReissuePasswordDTO;
 import org.gidal.authentication.service.AuthenticationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -50,9 +52,8 @@ public class AuthenticationController {
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-		
-		
-		session.invalidate();
+	
+		service.logout(session);
 
 		return "redirect:/";
 
@@ -60,20 +61,39 @@ public class AuthenticationController {
 
 	@RequestMapping(value = "/noPermission", method = RequestMethod.GET)
 	public void noPermission(HttpSession session) {
+
+		service.logout(session);
 		
-		session.invalidate();
+	}
+	
+	@RequestMapping(value = "/reissuePassword", method = RequestMethod.GET)
+	public String reissuePasswordGET() {
+		return "authentication/reissuePassword";
+	}
+
+	@RequestMapping(value = "/reissuePassword", method = RequestMethod.POST)
+	public String reissuePasswordPOST(ReissuePasswordDTO reissuePassword, RedirectAttributes rttr) {
 		
+		String newPassword = service.reissuePassword(reissuePassword);
 		
+		if(!(newPassword.equals(""))) {
+			rttr.addFlashAttribute("msg", "reissuePasswordSuccess");
+			rttr.addFlashAttribute("email", reissuePassword.getReissuePassword_email());
+			rttr.addFlashAttribute("newPassword", newPassword);
+		}
+
+		return "redirect:/authentication/reissuePasswordResult";
+	}
+	
+	@RequestMapping(value = "/reissuePasswordResult", method = RequestMethod.GET)
+	public String reissuePasswordResult() {
+		return "authentication/reissuePasswordResult";
 	}
 	
 	public void setLoginSession(LoginDTO loginInfo, String level, HttpSession session) {
 		session.setAttribute("LEVEL", level);
 		session.setAttribute("LOGIN", loginInfo.getLogin_email());
 	}
-
-
-
-
 
 
 }

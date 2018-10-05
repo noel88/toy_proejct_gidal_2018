@@ -6,6 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
+<style>
+	#eventImage {
+		height : 350px;
+	}
+</style>
+
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
 <body>
@@ -30,34 +36,61 @@
 			<div id="carouselExampleIndicators" class="carousel slide"
 				data-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0"
-						class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					<c:forEach var = "list" begin = "0" end = "${ eventList.size() - 1 }" step = "1">
+						<c:choose>
+							<c:when test="${ list eq 0 }">
+								<li data-target="#carouselExampleIndicators" data-slide-to="${ list }" class="active"></li>
+							</c:when>
+							<c:otherwise>
+								<li data-target="#carouselExampleIndicators" data-slide-to="${ list }"></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
 				</ol>
+
+				<c:set var = "i" value = "1"></c:set>
 				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" src="<%= request.getContextPath() %>/resources/img/event/event1.png" alt="첫번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-							<h3 style="color: black;">첫번째 캡션</h3>
-							<p style="color: black;">두번째 캡션</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="<%= request.getContextPath() %>/resources/img/event/event2.png" alt="두번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-							<h3 style="color: black;">첫번째 캡션</h3>
-							<p style="color: black;">두번째 캡션</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="<%= request.getContextPath() %>/resources/img/event/event3.png" alt="세번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-							<h3 style="color: black;">첫번째 캡션</h3>
-							<p style="color: black;">두번째 캡션</p>
-						</div>
-					</div>
+					<c:forEach items="${eventList}" var="eventVO">
+						<c:choose>
+							<c:when test="${ i eq 1 }">
+								<div class="carousel-item active">
+									<c:choose>
+										<c:when test="${ eventVO.event_image eq null }">
+											<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+										</c:when>
+										<c:otherwise>
+											<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+										</c:otherwise>
+									</c:choose>
+									<div class="carousel-caption d-none d-md-block">
+										<h3 style="color: black;">${ eventVO.event_title }</h3>
+										<p style="color: black;">${ eventVO.event_startDate }&nbsp;-&nbsp;${ eventVO.event_endDate }</p>
+									</div>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="carousel-item">
+									<c:choose>
+										<c:when test="${ eventVO.event_image eq null }">
+											<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+										</c:when>
+										<c:otherwise>
+											<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+										</c:otherwise>
+									</c:choose>
+									<div class="carousel-caption d-none d-md-block">
+										<h3 style="color: black;">${ eventVO.event_title }</h3>
+										<p style="color: black;">${ eventVO.event_startDate }&nbsp;-&nbsp;${ eventVO.event_endDate }</p>
+									</div>
+								</div>
+							</c:otherwise>
+						</c:choose>
+						<c:set var = "i" value = "${ i + 1 }"></c:set>
+					</c:forEach>
 				</div>
+				
+				
+				
 				<a class="carousel-control-prev" href="#carouselExampleIndicators"
 					role="button" data-slide="prev"> <span
 					class="carousel-control-prev-icon" aria-hidden="true"></span> <span

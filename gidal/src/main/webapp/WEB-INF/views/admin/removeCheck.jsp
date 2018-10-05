@@ -19,7 +19,6 @@
 
 			<hr class="my-4">
 			<h4>삭제 확인</h4>
-			${ levelCheck }
 			<div class="row" style="margin : 0 auto;">
 					<form method = "post" style = "margin : auto;">
 						<table class="table table-hover" style="text-align: center;">

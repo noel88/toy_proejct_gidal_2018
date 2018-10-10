@@ -1,22 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>기달</title>
 
-<%@ include file = "/WEB-INF/views/include/head.jsp" %>
+
 
 </head>
 <body>
 
-<%@ include file = "/WEB-INF/views/include/nav.jsp" %>
-
-	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-		<div class="jumbotron">
-			
 			<h1 style = "text-align : center;">웨이팅</h1>
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
 				
@@ -79,10 +74,7 @@
 			</div>	
 				
 			</div>
-		</div>
-		 
-
-	</div>
+	
 
 </body>
 </html>

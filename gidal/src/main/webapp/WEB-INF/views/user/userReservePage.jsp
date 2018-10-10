@@ -1,18 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
+<link href="<c:url value="/resources/css/fullcalendar.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/fullcalendar.print.css" />" rel="stylesheet" media='print'>
+<script src="<c:url value="/resources/js/moment.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script src="<c:url value="/resources/js/fullcalendar.min.js" />"></script>
 
-<%@ include file = "/WEB-INF/views/include/head.jsp" %>
+<style>
+
+body {
+	margin: 40px 10px;
+	padding: 0;
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+	font-size: 14px;
+}
+
+
+
+</style>
+
 
 </head>
 <body>
 
-<%@ include file = "/WEB-INF/views/include/nav.jsp" %>
+
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">

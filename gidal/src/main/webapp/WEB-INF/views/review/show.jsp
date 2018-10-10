@@ -7,12 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file = "/WEB-INF/views/include/head.jsp" %>
 </head>
 <body>
-<div class="page-header">
-    <h2>리뷰</h2>
-</div>
 
+<%@ include file = "/WEB-INF/views/include/nav.jsp" %>
+    
+    
+
+<div style="width: 50%; margin-right: auto; margin-left: auto;">
+<h2>리뷰</h2>
 <form action = "userReview" onsubmit="return tocheckpw2()" data-ajax="false" method = "post" onsubmit="return join();">
     <textarea rows="5" cols="50" name="review_text"></textarea>
     <br/>
@@ -27,7 +31,10 @@
         <option value="4">★★★★☆</option>
         <option value="5">★★★★★</option>
     </select>
-    <button class="btn btn-block btn-primary" type="submit">리뷰 등록</button>
+    
+    <button class="form-control btn btn-primary" type="submit">리뷰 등록</button>
+    
 </form>
+</div>
 </body>
 </html>

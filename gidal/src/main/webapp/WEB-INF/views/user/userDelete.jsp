@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<%@ include file = "/WEB-INF/views/include/nav.jsp" %>
+
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
@@ -20,7 +20,7 @@
 			<h1>회원탈퇴</h1>
 			<input type="hidden"  name="user_email" value="${LOGIN}" >
 			정말 탈퇴하시겠습니까?<br />
-			<button type="submit">예</button>
+			<button class="form-control btn btn-primary" type="submit">예</button>
 			</form>
 			<hr class="my-4">
 			<!-- <p class="lead">This is a simple hero unit, a simple

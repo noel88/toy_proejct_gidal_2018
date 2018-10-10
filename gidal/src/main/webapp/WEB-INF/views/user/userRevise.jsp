@@ -7,8 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 
-<%@ include file = "/WEB-INF/views/include/head.jsp" %>
-
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 
@@ -51,7 +49,7 @@
 </head>
 <body>
 
-<%@ include file = "/WEB-INF/views/include/nav.jsp" %>
+
 
 
 

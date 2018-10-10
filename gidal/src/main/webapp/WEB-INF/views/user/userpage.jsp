@@ -4,8 +4,11 @@
 <html>
 <head>
 
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
+
+
 
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
@@ -16,22 +19,55 @@
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-			<h1><a href="userReservePage">예약</a></h1>
-			<h1><a href="userWaitingPage">웨이팅</a></h1>
-			<h1><a href="userReviseForm">회원 정보수정</a></h1>
-			<h1><a href="userDeleteForm">회원 탈퇴</a></h1>
-			
-			<hr class="my-4">
-			<!-- <p class="lead">This is a simple hero unit, a simple
-			jumbotron-style component for calling extra attention to featured
-			content or information.</p>
-		<p>It uses utility classes for typography and spacing to space
-			content out within the larger container.</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
-		</p> -->
+		<h1 style="margin-top: 30px;"> 유저페이지 </h1>
 
+<div style=" margin-left : auto; margin-right : auto;">
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+		<a class="nav-link active show " data-toggle="tab" href="#reserve">예약목록</a> 
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#waiting">웨이팅목록</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#update">개인정보수정</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#delete">회원탈퇴</a>
+		</li>
+
+	</ul>
+
+	<div id="myTabContent" class="tab-content">
+		<!-- 예약목록확인 페이지 -->
+		<div class="tab-pane fade active show" id="reserve">
+
+			<%@ include file = "/WEB-INF/views/user/userReservePage.jsp" %>
+		<hr class="my-4">
+		</div>
+		<!-- 웨이팅 목록 확인 페이지 -->
+		<div class="tab-pane fade show" id="waiting">
+			<%@ include file = "/WEB-INF/views/user/userWaitingPage.jsp" %>
+
+		<hr class="my-4">
+		</div>
+		<!-- 기업정보 수정 페이지 -->
+		<div class="tab-pane fade show" id="update">
+
+			<%@ include file = "/WEB-INF/views/user/userRevise.jsp" %>
+
+		<hr class="my-4">
+		</div>
+
+		<!-- 기업 탈퇴 페이지 -->
+		<div class="tab-pane fade show" id="delete">
+
+			<%@ include file = "/WEB-INF/views/user/userDelete.jsp" %>
+		<hr class="my-4">
+		</div> 
+
+	</div>
+	</div>
 			
 		</div>
 	</div>

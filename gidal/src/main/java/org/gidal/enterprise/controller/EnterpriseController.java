@@ -69,7 +69,7 @@ public class EnterpriseController {
 
 
 	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
-	public Model enterprise_page(HttpSession session, Model model) {
+	public void enterprise_page(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
 
@@ -77,8 +77,8 @@ public class EnterpriseController {
 		model.addAttribute("reserve",service.reserve_list(code));
 		model.addAttribute("list", service.enterpriseBoard_view(code));
 
-
-		return model;
+		
+		//return model;
 
 	}
 

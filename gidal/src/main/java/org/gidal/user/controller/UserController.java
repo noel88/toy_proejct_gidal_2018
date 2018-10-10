@@ -57,8 +57,16 @@ public class UserController {
 	//수정
 
 	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
-	public String userpage() {
-		return "user/userpage";
+	public Model userpage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model,HttpSession session)throws Exception{
+		int UserPageReserveCount = service.UserPageReserveCount();
+		int UserPageWaitingCount = service.UserPageWaitingCount();
+		String user_email = (String)session.getAttribute("LOGIN");
+		model.addAttribute("pageInfo", service.pageInfo(page, LIMIT, UserPageReserveCount));
+		model.addAttribute("list",service.UserPageReserve(page,user_email));
+		model.addAttribute("pageInfo1", service.pageInfo(page, LIMIT, UserPageWaitingCount));
+		model.addAttribute("list1",service.UserPageWaiting(page,user_email));
+		System.out.print("------------------------------------------");
+		return model;
 	}
 
 	@RequestMapping(value = "/userReservePage", method = RequestMethod.GET)

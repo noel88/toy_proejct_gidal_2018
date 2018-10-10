@@ -28,10 +28,10 @@
 				<thead>
 					<tr>
 						<th scope="col" style = "min-width : 56px;">식당</th>
-						<th scope="col">인원</th>
+						<th scope="col" style = "min-width : 56px;">인원</th>
 						<th scope="col" style = "min-width : 90px;">날짜</th>
 						<th scope="col" style = "min-width : 90px;">예약자</th>
-						<th>&nbsp;</th>
+						<th scope="col" style = "min-width : 80px;">&nbsp;</th>
 					</tr>
 				</thead>
 				<tbody>

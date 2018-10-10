@@ -1,5 +1,8 @@
 package org.gidal.review.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.gidal.review.domain.ReviewVO;
@@ -25,7 +28,7 @@ public class ReviewController {
 	}
 	@RequestMapping(value = "/userReview", method = RequestMethod.POST)
 	public String userReview(ReviewVO vo,Model model) {
-	  
+		
 		service.userReview(vo);
 		model.addAttribute("review",vo);
 	    return "redirect:/user/userpage";

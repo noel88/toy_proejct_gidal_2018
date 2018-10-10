@@ -6,7 +6,14 @@ public class ReviewVO {
 	private int review_code; //리뷰 코드
 	//private String review_restaurantBoard_code;
 	//private String review_restaurantNmae;
-	//private String review_scope;
+	private String review_scope; //평점
+	public String getReview_scope() {
+		return review_scope;
+	}
+	public void setReview_scope(String review_scope) {
+		this.review_scope = review_scope;
+	}
+
 	private String review_text; //리뷰내용
 	@Override
 	public String toString() {
@@ -14,7 +21,10 @@ public class ReviewVO {
 				+ "]";
 	}
 	//private String review_count; //조회수
+	
 	private String user_email; 
+	
+	
 	public String getUser_email() {
 		return user_email;
 	}

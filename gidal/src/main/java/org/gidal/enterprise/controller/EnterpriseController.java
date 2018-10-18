@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -14,6 +15,7 @@ import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.enterprise.domain.PagingVO;
 import org.gidal.enterprise.service.EnterpriseService;
+import org.gidal.review.service.ReviewService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,8 +39,8 @@ import net.sf.json.JSONObject;
 public class EnterpriseController {
 
 
-	@Inject
-	private EnterpriseService service;
+	@Inject private EnterpriseService service;
+
 
 
 
@@ -77,7 +80,7 @@ public class EnterpriseController {
 		model.addAttribute("reserve",service.reserve_list(code));
 		model.addAttribute("list", service.enterpriseBoard_view(code));
 
-		
+
 		//return model;
 
 	}
@@ -113,71 +116,15 @@ public class EnterpriseController {
 
 	//FIXME 파일 업로드 관련 정리, 파일명 [상포명+파일이름]으로 변경될수 있게.
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String enterprise_join(MultipartHttpServletRequest request) throws IOException, Exception {
-
-		EnterpriseVO vo = new EnterpriseVO();
-
-		//파일업로드
-		long time = System.currentTimeMillis();
-		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-mm-dd");
-		String str = dayTime.format(new Date(time));
-
-			vo.setEnterprise_email(request.getParameter("enterprise_email"));
-			vo.setEnterprise_password(request.getParameter("enterprise_password"));
-			vo.setEnterprise_name(request.getParameter("enterprise_name"));
-			vo.setEnterprise_businessName(request.getParameter("enterprise_businessName"));
-			vo.setEnterprise_phone(request.getParameter("enterprise_phone"));
-			vo.setEnterprise_add1(request.getParameter("enterprise_add1"));
-			vo.setEnterprise_add2(request.getParameter("enterprise_add2"));
-			vo.setEnterprise_add3(request.getParameter("enterprise_add3"));
-			vo.setEnterprise_operatingOpenTime(request.getParameter("enterprise_operatingOpenTime"));
-			vo.setEnterprise_operatingCloseTime(request.getParameter("enterprise_operatingCloseTime"));
-			vo.setEnterprise_breakStartTime(request.getParameter("enterprise_breakStartTime"));
-			vo.setEnterprise_breakCloseTime(request.getParameter("enterprise_breakCloseTime"));
-			vo.setEnterprise_closed(request.getParameter("enterprise_closed"));
-			vo.setEnterprise_sectors(request.getParameter("enterprise_sectors"));
-			vo.setEnterprise_service(request.getParameter("enterprise_service"));
-
-			MultipartFile mf = request.getFile("enterprise_mainImg");
-			MultipartFile mf1 = request.getFile("enterprise_img1");
-			MultipartFile mf2 = request.getFile("enterprise_img2");
-			MultipartFile mf3 = request.getFile("enterprise_img3");
-			MultipartFile mf4 = request.getFile("enterprise_img4");
-
-			String filename = mf.getOriginalFilename();
-			String filename1 = mf1.getOriginalFilename();
-			String filename2 = mf2.getOriginalFilename();
-			String filename3 = mf3.getOriginalFilename();
-			String filename4 = mf4.getOriginalFilename();
-
-			File uploadFile = new File("/var/webapps/upload/enterprise/" + vo.getEnterprise_businessName() + "_"+ filename);
-			File uploadFile1 = new File("/var/webapps/upload/enterprise/" +  vo.getEnterprise_businessName() +"_"+ filename1);
-			File uploadFile2 = new File("/var/webapps/upload/enterprise/" +  vo.getEnterprise_businessName() +"_"+ filename2);
-			File uploadFile3 = new File("/var/webapps/upload/enterprise/" +  vo.getEnterprise_businessName() +"_"+ filename3);
-			File uploadFile4 = new File("/var/webapps/upload/enterprise/" +  vo.getEnterprise_businessName() +"_"+ filename4);
-
-			try {
-
-				mf.transferTo(uploadFile);
-				mf1.transferTo(uploadFile1);
-				mf2.transferTo(uploadFile2);
-				mf3.transferTo(uploadFile3);
-				mf4.transferTo(uploadFile4);
-
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-
-			vo.setEnterprise_mainImg(filename);
-			vo.setEnterprise_img1(filename1);
-			vo.setEnterprise_img2(filename2);
-			vo.setEnterprise_img3(filename3);
-			vo.setEnterprise_img4(filename4);
-
-		        service.enterprise_join(vo);
-		        return "redirect:/authentication/signIn";
-
+	public String enterprise_join(EnterpriseVO vo) throws IOException, Exception {
+	     String no = "no_image.png";
+		 vo.setEnterprise_mainImg(no);
+		 service.enterprise_join(vo);
+		 return "redirect:/authentication/signIn";
 	}
+
+
+
 
 	/**
 	 * 수정페이지에서 기업 정보 수정후 업데이트
@@ -189,73 +136,55 @@ public class EnterpriseController {
 
 	//FIXME 파일 업로드 관련 정리, 파일명 [상포명+파일이름]으로 변경될수 있게.
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String enterprise_update(MultipartHttpServletRequest request) throws IOException, Exception {
+	public String enterprise_update(MultipartHttpServletRequest request, EnterpriseVO vo, HttpSession session) throws IOException, Exception {
 
-		EnterpriseVO vo = new EnterpriseVO();
-
-		//파일업로드
-		long time = System.currentTimeMillis();
-		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-mm-dd");
-		String str = dayTime.format(new Date(time));
-
-		vo.setEnterprise_code(Integer.parseInt(request.getParameter("enterprise_code")));
-		vo.setEnterprise_email(request.getParameter("enterprise_email"));
-		vo.setEnterprise_password(request.getParameter("enterprise_password"));
-		vo.setEnterprise_name(request.getParameter("enterprise_name"));
-		vo.setEnterprise_businessName(request.getParameter("enterprise_businessName"));
-		vo.setEnterprise_phone(request.getParameter("enterprise_phone"));
-		vo.setEnterprise_add1(request.getParameter("enterprise_add1"));
-		vo.setEnterprise_add2(request.getParameter("enterprise_add2"));
-		vo.setEnterprise_add3(request.getParameter("enterprise_add3"));
-		vo.setEnterprise_operatingOpenTime(request.getParameter("enterprise_operatingOpenTime"));
-		vo.setEnterprise_operatingCloseTime(request.getParameter("enterprise_operatingCloseTime"));
-		vo.setEnterprise_breakStartTime(request.getParameter("enterprise_breakStartTime"));
-		vo.setEnterprise_breakCloseTime(request.getParameter("enterprise_breakCloseTime"));
-		vo.setEnterprise_closed(request.getParameter("enterprise_closed"));
-		vo.setEnterprise_sectors(request.getParameter("enterprise_sectors"));
-		vo.setEnterprise_service(request.getParameter("enterprise_service"));
-
-
-		MultipartFile mf = request.getFile("enterprise_mainImg");
-		MultipartFile mf1 = request.getFile("enterprise_img1");
-		MultipartFile mf2 = request.getFile("enterprise_img2");
-		MultipartFile mf3 = request.getFile("enterprise_img3");
-		MultipartFile mf4 = request.getFile("enterprise_img4");
-
-		String filename = mf.getOriginalFilename();
-		String filename1 = mf1.getOriginalFilename();
-		String filename2 = mf2.getOriginalFilename();
-		String filename3 = mf3.getOriginalFilename();
-		String filename4 = mf4.getOriginalFilename();
-
-		File uploadFile = new File("../var/webapps/upload/enterprise" + filename);
-		File uploadFile1 = new File("../var/webapps/upload/enterprise" + filename1);
-		File uploadFile2 = new File("../var/webapps/upload/enterprise" + filename2);
-		File uploadFile3 = new File("../var/webapps/upload/enterprise" + filename3);
-		File uploadFile4 = new File("../var/webapps/upload/enterprise" + filename4);
-
-		try {
-
-			mf.transferTo(uploadFile);
-			mf1.transferTo(uploadFile1);
-			mf2.transferTo(uploadFile2);
-			mf3.transferTo(uploadFile3);
-			mf4.transferTo(uploadFile4);
-
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-
-		vo.setEnterprise_mainImg(filename);
-		vo.setEnterprise_img1(filename1);
-		vo.setEnterprise_img2(filename2);
-		vo.setEnterprise_img3(filename3);
-		vo.setEnterprise_img4(filename4);
+		String email = (String)session.getAttribute("LOGIN");
+		vo.setEnterprise_email(email);
 
 		service.enterpriseBoard_update(vo);
 		return "redirect:/enterprise/enter_page";
 
 	}
+
+
+	@RequestMapping(value = "/img") //ajax에서 호출하는 부분
+    @ResponseBody
+    public String upload(MultipartHttpServletRequest multipartRequest,HttpSession session, EnterpriseVO vo) { //Multipart로 받는다.
+
+		String email = (String)session.getAttribute("LOGIN");
+
+        Iterator<String> itr =  multipartRequest.getFileNames();
+
+        String filePath = "/opt/was/apache-tomcat-9.0.12/webapps/enterprise_img"; //설정파일로 뺀다.
+//       String filePath = "C:/Users/a/Desktop/img"; //설정파일로 뺀다.
+
+        while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
+
+            MultipartFile mpf = multipartRequest.getFile(itr.next());
+            String originalFilename = mpf.getOriginalFilename(); //파일명
+            String fileFullPath = filePath+"/"+originalFilename; //파일 전체 경로
+
+            try {
+                //파일 저장
+                mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
+                vo.setEnterprise_email(email);
+                vo.setEnterprise_mainImg(originalFilename);
+                service.enterprise_img(vo);
+                System.out.println("originalFilename => "+originalFilename);
+                System.out.println("fileFullPath => "+fileFullPath);
+            } catch (Exception e) {
+                System.out.println("postTempFile_ERROR======>"+fileFullPath);
+                e.printStackTrace();
+            }
+
+       }
+
+        return "success";
+	}
+
+
+
+
 
 	/**
 	 * 식당 게시판 전체 목록 페이지

@@ -16,6 +16,8 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/img/**" location="/resources/img/" />
 	<resources mapping="/upload/**" location="/upload/" />
+<!-- 	<resources mapping="/image/**" location="file:///C:/Users/a/Desktop/img/" /> -->
+   	<resources mapping="/image/**" location="http://bigmit.iptime.org:82/enterprise_img/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -3,12 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
-
-
 
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
@@ -39,11 +35,11 @@
 
 	</ul>
 
-	<div id="myTabContent" class="tab-content">
+ <div id="myTabContent" class="tab-content">
 		<!-- 예약목록확인 페이지 -->
 		<div class="tab-pane fade active show" id="reserve">
 
-			<%@ include file = "/WEB-INF/views/enterprise/enterprise_reserveList.jsp" %>
+		 <%@ include file = "/WEB-INF/views/enterprise/enterprise_reserveList.jsp" %>
 		<hr class="my-4">
 		</div>
 		<!-- 웨이팅 목록 확인 페이지 -->

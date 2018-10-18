@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.review.service.ReviewService;
 import org.gidal.waiting.domain.WaitingVO;
 import org.gidal.waiting.service.WaitingService;
 import org.springframework.stereotype.Controller;
@@ -18,17 +19,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class WaitingController {
 
 
-	@Inject
-	private WaitingService service;
+	@Inject private WaitingService service;
+	@Inject private ReviewService re;
+
 
 	/**
-	 * 웨이팅 페이지 이동 
-	 * 
+	 * 웨이팅 페이지 이동
+	 *
 	 * 로그인 세션을 이용하여, 이름과 전화번호를 세션에 넣어주어 페이지 이동.
-	 * 
+	 *
 	 * @param int, HttpSession, Model
 	 * @return Model
-	 * @throws 
+	 * @throws
 	 */
 
 	@RequestMapping(value = "/waiting", method = RequestMethod.GET)
@@ -39,18 +41,20 @@ public class WaitingController {
 		model.addAttribute(service.selectOne(code));
 		model.addAttribute("list",service.waiting_view(code));
 		model.addAttribute("count",service.waiting_count(code));
+		model.addAttribute("review", re.ent_review(code));
+
 		return model;
 
 	}
 
 	/**
 	 * 웨이팅 처리 메소드
-	 * 
+	 *
 	 * @param WaitingVO
 	 * @return String
-	 * @throws 
+	 * @throws
 	 */
-	
+
 	@RequestMapping(value = "/waiting_insert", method = RequestMethod.GET)
 	public String waiting_insert(WaitingVO vo) {
 

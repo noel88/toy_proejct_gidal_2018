@@ -4,7 +4,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
+<style>
+#fileUpload {
 
+ border: 4px dashed #bcbcbc;
+ height: 100px;
+ width: 400px;
+ text-align: center;
+ margin: auto;
+
+}
+</style>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 function execPostCode() {
     new daum.Postcode({
@@ -250,114 +261,6 @@ function execPostCode() {
 							<option value = "24:00" <c:if test = "${list.enterprise_operatingCloseTime eq '24:00'}" > selected = "selected" </c:if>>24:00</option>
 						</select>
 
-						<label class="col-form-label" for="inputDefault">브레이크타임시작시간 </label>
-
-						<select class="custom-select"  name = "enterprise_breakStartTime">
-							<option value = "00:00" <c:if test = "${list.enterprise_breakStartTime eq '00:00'}" > selected = "selected" </c:if>>00:00</option>
-							<option value = "00:30" <c:if test = "${list.enterprise_breakStartTime eq '00:30'}" > selected = "selected" </c:if>>00:30</option>
-							<option value = "01:00" <c:if test = "${list.enterprise_breakStartTime eq '01:00'}" > selected = "selected" </c:if>>01:00</option>
-							<option value = "01:30" <c:if test = "${list.enterprise_breakStartTime eq '01:30'}" > selected = "selected" </c:if>>01:30</option>
-							<option value = "02:00" <c:if test = "${list.enterprise_breakStartTime eq '02:00'}" > selected = "selected" </c:if>>02:00</option>
-							<option value = "02:30" <c:if test = "${list.enterprise_breakStartTime eq '02:30'}" > selected = "selected" </c:if>>02:30</option>
-							<option value = "03:00" <c:if test = "${list.enterprise_breakStartTime eq '03:00'}" > selected = "selected" </c:if>>03:00</option>
-							<option value = "03:30" <c:if test = "${list.enterprise_breakStartTime eq '03:30'}" > selected = "selected" </c:if>>03:30</option>
-							<option value = "04:00" <c:if test = "${list.enterprise_breakStartTime eq '04:00'}" > selected = "selected" </c:if>>04:00</option>
-							<option value = "04:30" <c:if test = "${list.enterprise_breakStartTime eq '04:30'}" > selected = "selected" </c:if>>04:30</option>
-							<option value = "05:00" <c:if test = "${list.enterprise_breakStartTime eq '05:00'}" > selected = "selected" </c:if>>05:00</option>
-							<option value = "05:30" <c:if test = "${list.enterprise_breakStartTime eq '05:30'}" > selected = "selected" </c:if>>05:30</option>
-							<option value = "06:00" <c:if test = "${list.enterprise_breakStartTime eq '06:00'}" > selected = "selected" </c:if>>06:00</option>
-							<option value = "06:30" <c:if test = "${list.enterprise_breakStartTime eq '06:30'}" > selected = "selected" </c:if>>06:30</option>
-							<option value = "07:00" <c:if test = "${list.enterprise_breakStartTime eq '07:00'}" > selected = "selected" </c:if>>07:00</option>
-							<option value = "07:30" <c:if test = "${list.enterprise_breakStartTime eq '07:30'}" > selected = "selected" </c:if>>07:30</option>
-							<option value = "08:00" <c:if test = "${list.enterprise_breakStartTime eq '08:00'}" > selected = "selected" </c:if>>08:00</option>
-							<option value = "08:30" <c:if test = "${list.enterprise_breakStartTime eq '08:30'}" > selected = "selected" </c:if>>08:30</option>
-							<option value = "09:00" <c:if test = "${list.enterprise_breakStartTime eq '09:00'}" > selected = "selected" </c:if>>09:00</option>
-							<option value = "09:30" <c:if test = "${list.enterprise_breakStartTime eq '09:30'}" > selected = "selected" </c:if>>09:30</option>
-							<option value = "10:00" <c:if test = "${list.enterprise_breakStartTime eq '10:00'}" > selected = "selected" </c:if>>10:00</option>
-							<option value = "10:30" <c:if test = "${list.enterprise_breakStartTime eq '10:30'}" > selected = "selected" </c:if>>10:30</option>
-							<option value = "11:00" <c:if test = "${list.enterprise_breakStartTime eq '11:00'}" > selected = "selected" </c:if>>11:00</option>
-							<option value = "11:30" <c:if test = "${list.enterprise_breakStartTime eq '11:30'}" > selected = "selected" </c:if>>11:30</option>
-							<option value = "12:00" <c:if test = "${list.enterprise_breakStartTime eq '12:00'}" > selected = "selected" </c:if>>12:00</option>
-							<option value = "12:30" <c:if test = "${list.enterprise_breakStartTime eq '12:30'}" > selected = "selected" </c:if>>12:30</option>
-							<option value = "13:00" <c:if test = "${list.enterprise_breakStartTime eq '13:00'}" > selected = "selected" </c:if>>13:00</option>
-							<option value = "13:30" <c:if test = "${list.enterprise_breakStartTime eq '13:30'}" > selected = "selected" </c:if>>13:30</option>
-							<option value = "14:00" <c:if test = "${list.enterprise_breakStartTime eq '14:00'}" > selected = "selected" </c:if>>14:00</option>
-							<option value = "14:30" <c:if test = "${list.enterprise_breakStartTime eq '14:30'}" > selected = "selected" </c:if>>14:30</option>
-							<option value = "15:00" <c:if test = "${list.enterprise_breakStartTime eq '15:00'}" > selected = "selected" </c:if>>15:00</option>
-							<option value = "15:30" <c:if test = "${list.enterprise_breakStartTime eq '15:30'}" > selected = "selected" </c:if>>15:30</option>
-							<option value = "16:00" <c:if test = "${list.enterprise_breakStartTime eq '16:00'}" > selected = "selected" </c:if>>16:00</option>
-							<option value = "16:30" <c:if test = "${list.enterprise_breakStartTime eq '16:30'}" > selected = "selected" </c:if>>16:30</option>
-							<option value = "17:00" <c:if test = "${list.enterprise_breakStartTime eq '17:00'}" > selected = "selected" </c:if>>17:00</option>
-							<option value = "17:30" <c:if test = "${list.enterprise_breakStartTime eq '17:30'}" > selected = "selected" </c:if>>17:30</option>
-							<option value = "18:00" <c:if test = "${list.enterprise_breakStartTime eq '18:00'}" > selected = "selected" </c:if>>18:00</option>
-							<option value = "18:30" <c:if test = "${list.enterprise_breakStartTime eq '18:30'}" > selected = "selected" </c:if>>18:30</option>
-							<option value = "19:00" <c:if test = "${list.enterprise_breakStartTime eq '19:00'}" > selected = "selected" </c:if>>19:00</option>
-							<option value = "19:30" <c:if test = "${list.enterprise_breakStartTime eq '19:30'}" > selected = "selected" </c:if>>19:30</option>
-							<option value = "20:00" <c:if test = "${list.enterprise_breakStartTime eq '20:00'}" > selected = "selected" </c:if>>20:00</option>
-							<option value = "20:30" <c:if test = "${list.enterprise_breakStartTime eq '20:30'}" > selected = "selected" </c:if>>20:30</option>
-							<option value = "21:00" <c:if test = "${list.enterprise_breakStartTime eq '21:00'}" > selected = "selected" </c:if>>21:00</option>
-							<option value = "21:30" <c:if test = "${list.enterprise_breakStartTime eq '21:30'}" > selected = "selected" </c:if>>21:30</option>
-							<option value = "22:00" <c:if test = "${list.enterprise_breakStartTime eq '22:00'}" > selected = "selected" </c:if>>22:00</option>
-							<option value = "22:30" <c:if test = "${list.enterprise_breakStartTime eq '22:30'}" > selected = "selected" </c:if>>22:30</option>
-							<option value = "23:00" <c:if test = "${list.enterprise_breakStartTime eq '23:00'}" > selected = "selected" </c:if>>23:00</option>
-							<option value = "23:30" <c:if test = "${list.enterprise_breakStartTime eq '23:30'}" > selected = "selected" </c:if>>23:30</option>
-							<option value = "24:00" <c:if test = "${list.enterprise_breakStartTime eq '24:00'}" > selected = "selected" </c:if>>24:00</option>
-						</select>
-
-						<label class="col-form-label" for="inputDefault">브레이크타임종료시간 </label>
-						<select class="custom-select" name = "enterprise_breakCloseTime">
-							<option value = "00:00" <c:if test = "${list.enterprise_breakCloseTime eq '00:00'}" > selected = "selected" </c:if>>00:00</option>
-							<option value = "00:30" <c:if test = "${list.enterprise_breakCloseTime eq '00:30'}" > selected = "selected" </c:if>>00:30</option>
-							<option value = "01:00" <c:if test = "${list.enterprise_breakCloseTime eq '01:00'}" > selected = "selected" </c:if>>01:00</option>
-							<option value = "01:30" <c:if test = "${list.enterprise_breakCloseTime eq '01:30'}" > selected = "selected" </c:if>>01:30</option>
-							<option value = "02:00" <c:if test = "${list.enterprise_breakCloseTime eq '02:00'}" > selected = "selected" </c:if>>02:00</option>
-							<option value = "02:30" <c:if test = "${list.enterprise_breakCloseTime eq '02:30'}" > selected = "selected" </c:if>>02:30</option>
-							<option value = "03:00" <c:if test = "${list.enterprise_breakCloseTime eq '03:00'}" > selected = "selected" </c:if>>03:00</option>
-							<option value = "03:30" <c:if test = "${list.enterprise_breakCloseTime eq '03:30'}" > selected = "selected" </c:if>>03:30</option>
-							<option value = "04:00" <c:if test = "${list.enterprise_breakCloseTime eq '04:00'}" > selected = "selected" </c:if>>04:00</option>
-							<option value = "04:30" <c:if test = "${list.enterprise_breakCloseTime eq '04:30'}" > selected = "selected" </c:if>>04:30</option>
-							<option value = "05:00" <c:if test = "${list.enterprise_breakCloseTime eq '05:00'}" > selected = "selected" </c:if>>05:00</option>
-							<option value = "05:30" <c:if test = "${list.enterprise_breakCloseTime eq '05:30'}" > selected = "selected" </c:if>>05:30</option>
-							<option value = "06:00" <c:if test = "${list.enterprise_breakCloseTime eq '06:00'}" > selected = "selected" </c:if>>06:00</option>
-							<option value = "06:30" <c:if test = "${list.enterprise_breakCloseTime eq '06:30'}" > selected = "selected" </c:if>>06:30</option>
-							<option value = "07:00" <c:if test = "${list.enterprise_breakCloseTime eq '07:00'}" > selected = "selected" </c:if>>07:00</option>
-							<option value = "07:30" <c:if test = "${list.enterprise_breakCloseTime eq '07:30'}" > selected = "selected" </c:if>>07:30</option>
-							<option value = "08:00" <c:if test = "${list.enterprise_breakCloseTime eq '08:00'}" > selected = "selected" </c:if>>08:00</option>
-							<option value = "08:30" <c:if test = "${list.enterprise_breakCloseTime eq '08:30'}" > selected = "selected" </c:if>>08:30</option>
-							<option value = "09:00" <c:if test = "${list.enterprise_breakCloseTime eq '09:00'}" > selected = "selected" </c:if>>09:00</option>
-							<option value = "09:30" <c:if test = "${list.enterprise_breakCloseTime eq '09:30'}" > selected = "selected" </c:if>>09:30</option>
-							<option value = "10:00" <c:if test = "${list.enterprise_breakCloseTime eq '10:00'}" > selected = "selected" </c:if>>10:00</option>
-							<option value = "10:30" <c:if test = "${list.enterprise_breakCloseTime eq '10:30'}" > selected = "selected" </c:if>>10:30</option>
-							<option value = "11:00" <c:if test = "${list.enterprise_breakCloseTime eq '11:00'}" > selected = "selected" </c:if>>11:00</option>
-							<option value = "11:30" <c:if test = "${list.enterprise_breakCloseTime eq '11:30'}" > selected = "selected" </c:if>>11:30</option>
-							<option value = "12:00" <c:if test = "${list.enterprise_breakCloseTime eq '12:00'}" > selected = "selected" </c:if>>12:00</option>
-							<option value = "12:30" <c:if test = "${list.enterprise_breakCloseTime eq '12:30'}" > selected = "selected" </c:if>>12:30</option>
-							<option value = "13:00" <c:if test = "${list.enterprise_breakCloseTime eq '13:00'}" > selected = "selected" </c:if>>13:00</option>
-							<option value = "13:30" <c:if test = "${list.enterprise_breakCloseTime eq '13:30'}" > selected = "selected" </c:if>>13:30</option>
-							<option value = "14:00" <c:if test = "${list.enterprise_breakCloseTime eq '14:00'}" > selected = "selected" </c:if>>14:00</option>
-							<option value = "14:30" <c:if test = "${list.enterprise_breakCloseTime eq '14:30'}" > selected = "selected" </c:if>>14:30</option>
-							<option value = "15:00" <c:if test = "${list.enterprise_breakCloseTime eq '15:00'}" > selected = "selected" </c:if>>15:00</option>
-							<option value = "15:30" <c:if test = "${list.enterprise_breakCloseTime eq '15:30'}" > selected = "selected" </c:if>>15:30</option>
-							<option value = "16:00" <c:if test = "${list.enterprise_breakCloseTime eq '16:00'}" > selected = "selected" </c:if>>16:00</option>
-							<option value = "16:30" <c:if test = "${list.enterprise_breakCloseTime eq '16:30'}" > selected = "selected" </c:if>>16:30</option>
-							<option value = "17:00" <c:if test = "${list.enterprise_breakCloseTime eq '17:00'}" > selected = "selected" </c:if>>17:00</option>
-							<option value = "17:30" <c:if test = "${list.enterprise_breakCloseTime eq '17:30'}" > selected = "selected" </c:if>>17:30</option>
-							<option value = "18:00" <c:if test = "${list.enterprise_breakCloseTime eq '18:00'}" > selected = "selected" </c:if>>18:00</option>
-							<option value = "18:30" <c:if test = "${list.enterprise_breakCloseTime eq '18:30'}" > selected = "selected" </c:if>>18:30</option>
-							<option value = "19:00" <c:if test = "${list.enterprise_breakCloseTime eq '19:00'}" > selected = "selected" </c:if>>19:00</option>
-							<option value = "19:30" <c:if test = "${list.enterprise_breakCloseTime eq '19:30'}" > selected = "selected" </c:if>>19:30</option>
-							<option value = "20:00" <c:if test = "${list.enterprise_breakCloseTime eq '20:00'}" > selected = "selected" </c:if>>20:00</option>
-							<option value = "20:30" <c:if test = "${list.enterprise_breakCloseTime eq '20:30'}" > selected = "selected" </c:if>>20:30</option>
-							<option value = "21:00" <c:if test = "${list.enterprise_breakCloseTime eq '21:00'}" > selected = "selected" </c:if>>21:00</option>
-							<option value = "21:30" <c:if test = "${list.enterprise_breakCloseTime eq '21:30'}" > selected = "selected" </c:if>>21:30</option>
-							<option value = "22:00" <c:if test = "${list.enterprise_breakCloseTime eq '22:00'}" > selected = "selected" </c:if>>22:00</option>
-							<option value = "22:30" <c:if test = "${list.enterprise_breakCloseTime eq '22:30'}" > selected = "selected" </c:if>>22:30</option>
-							<option value = "23:00" <c:if test = "${list.enterprise_breakCloseTime eq '23:00'}" > selected = "selected" </c:if>>23:00</option>
-							<option value = "23:30" <c:if test = "${list.enterprise_breakCloseTime eq '23:30'}" > selected = "selected" </c:if>>23:30</option>
-							<option value = "24:00" <c:if test = "${list.enterprise_breakCloseTime eq '24:00'}" > selected = "selected" </c:if>>24:00</option>
-						</select>
-
-
 
 						<script>
 
@@ -391,7 +294,6 @@ function execPostCode() {
 
 						</div>
 
-
 						<label class="col-form-label" for="sectors_select">업종</label>
 						<select class="custom-select" name = "enterprise_sectors" id="sectors_select" >
 
@@ -418,15 +320,147 @@ function execPostCode() {
 						</select>
 
 
-						 <label class="col-form-label" for="inputDefault">대표이미지 및 기타 이미지 첨부</label>
-					   	<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img2" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img3" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile" aria-describedby="fileHelp">
+<script type="text/javascript">
+            $(document).ready(function(){
+                var objDragAndDrop = $(".dragAndDropDiv");
+
+                $(document).on("dragenter",".dragAndDropDiv",function(e){
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $(this).css('border', '2px solid #0B85A1');
+                });
+                $(document).on("dragover",".dragAndDropDiv",function(e){
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+                $(document).on("drop",".dragAndDropDiv",function(e){
+
+                    $(this).css('border', '2px dotted #0B85A1');
+                    e.preventDefault();
+                    var files = e.originalEvent.dataTransfer.files;
+
+                    handleFileUpload(files,objDragAndDrop);
+                });
+
+                $(document).on('dragenter', function (e){
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+                $(document).on('dragover', function (e){
+                  e.stopPropagation();
+                  e.preventDefault();
+                  objDragAndDrop.css('border', '2px dotted #0B85A1');
+                });
+                $(document).on('drop', function (e){
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+
+                function handleFileUpload(files,obj)
+                {
+                   for (var i = 0; i < files.length; i++)
+                   {
+                        var fd = new FormData();
+                        fd.append('file', files[i]);
+
+                        var status = new createStatusbar(obj); //Using this we can set progress.
+                        status.setFileNameSize(files[i].name,files[i].size);
+                        sendFileToServer(fd,status);
+
+                   }
+                }
+
+                var rowCount=0;
+                function createStatusbar(obj){
+
+                    rowCount++;
+                    var row="odd";
+                    if(rowCount %2 ==0) row ="even";
+                    this.statusbar = $("<div class='statusbar "+row+"'></div>");
+                    this.filename = $("<div class='filename'></div>").appendTo(this.statusbar);
+                    this.size = $("<div class='filesize'></div>").appendTo(this.statusbar);
+                    this.progressBar = $("<div class='progressBar'><div></div></div>").appendTo(this.statusbar);
+                    this.abort = $("<div class='abort'>중지</div>").appendTo(this.statusbar);
+
+                    obj.after(this.statusbar);
+
+                    this.setFileNameSize = function(name,size){
+                        var sizeStr="";
+                        var sizeKB = size/1024;
+                        if(parseInt(sizeKB) > 1024){
+                            var sizeMB = sizeKB/1024;
+                            sizeStr = sizeMB.toFixed(2)+" MB";
+                        }else{
+                            sizeStr = sizeKB.toFixed(2)+" KB";
+                        }
+
+                        this.filename.html(name);
+                        this.size.html(sizeStr);
+                    }
+
+                    this.setProgress = function(progress){
+                        var progressBarWidth =progress*this.progressBar.width()/ 100;
+                        this.progressBar.find('div').animate({ width: progressBarWidth }, 10).html(progress + "% ");
+                        if(parseInt(progress) >= 100)
+                        {
+                            this.abort.hide();
+                        }
+                    }
+
+                    this.setAbort = function(jqxhr){
+                        var sb = this.statusbar;
+                        this.abort.click(function()
+                        {
+                            jqxhr.abort();
+                            sb.hide();
+                        });
+                    }
+                }
+
+                function sendFileToServer(formData,status)
+                {
+                    var uploadURL = "img"; //Upload URL
+                    var extraData ={}; //Extra Data.
+                    var jqXHR=$.ajax({
+                            xhr: function() {
+                            var xhrobj = $.ajaxSettings.xhr();
+                            if (xhrobj.upload) {
+                                    xhrobj.upload.addEventListener('progress', function(event) {
+                                        var percent = 0;
+                                        var position = event.loaded || event.position;
+                                        var total = event.total;
+                                        if (event.lengthComputable) {
+                                            percent = Math.ceil(position / total * 100);
+                                        }
+                                        //Set progress
+                                        status.setProgress(percent);
+                                    }, false);
+                                }
+                            return xhrobj;
+                        },
+                        url: uploadURL,
+                        type: "POST",
+                        contentType:false,
+                        processData: false,
+                        cache: false,
+                        data: formData,
+                        success: function(data){
+                            status.setProgress(100);
+
+                            //$("#status1").append("File upload Done<br>");
+                        }
+                    });
+
+                    status.setAbort(jqXHR);
+                }
+
+            });
+</script>
 
 
-					</p>
+						 <label class="col-form-label" for="inputDefault">대표이미지 첨부</label>
+						 	<div id="fileUpload" class="dragAndDropDiv"><h5 style="margin-top: 40px;">추가할 사진을 드래그해주세요.</h5></div>
+						</p>
 					<p>
 						<button type="submit" class="form-control btn btn-primary signupbtn"  disabled="disabled">정보수정</button>
 					</p>

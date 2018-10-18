@@ -49,9 +49,18 @@ body {
 				more</a>
 		</p> -->
 
+<<<<<<< HEAD
 			<div class="form-group" style = "width:100%; auto; margin-left: auto;">
 			
 			
+=======
+			<div class="form-group" style = "max-width : 400px; margin : auto;">
+
+					<hr class="my-4">
+
+			<hr class="my-4">
+
+>>>>>>> branch 'master' of https://github.com/noel88/gidal
 			<table class="table table-hover"  style = "text-align : center;">
 				<thead>
 					<tr>
@@ -69,14 +78,20 @@ body {
 							<td><small>${UserPageVO.reserve_personnel}</small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm" value="${UserPageVO.reserve_datetime}" /></small></td>
 							<td><small>${UserPageVO.user_name}</small></td>
+<<<<<<< HEAD
 							
 						<td><a href="/review/show"><button type="button" class="btn btn-primary">리뷰쓰기</button></a></td>
 							
+=======
+
+						<td><button type="submit"><a href="/review/show?enterprise_code=${UserPageVO.enterprise_code}">리뷰쓰기</a></button></td>
+
+>>>>>>> branch 'master' of https://github.com/noel88/gidal
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			
+
 			<div style = "width : 100%;">
 				<ul class="pagination" style = "width : 30%; ">
 					<c:choose>
@@ -106,12 +121,12 @@ body {
 						</c:otherwise>
 					</c:choose>
 				</ul>
-			</div>	
-				
 			</div>
-			
+
+			</div>
+
 		</div>
-		 
+
 
 	</div>
 

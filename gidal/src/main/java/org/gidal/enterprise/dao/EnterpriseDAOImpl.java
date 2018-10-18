@@ -72,6 +72,16 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	}
 
+	@Override
+	public void enterprise_img(EnterpriseVO vo) {
+		sqlsession.update(namespace + ".enterprise_img", vo);
+	}
+
+	@Override
+	public List<EnterpriseVO> ent_best() {
+		return sqlsession.selectList(namespace + ".ent_best");
+	}
+
 
 
 

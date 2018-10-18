@@ -4,8 +4,7 @@ public class ReviewVO {
 
 
 	private int review_code; //리뷰 코드
-	//private String review_restaurantBoard_code;
-	//private String review_restaurantNmae;
+	private int enterprise_code;
 	private String review_scope; //평점
 	public String getReview_scope() {
 		return review_scope;
@@ -21,10 +20,17 @@ public class ReviewVO {
 				+ "]";
 	}
 	//private String review_count; //조회수
-	
-	private String user_email; 
-	
-	
+
+	private String user_email;
+
+
+
+	public int getEnterprise_code() {
+		return enterprise_code;
+	}
+	public void setEnterprise_code(int enterprise_code) {
+		this.enterprise_code = enterprise_code;
+	}
 	public String getUser_email() {
 		return user_email;
 	}

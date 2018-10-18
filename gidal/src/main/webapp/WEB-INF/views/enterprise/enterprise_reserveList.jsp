@@ -9,13 +9,6 @@
 
 <title>Insert title here</title>
 
-<!-- <link rel='stylesheet' type='text/css' href='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.css' />
-<link rel='stylesheet' type='text/css' href='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.print.css' media='print' />
- <script src='https://fullcalendar.io/js/fullcalendar-3.0.1/lib/moment.min.js'></script>
-<script src='https://fullcalendar.io/js/fullcalendar-3.0.1/lib/jquery.min.js'></script>
-<script src='https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.min.js'></script> -->
-
-
 <link href="<c:url value="/resources/css/fullcalendar.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/fullcalendar.print.css" />" rel="stylesheet" media='print'>
 <script src="<c:url value="/resources/js/moment.min.js" />"></script>
@@ -29,7 +22,7 @@
 <style>
 
 body {
-	margin: 40px 10px;
+	/* margin: 40px 10px; */
 	padding: 0;
 	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
 	font-size: 14px;

@@ -37,7 +37,7 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_mainImg}" style="height : 450px;" alt="첫번째 슬라이드">
+						<img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style="height : 450px;" alt="첫번째 슬라이드">
 						<div class="carousel-caption d-none d-md-block">
 
 						</div>
@@ -199,27 +199,30 @@
 				</h5>
 		      </td>
 		    </tr>
-  			 <tr>
-		      <td>
-		      	<h5><!-- 브레이크 타임  -->
-					  <i class="fas fa-check">&nbsp;Restaurant Break Time</i> <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_breakStartTime} ~ ${enterpriseVO.enterprise_breakCloseTime}</small>
-				</h5>
-		      </td>
-		    </tr>
-
-<%--   			<tr>
-		      <td>
-		      	<h5> <!-- 휴무일  -->
-					  Restaurant Closed <br>
-					  <small class="text-muted"><c:out value="${fn:replace(enterpriseVO.enterprise_closed, ' ', ', ')}"/> 휴무</small>
-				</h5>
-		      </td>
-		    </tr> --%>
-
 
 
 </table>
+
+<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; ">
+	<tr>
+		<td colspan="2" style="text-align: center;"><h5>리뷰목록</h5> </td>
+	</tr>
+
+	<c:forEach items="${review}" var="re">
+
+	<tr>
+		<td>예약자 이메일 : ${re.user_email}</td>
+		<td style="float: right;"> 별점 : ${re.review_scope}</td>
+	</tr>
+	<tr>
+		<td> 내용 :${re.review_text}</td>
+	</tr>
+	</c:forEach>
+
+
+</table>
+
+
 
 <div id="map" style="width:100%;height:400px;">
 					</div>

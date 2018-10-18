@@ -6,14 +6,19 @@
 <mapper namespace="org.gidal.mapper.SearchMapper">
 
 	<select id="searchList" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		SELECT 
-			enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg, 
-			enterprise_service, enterprise_add2, enterprise_closed, enterprise_service 
-		FROM 
-			enterprise 
-		WHERE 
+		SELECT
+			enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg,
+			enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
+		FROM
+			enterprise
+		WHERE
 			enterprise_businessname LIKE #{search};
 	</select>
 
-	
+	<select id="search_fileter" resultType="org.gidal.enterprise.domain.EnterpriseVO">
+		select * from enterprise where enterprise_add2 like CONCAT('%',#{local1},'%'), enterprise_add2 like CONCAT('%',#{local2},'%'), enterprise_sectors like CONCAT('%',#{food},'%')
+	</select>
+
+
+
 </mapper>

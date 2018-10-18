@@ -4,9 +4,20 @@ import java.util.Date;
 
 public class UserPageVO {
 	private String enterprise_businessName; // 매장명
+	private int enterprise_code;
 	private int reserve_personnel;
 	private Date reserve_datetime;
 	private String user_name;
+
+
+
+
+	public int getEnterprise_code() {
+		return enterprise_code;
+	}
+	public void setEnterprise_code(int enterprise_code) {
+		this.enterprise_code = enterprise_code;
+	}
 	public String getEnterprise_businessName() {
 		return enterprise_businessName;
 	}
@@ -31,5 +42,5 @@ public class UserPageVO {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	
+
 }

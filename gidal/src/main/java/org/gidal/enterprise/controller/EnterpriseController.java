@@ -15,6 +15,7 @@ import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.enterprise.domain.PagingVO;
 import org.gidal.enterprise.service.EnterpriseService;
+import org.gidal.review.service.ReviewService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,8 +39,8 @@ import net.sf.json.JSONObject;
 public class EnterpriseController {
 
 
-	@Inject
-	private EnterpriseService service;
+	@Inject private EnterpriseService service;
+
 
 
 
@@ -167,7 +168,7 @@ public class EnterpriseController {
                 //파일 저장
                 mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
                 vo.setEnterprise_email(email);
-                vo.setEnterprise_mainImg(originalFilename);
+                vo.setEnterprise_mainImg(vo.getEnterprise_code() + "_" +  originalFilename);
                 service.enterprise_img(vo);
                 System.out.println("originalFilename => "+originalFilename);
                 System.out.println("fileFullPath => "+fileFullPath);

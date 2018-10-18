@@ -14,7 +14,7 @@
 
 			<h1 style = "text-align : center;">웨이팅</h1>
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				
+
 					<hr class="my-4">
 
 			<hr class="my-4">
@@ -36,12 +36,12 @@
 							<td><small>${UserPageWaitingVO.waiting_personnel}</small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${UserPageWaitingVO.waiting_now}" /></small></td>
 							<td><small>${UserPageWaitingVO.user_name}</small></td>
-							<td><button type="submit"><a href="/review/show">리뷰쓰기</a></button></td>
+							<td><button type="submit"><a href="/review/show?enterprise_code=${UserPageWaitingVO.enterprise_code}">리뷰쓰기</a></button></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			
+
 			<div style = "width : 100%;">
 				<ul class="pagination" style = "width : 30%; ">
 					<c:choose>
@@ -71,10 +71,10 @@
 						</c:otherwise>
 					</c:choose>
 				</ul>
-			</div>	
-				
 			</div>
-	
+
+			</div>
+
 
 </body>
 </html>

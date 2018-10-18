@@ -203,6 +203,37 @@
 
 </table>
 
+<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; ">
+	<tr>
+		<td colspan="2">리뷰목록 </td>
+	</tr>
+
+<c:choose>
+	<c:when test="${ReviewVO == null}">
+		<tr>
+			<td colspan="2">등록된 리뷰가 없습니다.</td>
+		</tr>
+
+</c:when>
+<c:otherwise>
+	<c:forEach items="${review}" var="re">
+
+	<tr>
+		<td>${re.user_email}</td>
+		<td style="float: right;">${re.review_scope}</td>
+	</tr>
+	<tr>
+		<td>${re.review_text}</td>
+	</tr>
+	</c:forEach>
+
+</c:otherwise>
+</c:choose>
+
+</table>
+
+
+
 <div id="map" style="width:100%;height:400px;">
 					</div>
 		</div>

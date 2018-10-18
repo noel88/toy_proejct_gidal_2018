@@ -63,9 +63,17 @@
 		update waiting set waiting_yn = 'y' where waiting_code = #{waiting_code}
 	</update>
 
-
 	<delete id="enterprise_delete">
 		delete from enterprise where enterprise_code = #{enterprise_code} and enterprise_password = #{enterprise_password}
 	</delete>
+
+	<select id="ent_best" resultType="org.gidal.enterprise.domain.EnterpriseVO">
+		select *, sum(r.review_scope) as sum from enterprise e left join review r on e.enterprise_code = r.enterprise_code group by e.enterprise_code order by sum desc limit 3;
+
+
+	</select>
+
+
+
 
 </mapper>

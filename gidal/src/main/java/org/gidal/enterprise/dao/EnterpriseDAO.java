@@ -19,6 +19,7 @@ public interface EnterpriseDAO {
 	public EnterpriseVO enterpriseBoard_view(Integer code);
 	public void delete(EnterpriseVO vo);
 	public void enterprise_img(EnterpriseVO vo);
+	public List<EnterpriseVO> ent_best();
 
 
 

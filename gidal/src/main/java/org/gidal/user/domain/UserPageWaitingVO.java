@@ -4,9 +4,20 @@ import java.util.Date;
 
 public class UserPageWaitingVO {
 	private String enterprise_businessName; // 매장명
+	private int enterprise_code;
 	private int waiting_personnel;
 	private Date waiting_now;
 	private String user_name;
+
+
+
+
+	public int getEnterprise_code() {
+		return enterprise_code;
+	}
+	public void setEnterprise_code(int enterprise_code) {
+		this.enterprise_code = enterprise_code;
+	}
 	public String getEnterprise_businessName() {
 		return enterprise_businessName;
 	}

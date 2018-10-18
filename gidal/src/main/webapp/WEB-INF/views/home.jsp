@@ -88,9 +88,9 @@
 						<c:set var = "i" value = "${ i + 1 }"></c:set>
 					</c:forEach>
 				</div>
-				
-				
-				
+
+
+
 				<a class="carousel-control-prev" href="#carouselExampleIndicators"
 					role="button" data-slide="prev"> <span
 					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
@@ -101,25 +101,40 @@
 					class="sr-only">다음</span>
 				</a>
 			</div>
-
 			<div class="row" style="margin : 0 auto;">
+<c:forEach items="${ent}" var = "enterprise">
 				<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
-					<h3 class="card-header">우설화</h3>
+					<h3 class="card-header">${enteprise.enterprise_businessName}</h3>
 					<div class="card-body">
-						<h5 class="card-title">평점 : 10.0</h5>
-						<h6 class="card-subtitle text-muted">경기도 수원시 영통구</h6>
+						<h5 class="card-title">${enterprise.sum}</h5>
+						<h6 class="card-subtitle text-muted">${enterprise.enterprise_add2}</h6>
 					</div>
 					<img style="height: 200px; width: 100%; display: block;"
-						src="<%= request.getContextPath() %>/resources/img/company/USeolhwa.jpg"
+						src="<spring:url value ='/image/${enteprise.enterprise_mainImg}'/>"
 						alt="Card image">
 					<div class="card-body" style = "text-align : center;">
-						<a class="btn btn-primary btn-lg" href="#" role="button">예약</a>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						<a class="btn btn-primary btn-lg" href="#" role="button">웨이팅</a>
+					<c:choose>
+				<c:when test = "${enterprise.enterprise_service == '1'}">
+			      &nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${enteprise.enterprise_code}"  class="btn btn-primary btn-lg" role="button">웨이팅</a>
+			    </c:when>
+			    <c:when test = "${enterprise.enterprise_service == '2'}">
+			      &nbsp;&nbsp;&nbsp;<a href = "/reserve/reserve?enterprise_code=${enteprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
+			    </c:when>
+
+	 		     <c:otherwise>
+	    		  <tr>
+			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${enteprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
+			       <a href = "/reserve/reserve?enterprise_code=${enteprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
+	     	  	</tr>
+	     		  </c:otherwise>
+					</c:choose>
+
+
 					</div>
 				</div>
+</c:forEach>
 
-				<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
+			<%-- 	<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
 					<h3 class="card-header">긴자</h3>
 					<div class="card-body">
 						<h5 class="card-title">평점 : 9.5</h5>
@@ -150,7 +165,7 @@
 						<a class="btn btn-primary btn-lg" href="#" role="button">웨이팅</a>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 
 	</div>

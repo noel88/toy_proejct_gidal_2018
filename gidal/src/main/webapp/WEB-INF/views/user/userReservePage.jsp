@@ -50,7 +50,7 @@ body {
 		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				
+
 					<hr class="my-4">
 
 			<hr class="my-4">
@@ -72,14 +72,14 @@ body {
 							<td><small>${UserPageVO.reserve_personnel}</small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${UserPageVO.reserve_datetime}" /></small></td>
 							<td><small>${UserPageVO.user_name}</small></td>
-							
-						<td><button type="submit"><a href="/review/show">리뷰쓰기</a></button></td>
-							
+
+						<td><button type="submit"><a href="/review/show?enterprise_code=${UserPageVO.enterprise_code}">리뷰쓰기</a></button></td>
+
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			
+
 			<div style = "width : 100%;">
 				<ul class="pagination" style = "width : 30%; ">
 					<c:choose>
@@ -109,12 +109,12 @@ body {
 						</c:otherwise>
 					</c:choose>
 				</ul>
-			</div>	
-				
 			</div>
-			
+
+			</div>
+
 		</div>
-		 
+
 
 	</div>
 

@@ -14,9 +14,8 @@
  margin: auto;
 
 }
-
-
 </style>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 function execPostCode() {
     new daum.Postcode({

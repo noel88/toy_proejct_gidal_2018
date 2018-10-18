@@ -168,7 +168,7 @@ public class EnterpriseController {
                 //파일 저장
                 mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
                 vo.setEnterprise_email(email);
-                vo.setEnterprise_mainImg(vo.getEnterprise_code() + "_" +  originalFilename);
+                vo.setEnterprise_mainImg(originalFilename);
                 service.enterprise_img(vo);
                 System.out.println("originalFilename => "+originalFilename);
                 System.out.println("fileFullPath => "+fileFullPath);

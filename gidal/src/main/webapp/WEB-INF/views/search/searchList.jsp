@@ -84,7 +84,7 @@
 
 							<c:otherwise>
 								<tr>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;
+									<td colspan="2" style="float: left;">&nbsp;&nbsp;&nbsp;
 										<a href="/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}">
 											<button type="button" class="btn btn-primary">웨이팅</button>
 										</a>

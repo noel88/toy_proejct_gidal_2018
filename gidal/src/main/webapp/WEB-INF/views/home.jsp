@@ -115,16 +115,16 @@
 					<div class="card-body" style = "text-align : center;">
 					<c:choose>
 				<c:when test = "${enterprise.enterprise_service == '1'}">
-			      &nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${enteprise.enterprise_code}"  class="btn btn-primary btn-lg" role="button">웨이팅</a>
+			      &nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}"  class="btn btn-primary btn-lg" role="button">웨이팅</a>
 			    </c:when>
 			    <c:when test = "${enterprise.enterprise_service == '2'}">
-			      &nbsp;&nbsp;&nbsp;<a href = "/reserve/reserve?enterprise_code=${enteprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
+			      &nbsp;&nbsp;&nbsp;<a href = "/reserve/reserve?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
 			    </c:when>
 
 	 		     <c:otherwise>
 	    		  <tr>
-			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${enteprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
-			       <a href = "/reserve/reserve?enterprise_code=${enteprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
+			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
+			       <a href = "/reserve/reserve?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
 	     	  	</tr>
 	     		  </c:otherwise>
 					</c:choose>

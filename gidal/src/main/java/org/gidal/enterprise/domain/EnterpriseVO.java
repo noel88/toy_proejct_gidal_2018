@@ -14,10 +14,10 @@ public class EnterpriseVO {
 	private String enterprise_sectors; //업종
 	private String enterprise_service; //서비스
 	private String enterprise_mainImg; //메인이미지
-//	private String enterprise_img1; //이미지1
-//	private String enterprise_img2; //이미지2
-//	private String enterprise_img3; //이미지3
-//	private String enterprise_img4; //이미지4
+	private String enterprise_img1; //이미지1
+	private String enterprise_img2; //이미지2
+	private String enterprise_img3; //이미지3
+	private String enterprise_img4; //이미지4
 	private String enterprise_add1; //주소1
 	private String enterprise_add2; //주소2
 	private String enterprise_add3; //주소3
@@ -32,6 +32,70 @@ public class EnterpriseVO {
 
 
 	public EnterpriseVO() {
+	}
+
+
+
+
+
+	public String getEnterprise_img1() {
+		return enterprise_img1;
+	}
+
+
+
+
+
+	public void setEnterprise_img1(String enterprise_img1) {
+		this.enterprise_img1 = enterprise_img1;
+	}
+
+
+
+
+
+	public String getEnterprise_img2() {
+		return enterprise_img2;
+	}
+
+
+
+
+
+	public void setEnterprise_img2(String enterprise_img2) {
+		this.enterprise_img2 = enterprise_img2;
+	}
+
+
+
+
+
+	public String getEnterprise_img3() {
+		return enterprise_img3;
+	}
+
+
+
+
+
+	public void setEnterprise_img3(String enterprise_img3) {
+		this.enterprise_img3 = enterprise_img3;
+	}
+
+
+
+
+
+	public String getEnterprise_img4() {
+		return enterprise_img4;
+	}
+
+
+
+
+
+	public void setEnterprise_img4(String enterprise_img4) {
+		this.enterprise_img4 = enterprise_img4;
 	}
 
 

@@ -219,30 +219,20 @@
 
 <table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; ">
 	<tr>
-		<td colspan="2">리뷰목록 </td>
+		<td colspan="2" style="text-align: center;"><h5>리뷰목록</h5> </td>
 	</tr>
 
-<c:choose>
-	<c:when test="${ReviewVO == null}">
-		<tr>
-			<td colspan="2">등록된 리뷰가 없습니다.</td>
-		</tr>
 
-</c:when>
-<c:otherwise>
 	<c:forEach items="${review}" var="re">
 
 	<tr>
-		<td>${re.user_email}</td>
-		<td style="float: right;">${re.review_scope}</td>
+		<td>예약자 이메일 : ${re.user_email}</td>
+		<td style="float: right;"> 별점 : ${re.review_scope}</td>
 	</tr>
 	<tr>
-		<td>${re.review_text}</td>
+		<td> 내용 :${re.review_text}</td>
 	</tr>
 	</c:forEach>
-
-</c:otherwise>
-</c:choose>
 
 </table>
 

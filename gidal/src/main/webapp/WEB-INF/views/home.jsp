@@ -56,32 +56,40 @@
 								<div class="carousel-item active">
 									<c:choose>
 										<c:when test="${ eventVO.event_image eq null }">
-											<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											</a>
 										</c:when>
 										<c:otherwise>
-											<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											</a>
 										</c:otherwise>
 									</c:choose>
-									<div class="carousel-caption d-none d-md-block">
+									<%-- <div class="carousel-caption d-none d-md-block">
 										<h3 style="color: black;">${ eventVO.event_title }</h3>
 										<p style="color: black;">${ eventVO.event_startDate }&nbsp;-&nbsp;${ eventVO.event_endDate }</p>
-									</div>
+									</div> --%>
 								</div>
 							</c:when>
 							<c:otherwise>
 								<div class="carousel-item">
 									<c:choose>
 										<c:when test="${ eventVO.event_image eq null }">
-											<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											</a>
 										</c:when>
 										<c:otherwise>
-											<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											</a>
 										</c:otherwise>
 									</c:choose>
-									<div class="carousel-caption d-none d-md-block">
+									<%-- <div class="carousel-caption d-none d-md-block">
 										<h3 style="color: black;">${ eventVO.event_title }</h3>
 										<p style="color: black;">${ eventVO.event_startDate }&nbsp;-&nbsp;${ eventVO.event_endDate }</p>
-									</div>
+									</div> --%>
 								</div>
 							</c:otherwise>
 						</c:choose>

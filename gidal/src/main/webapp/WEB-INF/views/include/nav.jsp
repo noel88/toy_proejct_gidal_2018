@@ -20,7 +20,6 @@
 						소개
 					</a>
 					<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
-						<a class="dropdown-item" href="/info/info">팀소개</a>
 						<a class="dropdown-item" href="/info/whatIs">기달이란</a>
 						<a class="dropdown-item" href="/info/wayToCome">오시는길</a>
 				</div>
@@ -36,7 +35,7 @@
 					</div>
 				</li>
 				<li class="nav-item">
-       				<a class="nav-link" href="/enterprise/view">지역별 검색<span class="sr-only">(current)</span></a>
+       				<a class="nav-link" href="/enterprise/view">지역별 업체<span class="sr-only">(current)</span></a>
      			</li>
 			</ul>
 			<div>
@@ -48,7 +47,6 @@
 			</div>
 
 			<div>
-
 				<c:choose>
 					<c:when test = "${ empty LOGIN }">
 						<span class="navbar-text">

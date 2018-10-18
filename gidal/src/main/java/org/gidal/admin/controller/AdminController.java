@@ -70,7 +70,6 @@ public class AdminController {
 		model.addAttribute("remove", remove);
 		
 		return "/admin/removeCheck";
-		
 	}
 	
 	@RequestMapping(value = "/userRemove", method = RequestMethod.POST)
@@ -85,7 +84,6 @@ public class AdminController {
 		} else {
 			return "/authentication/noPermission";
 		}
-		
 		
 	}
 

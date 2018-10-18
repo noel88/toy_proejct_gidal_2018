@@ -154,7 +154,7 @@ public class EnterpriseController {
 
         Iterator<String> itr =  multipartRequest.getFileNames();
 
-        String filePath = "/opt/was/apache-tomcat-9.0.12/webapps/enterprise"; //설정파일로 뺀다.
+        String filePath = "/opt/was/apache-tomcat-9.0.12/webapps/enterprise_img"; //설정파일로 뺀다.
 //       String filePath = "C:/Users/a/Desktop/img"; //설정파일로 뺀다.
 
         while (itr.hasNext()) { //받은 파일들을 모두 돌린다.

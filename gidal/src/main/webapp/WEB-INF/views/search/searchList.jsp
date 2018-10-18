@@ -19,7 +19,7 @@
 			<h1>검색결과</h1>
 
 			<hr class="my-4">
-			
+
 			<div style = "max-width: 780px;	margin: 0 auto;	text-align: center;	padding-bottom: 50px;">
 				<c:if test="${ fn:length(list) == 0 }">
 					<p class="lead">검색결과가 없습니다.</p>
@@ -54,7 +54,7 @@
 						<tr>
 							<td colspan="2">
 								<h5 style="text-align: left;">
-									Restaurant Sectors<small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
+									Restaurant Sectors <small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
 								</h5>
 							</td>
 							<!-- 업종  -->
@@ -100,6 +100,6 @@
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 </html>

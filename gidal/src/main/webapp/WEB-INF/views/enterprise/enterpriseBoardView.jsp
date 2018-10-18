@@ -433,7 +433,7 @@
 
 
 
-		<table style = "margin-top : 30px; margin-left: auto; margin-right: auto;">
+		<table style = "margin-top : 30px; margin-left: auto; margin-bottom:20px; margin-right: auto;">
 
 
 			<tr>
@@ -502,9 +502,16 @@
 
  <div id="contents">
   <div id="js-load" class="lists">
-
+	<div class="col-sm-12">
+		<div class="page-header text-muted" style="float: right;">
+			<ul class="nav">
+				<li><a href="#">· 인기순&nbsp;</a></li>
+				<li><a href="#">· 최신순</a></li>
+			</ul>
+		</div>
+	</div>
 <c:forEach items = "${list}" var = "EnterpriseVO">
-  	<table class = "lists__item js-load"  style = " margin-top : 50px; margin-left: auto; margin-right: auto;">
+  	<table class = "lists__item js-load"  style = " margin-top : 20px; margin-left: auto; margin-right: auto;">
 
   			 <tr>
 		     <td rowspan="5"><img src = "<spring:url value ='/image/${EnterpriseVO.enterprise_mainImg}'/>" style="margin : auto; height : 200px; width : 350px;"></td><!-- 메인이미지  -->
@@ -529,7 +536,7 @@
 		      <tr>
 		      <td colspan="2" >
 		      	<h5 style="text-align: left;">
-					  Restaurant Sectors<small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
+					  Restaurant Sectors <small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
 				</h5>
 		      </td> <!-- 업종  -->
 		    </tr>
@@ -538,7 +545,13 @@
 
 
 		    <!-- 식당정보를 가지고 넘어가야함. Details페이지 개념  -->
-
+			<c:choose>
+			<c:when test = "${ LEVEL eq 'enterpirse' }">
+			<tr>
+				<td colspan="2" style="text-align: left;"><b>- 기업회원은 예약 및 웨이팅을 할수 없습니다. -</b></td>
+			</tr>
+			</c:when>
+			<c:otherwise>
 
 			<c:choose>
 				<c:when test = "${EnterpriseVO.enterprise_service == '1'}">
@@ -554,13 +567,15 @@
 
 	      <c:otherwise>
 	    		  <tr>
-			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a>
+			      <td colspan="2" style="float: left;">&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a>
 			       <a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약</button></a></td>
 	     	  	</tr>
 	       </c:otherwise>
 			</c:choose>
-</table>
-	</c:forEach>
+		</c:otherwise>
+		</c:choose>
+		</table>
+			</c:forEach>
 
 
 </div>

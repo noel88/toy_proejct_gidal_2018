@@ -121,7 +121,15 @@
 						src="<spring:url value ='/image/${enterprise.enterprise_mainImg}'/>"
 						alt="Card image">
 					<div class="card-body" style = "text-align : center;">
-					<c:choose>
+
+<c:choose>
+			<c:when test = "${ LEVEL eq 'enterpirse' }">
+
+				<b>- 기업회원은 예약 및 웨이팅을 할수 없습니다. -</b>
+
+			</c:when>
+			<c:otherwise>
+				<c:choose>
 				<c:when test = "${enterprise.enterprise_service == '1'}">
 			      &nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}"  class="btn btn-primary btn-lg" role="button">웨이팅</a>
 			    </c:when>
@@ -130,13 +138,14 @@
 			    </c:when>
 
 	 		     <c:otherwise>
-	    		  <tr>
-			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
+
+			      &nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
 			       <a href = "/reserve/reserve?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
-	     	  	</tr>
+
 	     		  </c:otherwise>
 					</c:choose>
-
+				</c:otherwise>
+</c:choose>
 
 					</div>
 				</div>

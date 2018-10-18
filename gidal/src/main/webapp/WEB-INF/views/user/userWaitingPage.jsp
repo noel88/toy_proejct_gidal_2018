@@ -22,7 +22,7 @@
 			<table class="table table-hover"  style = "text-align : center;">
 				<thead>
 					<tr>
-						<th scope="col" style = "min-width : 56px;">식당</th>
+						<th scope="col" style = "min-width : 100px;">식당</th>
 						<th scope="col" style = "min-width : 56px;">인원</th>
 						<th scope="col" style = "min-width : 90px;">날짜</th>
 						<th scope="col" style = "min-width : 90px;">예약자</th>
@@ -36,7 +36,7 @@
 							<td><small>${UserPageWaitingVO.waiting_personnel}</small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${UserPageWaitingVO.waiting_now}" /></small></td>
 							<td><small>${UserPageWaitingVO.user_name}</small></td>
-							<td><button type="submit"><a href="/review/show">리뷰쓰기</a></button></td>
+							<td><a href="/review/show"><button type="button" class="btn btn-primary">리뷰쓰기</button></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

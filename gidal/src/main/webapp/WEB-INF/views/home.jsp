@@ -104,13 +104,13 @@
 			<div class="row" style="margin : 0 auto;">
 <c:forEach items="${ent}" var = "enterprise">
 				<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
-					<h3 class="card-header">${enteprise.enterprise_businessName}</h3>
+					<h3 class="card-header">${enterprise.enterprise_businessName}</h3>
 					<div class="card-body">
 						<h5 class="card-title">${enterprise.sum}</h5>
 						<h6 class="card-subtitle text-muted">${enterprise.enterprise_add2}</h6>
 					</div>
 					<img style="height: 200px; width: 100%; display: block;"
-						src="<spring:url value ='/image/${enteprise.enterprise_mainImg}'/>"
+						src="<spring:url value ='/image/${enterprise.enterprise_mainImg}'/>"
 						alt="Card image">
 					<div class="card-body" style = "text-align : center;">
 					<c:choose>

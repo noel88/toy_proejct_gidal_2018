@@ -453,24 +453,25 @@
 				<td>
 
 				      		<select class="form-control" name = "local1" onchange="setCategory2()">
-				        		<option value = "hide">-- 지역 선택 --</option>
-				        		<option value = "서울특별시">서울특별시</option>
-				        		<option value = "부산광역시">부산광역시</option>
-				        		<option value = "대구광역시">대구광역시</option>
-				        		<option value = "인천광역시">인천광역시</option>
-				        		<option value = "광주광역시">광주광역시</option>
-				        		<option value = "대전광역시">대전광역시</option>
-				        		<option value = "울산광역시">울산광역시</option>
-				        		<option value = "세종특별자치시">세종특별자치시</option>
-				        		<option value = "경기도">경기도</option>
-				        		<option value = "강원도">강원도</option>
-				        		<option value = "충청북도">충청북도</option>
-				        		<option value = "충청남도">충청남도</option>
-				        		<option value = "전라북도">전라북도</option>
-				        		<option value = "전라남도">전라남도</option>
-				        		<option value = "경상북도">경상북도</option>
-				        		<option value = "경상남도">경상남도</option>
-				        		<option value = "제주도">제주도</option>
+
+				        		<option value = "">-- 지역 선택 --</option>
+				        		<option value = "서울특별시" <c:if test = "${filter.local1 eq '서울특별시'}" > selected = "selected" </c:if>>서울특별시</option>
+				        		<option value = "부산광역시" <c:if test = "${filter.local1 eq '부산광역시'}" > selected = "selected" </c:if>>부산광역시</option>
+				        		<option value = "대구광역시" <c:if test = "${filter.local1 eq '대구광역시'}" > selected = "selected" </c:if>>대구광역시</option>
+				        		<option value = "인천광역시" <c:if test = "${filter.local1 eq '인천광역시'}" > selected = "selected" </c:if>>인천광역시</option>
+				        		<option value = "광주광역시" <c:if test = "${filter.local1 eq '광주광역시'}" > selected = "selected" </c:if>>광주광역시</option>
+				        		<option value = "대전광역시" <c:if test = "${filter.local1 eq '대전광역시'}" > selected = "selected" </c:if>>대전광역시</option>
+				        		<option value = "울산광역시" <c:if test = "${filter.local1 eq '울산광역시'}" > selected = "selected" </c:if>>울산광역시</option>
+				        		<option value = "세종특별자치시" <c:if test = "${filter.local1 eq '세종특별자치시'}" > selected = "selected" </c:if>>세종특별자치시</option>
+				        		<option value = "경기도" <c:if test = "${filter.local1 eq '경기도'}" > selected = "selected" </c:if>>경기도</option>
+				        		<option value = "강원도" <c:if test = "${filter.local1 eq '강원도'}" > selected = "selected" </c:if>>강원도</option>
+				        		<option value = "충청북도" <c:if test = "${filter.local1 eq '충청북도'}" > selected = "selected" </c:if>>충청북도</option>
+				        		<option value = "충청남도" <c:if test = "${filter.local1 eq '충청남도'}" > selected = "selected" </c:if>>충청남도</option>
+				        		<option value = "전라북도" <c:if test = "${filter.local1 eq '전라북도'}" > selected = "selected" </c:if>>전라북도</option>
+				        		<option value = "전라남도" <c:if test = "${filter.local1 eq '전라남도'}" > selected = "selected" </c:if>>전라남도</option>
+				        		<option value = "경상북도" <c:if test = "${filter.local1 eq '경상북도'}" > selected = "selected" </c:if>>경상북도</option>
+				        		<option value = "경상남도" <c:if test = "${filter.local1 eq '경상남도'}" > selected = "selected" </c:if>>경상남도</option>
+				        		<option value = "제주도" <c:if test = "${filter.local1 eq '제주도'}" > selected = "selected" </c:if>>제주도</option>
 
 			     	 		</select>
 
@@ -479,7 +480,7 @@
 			<td>
 
 				<select class="form-control" name = "local2" onchange = "settext(this.options[this.selectedIndex].value)">
-			    	<option value="hide">-- 구 선택 --</option>
+			    	<option value="">-- 구 선택 --</option>
 
 				</select>
 
@@ -488,7 +489,7 @@
 
 	<td>
 		<select class = "form-control" name = "food">
-		    <option value="hide">-- 음식선택 --</option>
+		    <option value="">-- 음식선택 --</option>
 		    <option value="default">음식전체</option>
 		    <option value="양식">양식</option>
 		    <option value="한식">한식</option>
@@ -518,7 +519,7 @@
  <div id="contents">
   <div id="js-load" class="lists">
 
-<c:forEach items = "${list}" var = "EnterpriseVO">
+<c:forEach items = "${filter_list}" var = "EnterpriseVO">
   	<table class = "lists__item js-load"  style = " margin-top : 50px; margin-left: auto; margin-right: auto;">
 
   			 <tr>

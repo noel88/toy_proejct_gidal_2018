@@ -40,6 +40,7 @@ public class SearchController {
 			return "redirect:/authentication/signIn";
 		}else {
 			model.addAttribute("filter", vo);
+			model.addAttribute("filter_list", service.search_filter(vo));
 			return "/search/filterList";
 		}
 

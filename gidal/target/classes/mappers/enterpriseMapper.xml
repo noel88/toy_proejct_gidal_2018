@@ -8,8 +8,7 @@
 	<insert id="join">
 		insert into enterprise values (#{enterprise_code}, #{enterprise_email}, #{enterprise_password},#{enterprise_name},
 		#{enterprise_businessName}, #{enterprise_phone}, #{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
-		#{enterprise_img1},#{enterprise_img2},#{enterprise_img3},#{enterprise_img4},#{enterprise_add1},#{enterprise_add2},
-		#{enterprise_add3},#{enterprise_operatingOpenTime},#{enterprise_operatingCloseTime},#{enterprise_breakStartTime},#{enterprise_breakCloseTime},#{enterprise_closed})
+		#{enterprise_add1},#{enterprise_add2},#{enterprise_add3},#{enterprise_operatingOpenTime},#{enterprise_operatingCloseTime},#{enterprise_closed})
 	</insert>
 
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
@@ -34,10 +33,16 @@
 	</select>
 
 	<update id="enterprise_update">
-		update enterprise set enterprise_password = #{enterprise_password}, enterprise_businessName = #{enterprise_businessName}, enterprise_phone = #{enterprise_phone}, enterprise_sectors = #{enterprise_sectors}, enterprise_service = #{enterprise_service}, enterprise_mainImg = #{enterprise_mainImg}, enterprise_img1 = #{enterprise_img1},
-		enterprise_img2 = #{enterprise_img2}, enterprise_img3 = #{enterprise_img3}, enterprise_img4 = #{enterprise_img4}, enterprise_add1 = #{enterprise_add1}, enterprise_add2 = #{enterprise_add2},
-		 enterprise_add3 = #{enterprise_add3}, enterprise_operatingOpenTime = #{enterprise_operatingOpenTime}, enterprise_operatingCloseTime = #{enterprise_operatingCloseTime}, enterprise_breakStartTime = #{enterprise_breakStartTime},
-		 enterprise_breakCloseTime = #{enterprise_breakCloseTime}, enterprise_closed = #{enterprise_closed} where enterprise_code = #{enterprise_code}
+		update enterprise set enterprise_password = #{enterprise_password}, enterprise_businessName = #{enterprise_businessName}, enterprise_phone = #{enterprise_phone}, enterprise_sectors = #{enterprise_sectors},
+		 enterprise_service = #{enterprise_service},
+		 enterprise_add1 = #{enterprise_add1}, enterprise_add2 = #{enterprise_add2},
+		 enterprise_add3 = #{enterprise_add3}, enterprise_operatingOpenTime = #{enterprise_operatingOpenTime}, enterprise_operatingCloseTime = #{enterprise_operatingCloseTime},
+		 enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
+	</update>
+
+
+	<update id="enterprise_img">
+		update enterprise set enterprise_mainImg = #{enterprise_mainImg} where enterprise_email = #{enterprise_email}
 	</update>
 
 

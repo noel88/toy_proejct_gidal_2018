@@ -72,6 +72,11 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	}
 
+	@Override
+	public void enterprise_img(EnterpriseVO vo) {
+		sqlsession.update(namespace + ".enterprise_img", vo);
+	}
+
 
 
 

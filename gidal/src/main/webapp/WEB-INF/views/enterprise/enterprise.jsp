@@ -147,7 +147,7 @@ function execPostCode() {
 
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form name = "form" action = "join" method = "post" enctype="multipart/form-data" onsubmit="return join();">
+				<form name = "form" action = "join" method = "post" onsubmit="return join();">
 
 
 					<p>
@@ -161,7 +161,7 @@ function execPostCode() {
                         <input type="password" class="form-control pass" name="enterprise_passwordCheck" placeholder="Confirm Password" id="repwd" oninput="checkPwd()">
 
 						<label class="col-form-label" for="inputDefault">이름</label>
-                        <input type="text" class="form-control" name="enterprise_name">
+                        <input type="text" class="form-control" placeholder="이름을 입력해주세요." name="enterprise_name">
 
 
 					</p>
@@ -202,19 +202,6 @@ function execPostCode() {
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
 
-						<label class="col-form-label" for="inputDefault">브레이크타임시작시간 </label>
-
-						<select class="custom-select"  name = "enterprise_breakStartTime" id="exampleSelect1">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
-						</select>
-
-						<label class="col-form-label" for="inputDefault">브레이크타임종료시간 </label>
-						<select class="custom-select" name = "enterprise_breakCloseTime" id="exampleSelect1">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
-						</select>
-
-
-
 						<script>
 
 						function itemSum(frm)
@@ -232,8 +219,6 @@ function execPostCode() {
 
 						</script>
 
-
-
 				 		<label class="col-form-label" for="inputDefault">영업일 체크</label>
 						<div class="form-group">
 							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '1'>월요일
@@ -246,9 +231,6 @@ function execPostCode() {
 							<input type = "hidden" name = "enterprise_closed">
 
 						</div>
-
-
-
 
 						<label class="col-form-label" for="inputDefault">업종</label>
 						<select class="custom-select" name = "enterprise_sectors" id="exampleSelect1">
@@ -273,15 +255,6 @@ function execPostCode() {
 							<option value = "2">예약 서비스</option>
 							<option value = "3">웨이팅 + 예약 서비스</option>
 						</select>
-
-
-						 <label class="col-form-label" for="inputDefault">대표이미지 및 기타 이미지 첨부</label>
-					   	<input type="file" class="form-control-file" name = "enterprise_mainImg" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img1" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img2" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img3" id="exampleInputFile" aria-describedby="fileHelp">
-					   	<input type="file" class="form-control-file" name = "enterprise_img4" id="exampleInputFile" aria-describedby="fileHelp">
-
 
 					</p>
 					<p>

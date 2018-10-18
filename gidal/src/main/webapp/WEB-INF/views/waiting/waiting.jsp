@@ -37,7 +37,7 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_mainImg}" style="height : 450px;" alt="첫번째 슬라이드">
+						<img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style="height : 450px;" alt="첫번째 슬라이드">
 						<div class="carousel-caption d-none d-md-block">
 
 						</div>
@@ -199,24 +199,6 @@
 				</h5>
 		      </td>
 		    </tr>
-  			 <tr>
-		      <td>
-		      	<h5><!-- 브레이크 타임  -->
-					  <i class="fas fa-check">&nbsp;Restaurant Break Time</i> <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_breakStartTime} ~ ${enterpriseVO.enterprise_breakCloseTime}</small>
-				</h5>
-		      </td>
-		    </tr>
-
-<%--   			<tr>
-		      <td>
-		      	<h5> <!-- 휴무일  -->
-					  Restaurant Closed <br>
-					  <small class="text-muted"><c:out value="${fn:replace(enterpriseVO.enterprise_closed, ' ', ', ')}"/> 휴무</small>
-				</h5>
-		      </td>
-		    </tr> --%>
-
 
 
 </table>

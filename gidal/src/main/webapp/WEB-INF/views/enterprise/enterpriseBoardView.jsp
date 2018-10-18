@@ -522,7 +522,7 @@
   	<table class = "lists__item js-load"  style = " margin-top : 50px; margin-left: auto; margin-right: auto;">
 
   			 <tr>
-		     <td rowspan="5"><img src="../upload/${EnterpriseVO.enterprise_mainImg}" style="margin : auto; height : 200px; width : 350px;"></td><!-- 메인이미지  -->
+		     <td rowspan="5"><img src = "<spring:url value ='/image/${EnterpriseVO.enterprise_mainImg}'/>" style="margin : auto; height : 200px; width : 350px;"></td><!-- 메인이미지  -->
 		     <td rowspan="5">&nbsp;&nbsp;</td><!-- 메인이미지  -->
 
 			</tr>

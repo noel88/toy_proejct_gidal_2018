@@ -18,6 +18,7 @@ public interface EnterpriseDAO {
 	public List<WaitingVO> waiting_list(Integer code);
 	public EnterpriseVO enterpriseBoard_view(Integer code);
 	public void delete(EnterpriseVO vo);
+	public void enterprise_img(EnterpriseVO vo);
 
 
 

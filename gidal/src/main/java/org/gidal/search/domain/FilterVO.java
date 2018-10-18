@@ -21,10 +21,10 @@ public class FilterVO {
 	public void setLocal2(String local2) {
 		this.local2 = local2;
 	}
-	public String getFoods() {
+	public String getFood() {
 		return food;
 	}
-	public void setFoods(String food) {
+	public void setFood(String food) {
 		this.food = food;
 	}
 

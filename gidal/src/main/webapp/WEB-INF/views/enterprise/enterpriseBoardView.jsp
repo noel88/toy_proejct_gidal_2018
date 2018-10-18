@@ -27,7 +27,7 @@
 		form = document.filterSelect;
 
 
-			if(document.filterSelect.local.value == "서울특별시"){
+			if(document.filterSelect.local1.value == "서울"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("종로구");
 				form.local2.options[1].value = "종로구";
@@ -81,7 +81,7 @@
 				form.local2.options[25].value = "강동구";
 
 			}
-			if(document.filterSelect.local.value == "부산광역시"){
+			if(document.filterSelect.local1.value == "부산"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("중구");
 				form.local2.options[1].value = "중구";
@@ -116,7 +116,7 @@
 
 
 			}
-			if(document.filterSelect.local.value == "대구광역시"){
+			if(document.filterSelect.local1.value == "대구"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("중구");
 				form.local2.options[1].value = "중구";
@@ -135,7 +135,7 @@
 
 
 			}
-			if(document.filterSelect.local.value == "인천광역시"){
+			if(document.filterSelect.local1.value == "인천"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("중구");
 				form.local2.options[1].value = "중구";
@@ -156,7 +156,7 @@
 
 
 			}
-			if(document.filterSelect.local.value == "광주광역시"){
+			if(document.filterSelect.local1.value == "광주"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("동구");
 				form.local2.options[1].value = "동구";
@@ -172,7 +172,7 @@
 
 
 			}
-			if(document.filterSelect.local.value == "대전광역시"){
+			if(document.filterSelect.local1.value == "대전"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("동구");
 				form.local2.options[1].value = "동구";
@@ -188,7 +188,7 @@
 
 
 			}
-			if(document.filterSelect.local.value == "울산광역시"){
+			if(document.filterSelect.local1.value == "울산"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("중구");
 				form.local2.options[1].value = "중구";
@@ -201,11 +201,11 @@
 
 
 			}
-			if(document.filterSelect.local.value == "세종특별자치시"){
+			if(document.filterSelect.local1.value == "세종"){
 
 
 			}
-			if(document.filterSelect.local.value == "경기도"){
+			if(document.filterSelect.local1.value == "경기"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("광명시");
 				form.local2.options[1].value = "광명시";
@@ -286,7 +286,7 @@
 
 
 			}
-			if(document.filterSelect.local.value == "강원도"){
+			if(document.filterSelect.local1.value == "강원"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("춘천시");
 				form.local2.options[1].value = "춘천시";
@@ -304,7 +304,7 @@
 				form.local2.options[7].value = "삼척시";
 
 			}
-			if(document.filterSelect.local.value == "충청북도"){
+			if(document.filterSelect.local1.value == "충청"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("청주시 상당구");
 				form.local2.options[1].value = "청주시 상당구";
@@ -314,33 +314,28 @@
 				form.local2.options[3].value = "청구시 흥덕구";
 				form.local2.options[4] = new Option("청주시 청원구");
 				form.local2.options[4].value = "청주시 청원구";
+				form.local2.options[5] = new Option("천안시 동남구");
+				form.local2.options[5].value = "천안시 동남구";
+				form.local2.options[6] = new Option("천안시 서북구");
+				form.local2.options[6].value = "천안시 서북구";
+				form.local2.options[7] = new Option("공주시");
+				form.local2.options[7].value = "공주시";
+				form.local2.options[8] = new Option("보령시");
+				form.local2.options[8].value = "보령시";
+				form.local2.options[9] = new Option("아산시");
+				form.local2.options[9].value = "아산시";
+				form.local2.options[10] = new Option("서산시");
+				form.local2.options[10].value = "서산시";
+				form.local2.options[11] = new Option("논산시");
+				form.local2.options[11].value = "논산시";
+				form.local2.options[12] = new Option("계룡시");
+				form.local2.options[12].value = "계룡시";
+				form.local2.options[13] = new Option("당진시");
+				form.local2.options[13].value = "당진시";
 
 
 			}
-			if(document.filterSelect.local.value == "충청남도"){
-				form.local2.length = 1;
-				form.local2.options[1] = new Option("천안시 동남구");
-				form.local2.options[1].value = "천안시 동남구";
-				form.local2.options[2] = new Option("천안시 서북구");
-				form.local2.options[2].value = "천안시 서북구";
-				form.local2.options[3] = new Option("공주시");
-				form.local2.options[3].value = "공주시";
-				form.local2.options[4] = new Option("보령시");
-				form.local2.options[4].value = "보령시";
-				form.local2.options[5] = new Option("아산시");
-				form.local2.options[5].value = "아산시";
-				form.local2.options[6] = new Option("서산시");
-				form.local2.options[6].value = "서산시";
-				form.local2.options[7] = new Option("논산시");
-				form.local2.options[7].value = "논산시";
-				form.local2.options[8] = new Option("계룡시");
-				form.local2.options[8].value = "계룡시";
-				form.local2.options[9] = new Option("당진시");
-				form.local2.options[9].value = "당진시";
-
-
-			}
-			if(document.filterSelect.local.value == "전라북도"){
+			if(document.filterSelect.local1.value == "전라"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("전주시 완산구");
 				form.local2.options[1].value = "전주시 완산구";
@@ -356,26 +351,22 @@
 				form.local2.options[6].value = "남원시";
 				form.local2.options[7] = new Option("김제시");
 				form.local2.options[7].value = "김제시";
+				form.local2.options[8] = new Option("목포시");
+				form.local2.options[8].value = "목포시";
+				form.local2.options[9] = new Option("여수시");
+				form.local2.options[9].value = "여수시";
+				form.local2.options[10] = new Option("순천시");
+				form.local2.options[10].value = "순천시";
+				form.local2.options[11] = new Option("나주시");
+				form.local2.options[11].value = "나주시";
+				form.local2.options[12] = new Option("광양시");
+				form.local2.options[12].value = "광양시";
 
 
 
 			}
-			if(document.filterSelect.local.value == "경상남도"){
-				form.local2.length = 1;
-				form.local2.options[1] = new Option("목포시");
-				form.local2.options[1].value = "목포시";
-				form.local2.options[2] = new Option("여수시");
-				form.local2.options[2].value = "여수시";
-				form.local2.options[3] = new Option("순천시");
-				form.local2.options[3].value = "순천시";
-				form.local2.options[4] = new Option("나주시");
-				form.local2.options[4].value = "나주시";
-				form.local2.options[5] = new Option("광양시");
-				form.local2.options[5].value = "광양시";
 
-
-			}
-			if(document.filterSelect.local.value == "경상북도"){
+			if(document.filterSelect.local1.value == "경상"){
 				form.local2.length = 1;
 				form.local2.options[1] = new Option("포항시 남구");
 				form.local2.options[1].value = "포항시 남구";
@@ -399,37 +390,34 @@
 				form.local2.options[10].value = "문경시";
 				form.local2.options[11] = new Option("경산시");
 				form.local2.options[11].value = "경산시";
+				form.local2.options[12] = new Option("창원시 의창구");
+				form.local2.options[12].value = "창원시 의창구";
+				form.local2.options[13] = new Option("창원시 성산구");
+				form.local2.options[13].value = "창원시 성산구";
+				form.local2.options[14] = new Option("창원시 마산합포구");
+				form.local2.options[14].value = "창원시 마산합포구";
+				form.local2.options[15] = new Option("창원시 마산회원구");
+				form.local2.options[15].value = "창원시 마산회원구";
+				form.local2.options[16] = new Option("창원시 진해구");
+				form.local2.options[16].value = "창원시 진해구";
+				form.local2.options[17] = new Option("진주시");
+				form.local2.options[17].value = "진주시";
+				form.local2.options[18] = new Option("통영시");
+				form.local2.options[18].value = "통영시";
+				form.local2.options[19] = new Option("사천시");
+				form.local2.options[19].value = "사천시";
+				form.local2.options[20] = new Option("김해시");
+				form.local2.options[20].value = "김해시";
+				form.local2.options[21] = new Option("밀양시");
+				form.local2.options[21].value = "밀양시";
+				form.local2.options[22] = new Option("거제시");
+				form.local2.options[22].value = "거제시";
+				form.local2.options[23] = new Option("양산시");
+				form.local2.options[23].value = "양산시";
 
 			}
-			if(document.filterSelect.local.value == "경상남도"){
-				form.local2.length = 1;
-				form.local2.options[1] = new Option("창원시 의창구");
-				form.local2.options[1].value = "창원시 의창구";
-				form.local2.options[2] = new Option("창원시 성산구");
-				form.local2.options[2].value = "창원시 성산구";
-				form.local2.options[3] = new Option("창원시 마산합포구");
-				form.local2.options[3].value = "창원시 마산합포구";
-				form.local2.options[4] = new Option("창원시 마산회원구");
-				form.local2.options[4].value = "창원시 마산회원구";
-				form.local2.options[5] = new Option("창원시 진해구");
-				form.local2.options[5].value = "창원시 진해구";
-				form.local2.options[6] = new Option("진주시");
-				form.local2.options[6].value = "진주시";
-				form.local2.options[7] = new Option("통영시");
-				form.local2.options[7].value = "통영시";
-				form.local2.options[8] = new Option("사천시");
-				form.local2.options[8].value = "사천시";
-				form.local2.options[9] = new Option("김해시");
-				form.local2.options[9].value = "김해시";
-				form.local2.options[10] = new Option("밀양시");
-				form.local2.options[10].value = "밀양시";
-				form.local2.options[11] = new Option("거제시");
-				form.local2.options[11].value = "거제시";
-				form.local2.options[12] = new Option("양산시");
-				form.local2.options[12].value = "양산시";
 
-			}
-			if(document.filterSelect.local.value == "제주도"){
+			if(document.filterSelect.local1.value == "제주도"){
 				form.local2.length = 1;
 
 			}
@@ -453,24 +441,21 @@
 				<td>
 
 				      		<select class="form-control" name = "local1" onchange="setCategory2()">
-				        		<option value = "hide">-- 지역 선택 --</option>
-				        		<option value = "서울특별시">서울특별시</option>
-				        		<option value = "부산광역시">부산광역시</option>
-				        		<option value = "대구광역시">대구광역시</option>
-				        		<option value = "인천광역시">인천광역시</option>
-				        		<option value = "광주광역시">광주광역시</option>
-				        		<option value = "대전광역시">대전광역시</option>
-				        		<option value = "울산광역시">울산광역시</option>
-				        		<option value = "세종특별자치시">세종특별자치시</option>
-				        		<option value = "경기도">경기도</option>
-				        		<option value = "강원도">강원도</option>
-				        		<option value = "충청북도">충청북도</option>
-				        		<option value = "충청남도">충청남도</option>
-				        		<option value = "전라북도">전라북도</option>
-				        		<option value = "전라남도">전라남도</option>
-				        		<option value = "경상북도">경상북도</option>
-				        		<option value = "경상남도">경상남도</option>
-				        		<option value = "제주도">제주도</option>
+				        		<option value = "">-- 지역 선택 --</option>
+				        		<option value = "서울">서울특별시</option>
+				        		<option value = "부산">부산광역시</option>
+				        		<option value = "대구">대구광역시</option>
+				        		<option value = "인천">인천광역시</option>
+				        		<option value = "광주">광주광역시</option>
+				        		<option value = "대전">대전광역시</option>
+				        		<option value = "울산">울산광역시</option>
+				        		<option value = "세종">세종특별자치시</option>
+				        		<option value = "경기">경기도</option>
+				        		<option value = "강원">강원도</option>
+				        		<option value = "충청">충청북도</option>
+				        		<option value = "전라">전라북도</option>
+				        		<option value = "경상">경상북도</option>
+				        		<option value = "제주">제주도</option>
 
 			     	 		</select>
 
@@ -479,7 +464,7 @@
 			<td>
 
 				<select class="form-control" name = "local2" onchange = "settext(this.options[this.selectedIndex].value)">
-			    	<option value="hide">-- 구 선택 --</option>
+			    	<option value="">-- 구 선택 --</option>
 
 				</select>
 
@@ -488,7 +473,7 @@
 
 	<td>
 		<select class = "form-control" name = "food">
-		    <option value="hide">-- 음식선택 --</option>
+		    <option value="">-- 음식선택 --</option>
 		    <option value="default">음식전체</option>
 		    <option value="양식">양식</option>
 		    <option value="한식">한식</option>

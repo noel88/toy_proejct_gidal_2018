@@ -68,8 +68,8 @@
 	</delete>
 
 	<select id="ent_best" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select *, sum(r.review_scope) as sum from enterprise e left join review r on e.enterprise_code = r.enterprise_code group by e.enterprise_code order by sum desc limit 3;
-
+		select *, truncate(round(sum(r.review_scope)/(select ifnull(count(*),0) from review where enterprise_code = e.enterprise_code) * 2) / 2,1) as aver
+		from enterprise e left join review r on e.enterprise_code = r.enterprise_code group by e.enterprise_code order by aver desc limit 3;
 
 	</select>
 

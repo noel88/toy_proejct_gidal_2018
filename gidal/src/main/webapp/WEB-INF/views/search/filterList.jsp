@@ -475,7 +475,8 @@
 	<td>
 		<select class = "form-control" name = "food">
 		    <option value="">-- 음식선택 --</option>
-		    <option value="default" <c:if test = "${filter.food eq 'default'}" > selected = "selected" </c:if>>음식전체</option>
+		    <option value="">음식전체</option>
+<%-- 		<option value="default" <c:if test = "${filter.food eq 'default'}" > selected = "selected" </c:if>>음식전체</option> --%>
 		    <option value="양식" <c:if test = "${filter.food eq '양식'}" > selected = "selected" </c:if>>양식</option>
 		    <option value="한식" <c:if test = "${filter.food eq '한식'}" > selected = "selected" </c:if>>한식</option>
 		    <option value="중식" <c:if test = "${filter.food eq '중식'}" > selected = "selected" </c:if>>중식</option>

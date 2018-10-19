@@ -474,7 +474,7 @@
 	<td>
 		<select class = "form-control" name = "food">
 		    <option value="">-- 음식선택 --</option>
-		    <option value="default">음식전체</option>
+		    <option value="">음식전체</option>
 		    <option value="양식">양식</option>
 		    <option value="한식">한식</option>
 		    <option value="중식">중식</option>

@@ -114,7 +114,10 @@
 				<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
 					<h3 class="card-header">${enterprise.enterprise_businessName}</h3>
 					<div class="card-body">
-						<h5 class="card-title">${enterprise.sum}</h5>
+						<h5 class="card-title">
+
+							별점 : ${enterprise.aver}
+						</h5>
 						<h6 class="card-subtitle text-muted">${enterprise.enterprise_add2}</h6>
 					</div>
 					<img style="height: 200px; width: 100%; display: block;"

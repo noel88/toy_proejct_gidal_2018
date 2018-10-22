@@ -82,6 +82,11 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 		return sqlsession.selectList(namespace + ".ent_best");
 	}
 
+	@Override
+	public List<EnterpriseVO> ent_popular() {
+		return sqlsession.selectList(namespace + ".ent_popular");
+	}
+
 
 
 

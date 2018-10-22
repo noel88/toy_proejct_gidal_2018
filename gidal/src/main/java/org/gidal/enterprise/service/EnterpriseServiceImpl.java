@@ -170,6 +170,11 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		return dao.ent_best();
 	}
 
+	@Override
+	public List<EnterpriseVO> ent_popular() {
+		return dao.ent_popular();
+	}
+
 
 
 }

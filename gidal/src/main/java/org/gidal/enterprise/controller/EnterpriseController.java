@@ -209,7 +209,20 @@ public class EnterpriseController {
 		}
 
 	}
+	
+	@RequestMapping(value = "/popular", method = RequestMethod.GET)
+	public String enterprise_popular(Model model, HttpSession session) {
+		
+			model.addAttribute("popular", service.ent_popular());
+			return "/enterprise/enterpriseBoardView_pop";
+		
+		
+	}
 
+	
+	
+	
+	
 	/**
 	 * 이메일 체크
 	 *

@@ -21,6 +21,7 @@ public interface EnterpriseService {
 	public void delete(EnterpriseVO vo);
 	public void enterprise_img(EnterpriseVO vo);
 	public List<EnterpriseVO> ent_best();
+	public List<EnterpriseVO> ent_popular();
 
 
 

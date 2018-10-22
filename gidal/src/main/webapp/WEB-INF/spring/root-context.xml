@@ -16,8 +16,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="url"
-			value="jdbc:log4jdbc:mariadb://192.168.0.251:3306/gidal?useSSL=false&amp;serverTimezone=UTC"></property>
-		<property name="username" value="gidal"></property>
+			value="jdbc:log4jdbc:mariadb://bigmit.iptime.org:3307/gidal?useSSL=false&amp;serverTimezone=UTC"></property>
+<!-- 			value="jdbc:log4jdbc:mariadb://192.168.0.251:3306/gidal?useSSL=false&amp;serverTimezone=UTC"></property>
+ -->		<property name="username" value="gidal"></property>
 		<property name="password" value="gidal"></property>
 	</bean>
 

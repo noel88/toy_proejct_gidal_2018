@@ -36,6 +36,7 @@ public class HomeController {
 
 		model.addAttribute("eventList", service.currentEventListAll());
 		model.addAttribute("ent", ent.ent_best());
+		model.addAttribute("list", service.seachKeyword());
 
 
 		return "home";

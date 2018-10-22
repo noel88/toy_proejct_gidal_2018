@@ -18,4 +18,10 @@
 		]]>  
 	</select>
  
+ 
+ 	<select id = "keyword" resultType="org.gidal.enterprise.domain.EnterpriseVO">
+		select enterprise_businessName from enterprise
+	</select>
+ 
+ 
 </mapper>

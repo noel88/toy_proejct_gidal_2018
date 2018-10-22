@@ -41,7 +41,27 @@
 			<div>
 			<form class="form-inline my-2 my-lg-0" action = "/search/search" method = "get">
 
-				<input class="form-control mr-sm-2" name = "search" type="text" placeholder="업체검색">
+
+				<script>
+				$(function() {
+				  var availableTags = [
+				
+				<c:forEach items = "${list}" var = "enterprise">
+					"${enterprise.enterprise_businessName}",
+				
+				</c:forEach>
+	
+				
+				  ];
+				  $( "#tags" ).autocomplete({
+				    source: availableTags
+				  });
+				} );
+				</script>
+
+
+
+				<input class="form-control mr-sm-2" id = "tags" name = "search" type="text" placeholder="업체검색">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>&nbsp;&nbsp;
 			</form>
 			</div>

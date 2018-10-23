@@ -88,7 +88,6 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	}
 
 	@Override
-<<<<<<< HEAD
 	public int reserve_count(Integer code) {	// 금일 남은 예약건 조회
 		return sqlsession.selectOne(namespace + ".reserve_count", code);
 	}
@@ -96,11 +95,11 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	@Override
 	public int waiting_count(Integer code) {	// 남은 대기목록 조회
 		return sqlsession.selectOne(namespace + ".waiting_count", code);
+	}
 
-=======
+	@Override
 	public int reserve_update(Integer code) {
 		return sqlsession.update(namespace + ".update_reserve_yn", code);
->>>>>>> ab7313df026cc86b31f5955381ba0e81caa5ffbc
 	}
 
 

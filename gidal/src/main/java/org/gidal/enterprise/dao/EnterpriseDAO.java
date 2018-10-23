@@ -22,13 +22,8 @@ public interface EnterpriseDAO {
 	public void enterprise_img(EnterpriseVO vo);
 	public List<EnterpriseVO> ent_best();
 	public List<EnterpriseVO> ent_popular();
-<<<<<<< HEAD
 	public int reserve_count(Integer code);
 	public int waiting_count(Integer code);
-	
-=======
-
->>>>>>> ab7313df026cc86b31f5955381ba0e81caa5ffbc
 
 
 }

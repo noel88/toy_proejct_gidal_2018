@@ -21,6 +21,15 @@ public class SearchServiceImpl implements SearchService {
 		return dao.search_list(search);
 	}
 
+	/**
+	 * 식당게시판 검색 필터링
+	 *
+	 * @see org.gidal.search.service.SearchService#search_filter(FilterVO)
+	 * @param FilterVO
+	 * @return List<EnterpriseVO>
+	 * @throws
+	 */
+
 	@Override
 	public List<EnterpriseVO> search_filter(FilterVO vo) {
 		return dao.search_filter(vo);

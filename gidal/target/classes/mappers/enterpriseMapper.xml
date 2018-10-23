@@ -14,18 +14,14 @@
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
 		select enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
 		from enterprise order by enterprise_code DESC
-
 	</select>
 
 	<select id="selectTotalRecords" resultType="int">
 	        SELECT FOUND_ROWS();
 	</select>
 
-
-	<select id="emailCheck"
-	    parameterType="org.gidal.enterprise.domain.EnterpriseVO" resultType="java.lang.Integer">
-	    SELECT IFNULL(COUNT(*),0)
-	    FROM enterprise WHERE enterprise_email = #{enterprise_email}
+	<select id="emailCheck" parameterType="org.gidal.enterprise.domain.EnterpriseVO" resultType="java.lang.Integer">
+	  	SELECT IFNULL(COUNT(*),0) FROM enterprise WHERE enterprise_email = #{enterprise_email}
 	</select>
 
 	<select id="allInfo_enterprise" resultType="org.gidal.enterprise.domain.EnterpriseVO">
@@ -40,12 +36,9 @@
 		 enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
 	</update>
 
-
 	<update id="enterprise_img">
 		update enterprise set enterprise_mainImg = #{enterprise_mainImg} where enterprise_email = #{enterprise_email}
 	</update>
-
-
 
 	<select id="waiting_list" resultType = "org.gidal.waiting.domain.WaitingVO">
 		select * from waiting where enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
@@ -73,8 +66,8 @@
 	</select>
 
 	<select id="ent_popular" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select *, 
-		(select ifnull(count(*),0) from reserve where enterprise_code = enterprise.enterprise_code)+(select ifnull(count(*),0) from waiting where enterprise_code = enterprise.enterprise_code) 
+		select *,
+		(select ifnull(count(*),0) from reserve where enterprise_code = enterprise.enterprise_code)+(select ifnull(count(*),0) from waiting where enterprise_code = enterprise.enterprise_code)
 		as plus from enterprise order by plus desc;
 	</select>
 

@@ -16,22 +16,7 @@
 </head>
 <body>
 
-				<script>
-				$(function() {
-				  var availableTags = [
 
-				<c:forEach items = "${list}" var = "enterprise">
-					"${enterprise.enterprise_businessName}",
-
-				</c:forEach>
-
-
-				  ];
-				  $( "#tags" ).autocomplete({
-				    source: availableTags
-				  });
-				} );
-				</script>
 
 
 	<%@ include file="/WEB-INF/views/include/nav.jsp"%>

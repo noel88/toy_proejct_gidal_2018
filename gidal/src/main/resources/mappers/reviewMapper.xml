@@ -31,11 +31,11 @@
 	</delete>
 
 	<select id="ent_review_waiting" resultType="org.gidal.review.domain.ReviewVO">
-		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_yn = 1
+		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_yn = 'w'
 	</select>
 
 	<select id="ent_review_reserve" resultType="org.gidal.review.domain.ReviewVO">
-		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_yn = 2
+		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_yn = 'r'
 	</select>
 
 

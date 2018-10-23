@@ -42,22 +42,7 @@
 			<form class="form-inline my-2 my-lg-0" action = "/search/search" method = "get">
 
 
-				<script>
-				$(function() {
-				  var availableTags = [
-				
-				<c:forEach items = "${list}" var = "enterprise">
-					"${enterprise.enterprise_businessName}",
-				
-				</c:forEach>
-	
-				
-				  ];
-				  $( "#tags" ).autocomplete({
-				    source: availableTags
-				  });
-				} );
-				</script>
+
 
 
 

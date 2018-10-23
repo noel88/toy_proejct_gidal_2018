@@ -7,16 +7,28 @@
 <title>기달</title>
 
 <script>
+	
+	function check() {		
 
-	var result = '${msg}';
-	var newPassword = '${newPassword}';
+		var email = document.getElementById("login_email").value;
+
+		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+		if(exptext.test(email) == false){
+
+			//이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
 	
-	if(result == 'reissuePasswordSuccess') {
-		alert("비밀번호 재발급이 완료되었습니다.\n새로운 비밀번호는 " + newPassword);
-	} else if(result == 'reissuePasswordFail') {
-		alert("비밀번호 재발급이 실패했습니다.\n정보를 확인해주세요.");
+			alert("이메일형식이 올바르지 않습니다.");
+	
+			document.getElementById("login_email").select();
+	
+			return false;
+
+		} else {
+			return true;
+		}
 	}
-	
+
 </script>
 
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
@@ -31,21 +43,12 @@
 			<h1>로그인</h1>
 
 			<hr class="my-4">
-			<!-- <p class="lead">This is a simple hero unit, a simple
-			jumbotron-style component for calling extra attention to featured
-			content or information.</p>
-		<p>It uses utility classes for typography and spacing to space
-			content out within the larger container.</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
-		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "loginPOST" method = "post">
+				<form action = "loginPOST" method = "post" onsubmit = "return check();" name = "login">
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
-						<input type="email" class="form-control" name = "login_email" placeholder="이메일" id="inputDefault">
+						<input type="email" class="form-control" name = "login_email" placeholder="이메일" id="login_email">
 						<label class="col-form-label" for="inputDefault">패스워드</label>
 						<input type="password" class="form-control"	name = "login_password" placeholder="패스워드" id="inputDefault">
 					</p>

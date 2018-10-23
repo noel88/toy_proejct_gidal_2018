@@ -90,7 +90,7 @@
 											<a class="dropdown-item" href="/user/userpage">마이페이지</a>
 											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
 										</c:when>
-										<c:when test = "${ LEVEL eq 'enterpirse' }">
+										<c:when test = "${ LEVEL eq 'enterprise' }">
 											<a class="dropdown-item" href="/enterprise/enter_page">마이페이지</a>
 											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
 										</c:when>

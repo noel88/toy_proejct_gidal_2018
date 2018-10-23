@@ -6,7 +6,7 @@ public class FilterVO {
 
 	private String local1;
 	private String local2;
-	private String foods;
+	private String food;
 
 
 	public String getLocal1() {
@@ -21,11 +21,11 @@ public class FilterVO {
 	public void setLocal2(String local2) {
 		this.local2 = local2;
 	}
-	public String getFoods() {
-		return foods;
+	public String getFood() {
+		return food;
 	}
-	public void setFoods(String foods) {
-		this.foods = foods;
+	public void setFood(String food) {
+		this.food = food;
 	}
 
 

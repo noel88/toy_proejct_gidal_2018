@@ -505,12 +505,12 @@
 	<div class="col-sm-12">
 		<div class="page-header text-muted" style="float: right;">
 			<ul class="nav">
-				<li><a href="popular">· 인기순&nbsp;</a></li>
-				<li><a href="view">· <b>최신순</b></a></li>
+				<li><a href="popular">· <b>인기순&nbsp;</b></a></li>
+				<li><a href="view">· 최신순</a></li>
 			</ul>
 		</div>
 	</div>
-<c:forEach items = "${list}" var = "EnterpriseVO">
+<c:forEach items = "${popular}" var = "EnterpriseVO">
   	<table class = "lists__item js-load"  style = " margin-top : 20px; margin-left: auto; margin-right: auto;">
 
   			 <tr>

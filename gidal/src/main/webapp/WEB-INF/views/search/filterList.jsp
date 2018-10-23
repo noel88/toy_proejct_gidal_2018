@@ -433,7 +433,7 @@
 
 
 
-		<table style = "margin-top : 30px; margin-left: auto; margin-bottom:20px; margin-right: auto;">
+		<table style = "margin-top : 30px; margin-left: auto; margin-right: auto;">
 
 
 			<tr>
@@ -441,21 +441,22 @@
 				<td>
 
 				      		<select class="form-control" name = "local1" onchange="setCategory2()">
+
 				        		<option value = "">-- 지역 선택 --</option>
-				        		<option value = "서울">서울특별시</option>
-				        		<option value = "부산">부산광역시</option>
-				        		<option value = "대구">대구광역시</option>
-				        		<option value = "인천">인천광역시</option>
-				        		<option value = "광주">광주광역시</option>
-				        		<option value = "대전">대전광역시</option>
-				        		<option value = "울산">울산광역시</option>
-				        		<option value = "세종">세종특별자치시</option>
-				        		<option value = "경기">경기도</option>
-				        		<option value = "강원">강원도</option>
-				        		<option value = "충청">충청북도</option>
-				        		<option value = "전라">전라북도</option>
-				        		<option value = "경상">경상북도</option>
-				        		<option value = "제주">제주도</option>
+				        		<option value = "서울" <c:if test = "${filter.local1 eq '서울'}" > selected = "selected" </c:if>>서울특별시</option>
+				        		<option value = "부산" <c:if test = "${filter.local1 eq '부산'}" > selected = "selected" </c:if>>부산광역시</option>
+				        		<option value = "대구" <c:if test = "${filter.local1 eq '대구'}" > selected = "selected" </c:if>>대구광역시</option>
+				        		<option value = "인천" <c:if test = "${filter.local1 eq '인천'}" > selected = "selected" </c:if>>인천광역시</option>
+				        		<option value = "광주" <c:if test = "${filter.local1 eq '광주'}" > selected = "selected" </c:if>>광주광역시</option>
+				        		<option value = "대전" <c:if test = "${filter.local1 eq '대전'}" > selected = "selected" </c:if>>대전광역시</option>
+				        		<option value = "울산" <c:if test = "${filter.local1 eq '울산'}" > selected = "selected" </c:if>>울산광역시</option>
+				        		<option value = "세종" <c:if test = "${filter.local1 eq '세종'}" > selected = "selected" </c:if>>세종특별자치시</option>
+				        		<option value = "경기" <c:if test = "${filter.local1 eq '경기'}" > selected = "selected" </c:if>>경기도</option>
+				        		<option value = "강원" <c:if test = "${filter.local1 eq '강원'}" > selected = "selected" </c:if>>강원도</option>
+				        		<option value = "충청" <c:if test = "${filter.local1 eq '충청'}" > selected = "selected" </c:if>>충청북도</option>
+				        		<option value = "전라" <c:if test = "${filter.local1 eq '전라남도'}" > selected = "selected" </c:if>>전라남도</option>
+				        		<option value = "경상" <c:if test = "${filter.local1 eq '경상북도'}" > selected = "selected" </c:if>>경상북도</option>
+				        		<option value = "제주" <c:if test = "${filter.local1 eq '제주도'}" > selected = "selected" </c:if>>제주도</option>
 
 			     	 		</select>
 
@@ -475,16 +476,17 @@
 		<select class = "form-control" name = "food">
 		    <option value="">-- 음식선택 --</option>
 		    <option value="">음식전체</option>
-		    <option value="양식">양식</option>
-		    <option value="한식">한식</option>
-		    <option value="중식">중식</option>
-		    <option value="일식">일식</option>
-		    <option value="아시아식">아시아식</option>
-		    <option value="컨템퍼러리">컨템퍼러리</option>
-		    <option value="뷔페">뷔페</option>
-		    <option value="구이">구이</option>
-		    <option value="술집">술집</option>
-		    <option value="카페/베이커리">카페/베이커리</option>
+<%-- 		<option value="default" <c:if test = "${filter.food eq 'default'}" > selected = "selected" </c:if>>음식전체</option> --%>
+		    <option value="양식" <c:if test = "${filter.food eq '양식'}" > selected = "selected" </c:if>>양식</option>
+		    <option value="한식" <c:if test = "${filter.food eq '한식'}" > selected = "selected" </c:if>>한식</option>
+		    <option value="중식" <c:if test = "${filter.food eq '중식'}" > selected = "selected" </c:if>>중식</option>
+		    <option value="일식" <c:if test = "${filter.food eq '일식'}" > selected = "selected" </c:if>>일식</option>
+		    <option value="아시아식" <c:if test = "${filter.food eq '아시아식'}" > selected = "selected" </c:if>>아시아식</option>
+		    <option value="컨템퍼러리" <c:if test = "${filter.food eq '컨템퍼러리'}" > selected = "selected" </c:if>>컨템퍼러리</option>
+		    <option value="뷔페" <c:if test = "${filter.food eq '뷔페'}" > selected = "selected" </c:if>>뷔페</option>
+		    <option value="구이" <c:if test = "${filter.food eq '구이'}" > selected = "selected" </c:if>>구이</option>
+		    <option value="술집" <c:if test = "${filter.food eq '술집'}" > selected = "selected" </c:if>>술집</option>
+		    <option value="카페/베이커리" <c:if test = "${filter.food eq '카페/베이커리'}" > selected = "selected" </c:if>>카페/베이커리</option>
 
 		</select>
 
@@ -502,16 +504,9 @@
 
  <div id="contents">
   <div id="js-load" class="lists">
-	<div class="col-sm-12">
-		<div class="page-header text-muted" style="float: right;">
-			<ul class="nav">
-				<li><a href="popular">· 인기순&nbsp;</a></li>
-				<li><a href="view">· <b>최신순</b></a></li>
-			</ul>
-		</div>
-	</div>
-<c:forEach items = "${list}" var = "EnterpriseVO">
-  	<table class = "lists__item js-load"  style = " margin-top : 20px; margin-left: auto; margin-right: auto;">
+
+<c:forEach items = "${filter_list}" var = "EnterpriseVO">
+  	<table class = "lists__item js-load"  style = " margin-top : 50px; margin-left: auto; margin-right: auto;">
 
   			 <tr>
 		     <td rowspan="5"><img src = "<spring:url value ='/image/${EnterpriseVO.enterprise_mainImg}'/>" style="margin : auto; height : 200px; width : 350px;"></td><!-- 메인이미지  -->
@@ -536,7 +531,7 @@
 		      <tr>
 		      <td colspan="2" >
 		      	<h5 style="text-align: left;">
-					  Restaurant Sectors <small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
+					  Restaurant Sectors<small class="text-muted">${EnterpriseVO.enterprise_sectors}</small>
 				</h5>
 		      </td> <!-- 업종  -->
 		    </tr>
@@ -545,13 +540,7 @@
 
 
 		    <!-- 식당정보를 가지고 넘어가야함. Details페이지 개념  -->
-			<c:choose>
-			<c:when test = "${ LEVEL eq 'enterpirse' }">
-			<tr>
-				<td colspan="2" style="text-align: left;"><b>- 기업회원은 예약 및 웨이팅을 할수 없습니다. -</b></td>
-			</tr>
-			</c:when>
-			<c:otherwise>
+
 
 			<c:choose>
 				<c:when test = "${EnterpriseVO.enterprise_service == '1'}">
@@ -567,15 +556,13 @@
 
 	      <c:otherwise>
 	    		  <tr>
-			      <td colspan="2" style="float: left;">&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a>
+			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">웨이팅</button></a>
 			       <a href = "/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}"><button type="button" class="btn btn-primary">예약</button></a></td>
 	     	  	</tr>
 	       </c:otherwise>
 			</c:choose>
-		</c:otherwise>
-		</c:choose>
-		</table>
-			</c:forEach>
+</table>
+	</c:forEach>
 
 
 </div>

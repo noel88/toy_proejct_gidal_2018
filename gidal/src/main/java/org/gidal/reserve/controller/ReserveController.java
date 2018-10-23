@@ -31,16 +31,19 @@ public class ReserveController {
 	 */
 
 	@RequestMapping(value = "/reserve", method = RequestMethod.GET)
-	public Model enterprise_details(@RequestParam("enterprise_code") int code, HttpSession session, Model model) {
+	public String enterprise_details(@RequestParam("enterprise_code") int code, HttpSession session, Model model) {
 
 		String email = (String)session.getAttribute("LOGIN");
 
+		if (email == null) {
+			return "redirect:/authentication/signIn";
+		}else {
 
 		session.setAttribute("user", service.selectOne(email));
 		model.addAttribute(service.selectOne(code));
 		model.addAttribute("review", re.ent_review(code));
-
-		return model;
+			return "/reserve/reserve";
+		}
 
 	}
 

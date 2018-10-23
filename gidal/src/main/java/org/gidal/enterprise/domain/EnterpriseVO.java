@@ -26,112 +26,14 @@ public class EnterpriseVO {
 //	private String enterprise_breakStartTime; //브레이크타임시작
 //	private String enterprise_breakCloseTime; //브레이크타임끝
 	private String enterprise_closed; //휴무일
-	private int sum;
-	private int scope;
+//	private int sum;
+//	private int scope;
 	private int review_scope;
+	private double aver;
 
 
 	public EnterpriseVO() {
 	}
-
-
-
-
-
-	public String getEnterprise_img1() {
-		return enterprise_img1;
-	}
-
-
-
-
-
-	public void setEnterprise_img1(String enterprise_img1) {
-		this.enterprise_img1 = enterprise_img1;
-	}
-
-
-
-
-
-	public String getEnterprise_img2() {
-		return enterprise_img2;
-	}
-
-
-
-
-
-	public void setEnterprise_img2(String enterprise_img2) {
-		this.enterprise_img2 = enterprise_img2;
-	}
-
-
-
-
-
-	public String getEnterprise_img3() {
-		return enterprise_img3;
-	}
-
-
-
-
-
-	public void setEnterprise_img3(String enterprise_img3) {
-		this.enterprise_img3 = enterprise_img3;
-	}
-
-
-
-
-
-	public String getEnterprise_img4() {
-		return enterprise_img4;
-	}
-
-
-
-
-
-	public void setEnterprise_img4(String enterprise_img4) {
-		this.enterprise_img4 = enterprise_img4;
-	}
-
-
-
-
-
-	public int getReview_scope() {
-		return review_scope;
-	}
-
-
-
-
-
-	public void setReview_scope(int review_scope) {
-		this.review_scope = review_scope;
-	}
-
-
-
-
-
-	public int getScope() {
-		return scope;
-	}
-
-
-
-
-
-	public void setScope(int scope) {
-		this.scope = scope;
-	}
-
-
-
 
 
 	public String getEnterprise_email() {
@@ -234,6 +136,46 @@ public class EnterpriseVO {
 	}
 
 
+	public String getEnterprise_img1() {
+		return enterprise_img1;
+	}
+
+
+	public void setEnterprise_img1(String enterprise_img1) {
+		this.enterprise_img1 = enterprise_img1;
+	}
+
+
+	public String getEnterprise_img2() {
+		return enterprise_img2;
+	}
+
+
+	public void setEnterprise_img2(String enterprise_img2) {
+		this.enterprise_img2 = enterprise_img2;
+	}
+
+
+	public String getEnterprise_img3() {
+		return enterprise_img3;
+	}
+
+
+	public void setEnterprise_img3(String enterprise_img3) {
+		this.enterprise_img3 = enterprise_img3;
+	}
+
+
+	public String getEnterprise_img4() {
+		return enterprise_img4;
+	}
+
+
+	public void setEnterprise_img4(String enterprise_img4) {
+		this.enterprise_img4 = enterprise_img4;
+	}
+
+
 	public String getEnterprise_add1() {
 		return enterprise_add1;
 	}
@@ -294,14 +236,30 @@ public class EnterpriseVO {
 	}
 
 
-	public int getSum() {
-		return sum;
+	public int getReview_scope() {
+		return review_scope;
 	}
 
 
-	public void setSum(int sum) {
-		this.sum = sum;
+	public void setReview_scope(int review_scope) {
+		this.review_scope = review_scope;
 	}
+
+
+	public double getAver() {
+		return aver;
+	}
+
+
+	public void setAver(double aver) {
+		this.aver = aver;
+	}
+
+
+
+
+
+
 
 
 

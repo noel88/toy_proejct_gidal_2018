@@ -16,6 +16,24 @@
 </head>
 <body>
 
+				<script>
+				$(function() {
+				  var availableTags = [
+
+				<c:forEach items = "${list}" var = "enterprise">
+					"${enterprise.enterprise_businessName}",
+
+				</c:forEach>
+
+
+				  ];
+				  $( "#tags" ).autocomplete({
+				    source: availableTags
+				  });
+				} );
+				</script>
+
+
 	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
@@ -56,32 +74,40 @@
 								<div class="carousel-item active">
 									<c:choose>
 										<c:when test="${ eventVO.event_image eq null }">
-											<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											</a>
 										</c:when>
 										<c:otherwise>
-											<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											</a>
 										</c:otherwise>
 									</c:choose>
-									<div class="carousel-caption d-none d-md-block">
+									<%-- <div class="carousel-caption d-none d-md-block">
 										<h3 style="color: black;">${ eventVO.event_title }</h3>
 										<p style="color: black;">${ eventVO.event_startDate }&nbsp;-&nbsp;${ eventVO.event_endDate }</p>
-									</div>
+									</div> --%>
 								</div>
 							</c:when>
 							<c:otherwise>
 								<div class="carousel-item">
 									<c:choose>
 										<c:when test="${ eventVO.event_image eq null }">
-											<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/resources/img/event/noimage.png" alt="${ i }번째 슬라이드">
+											</a>
 										</c:when>
 										<c:otherwise>
-											<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											<a href="/event/detailEvent?event_no=${eventVO.event_no}&state=current&page=1">
+												<img id = "eventImage" class="d-block w-100" src="/upload/event/${ eventVO.event_image }" alt="${ i }번째 슬라이드">
+											</a>
 										</c:otherwise>
 									</c:choose>
-									<div class="carousel-caption d-none d-md-block">
+									<%-- <div class="carousel-caption d-none d-md-block">
 										<h3 style="color: black;">${ eventVO.event_title }</h3>
 										<p style="color: black;">${ eventVO.event_startDate }&nbsp;-&nbsp;${ eventVO.event_endDate }</p>
-									</div>
+									</div> --%>
 								</div>
 							</c:otherwise>
 						</c:choose>
@@ -104,16 +130,27 @@
 			<div class="row" style="margin : 0 auto;">
 <c:forEach items="${ent}" var = "enterprise">
 				<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
-					<h3 class="card-header">${enteprise.enterprise_businessName}</h3>
+					<h3 class="card-header">${enterprise.enterprise_businessName}</h3>
 					<div class="card-body">
-						<h5 class="card-title">${enterprise.sum}</h5>
+						<h5 class="card-title">
+
+							별점 : ${enterprise.aver}
+						</h5>
 						<h6 class="card-subtitle text-muted">${enterprise.enterprise_add2}</h6>
 					</div>
 					<img style="height: 200px; width: 100%; display: block;"
-						src="<spring:url value ='/image/${enteprise.enterprise_mainImg}'/>"
+						src="<spring:url value ='/image/${enterprise.enterprise_mainImg}'/>"
 						alt="Card image">
 					<div class="card-body" style = "text-align : center;">
-					<c:choose>
+
+<c:choose>
+			<c:when test = "${ LEVEL eq 'enterpirse' }">
+
+				<b>- 기업회원은 예약 및 웨이팅을 할수 없습니다. -</b>
+
+			</c:when>
+			<c:otherwise>
+				<c:choose>
 				<c:when test = "${enterprise.enterprise_service == '1'}">
 			      &nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}"  class="btn btn-primary btn-lg" role="button">웨이팅</a>
 			    </c:when>
@@ -122,13 +159,14 @@
 			    </c:when>
 
 	 		     <c:otherwise>
-	    		  <tr>
-			      <td colspan="2">&nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
+
+			      &nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
 			       <a href = "/reserve/reserve?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
-	     	  	</tr>
+
 	     		  </c:otherwise>
 					</c:choose>
-
+				</c:otherwise>
+</c:choose>
 
 					</div>
 				</div>

@@ -16,7 +16,7 @@
 	</select>
 
 	<select id="search_fileter" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select * from enterprise where enterprise_add2 like CONCAT('%',#{local1},'%'), enterprise_add2 like CONCAT('%',#{local2},'%'), enterprise_sectors like CONCAT('%',#{food},'%')
+		select * from enterprise where enterprise_add2 like CONCAT('%',#{local1},'%')and enterprise_add2 like CONCAT('%',#{local2},'%') and enterprise_sectors like CONCAT('%',#{food},'%')
 	</select>
 
 

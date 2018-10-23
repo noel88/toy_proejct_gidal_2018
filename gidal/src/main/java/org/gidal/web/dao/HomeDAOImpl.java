@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.event.domain.EventVO;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +19,12 @@ public class HomeDAOImpl implements HomeDAO {
 	@Override
 	public List<EventVO> currentEventListAll() throws Exception {
 		return session.selectList(namespace + ".currentEventListAll");
+	}
+
+	@Override
+	public List<EnterpriseVO> seachKeyword() {
+		return session.selectList(namespace + ".keyword");
+				
 	}
 
 }

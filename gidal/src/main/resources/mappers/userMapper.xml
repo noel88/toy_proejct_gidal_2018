@@ -21,7 +21,7 @@
 	</update> -->
 
 	<delete id="userDelete">
-		DELETE FROM `gidal`.`user` WHERE  `user_email`=#{user_email};
+		DELETE FROM `gidal`.`user` WHERE  `user_email`=#{user_email} and user_password = #{user_password}; 
 	</delete>
 
 
@@ -76,7 +76,7 @@
 
 	<insert id="userRevise">
 		UPDATE `gidal`.`user`
-		SET  `user_phoneNum`=#{user_phoneNum},`user_password`=#{user_password}, `user_name`=#{user_name}, `user_gender`=#{user_gender}
+		SET  `user_phoneNum`=#{user_phoneNum},`user_password`=#{user_password}, `user_name`=#{user_name}
 		WHERE  `user_email`=#{user_email};
 	</insert>
 

@@ -3,12 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
-
-
 
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
@@ -19,30 +15,31 @@
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-		<h1 style="margin-top: 30px;"> 유저페이지 </h1>
+
+<h1 style="margin-top: 30px;"> 유저페이지 </h1>
 
 <div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
-		<a class="nav-link active show " data-toggle="tab" href="#reserve">예약목록</a> 
+		<a class="nav-link active show" data-toggle="tab" href="#reserve">예약목록</a>
 		</li>
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#waiting">웨이팅목록</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#update">개인정보수정</a>
+		<a class="nav-link" data-toggle="tab" href="#update">유저정보수정</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#delete">회원탈퇴</a>
+		<a class="nav-link" data-toggle="tab" href="#delete">유저탈퇴</a>
 		</li>
 
 	</ul>
 
-	<div id="myTabContent" class="tab-content">
+ <div id="myTabContent" class="tab-content">
 		<!-- 예약목록확인 페이지 -->
 		<div class="tab-pane fade active show" id="reserve">
 
-			<%@ include file = "/WEB-INF/views/user/userReservePage.jsp" %>
+		 <%@ include file = "/WEB-INF/views/user/userReservePage.jsp" %>
 		<hr class="my-4">
 		</div>
 		<!-- 웨이팅 목록 확인 페이지 -->
@@ -51,7 +48,7 @@
 
 		<hr class="my-4">
 		</div>
-		<!-- 기업정보 수정 페이지 -->
+		<!-- 유저정보 수정 페이지 -->
 		<div class="tab-pane fade show" id="update">
 
 			<%@ include file = "/WEB-INF/views/user/userRevise.jsp" %>
@@ -59,18 +56,20 @@
 		<hr class="my-4">
 		</div>
 
-		<!-- 기업 탈퇴 페이지 -->
+		<!-- 유저 탈퇴 페이지 -->
 		<div class="tab-pane fade show" id="delete">
 
 			<%@ include file = "/WEB-INF/views/user/userDelete.jsp" %>
 		<hr class="my-4">
-		</div> 
+		</div>
 
 	</div>
 	</div>
-			
-		</div>
-	</div>
+
+
+
+</div>
+</div>
 
 </body>
 </html>

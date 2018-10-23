@@ -2,40 +2,29 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+	
+<script type="text/javascript">
+	function delete_enterprise() {
+		alert('탈퇴가 완료되었습니다.')
+	}
+</script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>기달</title>
-
-<%@ include file = "/WEB-INF/views/include/head.jsp" %>
-
-</head>
-<body>
-
-
-
-	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-		<div class="jumbotron">
+	<div style="width: 50%; margin-right: auto; margin-left: auto;">
+		
 			<form action="userDelete" method = "post">
-			<h1>회원탈퇴</h1>
+			
 			<input type="hidden"  name="user_email" value="${LOGIN}" >
 			정말 탈퇴하시겠습니까?<br />
-			<button class="form-control btn btn-primary" type="submit">예</button>
+			<p>탈퇴하시려면 패스워드 입력후 탈퇴하기 버튼을 눌러주세요</p>
+			<input type="password" class="form-control pass" name="enterprise_password" placeholder="Password" oninput="checkPwd()">
+			<br>
+			<button type="submit" class="form-control btn btn-primary" onclick="delete_enterprise();">탈퇴하기</button>
 			</form>
-			<hr class="my-4">
-			<!-- <p class="lead">This is a simple hero unit, a simple
-			jumbotron-style component for calling extra attention to featured
-			content or information.</p>
-		<p>It uses utility classes for typography and spacing to space
-			content out within the larger container.</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
-		</p> -->
-
 			
-		</div>
+			
+			
+		
 	</div>
 
-</body>
+
 </html>

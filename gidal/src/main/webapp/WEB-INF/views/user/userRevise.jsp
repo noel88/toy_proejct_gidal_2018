@@ -2,10 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>기달</title>
+
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
@@ -46,8 +44,6 @@
 
 
 </script>
-</head>
-<body>
 
 
 
@@ -55,21 +51,6 @@
 
 
 
-
-	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-		<div class="jumbotron">
-			<h1>개인 정보 수정</h1>
-
-			<hr class="my-4">
-			<!-- <p class="lead">This is a simple hero unit, a simple
-			jumbotron-style component for calling extra attention to featured
-			content or information.</p>
-		<p>It uses utility classes for typography and spacing to space
-			content out within the larger container.</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn
-				more</a>
-		</p> -->
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
 				<form action = "userRevise" onsubmit="return tocheckpw2()" data-ajax="false" method = "post" onsubmit="return join();">
@@ -95,11 +76,7 @@
 						<label class="col-form-label" for="inputDefault">이름</label>
 						<input type="text" class="form-control" name="user_name" placeholder="이름" id="inputDefault">
 
-						<label class="col-form-label" for="inputDefault">성별</label>
-						<select  class="custom-select" id="exampleSelect1" name="user_gender">
-						 	<option value="남성">남성</option>
-							<option value="여성">여성</option>
-						</select>
+						
 					</p>
 					<p>
 						<button type="submit" class="btn btn-primary btn-lg btn-block "  >정보수정</button>
@@ -107,9 +84,7 @@
 				</form>
 			</div>
 
-		</div>
+		
 
-	</div>
 
-</body>
 </html>

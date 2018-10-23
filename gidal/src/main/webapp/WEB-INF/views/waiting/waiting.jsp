@@ -208,7 +208,7 @@
 		<td colspan="2" style="text-align: center;"><h5>리뷰목록</h5> </td>
 	</tr>
 
-	<c:forEach items="${review}" var="re">
+	<c:forEach items="${review_waiting}" var="re">
 
 	<tr>
 		<td>예약자 이메일 : ${re.user_email}</td>

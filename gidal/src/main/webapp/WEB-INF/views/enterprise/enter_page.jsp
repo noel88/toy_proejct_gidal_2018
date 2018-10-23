@@ -16,8 +16,6 @@
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
-<h1 style="margin-top: 30px;"> 기업페이지 </h1>
-
 <div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">

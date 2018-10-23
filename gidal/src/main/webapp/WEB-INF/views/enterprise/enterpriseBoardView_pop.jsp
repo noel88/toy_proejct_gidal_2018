@@ -478,10 +478,10 @@ h2 {
 		<div class="jumbotron">
 
 
-             <div class="row" style="margin-left: 300px; margin-right: auto;">
-                 <div class="col-lg-6 col-lg-offset-3 text-center" >
-                    <h2><span class="ion-minus"></span>List<span class="ion-minus"></span></h2>
-						<p>총 0개의 식당이 있습니다.</p>
+             <div class="row" style="margin-left: auto; margin-right: auto;">
+                 <div class="col-lg-12 col-lg-offset-3 text-center" >
+                    <h2><span class="ion-minus"></span>총 0개의 식당이 있습니다.<span class="ion-minus"></span></h2>
+						<p>원하는 식당을 선택하여 웨이팅하거나 예약할 수 있습니다.</p>
                  </div>
             </div>
 		<table style = "margin-top : 30px; margin-left: auto; margin-bottom:20px; margin-right: auto;">
@@ -493,7 +493,7 @@ h2 {
 				<td>
 
 				      		<select class="form-control" name = "local1" onchange="setCategory2()">
-				        		<option value = "">-- 지역 선택 --</option>
+				        		<option value = "">-- 지역 --</option>
 				        		<option value = "서울">서울특별시</option>
 				        		<option value = "부산">부산광역시</option>
 				        		<option value = "대구">대구광역시</option>
@@ -516,7 +516,7 @@ h2 {
 			<td>
 
 				<select class="form-control" name = "local2" onchange = "settext(this.options[this.selectedIndex].value)">
-			    	<option value="">-- 구 선택 --</option>
+			    	<option value="">-- 구 --</option>
 
 				</select>
 
@@ -525,7 +525,7 @@ h2 {
 
 	<td>
 		<select class = "form-control" name = "food">
-		    <option value="">-- 음식선택 --</option>
+		    <option value="">-- 음식 --</option>
 		    <option value="">음식전체</option>
 		    <option value="양식">양식</option>
 		    <option value="한식">한식</option>

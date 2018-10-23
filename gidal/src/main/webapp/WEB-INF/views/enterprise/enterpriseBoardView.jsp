@@ -478,12 +478,13 @@ h2 {
 		<div class="jumbotron">
 
 
-             <div class="row" style="margin-left: 300px; margin-right: auto;">
-                 <div class="col-lg-6 col-lg-offset-3 text-center" >
-                    <h2><span class="ion-minus"></span>List<span class="ion-minus"></span></h2>
-						<p>총 0개의 식당이 있습니다.</p>
+             <div class="row" style="margin-left: auto; margin-right: auto;">
+                 <div class="col-lg-12 col-lg-offset-3 text-center" >
+                    <h2><span class="ion-minus"></span>총 0개의 식당이 있습니다.<span class="ion-minus"></span></h2>
+						<p>원하는 식당을 선택하여 웨이팅하거나 예약할 수 있습니다.</p>
                  </div>
             </div>
+
 		<table style = "margin-top : 30px; margin-left: auto; margin-bottom:20px; margin-right: auto;">
 	<form action = "/search/filter" name = "filterSelect" method="get">
 
@@ -493,7 +494,7 @@ h2 {
 				<td>
 
 				      		<select class="form-control" name = "local1" onchange="setCategory2()">
-				        		<option value = "">-- 지역 선택 --</option>
+				        		<option value = "">-- 지역 --</option>
 				        		<option value = "서울">서울특별시</option>
 				        		<option value = "부산">부산광역시</option>
 				        		<option value = "대구">대구광역시</option>
@@ -516,7 +517,7 @@ h2 {
 			<td>
 
 				<select class="form-control" name = "local2" onchange = "settext(this.options[this.selectedIndex].value)">
-			    	<option value="">-- 구 선택 --</option>
+			    	<option value="">-- 구 --</option>
 
 				</select>
 
@@ -525,7 +526,7 @@ h2 {
 
 	<td>
 		<select class = "form-control" name = "food">
-		    <option value="">-- 음식선택 --</option>
+		    <option value="">-- 음식 --</option>
 		    <option value="">음식전체</option>
 		    <option value="양식">양식</option>
 		    <option value="한식">한식</option>
@@ -581,8 +582,8 @@ h2 {
                             </p>
                             <h5 class="card-title" style = "clear: both;">${EnterpriseVO.enterprise_businessName}</h5>
                             <p class="card-text"><small class="text-muted"><c:out value='${fn:substring(EnterpriseVO.enterprise_add2,0, 15)}' /></small></p>
-                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '1'}"> disabled = 'disabled' </c:if> onclick="window.open('/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}','','width=750,height=550,left=100,top=100,location=no,status=no,scrollbars=no');">예약하기</button>
-                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '2'}"> disabled = 'disabled' </c:if> onclick="window.open('/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}','','width=750,height=550,location=no,status=no,scrollbars=no');">웨이팅하기</button>
+                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '1'}"> disabled = 'disabled' </c:if> onclick="window.open('/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">예약하기</button>
+                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '2'}"> disabled = 'disabled' </c:if> onclick="window.open('/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">웨이팅하기</button>
                         </div>
                      </div>
                 </div>

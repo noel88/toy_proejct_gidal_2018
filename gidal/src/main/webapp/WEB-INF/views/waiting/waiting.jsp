@@ -18,9 +18,24 @@
 </head>
 <body>
 
+<div style="margin-left: auto; margin-right: auto; text-align:center; width: 550px; margin-top: 10px; margin-bottom: 10px;">
 
-<fieldset>
-    <legend><i class="fas fa-clock"></i>&nbsp;웨이팅 현황 [${count}명 대기중]</legend>
+
+	<h2><p class="mb-0">${enterpriseVO.enterprise_businessName}<small class="text-muted"><b> [${enterpriseVO.enterprise_sectors}]</b></small></p></h2>
+
+</div>
+<table class="table table-hover" style="margin: 30px; margin-left:auto; margin-right: auto; width: 550px;">
+<form action="waiting_insert">
+<script type="text/javascript">
+	function waiting() {
+		document.opener.name = "waiting_insert"
+		document.updatefrm.submit();
+	}
+
+</script>
+<tr>
+<td colspan="3">
+   <i class="fas fa-clock"></i>&nbsp;웨이팅 현황 [${count}명 대기중]
 
 <div style="overflow:auto; height:150px;">
     <c:forEach items = "${list}" var = "WaitingVO">
@@ -31,21 +46,11 @@
   	</c:forEach>
 </div>
 
-    </fieldset>
-<hr>
+   </td>
+</tr>
 
-
-<form action="waiting_insert">
-<script type="text/javascript">
-	function waiting() {
-		document.opener.name = "waiting_insert"
-		document.updatefrm.submit();
-	}
-
-</script>
-  <fieldset>
-    <legend>웨이팅하기</legend>
-
+<tr>
+	<td>
 	<input type = "hidden" name = "enterprise_code" value = "${enterpriseVO.enterprise_code}">
 
     <div class="form-group">
@@ -64,12 +69,15 @@
       </select>
     </div>
 
-
+</td>
+<td>
     <div class="form-group">
       <label for="exampleInputEmail1">이름</label>
       <input type="text" class="form-control" id="exampleInputEmail1" name = "user_name" readonly="readonly" value = "${sessionScope.user.user_name}">
 
     </div>
+</td>
+<td>
 
     <div class="form-group">
       <label for="exampleInputEmail1">휴대폰번호</label>
@@ -77,11 +85,19 @@
 
     </div>
 
+</td>
+</tr>
+<tr>
+	<td colspan="3" style="text-align: center;">0000년 00월 00일 00:00 0명</td>
+</tr>
+<tr>
+	<td colspan="3">
+    <button type="submit" class="btn btn-primary" style="width: 550px;" onclick ="javascript:waiting();" ><i class="fas fa-arrow-right">&nbsp;웨이팅하기</i></button>
+	</td>
+</tr> 
 
-    <button type="submit" class="btn btn-primary" onclick ="javascript:waiting();" ><i class="fas fa-arrow-right">&nbsp;웨이팅하기</i></button>
-  </fieldset>
 </form>
-
+</table>
 
 </body>
 </html>

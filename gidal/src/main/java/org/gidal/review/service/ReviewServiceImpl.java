@@ -21,6 +21,7 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.userReview(vo);
 	}
 
+	
 	@Override
 	public List<ReviewVO> ent_review_waiting(Integer code) {
 		return dao.ent_review_waiting(code);

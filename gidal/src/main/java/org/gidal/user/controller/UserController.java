@@ -3,6 +3,7 @@ package org.gidal.user.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.user.domain.UserVO;
 import org.gidal.user.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ public class UserController {
 	@Inject
 	private UserService service;
 	private final int LIMIT = 10;
-
+	/*유저 회원가입 폼으로 이동*/
 	@RequestMapping(value = "/individual", method = RequestMethod.GET)
 	public String user_joinForm() {
 
@@ -30,7 +31,7 @@ public class UserController {
 
 	}
 
-
+	/*유저 회원가입*/
 	@RequestMapping(value = "/userjoin", method = RequestMethod.POST)
 	public String user_join(UserVO vo, Model model) {
 		 
@@ -54,7 +55,7 @@ public class UserController {
 
 
 
-	//수정
+	
 
 	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
 	public Model userpage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model,HttpSession session)throws Exception{
@@ -65,7 +66,7 @@ public class UserController {
 		model.addAttribute("list",service.UserPageReserve(page,user_email));
 		model.addAttribute("pageInfo1", service.pageInfo(page, LIMIT, UserPageWaitingCount));
 		model.addAttribute("list1",service.UserPageWaiting(page,user_email));
-		System.out.print("------------------------------------------");
+	
 		return model;
 	}
 
@@ -112,11 +113,13 @@ public class UserController {
 
 	}
 	@RequestMapping(value = "/userDelete", method = RequestMethod.POST)
-	public String userDelete(UserVO vo, Model model,HttpSession session) {
+	public String userDelete(UserVO vo,HttpSession session) {
 		service.userDelete(vo);
 		session.invalidate();
 		return "redirect:/";
 
 	}
+
+
 	
 }

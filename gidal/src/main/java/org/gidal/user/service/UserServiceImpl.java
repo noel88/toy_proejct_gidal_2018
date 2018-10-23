@@ -113,6 +113,10 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int userDelete(UserVO vo) {
+		SHA256 sha = new SHA256();
+
+
+		vo.setUser_password(sha.getSHA256(vo.getUser_password()));
 		return dao.userDelete(vo);
 	}
 	

@@ -132,7 +132,7 @@
 					<div class="card-body" style = "text-align : center;">
 
 <c:choose>
-			<c:when test = "${ LEVEL eq 'enterpirse' }">
+			<c:when test = "${ LEVEL eq 'enterprise' }">
 
 				<b>- 기업회원은 예약 및 웨이팅을 할수 없습니다. -</b>
 

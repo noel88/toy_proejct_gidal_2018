@@ -18,6 +18,7 @@ public interface EnterpriseService {
 	public List<ReserveVO> reserve_list(Integer code);
 	public int find_enterprise_code(String str);
 	public int waiting_update(Integer code);
+	public int reserve_update(Integer code);
 	public void delete(EnterpriseVO vo);
 	public void enterprise_img(EnterpriseVO vo);
 	public List<EnterpriseVO> ent_best();

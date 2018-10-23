@@ -7,7 +7,7 @@
 <mapper namespace="org.gidal.mapper.ReviewMapper">
 
 	<insert id="userReview">
-		insert into review value(#{review_code}, #{reserveAndWaiting_yn}, #{enterprise_code}, #{review_text}, #{user_email}, #{review_scope})
+		insert into review (review_code, reserveAndWaiting_code, enterprise_code, review_text, user_email, review_scope) values(#{review_code}, #{reserveAndWaiting_code}, #{enterprise_code}, #{review_text}, #{user_email}, #{review_scope})
 	</insert>
 
 	<select id="view" resultType="org.gidal.review.domain.ReviewVO">
@@ -31,11 +31,11 @@
 	</delete>
 
 	<select id="ent_review_waiting" resultType="org.gidal.review.domain.ReviewVO">
-		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_yn = 'w'
+		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_code like 'w%'
 	</select>
 
 	<select id="ent_review_reserve" resultType="org.gidal.review.domain.ReviewVO">
-		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_yn = 'r'
+		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_code like 'r%'
 	</select>
 
 

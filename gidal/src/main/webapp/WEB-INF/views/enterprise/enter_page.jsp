@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<%@ include file = "/WEB-INF/views/include/nav.jsp" %>
+<%@ include file = "/WEB-INF/views/include/navEnterprise.jsp" %>
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">

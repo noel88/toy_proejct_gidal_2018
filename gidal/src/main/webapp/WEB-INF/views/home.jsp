@@ -15,11 +15,14 @@
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
 <body>
-
-
-
-
-	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
+	<c:choose>
+		<c:when test="${ LEVEL eq 'enterprise' }">
+			<%@ include file="/WEB-INF/views/include/navEnterprise.jsp"%>
+		</c:when>
+		<c:otherwise>
+			<%@ include file="/WEB-INF/views/include/nav.jsp"%>
+		</c:otherwise>
+	</c:choose>
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">

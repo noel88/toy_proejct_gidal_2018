@@ -46,7 +46,7 @@ public class AuthenticationController {
 			return "redirect:/";
 		} else if(signed.equals("enterprise")) {
 			setLoginSession(loginInfo, "enterprise", session);
-			return "redirect:/";
+			return "redirect:/enterprise/enter_page";
 		} else if(signed.equals("admin")) {
 			setLoginSession(loginInfo, "admin", session);
 			return "redirect:/";

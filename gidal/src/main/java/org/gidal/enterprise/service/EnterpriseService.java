@@ -22,6 +22,8 @@ public interface EnterpriseService {
 	public void enterprise_img(EnterpriseVO vo);
 	public List<EnterpriseVO> ent_best();
 	public List<EnterpriseVO> ent_popular();
+	public int reserve_count(Integer code);
+	public int waiting_count(Integer code);
 
 
 

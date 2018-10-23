@@ -222,6 +222,16 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		return dao.ent_popular();
 	}
 
+	@Override
+	public int reserve_count(Integer code) {	// 금일 남은 예약건 조회
+		return dao.reserve_count(code);
+	}
+
+	@Override
+	public int waiting_count(Integer code) {	// 남은 대기목록 조회
+		return dao.waiting_count(code);
+	}
+
 
 
 }

@@ -76,6 +76,9 @@ public class EnterpriseController {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
 
+		// 현재 남은 예약 및 대기목록 조회
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("waiting",service.waiting_list(code));
 		model.addAttribute("reserve",service.reserve_list(code));
 		model.addAttribute("list", service.enterpriseBoard_view(code));

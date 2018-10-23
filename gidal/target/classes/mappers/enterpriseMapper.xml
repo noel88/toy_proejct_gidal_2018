@@ -71,5 +71,22 @@
 		as plus from enterprise order by plus desc;
 	</select>
 
+	<select id="reserve_count" resultType = "java.lang.Integer">
+		SELECT 
+			count(*) 
+		FROM 
+			reserve 
+		WHERE 
+			enterprise_code = #{enterprise_code} AND reserve_datetime LIKE(CONCAT(CURDATE(), '%')) AND reserve_yn = 'N';
+	</select>
+
+	<select id="waiting_count" resultType = "java.lang.Integer">
+		SELECT 
+			count(*) 
+		FROM 
+			waiting 
+		WHERE 
+			enterprise_code = #{enterprise_code} AND waiting_now LIKE(CONCAT(CURDATE(), '%')) AND waiting_yn = 'N';
+	</select>
 
 </mapper>

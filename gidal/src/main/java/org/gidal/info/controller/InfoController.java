@@ -8,20 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/info")
 public class InfoController {
 
-	  @RequestMapping(value = "/info", method = RequestMethod.GET)
-	  public void info() {
-		  
-	  }
-	  
-	  @RequestMapping(value = "/whatIs", method = RequestMethod.GET)
-	  public void whatIs() {
-		  
-	  }
-	  
-	  @RequestMapping(value = "/wayToCome", method = RequestMethod.GET)
-	  public void wayToCome() {
-		  
-	  }
+	// '기달이란' 페이지 이동
+	@RequestMapping(value = "/whatIs", method = RequestMethod.GET)
+	public void whatIs() {
+	}
 
+	// 오시는길 페이지 이동
+	@RequestMapping(value = "/wayToCome", method = RequestMethod.GET)
+	public void wayToCome() {
+	}
 	  
 }

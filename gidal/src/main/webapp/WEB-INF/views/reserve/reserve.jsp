@@ -223,7 +223,7 @@
 	</tr>
 
 
-	<c:forEach items="${review}" var="re">
+	<c:forEach items="${review_reserve}" var="re">
 
 	<tr>
 		<td>예약자 이메일 : ${re.user_email}</td>

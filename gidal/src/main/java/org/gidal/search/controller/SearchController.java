@@ -1,8 +1,11 @@
 package org.gidal.search.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.search.domain.FilterVO;
 import org.gidal.search.service.SearchService;
 import org.springframework.stereotype.Controller;
@@ -30,6 +33,14 @@ public class SearchController {
 		}
 
 	}
+
+	/**
+	 * 식당게시판 검색 필터링
+	 *
+	 * @param FilterVO, Model, HttpSession
+	 * @return String
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
 	public String search_filter(FilterVO vo, Model model, HttpSession session) {

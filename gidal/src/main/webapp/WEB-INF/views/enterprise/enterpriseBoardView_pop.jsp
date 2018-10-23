@@ -546,7 +546,7 @@
 
 		    <!-- 식당정보를 가지고 넘어가야함. Details페이지 개념  -->
 			<c:choose>
-			<c:when test = "${ LEVEL eq 'enterpirse' }">
+			<c:when test = "${ LEVEL eq 'enterprise' }">
 			<tr>
 				<td colspan="2" style="text-align: left;"><b>- 기업회원은 예약 및 웨이팅을 할수 없습니다. -</b></td>
 			</tr>

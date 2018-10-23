@@ -8,5 +8,6 @@ public interface ReviewDAO {
 
 
 	public int userReview(ReviewVO vo);
-	public List<ReviewVO> ent_review(Integer code);
+	public List<ReviewVO> ent_review_reserve(Integer code);
+	public List<ReviewVO> ent_review_waiting(Integer code);
 }

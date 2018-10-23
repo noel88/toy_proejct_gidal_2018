@@ -24,12 +24,12 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public List<UserVO> userList(int startRow) throws Exception {
+	public List<UserVO> userList(int startRow) throws Exception {	// 현재 페이지의 일반유저목록 추출
 		return session.selectList(namespace + ".userList", startRow);
 	}
 
 	@Override
-	public List<EnterpriseVO> enterpriseList(int startRow) throws Exception {
+	public List<EnterpriseVO> enterpriseList(int startRow) throws Exception {	// 현재 페이지의 기업유저목록 추출
 		return session.selectList(namespace + ".enterpriseList", startRow);
 	}
 
@@ -44,12 +44,12 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public int userListCount() {
+	public int userListCount() {	//일반유저의 총 갯수를 읽어옴
 		return session.selectOne(namespace + ".userListCount");
 	}
 
 	@Override
-	public int enterpriseListCount() {
+	public int enterpriseListCount() {	//기업유저의 총 갯수를 읽어옴
 		return session.selectOne(namespace + ".enterpriseListCount");
 	}
 

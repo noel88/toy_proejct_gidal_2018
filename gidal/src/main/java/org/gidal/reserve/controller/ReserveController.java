@@ -41,7 +41,7 @@ public class ReserveController {
 
 		session.setAttribute("user", service.selectOne(email));
 		model.addAttribute(service.selectOne(code));
-		model.addAttribute("review", re.ent_review(code));
+		model.addAttribute("review_reserve", re.ent_review_reserve(code));
 			return "/reserve/reserve";
 		}
 

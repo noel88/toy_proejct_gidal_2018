@@ -3,7 +3,6 @@ package org.gidal.event.dao;
 import java.util.List;
 
 import org.gidal.event.domain.EventVO;
-import org.gidal.event.domain.PageInfo;
 
 public interface EventDAO {
 
@@ -20,8 +19,6 @@ public interface EventDAO {
 	public int currentEventListCount();
 	
 	public int upcomingEventListCount();
-
-	public PageInfo pageInfo();
 
 	public void eventModify(EventVO event);
 

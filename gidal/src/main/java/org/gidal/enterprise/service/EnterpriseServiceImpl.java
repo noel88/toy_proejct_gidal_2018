@@ -39,6 +39,17 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		dao.enterprise_join(vo);
 	}
 
+	/**
+	 * 기업 정보 수정
+	 *
+	 * 비밀번호 패스워드 암호화를 하여 등록.
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#enterpriseBoard_update(org.gidal.enterprise.domain.EnterpriseVO)
+	 * @param EnterpriseVO
+	 * @return int
+	 * @throws
+	 */
+
 	@Override
 	public int enterpriseBoard_update(EnterpriseVO vo) {
 		SHA256 sha = new SHA256();
@@ -47,6 +58,16 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		vo.setEnterprise_password(pwd);
 		return dao.enterpriseBoard_update(vo);
 	}
+
+	/**
+	 * 기업정보 확인
+	 *
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#enterpriseBoard_view(Integer)
+	 * @param Integer
+	 * @return EnterpriseVO
+	 * @throws
+	 */
 
 	@Override
 	public EnterpriseVO enterpriseBoard_view(Integer code) {
@@ -159,20 +180,60 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	}
 
+	/**
+	 * 기업 페이지에서 이미지만 ajax로 받기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#enterprise_img(EnterpriseVO)
+	 * @param EnterpriseVO
+	 * @return void
+	 * @throws
+	 */
+
 	@Override
 	public void enterprise_img(EnterpriseVO vo) {
 		dao.enterprise_img(vo);
-
 	}
+
+	/**
+	 * 식당리스트 중에서 예약 많은 베스트 3개만 메인 노출하기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#ent_best()
+	 * @param
+	 * @return List<EnterpriseVO>
+	 * @throws
+	 */
 
 	@Override
 	public List<EnterpriseVO> ent_best() {
 		return dao.ent_best();
 	}
 
+	/**
+	 * 식당리스트 인기순으로 정렬 [예약+웨이팅이 제일 많은 순부터]
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#ent_popular()
+	 * @param
+	 * @return List<EnterpriseVO>
+	 * @throws
+	 */
+
 	@Override
 	public List<EnterpriseVO> ent_popular() {
 		return dao.ent_popular();
+	}
+
+	/**
+	 * 예약현황 업데이트 하기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#reserve_update(Integer)
+	 * @param Integer
+	 * @return int
+	 * @throws
+	 */
+
+	@Override
+	public int reserve_update(Integer code) {
+		return dao.reserve_update(code);
 	}
 
 

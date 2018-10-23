@@ -60,7 +60,7 @@ public class ReserveController {
 
 		service.reserve_insert(vo);
 
-		 return "redirect:/";
+		 return "/reserve/success";
 	}
 
 }

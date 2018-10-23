@@ -37,7 +37,7 @@
 	<select id="ent_review_reserve" resultType="org.gidal.review.domain.ReviewVO">
 		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_code like 'r%'
 	</select>
-
+	
 
 
 </mapper>

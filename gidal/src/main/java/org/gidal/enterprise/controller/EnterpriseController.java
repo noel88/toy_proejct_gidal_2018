@@ -92,12 +92,27 @@ public class EnterpriseController {
 
 
 	@RequestMapping(value = "/update_yn", method = RequestMethod.GET)
-	public String enterprise_page(@RequestParam("waiting_code") int code) {
-
+	public String enterprise_waiting_page(@RequestParam("waiting_code") int code) {
 
 		service.waiting_update(code);
 		return "redirect:/enterprise/enter_page";
 
+	}
+
+	/**
+	 * 예약 현황 업데이트 하기
+	 *
+	 * @param int
+	 * @return String
+	 * @throws
+	 */
+
+
+	@RequestMapping(value = "/updateReserve_yn", method = RequestMethod.GET)
+	public String enterprise_reserve_page(@RequestParam("reserve_code") int code) {
+
+		service.reserve_update(code);
+		return "redirect:/enterprise/enter_page";
 	}
 
 	/**

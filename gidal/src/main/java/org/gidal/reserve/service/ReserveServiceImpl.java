@@ -25,6 +25,7 @@ public class ReserveServiceImpl implements ReserveService {
 
 	@Override
 	public int reserve_insert(ReserveVO vo) {
+		vo.setReserve_yn("N");
 		return dao.reserve_insert(vo);
 	}
 

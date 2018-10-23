@@ -17,12 +17,12 @@ public class WaitingServiceImpl implements WaitingService{
 	private WaitingDAO dao;
 
 	/**
-	 * 웨이팅 페이지 
-	 * 
+	 * 웨이팅 페이지
+	 *
 	 * @see org.gidal.waiting.service.WaitingService#selectOne(Integer)
 	 * @param Integer
 	 * @return EnterpriseVO
-	 * @throws 
+	 * @throws
 	 */
 
 	@Override
@@ -32,13 +32,13 @@ public class WaitingServiceImpl implements WaitingService{
 
 	/**
 	 * 웨이팅 페이지에 로그인한 정보 세션에 저장해서 보여주는 메소드
-	 * 
+	 *
 	 * @see org.gidal.waiting.service.WaitingService#selectOne(String)
 	 * @param String
 	 * @return UserVO
-	 * @throws 
+	 * @throws
 	 */
-	
+
 
 	@Override
 	public UserVO selectOne(String str) {
@@ -47,29 +47,29 @@ public class WaitingServiceImpl implements WaitingService{
 
 	/**
 	 * 웨이팅 하기
-	 * 
+	 *
 	 * 웨이팅할때 자동으로 waiting_yn default 'n'
-	 * 
+	 *
 	 * @see org.gidal.waiting.service.WaitingService#waiting_insert(org.gidal.waiting.domain.WaitingVO)
 	 * @param String
 	 * @return UserVO
-	 * @throws 
+	 * @throws
 	 */
-	
+
 
 	@Override
 	public int waiting_insert(WaitingVO vo) {
-		vo.setWaiting_yn("n");
+		vo.setWaiting_yn("N");
 		return dao.waiting_insert(vo);
 	}
 
 	/**
 	 * 웨이팅 페이지에 웨이팅 하는 사람 명단 보여주기
-	 * 
+	 *
 	 * @see org.gidal.waiting.service.WaitingService#waiting_view(Integer)
 	 * @param Integer
 	 * @return List
-	 * @throws 
+	 * @throws
 	 */
 
 	@Override
@@ -79,13 +79,13 @@ public class WaitingServiceImpl implements WaitingService{
 
 	/**
 	 * 웨이팅 카운드 메소드
-	 * 
+	 *
 	 * @see org.gidal.waiting.service.WaitingService#waiting_count(Integer)
 	 * @param Integer
 	 * @return int
-	 * @throws 
+	 * @throws
 	 */
-	
+
 
 	@Override
 	public int waiting_count(Integer code) {

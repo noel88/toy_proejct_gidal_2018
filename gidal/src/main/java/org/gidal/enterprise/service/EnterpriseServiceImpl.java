@@ -222,6 +222,20 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		return dao.ent_popular();
 	}
 
+	/**
+	 * 예약현황 업데이트 하기
+	 *
+	 * @see org.gidal.enterprise.service.EnterpriseService#reserve_update(Integer)
+	 * @param Integer
+	 * @return int
+	 * @throws
+	 */
+
+	@Override
+	public int reserve_update(Integer code) {
+		return dao.reserve_update(code);
+	}
+
 
 
 }

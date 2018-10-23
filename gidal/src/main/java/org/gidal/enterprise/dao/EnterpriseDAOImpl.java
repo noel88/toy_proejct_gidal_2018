@@ -87,6 +87,11 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 		return sqlsession.selectList(namespace + ".ent_popular");
 	}
 
+	@Override
+	public int reserve_update(Integer code) {
+		return sqlsession.update(namespace + ".update_reserve_yn", code);
+	}
+
 
 
 

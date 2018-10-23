@@ -53,7 +53,11 @@
 	</select>
 
 	<update id= "update_yn">
-		update waiting set waiting_yn = 'y' where waiting_code = #{waiting_code}
+		update waiting set waiting_yn = 'Y' where waiting_code = #{waiting_code}
+	</update>
+
+	<update id= "update_reserve_yn">
+		update reserve set reserve_yn = 'Y' where reserve_code = #{reserve_code}
 	</update>
 
 	<delete id="enterprise_delete">

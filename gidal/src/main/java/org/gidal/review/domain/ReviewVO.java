@@ -6,6 +6,12 @@ public class ReviewVO {
 	private int review_code; //리뷰 코드
 	private int enterprise_code;
 	private String review_scope; //평점
+	private String reserveAndWaiting_code;
+	private String enterprise_text;
+
+
+
+
 	public String getReview_scope() {
 		return review_scope;
 	}
@@ -25,6 +31,18 @@ public class ReviewVO {
 
 
 
+	public String getReserveAndWaitng_code() {
+		return reserveAndWaiting_code;
+	}
+	public void setReserveAndWaiting_code(String reserveAndWaiting_code) {
+		this.reserveAndWaiting_code = reserveAndWaiting_code;
+	}
+	public String getEnterprise_text() {
+		return enterprise_text;
+	}
+	public void setEnterprise_text(String enterprise_text) {
+		this.enterprise_text = enterprise_text;
+	}
 	public int getEnterprise_code() {
 		return enterprise_code;
 	}

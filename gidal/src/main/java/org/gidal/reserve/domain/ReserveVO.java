@@ -11,11 +11,24 @@ public class ReserveVO {
 	private String reserve_datetime;
 	private String user_name;
 	private String user_phoneNum;
+	private String reserve_yn;
 
 
 
 	public ReserveVO() {
 
+	}
+
+
+
+	public String getReserve_yn() {
+		return reserve_yn;
+	}
+
+
+
+	public void setReserve_yn(String reserve_yn) {
+		this.reserve_yn = reserve_yn;
 	}
 
 

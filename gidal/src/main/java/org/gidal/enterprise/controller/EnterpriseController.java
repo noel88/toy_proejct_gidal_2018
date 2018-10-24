@@ -222,6 +222,15 @@ public class EnterpriseController {
 
 	}
 
+	@RequestMapping(value = "/enterprise_details", method = RequestMethod.GET)
+	public void enterprise_details(Model model, @RequestParam("enterprise_code") int enterprise_code) {
+
+			model.addAttribute(service.enterpriseBoard_view(enterprise_code));
+
+	}
+
+
+
 	/**
 	 * 식당 게시판 전체 목록 페이지[인기순 정렬]
 	 *

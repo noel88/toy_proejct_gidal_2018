@@ -1,350 +1,193 @@
-<%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@page import= "org.gidal.enterprise.domain.EnterpriseVO" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@page import="org.gidal.enterprise.domain.EnterpriseVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
-
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+ <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
-<link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=yglvoY5wuWlYxRRuFuXP&submodules=geocoder"></script>
 
+<style type="text/css">
+.mdl-button--raised {
+    background: rgba(159, 159, 159, 0.9) none repeat scroll 0 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
+}
+.mdl-button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 2px;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    letter-spacing: 0;
+    line-height: 36px;
+    min-width: 64px;
+    outline: 0 none;
+    overflow: hidden;
+    padding: 0 8px;
+    position: relative;
+    text-align: center;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1) 0s, background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    will-change: box-shadow, transform;
+}
+
+.mdl-button--raised.addtoca {background: rgb(9, 133, 216);border-radius: 2px;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);color: #fff;font-size: 13px;height: 38px; line-height: 38px;width: 100%;}
+</style>
 </head>
 <body>
-
-	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
-
-<form action="reserve_insert">
-	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-		<div class="jumbotron">
-
-<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; ">
+<div style="margin-left: auto; margin-right: auto; text-align:center; width: 550px; margin-top: 10px; margin-bottom: 10px;">
 
 
+	<h2><p class="mb-0">${enterpriseVO.enterprise_businessName}<small class="text-muted"><b> [${enterpriseVO.enterprise_sectors}]</b></small></p></h2>
 
-  			<div id="carouselExampleIndicators" class="carousel slide"
-				data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0"
-						class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style="height : 450px;" alt="첫번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
+</div>
 
-						</div>
-					</div>
-		<c:choose>
-				<c:when test = "${enterpriseVO.enterprise_img1 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img1}" style="height : 450px;" alt="두번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-						</div>
-					</div>
-  				</c:when>
-			    <c:when test = "${enterpriseVO.enterprise_img2 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img2}" style="height : 450px;" alt="세번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
+<table class="table table-hover" style="margin: 30px; margin-left:auto; margin-right: auto; width: 550px;">
+	<form action="reserve_insert">
+		<script type="text/javascript">
+	function reserve() {
+		document.opener.name = "reserve_insert"
+		document.updatefrm.submit();
+	}
 
-						</div>
-					</div>
+</script>
 
-			    </c:when>
 
-	 		   <c:when test = "${enterpriseVO.enterprise_img3 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img3}" style="height : 450px;" alt="네번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
+	<tr>
+	<td>
+				<input type="hidden" name="enterprise_code"
+					value="${enterpriseVO.enterprise_code}">
 
-						</div>
-					</div>
-				</c:when>
-				<c:when test = "${enterpriseVO.enterprise_img4 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img4}" style="height : 450px;" alt="다섯번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
 
-						</div>
-					</div>
-					</c:when>
-					</c:choose>
+				<div class="form-group">
+					<label for="exampleSelect1">인원</label> <select class="form-control" id="exampleSelect1" name="reserve_personnel">
+						<option value="1">1</option>
+						<option value="2" selected>2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10명이상</option>
+					</select>
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators"
-					role="button" data-slide="prev"> <span
-					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-					class="sr-only">이전</span>
-				</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
-					role="button" data-slide="next"> <span
-					class="carousel-control-next-icon" aria-hidden="true"></span> <span
-					class="sr-only">다음</span>
-				</a>
-			</div>
+</td>
+<td>
+				<div class="form-group">
+						<div class="row">
+							<div class = "col-md-12">
+								<label class="control-label" for="date">날짜</label>
+                                  <div class="input-group date" id="dp3" data-date="12-02-2017" data-date-format="mm-dd-yyyy">
+                                  <input name="date" id = datepicker class="form-control" type="text" value="24-10-2018">
+                                  <span class="input-group-addon btn"><i class="glyphicon glyphicon-calendar" id="butt"></i></span>
+                                </div>
+                                  </div>
+                                  </div>
+                                  </div>
+</td>
+<td>
+                              <div class="form-group">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="control-label">시간</label> <input id="start" name="start" type="text" required="required" placeholder="00:00 AM" class="form-control start" />
+								</div>
+							</div>
+                      
+							</div>
+							
+						
+			          
+			
+</td>
+<script type="text/javascript">
+$('#start').timepicker({'minTime':'${enterpriseVO.enterprise_operatingOpenTime}',
+	'maxTime': '${enterpriseVO.enterprise_operatingCloseTime}'});
+</script>
 
 
-		<tr>
-			<td rowspan="8" style="width: 40%;">
+       
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	var date_input=$('.date'); //our date input has the name "date"
+	var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+	date_input.datepicker({
+		format: 'dd/mm/yyyy',
+		container: container,
+		todayHighlight: true,
+		minDate: 0, // 오늘 이후 날짜 선택 불가
+		autoclose: true,
+		//regional: "ko",
+		beforeShowDay: function(date){
+			var day = date.getDay();
+			return [(day != 0 && day != 1 && day != 3 && day != 4 && day != 6)];
+		}
 
+        
+	});
+});
+</script>
 
-  <fieldset>
-    <legend>예약하기</legend>
+<tr>
+	<td colspan="3" style="text-align: center;">0000년 00월 00일 00:00 0명</td>
+</tr>
 
-	<input type = "hidden" name = "enterprise_code" value = "${enterpriseVO.enterprise_code}">
+<tr>
+<td>
+				<div class="form-group">
+					<label for="exampleInputEmail1">이름</label> <input type="text"
+						class="form-control" id="exampleInputEmail1" name="user_name"
+						readonly="readonly" value="${sessionScope.user.user_name}">
 
+				</div>
+</td>
+<td colspan="2">
+				<div class="form-group">
+					<label for="exampleInputEmail1">휴대폰번호</label> <input type="text"
+						class="form-control" id="exampleInputEmail1" name="user_phoneNum"
+						readonly="readonly" value="${sessionScope.user.user_phoneNum}">
 
-    <div class="form-group">
-      <label for="exampleSelect1">인원수</label>
-      <select class="form-control" id="exampleSelect1" name = "reserve_personnel">
-        <option value = "1">1</option>
-        <option value= "2" selected>2</option>
-        <option value = "3">3</option>
-        <option value = "4">4</option>
-        <option value = "5">5</option>
-        <option value = "6">6</option>
-        <option value = "7">7</option>
-        <option value = "8">8</option>
-        <option value = "9">9</option>
-        <option value = "10">10명이상</option>
-      </select>
-    </div>
- 	<script>
-
- 	$(function(){
- 	    $('.datetimepicker').appendDtpicker({'locale':'ko' ,"futureOnly": true,"minTime":"${enterpriseVO.enterprise_operatingOpenTime}", "maxTime":"${enterpriseVO.enterprise_operatingCloseTime}",
- 	    	"inline": true, "allowWdays": [${enterpriseVO.enterprise_closed}] });
- 	});
-	</script>
-
-
-
-
-    <div class="form-group">
-      <label for="exampleInputEmail1">예약날짜 및 시간</label>
-
-          <p><input type="text" name="reserve_datetime" id="text1" class="datetimepicker" /></p>
-
-
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputEmail1">이름</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" name = "user_name" readonly="readonly" value = "${sessionScope.user.user_name}">
-
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputEmail1">휴대폰번호</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" name = "user_phoneNum" readonly="readonly" value = "${sessionScope.user.user_phoneNum}">
-
-    </div>
-
-
-    <button type="submit" class="btn btn-primary">예약하기</button>
-  </fieldset>
-
-</form>
-
-
-
-
-
-			</td>
-	<td rowspan="8" style="width: 10%;"></td>
-
-
-
-		</tr>
-			<tr>
-		      <td>
-		      	<h5><!--  식당명 -->
-					  Restaurant Name <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_businessName}</small>
-				</h5>
-				</td>
-		    </tr>
-  			<tr>
-		      <td>
-		      	<h5><!-- 연락처  -->
-					  Restaurant Phone <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_phone}</small>
-				</h5>
-		      </td>
-		    </tr>
-
-  			<tr>
-		      <td>
-		      	<h5> <!-- 엄종  -->
-					  Restaurant Sectors <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_sectors}</small>
-				</h5>
-		      </td>
-		    </tr>
-
-  			<tr>
-		      <td>
-		      	<h5> <!-- 도로명주소(상세주소 포함)  -->
-					  Restaurant Address <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_add2}, ${enterpriseVO.enterprise_add3}</small>
-				</h5>
-		      </td>
-		    </tr>
-  			<tr>
-		      <td>
-		      	<h5><!-- 영업시간  -->
-					  Restaurant Time <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_operatingOpenTime} ~ ${enterpriseVO.enterprise_operatingCloseTime}</small>
-				</h5>
-		      </td>
-		    </tr>
+				</div>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<p>*21시 이후의 예약 건은 다음날 오전 마이페이지에서 확인가능합니다.</p>
+<p>*예약 취소는 예약 시간 30분 전까지만 가능합니다.</p>
+<p>*No-Show(노쇼:예약을 하고 나타나지 않은 행위)는 외식업계를 아프게합니다.</p>
+	</td>
+</tr>
+<tr>
+<td colspan="3">
+				<button type="submit" class="btn btn-primary" style="width:550px;" onclick="javascript:reserve();">예약하기</button>
+	</td>
+</tr>
 
 
 
-
+	</form>
 </table>
-
-<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; ">
-	<tr>
-		<td colspan="2" style="text-align: center;"><h5>리뷰목록</h5> </td>
-	</tr>
-
-
-	<c:forEach items="${review_reserve}" var="re">
-
-	<tr>
-		<td>예약자 이메일 : ${re.user_email}</td>
-		<td style="float: right;"> 별점 : ${re.review_scope}</td>
-	</tr>
-	<tr>
-		<td> 내용 :${re.review_text}</td>
-	</tr>
-	</c:forEach>
-
-</table>
-
-
-<div id="map" style="width:100%;height:400px;">
-					</div>
-		</div>
-	</div>
-					<script>
-
-
-					var map = new naver.maps.Map("map", {
-					    center: new naver.maps.LatLng(37.3595316, 127.1052133),
-					    zoom: 10,
-					    mapTypeControl: true
-					});
-
-					var infoWindow = new naver.maps.InfoWindow({
-					    anchorSkew: true
-					});
-
-					map.setCursor('pointer');
-
-					// search by tm128 coordinate
-					function searchCoordinateToAddress(latlng) {
-					    var tm128 = naver.maps.TransCoord.fromLatLngToTM128(latlng);
-
-					    infoWindow.close();
-
-					    naver.maps.Service.reverseGeocode({
-					        location: tm128,
-					        coordType: naver.maps.Service.CoordType.TM128
-					    }, function(status, response) {
-					        if (status === naver.maps.Service.Status.ERROR) {
-					            return alert('Something Wrong!');
-					        }
-
-					        var items = response.result.items,
-					            htmlAddresses = [];
-
-					        for (var i=0, ii=items.length, item, addrType; i<ii; i++) {
-					            item = items[i];
-					            addrType = item.isRoadAddress ? '[도로명 주소]' : '[지번 주소]';
-
-					            htmlAddresses.push((i+1) +'. '+ addrType +' '+ item.address);
-					        }
-
-					        infoWindow.setContent([
-					                '<div style="padding:10px;min-width:200px;line-height:150%;">',
-					                '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
-					                htmlAddresses.join('<br />'),
-					                '</div>'
-					            ].join('\n'));
-
-					        infoWindow.open(map, latlng);
-					    });
-					}
-
-					// result by latlng coordinate
-					function searchAddressToCoordinate(address) {
-					    naver.maps.Service.geocode({
-					        address: address
-					    }, function(status, response) {
-					        if (status === naver.maps.Service.Status.ERROR) {
-					            return alert('Something Wrong!');
-					        }
-
-					        var item = response.result.items[0],
-					            addrType = item.isRoadAddress ? '[도로명 주소]' : '[지번 주소]',
-					            point = new naver.maps.Point(item.point.x, item.point.y);
-
-					        infoWindow.setContent([
-					                '<div style="padding:10px;min-width:200px;line-height:150%;">',
-					                '<h4 style="margin-top:5px;">검색 주소 : '+ response.result.userquery +'</h4><br />',
-					                addrType +' '+ item.address +'<br />',
-					                '</div>'
-					            ].join('\n'));
-
-
-					        map.setCenter(point);
-					        infoWindow.open(map, point);
-					    });
-					}
-
-					function initGeocoder() {
-					    map.addListener('click', function(e) {
-					        searchCoordinateToAddress(e.coord);
-					    });
-
-					    $('#address').on('keydown', function(e) {
-					        var keyCode = e.which;
-
-					        if (keyCode === 13) { // Enter Key
-					            searchAddressToCoordinate($('#address').val());
-					        }
-					    });
-
-					    $('#submit').on('click', function(e) {
-					        e.preventDefault();
-
-					        searchAddressToCoordinate($('#address').val());
-					    });
-					    <c:set var="tempName" value="${enterpriseVO.enterprise_add2} / ${enterpriseVO.enterprise_add3}" />
-					    searchAddressToCoordinate('${enterpriseVO.enterprise_add2}');
-					}
-
-					naver.maps.onJSContentLoaded = initGeocoder;
-					</script>
-
-
-
-
 
 </body>
 </html>

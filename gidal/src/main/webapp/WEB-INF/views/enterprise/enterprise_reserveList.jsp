@@ -29,8 +29,9 @@ body {
 }
 
 #calendar {
-	max-width: 900px;
+	max-width: 500px;
 	margin: 0 auto;
+	width: 400px;
 }
 
 </style>
@@ -54,7 +55,7 @@ $(document).ready(function() {
 		header: {
 			left: 'prev,next today',
 			center: 'title',
-			right: 'month,agendaWeek,agendaDay,listWeek',
+			right: 'month'
 			},
 
 		defaultDate: new Date(),
@@ -64,8 +65,13 @@ $(document).ready(function() {
 		events: [
 		     <c:forEach var='ReserveVO' items='${reserve}'>
 		     <c:set var="title" value="${ReserveVO.user_name} / ${ReserveVO.reserve_personnel}명" />
-             { title: '${title}', start: '${ReserveVO.reserve_datetime}'},
+             { title: '${title}', backgroundColor : "#008000", start: '${ReserveVO.reserve_datetime}'},
            	</c:forEach>
+		     <c:forEach var='WaitingVO' items='${waiting}'>
+		     <c:set var="title" value="${WaitingVO.user_name} / ${WaitingVO.reserve_personnel}명" />
+             { title: '${title}', color : "#FF0000", start: '${WaitingVO.waiting_now}'},
+           	</c:forEach>
+             
 
 		]
 
@@ -75,8 +81,36 @@ $(document).ready(function() {
 
 
 </script>
-<div id='calendar'></div>
-	<div style= "width:100%; auto; margin-left: auto;">
+
+<div id='calendar' style="float: left;"> </div>
+<div id='' >
+<table class="table table-hover"  style = "text-align : center; width: 60%;">
+				<thead>
+					<tr>
+						<th scope="col">이름</th>
+						<th scope="col">전화번호</th>
+						<th scope="col">인원</th>
+						<th scope="col">예약날짜</th>
+						<th scope="col">현황</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var='ReserveVO' items='${reserve}'>
+						<tr>
+							<td>${ReserveVO.user_name}</td>
+							<td>${ReserveVO.user_phoneNum}</td>
+							<td>${ReserveVO.reserve_personnel}</td>
+							<td>${ReserveVO.reserve_datetime}</td>
+							<td><a href ="/enterprise/updateReserve_yn?reserve_code=${ReserveVO.reserve_code}"><button type="button" class="btn btn-secondary">${ReserveVO.reserve_yn}</button></a></td>
+
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+</div>
+	<%-- <div style= "width:100%; auto; margin-left: auto;">
 
 
 
@@ -112,7 +146,7 @@ $(document).ready(function() {
 
 
 
-
+ --%>
 
 
 

@@ -18,83 +18,24 @@
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
+<div style="margin-left: auto; margin-right: auto; text-align:center; width: 550px; margin-top: 10px; margin-bottom: 10px;">
 
 
-	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-		<div class="jumbotron">
+	<h2><p class="mb-0">${enterpriseVO.enterprise_businessName}<small class="text-muted"><b> [${enterpriseVO.enterprise_sectors}]</b></small></p></h2>
 
-<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; ">
+</div>
+<table class="table table-hover" style="margin: 30px; margin-left:auto; margin-right: auto; width: 550px;">
+<form action="waiting_insert">
+<script type="text/javascript">
+	function waiting() {
+		document.opener.name = "waiting_insert"
+		document.updatefrm.submit();
+	}
 
-
-
-  			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0"
-						class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style="height : 450px;" alt="첫번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-
-						</div>
-					</div>
-		<c:choose>
-				<c:when test = "${enterpriseVO.enterprise_img1 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img1}" style="height : 450px;" alt="두번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-						</div>
-					</div>
-  				</c:when>
-			    <c:when test = "${enterpriseVO.enterprise_img2 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img2}" style="height : 450px;" alt="세번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-
-						</div>
-					</div>
-
-			    </c:when>
-
-	 		   <c:when test = "${enterpriseVO.enterprise_img3 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img3}" style="height : 450px;" alt="네번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-
-						</div>
-					</div>
-				</c:when>
-				<c:when test = "${enterpriseVO.enterprise_img4 != null}">
-					<div class="carousel-item">
-						<img class="d-block w-100" src="../upload/${enterpriseVO.enterprise_img4}" style="height : 450px;" alt="다섯번째 슬라이드">
-						<div class="carousel-caption d-none d-md-block">
-
-						</div>
-					</div>
-					</c:when>
-					</c:choose>
-				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators"
-					role="button" data-slide="prev"> <span
-					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-					class="sr-only">이전</span>
-				</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
-					role="button" data-slide="next"> <span
-					class="carousel-control-next-icon" aria-hidden="true"></span> <span
-					class="sr-only">다음</span>
-				</a>
-			</div>
-
-
-		<tr>
-			<td rowspan="8" style="width: 40%;">
-
-<fieldset>
-    <legend><i class="fas fa-clock"></i>&nbsp;웨이팅 현황 [${count}명 대기중]</legend>
+</script>
+<tr>
+<td colspan="3">
+   <i class="fas fa-clock"></i>&nbsp;웨이팅 현황 [${count}명 대기중]
 
 <div style="overflow:auto; height:150px;">
     <c:forEach items = "${list}" var = "WaitingVO">
@@ -105,14 +46,11 @@
   	</c:forEach>
 </div>
 
-    </fieldset>
-<hr>
+   </td>
+</tr>
 
-
-<form action="waiting_insert">
-  <fieldset>
-    <legend>웨이팅하기</legend>
-
+<tr>
+	<td>
 	<input type = "hidden" name = "enterprise_code" value = "${enterpriseVO.enterprise_code}">
 
     <div class="form-group">
@@ -131,12 +69,15 @@
       </select>
     </div>
 
-
+</td>
+<td>
     <div class="form-group">
       <label for="exampleInputEmail1">이름</label>
       <input type="text" class="form-control" id="exampleInputEmail1" name = "user_name" readonly="readonly" value = "${sessionScope.user.user_name}">
 
     </div>
+</td>
+<td>
 
     <div class="form-group">
       <label for="exampleInputEmail1">휴대폰번호</label>
@@ -144,190 +85,20 @@
 
     </div>
 
+</td>
+</tr>
+<tr>
+	<td colspan="3" style="text-align: center;">0000년 00월 00일 00:00 0명</td>
+</tr>
+<tr>
+	<td colspan="3">
+    <button type="submit" class="btn btn-primary" style="width: 550px;" onclick ="javascript:waiting();" ><i class="fas fa-arrow-right">&nbsp;웨이팅하기</i></button>
+	</td>
+</tr> 
 
-    <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-right">&nbsp;웨이팅하기</i></button>
-  </fieldset>
 </form>
-
-
-			</td>
-
-<td rowspan="8" style="width: 5%;"></td>
-
-
-		</tr>
-			<tr>
-		      <td>
-		      	<h5><!--  식당명 -->
-					  <i class="fas fa-check">&nbsp;Restaurant Name</i> <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_businessName}</small>
-				</h5>
-				</td>
-		    </tr>
-  			<tr>
-		      <td>
-		      	<h5><!-- 연락처  -->
-					  <i class="fas fa-check">&nbsp;Restaurant Phone</i> <br>
-					  <small class="text-muted">${enterpriseVO.enterprise_phone}</small>
-				</h5>
-		      </td>
-		    </tr>
-
-  			<tr>
-		      <td>
-		      	<h5> <!-- 엄종  -->
-					   <i class="fas fa-check">&nbsp;Restaurant Sectors</i> <br>
-
-					  <small class="text-muted">${enterpriseVO.enterprise_sectors}</small>
-				</h5>
-		      </td>
-		    </tr>
-
-  			<tr>
-		      <td>
-		      	<h5> <!-- 도로명주소(상세주소 포함)  -->
-					  <i class="fas fa-check">&nbsp;Restaurant Address </i><br>
-					  <small class="text-muted">${enterpriseVO.enterprise_add2}, ${enterpriseVO.enterprise_add3}</small>
-				</h5>
-		      </td>
-		    </tr>
-  			<tr>
-		      <td>
-		      	<h5><!-- 영업시간  -->
-					  <i class="fas fa-check">&nbsp;Restaurant Time </i><br>
-					  <small class="text-muted">${enterpriseVO.enterprise_operatingOpenTime} ~ ${enterpriseVO.enterprise_operatingCloseTime}</small>
-				</h5>
-		      </td>
-		    </tr>
-
-
 </table>
 
-<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto; ">
-	<tr>
-		<td colspan="2" style="text-align: center;"><h5>리뷰목록</h5> </td>
-	</tr>
-
-	<c:forEach items="${review_waiting}" var="re">
-
-	<tr>
-		<td>예약자 이메일 : ${re.user_email}</td>
-		<td style="float: right;"> 별점 : ${re.review_scope}</td>
-	</tr>
-	<tr>
-		<td> 내용 :${re.review_text}</td>
-	</tr>
-	</c:forEach>
-
-
-</table>
-
-
-
-<div id="map" style="width:100%;height:400px;">
-					</div>
-		</div>
-	</div>
-					<script>
-
-
-					var map = new naver.maps.Map("map", {
-					    center: new naver.maps.LatLng(37.3595316, 127.1052133),
-					    zoom: 10,
-					    mapTypeControl: true
-					});
-
-					var infoWindow = new naver.maps.InfoWindow({
-					    anchorSkew: true
-					});
-
-					map.setCursor('pointer');
-
-					// search by tm128 coordinate
-					function searchCoordinateToAddress(latlng) {
-					    var tm128 = naver.maps.TransCoord.fromLatLngToTM128(latlng);
-
-					    infoWindow.close();
-
-					    naver.maps.Service.reverseGeocode({
-					        location: tm128,
-					        coordType: naver.maps.Service.CoordType.TM128
-					    }, function(status, response) {
-					        if (status === naver.maps.Service.Status.ERROR) {
-					            return alert('Something Wrong!');
-					        }
-
-					        var items = response.result.items,
-					            htmlAddresses = [];
-
-					        for (var i=0, ii=items.length, item, addrType; i<ii; i++) {
-					            item = items[i];
-					            addrType = item.isRoadAddress ? '[도로명 주소]' : '[지번 주소]';
-
-					            htmlAddresses.push((i+1) +'. '+ addrType +' '+ item.address);
-					        }
-
-					        infoWindow.setContent([
-					                '<div style="padding:10px;min-width:200px;line-height:150%;">',
-					                '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
-					                htmlAddresses.join('<br />'),
-					                '</div>'
-					            ].join('\n'));
-
-					        infoWindow.open(map, latlng);
-					    });
-					}
-
-					// result by latlng coordinate
-					function searchAddressToCoordinate(address) {
-					    naver.maps.Service.geocode({
-					        address: address
-					    }, function(status, response) {
-					        if (status === naver.maps.Service.Status.ERROR) {
-					            return alert('Something Wrong!');
-					        }
-
-					        var item = response.result.items[0],
-					            addrType = item.isRoadAddress ? '[도로명 주소]' : '[지번 주소]',
-					            point = new naver.maps.Point(item.point.x, item.point.y);
-
-					        infoWindow.setContent([
-					                '<div style="padding:10px;min-width:200px;line-height:150%;">',
-					                '<h4 style="margin-top:5px;">검색 주소 : '+ response.result.userquery +'</h4><br />',
-					                addrType +' '+ item.address +'<br />',
-					                '</div>'
-					            ].join('\n'));
-
-
-					        map.setCenter(point);
-					        infoWindow.open(map, point);
-					    });
-					}
-
-					function initGeocoder() {
-					    map.addListener('click', function(e) {
-					        searchCoordinateToAddress(e.coord);
-					    });
-
-					    $('#address').on('keydown', function(e) {
-					        var keyCode = e.which;
-
-					        if (keyCode === 13) { // Enter Key
-					            searchAddressToCoordinate($('#address').val());
-					        }
-					    });
-
-					    $('#submit').on('click', function(e) {
-					        e.preventDefault();
-
-					        searchAddressToCoordinate($('#address').val());
-					    });
-					    <c:set var="address" value="${enterpriseVO.enterprise_add2} / ${enterpriseVO.enterprise_add3}"/>
-					    searchAddressToCoordinate('${enterpriseVO.enterprise_add2}');
-					}
-
-					naver.maps.onJSContentLoaded = initGeocoder;
-					</script>
 </body>
 </html>
 

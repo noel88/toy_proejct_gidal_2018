@@ -64,7 +64,7 @@ public class WaitingController {
 	public String waiting_insert(WaitingVO vo) {
 
 		service.waiting_insert(vo);
-		 return "redirect:/";
+		 return "/waiting/success";
 	}
 
 

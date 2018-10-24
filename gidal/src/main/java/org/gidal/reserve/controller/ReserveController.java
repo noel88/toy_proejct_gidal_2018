@@ -3,6 +3,7 @@ package org.gidal.reserve.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.gidal.enterprise.service.EnterpriseService;
 import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.reserve.service.ReserveService;
 import org.gidal.review.service.ReviewService;
@@ -19,6 +20,7 @@ public class ReserveController {
 
 	@Inject private ReserveService service;
 	@Inject private ReviewService re;
+	@Inject private EnterpriseService ent;
 
 	/**
 	 * 예약 페이지 이동
@@ -38,7 +40,7 @@ public class ReserveController {
 		if (email == null) {
 			return "redirect:/authentication/signIn";
 		}else {
-
+		model.addAttribute(ent.enterpriseBoard_view(code));
 		session.setAttribute("user", service.selectOne(email));
 		model.addAttribute(service.selectOne(code));
 		model.addAttribute("review_reserve", re.ent_review_reserve(code));
@@ -60,7 +62,7 @@ public class ReserveController {
 
 		service.reserve_insert(vo);
 
-		 return "redirect:/";
+		 return "/reserve/success";
 	}
 
 }

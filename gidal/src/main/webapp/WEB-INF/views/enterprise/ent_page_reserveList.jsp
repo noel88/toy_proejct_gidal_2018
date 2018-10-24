@@ -10,7 +10,7 @@
 <%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
 </head>
 <body>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <div class="jumbotron">
 		<h1>예약리뷰목록</h1>
 
@@ -26,6 +26,7 @@
 						<th scope="col">전화번호</th>
 						<th scope="col">인원수</th>
 						<th scope="col">예약날짜</th>
+						<th scope="col">예약시간</th>
 						<th scope="col">예약확정</th>
 						<th scope="col">예약현황</th>
 
@@ -37,7 +38,8 @@
 							<td>${ReserveVO.user_name}</td>
 							<td>${ReserveVO.user_phoneNum}</td>
 							<td>${ReserveVO.reserve_personnel}</td>
-							<td>${ReserveVO.reserve_datetime}</td>
+							<td>${ReserveVO.reserve_date}</td>
+							<td>${ReserveVO.reserve_time}</td>
 							<td>${ReserveVO.reserve_comfirmation}</td>
 							<td><a href ="/enterprise/updateReserve_yn?reserve_code=${ReserveVO.reserve_code}"><button type="button" class="btn btn-secondary">${ReserveVO.reserve_yn}</button></a></td>
 

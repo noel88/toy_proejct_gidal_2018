@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.enterprise.domain.PagingVO;
 import org.gidal.enterprise.service.EnterpriseService;
+import org.gidal.review.domain.ReviewVO;
 import org.gidal.review.service.ReviewService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -104,7 +106,8 @@ public class EnterpriseController {
 	public String enterprise_updateForm(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("list", service.enterpriseBoard_view(code));
 		return "/enterprise/ent_page_update";
 
@@ -141,7 +144,8 @@ public class EnterpriseController {
 	public String enterprise_cal(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("waiting",service.waiting_list(code));
 		model.addAttribute("reserve",service.reserve_list(code));
 		return "/enterprise/ent_page_reserveAndWaitingCal";
@@ -153,7 +157,8 @@ public class EnterpriseController {
 	public String enterprise_entReserveListCheck(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("reserveCheckList", service.reserve_listCheck(code));
 		return "/enterprise/ent_page_reserveListCheck";
 
@@ -163,7 +168,8 @@ public class EnterpriseController {
 	public String enterprise_entReserveList(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("reserveList", service.reserve_list(code));
 		return "/enterprise/ent_page_reserveList";
 
@@ -173,7 +179,8 @@ public class EnterpriseController {
 	public String enterprise_entLastReserveList(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("lastReserveList", service.last_reserve_list(code));
 		return "/enterprise/ent_page_lastReserveList";
 
@@ -182,7 +189,8 @@ public class EnterpriseController {
 	public String enterprise_entWaitingList(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("waitingList", service.waiting_list(code));
 		return "/enterprise/ent_page_waitingList";
 
@@ -191,7 +199,8 @@ public class EnterpriseController {
 	public String enterprise_entLastWaitingList(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		model.addAttribute("lastWaitingList", service.last_waiting_list(code));
 		return "/enterprise/ent_page_lastWaitingList";
 
@@ -202,6 +211,9 @@ public class EnterpriseController {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
 
+		model.addAttribute("waitingReview", service.waitingReview(code));
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		return "/enterprise/ent_page_waitingReview";
 
 	}
@@ -210,6 +222,9 @@ public class EnterpriseController {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
 
+		model.addAttribute("reserveReview", service.reserveReview(code));
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
 		return "/enterprise/ent_page_reserveReview";
 
 	}
@@ -217,6 +232,28 @@ public class EnterpriseController {
 	public String enterprise_entDelete() {
 
 		return "/enterprise/ent_page_delete";
+
+	}
+
+	@RequestMapping(value = "/reply", method = RequestMethod.GET)
+	public String enterprise_reply(@RequestParam("review_code") int code, Model model) {
+		model.addAttribute("reviewReply", service.findReview(code));
+		return "/enterprise/reviewAndReply";
+
+	}
+
+	@RequestMapping(value = "/replyEnt", method = RequestMethod.GET)
+	public String enterprise_replyEnt(Model model, ReviewVO vo) {
+
+		service.entReply(vo);
+		return "/enterprise/replySuccess";
+
+	}
+
+	@RequestMapping(value = "/delReply", method = RequestMethod.GET)
+	public String enterprise_delReply(@RequestParam("review_code") int code) {
+		service.delReply(code);
+		return "/enterprise/delSuccess";
 
 	}
 
@@ -432,7 +469,7 @@ public class EnterpriseController {
 			return "redirect:/authentication/noPermission";
 		}else {
 			session.invalidate();
-			return "redirect:/";
+			return "redirect:/enterprise/delOutSuccess";
 		}
 
 

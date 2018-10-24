@@ -6,8 +6,10 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.event.domain.EventVO;
 import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.review.domain.ReviewVO;
 import org.gidal.waiting.domain.WaitingVO;
 import org.springframework.stereotype.Repository;
 
@@ -140,6 +142,33 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	@Override
 	public int review_scope(Integer code) {
 		return sqlsession.selectOne(namespace + ".review_scope", code);
+	}
+
+	@Override
+	public List<JoinEntReviewVO> waitingReview(Integer code) {
+		return sqlsession.selectList(namespace + ".waitingReview", code);
+	}
+
+	@Override
+	public List<JoinEntReviewVO> reserveReview(Integer code) {
+		return sqlsession.selectList(namespace + ".reserveReview", code);
+	}
+
+	@Override
+	public JoinEntReviewVO findReview(Integer code) {
+		return sqlsession.selectOne(namespace + ".findReview", code);
+	}
+
+	@Override
+	public void entReply(ReviewVO vo) {
+		sqlsession.update(namespace + ".entReply", vo);
+
+	}
+
+	@Override
+	public void delReply(Integer code) {
+		sqlsession.update(namespace + ".delReply", code);
+
 	}
 
 

@@ -3,7 +3,9 @@ package org.gidal.enterprise.dao;
 import java.util.List;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.review.domain.ReviewVO;
 import org.gidal.waiting.domain.WaitingVO;
 
 public interface EnterpriseDAO {
@@ -32,6 +34,11 @@ public interface EnterpriseDAO {
 	public int ent_detail_update(EnterpriseVO vo);
 	public int reserve_listCheck_cnt(Integer code);
 	public int review_scope(Integer code);
+	public List<JoinEntReviewVO> waitingReview(Integer code);
+	public List<JoinEntReviewVO> reserveReview(Integer code);
+	public JoinEntReviewVO findReview(Integer code);
+	public void entReply(ReviewVO vo);
+	public void delReply(Integer code);
 
 
 

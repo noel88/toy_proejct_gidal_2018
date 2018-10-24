@@ -10,11 +10,10 @@
 <%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
 </head>
 <body>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <div class="jumbotron">
-		<h1>예약목록</h1>
+		<h1>예약리뷰목록</h1>
 
-			<hr class="my-4">
 	<div style= "width:100%; auto; margin-left: auto;">
 
 
@@ -27,26 +26,22 @@
 						<th scope="col">예약날짜</th>
 						<th scope="col">별점</th>
 						<th scope="col">리뷰</th>
-						<th scope="col">버튼</th>
 
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var='ReserveVO' items='${reserveList}'>
+					<c:forEach var='rReview' items='${reserveReview}'>
 						<tr>
-							<td>${ReserveVO.user_name}</td>
-							<td>${ReserveVO.user_phoneNum}</td>
-							<td>${ReserveVO.reserve_personnel}</td>
-							<td>${ReserveVO.reserve_datetime}</td>
-							<td>${ReserveVO.reserve_comfirmation}</td>
-							<td>댓글달기</td>
-
+							<td>${rReview.user_name}</td>
+							<td>${rReview.reserve_personnel}</td>
+							 <c:set var="datetime" value="${rReview.reserve_date}, ${rReview.reserve_time}" />
+							<td>${datetime}</td>
+							<td>${rReview.review_scope}</td>
+							<td><a onclick="window.open('/enterprise/reply?review_code=${rReview.review_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');"><c:out value='${fn:substring(rReview.review_text, 0, 10)}'/>..</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-
-
 
 
 </div>

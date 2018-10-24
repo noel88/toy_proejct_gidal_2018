@@ -8,7 +8,7 @@
 <%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
 </head>
 <body>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <div class="jumbotron">
 		<h1>현재 대기목록</h1>
 

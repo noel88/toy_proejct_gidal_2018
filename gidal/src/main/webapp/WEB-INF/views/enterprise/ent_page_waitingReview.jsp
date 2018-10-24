@@ -8,7 +8,7 @@
 <%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
 </head>
 <body>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <div class="jumbotron">
 		<h1>웨이팅한 손님 리뷰목록</h1>
 
@@ -25,19 +25,19 @@
 						<th scope="col">날짜</th>
 						<th scope="col">별점</th>
 						<th scope="col">리뷰</th>
-						<th scope="col">버튼</th>
+
 
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${waitingList}" var="WaitingVO">
+					<c:forEach items="${waitingReview}" var="wReview">
 						<tr>
-							<td>${WaitingVO.user_name}</td>
-							<td>${WaitingVO.waiting_personnel}</td>
-							<td><c:out value='${fn:substring(WaitingVO.waiting_now, 0, 10)}'/></td>
-							<td>${WaitingVO.waiting_personnel}</td>
-							<td>${WaitingVO.waiting_personnel}</td>
-							<td>댓글달기</td>
+							<td>${wReview.user_name}</td>
+							<td>${wReview.waiting_personnel}</td>
+							<td><c:out value='${fn:substring(wReview.waiting_now, 0, 10)}'/></td>
+							<td>${wReview.review_scope}</td>
+							<td><a onclick="window.open('/enterprise/reply?review_code=${wReview.review_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');"><c:out value='${fn:substring(wReview.review_text, 0, 10)}'/>..</a></td>
+
 
 						</tr>
 					</c:forEach>

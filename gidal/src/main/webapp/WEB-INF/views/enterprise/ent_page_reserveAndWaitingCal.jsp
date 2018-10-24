@@ -65,10 +65,11 @@ $(document).ready(function() {
 		events: [
 		     <c:forEach var='ReserveVO' items='${reserve}'>
 		     <c:set var="title" value="${ReserveVO.user_name} / ${ReserveVO.reserve_personnel}명" />
-             { title: '${title}', backgroundColor : "#008000", start: '${ReserveVO.reserve_datetime}'},
+		     <c:set var="date" value="${ReserveVO.reserve_date} / ${ReserveVO.reserve_time}" />
+             { title: '${title}', backgroundColor : "#008000", start: '${ReserveVO.reserve_date}'},
            	</c:forEach>
 		     <c:forEach var='WaitingVO' items='${waiting}'>
-		     <c:set var="title" value="${WaitingVO.user_name} / ${WaitingVO.reserve_personnel}명" />
+		     <c:set var="title" value="${WaitingVO.user_name} / ${WaitingVO.waiting_personnel}명" />
              { title: '${title}', color : "#FF0000", start: '${WaitingVO.waiting_now}'},
            	</c:forEach>
 
@@ -84,7 +85,7 @@ $(document).ready(function() {
 
 </head>
 <body>
-	<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 				<h1>전체 예약 및 웨이팅 현황</h1>
 

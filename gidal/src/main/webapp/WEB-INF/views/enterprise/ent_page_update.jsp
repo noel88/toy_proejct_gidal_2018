@@ -114,7 +114,7 @@ function execPostCode() {
 <body>
 
 
-	<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">3
+	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 				<h1>상세정보 수정</h1>
 

@@ -5,7 +5,9 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import org.gidal.enterprise.dao.EnterpriseDAO;
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.reserve.domain.ReserveVO;
+import org.gidal.review.domain.ReviewVO;
 import org.gidal.util.SHA256;
 import org.gidal.waiting.domain.WaitingVO;
 import org.springframework.stereotype.Service;
@@ -284,6 +286,33 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	@Override
 	public int review_scope(Integer code) {
 		return dao.review_scope(code);
+	}
+
+	@Override
+	public List<JoinEntReviewVO> waitingReview(Integer code) {
+		return dao.waitingReview(code);
+	}
+
+	@Override
+	public List<JoinEntReviewVO> reserveReview(Integer code) {
+		return dao.reserveReview(code);
+	}
+
+	@Override
+	public JoinEntReviewVO findReview(Integer code) {
+		return dao.findReview(code);
+	}
+
+	@Override
+	public void entReply(ReviewVO vo) {
+		dao.entReply(vo);
+
+	}
+
+	@Override
+	public void delReply(Integer code) {
+		dao.delReply(code);
+
 	}
 
 

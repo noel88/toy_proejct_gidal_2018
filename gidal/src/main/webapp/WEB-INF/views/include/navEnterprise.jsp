@@ -13,9 +13,14 @@
 <!-- <div style = "background-color : #EB6864; position : fixed; width : 100%; z-index : 1;"> -->
 <!-- 각 JSP파일 수정 시 상단바 고정됨 <div style="max-width: 1000px; padding-top : 60px; margin-right: auto; margin-left: auto;"> -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style = "max-width : 1050px; margin-right : auto; margin-left : auto;">
+		<div class="container-fluid">
 		<a class="navbar-brand" href="/enterprise/enter_page">
 			<img src="/resources/img/logo/GiDalEnterprise.png" style="margin : auto; height : 30px; width : auto;">
 		</a>
+		 <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
 		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -99,8 +104,8 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-
-
+</div>
+</div>
 		</div>
 	</nav>
 </div>

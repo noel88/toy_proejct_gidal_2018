@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+enter_page.jsp<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,12 +132,13 @@ function execPostCode() {
 
 
   function join() {
-	  alert('회원가입이 완료되었습니다');
+	  alert('회원가입이 완료되었습니다. 상세정보는 기업페이지에서 작성가능합니다.');
   }
 
 
 </script>
-
+</head>
+<body>
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
@@ -166,99 +167,8 @@ function execPostCode() {
 
 					</p>
 
-					<hr class="my-4">
-
-					 <p>
-						<label class="col-form-label" for="inputDefault">매장명</label>
-						<input type="text" class="form-control" name = "enterprise_businessName" placeholder="매장명" id="inputDefault">
-
-						<label class="col-form-label" for="inputDefault">매장 전화번호</label>
-						<input type="text" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="inputDefault">
-
-
-
-						<label class="col-form-label" for="inputDefault">매장 주소</label>
-						<div class="form-group">
-						<input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="enterprise_add1" id="add1" type="text" readonly="readonly" >
-						    <button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
-						</div>
-						<div class="form-group">
-						    <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="enterprise_add2" id="add2" type="text" readonly="readonly" />
-						</div>
-						<div class="form-group">
-						    <input class="form-control" placeholder="상세주소" name="enterprise_add3" id="add3" type="text"  />
-						</div>
-
-
-
-						<label class="col-form-label" for="inputDefault">영업시작시간</label>
-						<select class="custom-select" name = "enterprise_operatingOpenTime" id="exampleSelect1">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
-						</select>
-
-
-						<label class="col-form-label" for="inputDefault" >영업종료시간</label>
-						<select class="custom-select"  name = "enterprise_operatingCloseTime" id="exampleSelect1">
-							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
-						</select>
-
-						<script>
-
-						function itemSum(frm)
-						{
-						   var sum = "";
-						   var count = frm.chkbox.length;
-
-						   for(var i=0; i < count; i++ ){
-						       if( frm.chkbox[i].checked == true ){
-							    sum += frm.chkbox[i].value + ",";
-						       }
-						   }
-						   frm.enterprise_closed.value = sum;
-						}
-
-						</script>
-
-				 		<label class="col-form-label" for="inputDefault">영업일 체크</label>
-						<div class="form-group">
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '1'>월요일
-						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '2'>화요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '3'>수요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '4'>목요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '5'>금요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '6'>토요일
-							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '0'>일요일
-							<input type = "hidden" name = "enterprise_closed">
-
-						</div>
-
-						<label class="col-form-label" for="inputDefault">업종</label>
-						<select class="custom-select" name = "enterprise_sectors" id="exampleSelect1">
-							<option value = "0" selected>선택해주세요</option>
-							<option value = "default">음식전체</option>
-							<option value = "한식">한식</option>
-							<option value = "양식">양식</option>
-							<option value = "중식">중식</option>
-							<option value = "일식">일식</option>
-							<option value = "아시아식">아시아식</option>
-							<option value = "컨템퍼러리">컨템퍼러리</option>
-							<option value = "붸페">뷔페</option>
-							<option value = "구이">구이</option>
-							<option value = "술집">술집</option>
-							<option value = "카페/베이커리">카페/베이커리</option>
-						</select>
-
-						 <label class="col-form-label" for="inputDefault">서비스</label>
-						<select class="custom-select" name = "enterprise_service" id="exampleSelect1">
-							<option value = "0" selected>선택해주세요</option>
-							<option value = "1">웨이팅 서비스</option>
-							<option value = "2">예약 서비스</option>
-							<option value = "3">웨이팅 + 예약 서비스</option>
-						</select>
-
-					</p>
 					<p>
-						<button type="submit" class="form-control btn btn-primary signupbtn"  disabled="disabled">회원가입</button>
+						<button type="submit" class="form-control btn btn-primary signupbtn"  disabled="disabled">기업회원가입</button>
 					</p>
 				</form>
 

@@ -6,14 +6,20 @@
 <mapper namespace="org.gidal.mapper.EnterpriseMapper">
 
 	<insert id="join">
-		insert into enterprise values (#{enterprise_code}, #{enterprise_email}, #{enterprise_password},#{enterprise_name},
-		#{enterprise_businessName}, #{enterprise_phone}, #{enterprise_sectors},#{enterprise_service},#{enterprise_mainImg},
-		#{enterprise_add1},#{enterprise_add2},#{enterprise_add3},#{enterprise_operatingOpenTime},#{enterprise_operatingCloseTime},#{enterprise_closed})
+		insert into enterprise (enterprise_code, enterprise_email, enterprise_password, enterprise_name) values (#{enterprise_code}, #{enterprise_email}, #{enterprise_password},#{enterprise_name})
 	</insert>
 
+	<update id="ent_detail_update">
+		update enterprise set enterprise_businessName = #{enterprise_businessName}, enterprise_phone = #{enterprise_phone}, enterprise_sectors = #{enterprise_sectors},
+		 enterprise_service = #{enterprise_service},
+		 enterprise_add1 = #{enterprise_add1}, enterprise_add2 = #{enterprise_add2},
+		 enterprise_add3 = #{enterprise_add3}, enterprise_operatingOpenTime = #{enterprise_operatingOpenTime}, enterprise_operatingCloseTime = #{enterprise_operatingCloseTime},
+		 enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
+	</update>
+
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select enterprise_code, enterprise_businessName, enterprise_sectors, enterprise_mainImg, enterprise_service, enterprise_add2, enterprise_closed, enterprise_service
-		from enterprise order by enterprise_code DESC
+		select  e.enterprise_code, e.enterprise_businessName, e.enterprise_sectors, e.enterprise_mainImg, e.enterprise_service, e.enterprise_add2, e.enterprise_closed, e.enterprise_service, truncate(round(sum(r.review_scope)/(select ifnull(count(*),0) from review where enterprise_code = e.enterprise_code) * 2) / 2,1) as review_scope
+		from enterprise e left join review r on e.enterprise_code = r.enterprise_code where e.enterprise_businessName IS NOT NULL group by e.enterprise_code order by e.enterprise_code DESC;
 	</select>
 
 	<select id="selectTotalRecords" resultType="int">
@@ -41,11 +47,27 @@
 	</update>
 
 	<select id="waiting_list" resultType = "org.gidal.waiting.domain.WaitingVO">
-		select * from waiting where enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
+		select * from waiting where enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'N'
+	</select>
+
+	<select id="last_waiting_list" resultType = "org.gidal.waiting.domain.WaitingVO">
+		select * from waiting where enterprise_code = #{enterprise_code} and waiting_yn = 'Y'
+	</select>
+
+	<select id="reserve_listCheck" resultType = "org.gidal.reserve.domain.ReserveVO">
+		select * from reserve where enterprise_code = #{enterprise_code} and reserve_comfirmation = 'N'
+	</select>
+
+	<select id="reserve_listCheck_cnt" resultType = "java.lang.Integer">
+		select ifnull(count(*),0) from reserve where enterprise_code = #{enterprise_code} and reserve_comfirmation = 'N'
 	</select>
 
 	<select id="reserve_list" resultType = "org.gidal.reserve.domain.ReserveVO">
-		select * from reserve where enterprise_code = #{enterprise_code}
+		select * from reserve where enterprise_code = #{enterprise_code} and reserve_comfirmation = 'Y' and reserve_yn = 'N'
+	</select>
+
+	<select id="last_reserve_list" resultType = "org.gidal.reserve.domain.ReserveVO">
+		select * from reserve where enterprise_code = #{enterprise_code} and reserve_comfirmation = 'Y' and reserve_yn = 'Y'
 	</select>
 
 	<select id="find_enterprise_code" resultType = "java.lang.Integer">
@@ -60,6 +82,10 @@
 		update reserve set reserve_yn = 'Y' where reserve_code = #{reserve_code}
 	</update>
 
+	<update id= "update_reserveConfirmation_yn">
+		update reserve set reserve_comfirmation = 'Y' where reserve_code = #{reserve_code}
+	</update>
+
 	<delete id="enterprise_delete">
 		delete from enterprise where enterprise_code = #{enterprise_code} and enterprise_password = #{enterprise_password}
 	</delete>
@@ -70,27 +96,46 @@
 	</select>
 
 	<select id="ent_popular" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select *,
-		(select ifnull(count(*),0) from reserve where enterprise_code = enterprise.enterprise_code)+(select ifnull(count(*),0) from waiting where enterprise_code = enterprise.enterprise_code)
-		as plus from enterprise order by plus desc;
+
+		select e.enterprise_code, e.enterprise_businessName, e.enterprise_sectors, e.enterprise_mainImg, e.enterprise_service, e.enterprise_add2, e.enterprise_closed, e.enterprise_service,
+		truncate(round(sum(r.review_scope)/(select ifnull(count(*),0) from review where enterprise_code = e.enterprise_code) * 2) / 2,1) as review_scope,
+		(select ifnull(count(*),0) from reserve where enterprise_code = e.enterprise_code)+(select ifnull(count(*),0) from waiting where enterprise_code = e.enterprise_code) as plus
+		from enterprise e left join review r on e.enterprise_code = r.enterprise_code where e.enterprise_businessName IS NOT NULL group by e.enterprise_code order by plus DESC;
+
 	</select>
 
 	<select id="reserve_count" resultType = "java.lang.Integer">
-		SELECT 
-			count(*) 
-		FROM 
-			reserve 
-		WHERE 
+		SELECT
+			ifnull(count(*),0)
+		FROM
+			reserve
+		WHERE
 			enterprise_code = #{enterprise_code} AND reserve_datetime LIKE(CONCAT(CURDATE(), '%')) AND reserve_yn = 'N';
 	</select>
 
+	<select id="reserve_now_list" resultType = "org.gidal.reserve.domain.ReserveVO">
+		SELECT
+			*
+		FROM
+			reserve
+		WHERE
+			enterprise_code = #{enterprise_code} AND reserve_datetime LIKE(CONCAT(CURDATE(), '%')) AND reserve_yn = 'N' and reserve_comfirmation = 'Y';
+	</select>
+
 	<select id="waiting_count" resultType = "java.lang.Integer">
-		SELECT 
-			count(*) 
-		FROM 
-			waiting 
-		WHERE 
+		SELECT
+			ifnull(count(*),0)
+		FROM
+			waiting
+		WHERE
 			enterprise_code = #{enterprise_code} AND waiting_now LIKE(CONCAT(CURDATE(), '%')) AND waiting_yn = 'N';
 	</select>
+
+	<select id="reserve_comfirmation_yn" resultType = "org.gidal.reserve.domain.ReserveVO">
+		select * from reserve where enterprise_code = #{enterprise_code} and reserve_comfirmation_yn = 'N'
+	</select>
+
+
+
 
 </mapper>

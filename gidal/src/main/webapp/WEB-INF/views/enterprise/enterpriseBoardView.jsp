@@ -578,7 +578,7 @@ h2 {
                         <a href = "/enterprise/enterprise_details?enterprise_code=${EnterpriseVO.enterprise_code}"><img class="card-img-top" src="<spring:url value ='/image/${EnterpriseVO.enterprise_mainImg}'/>" alt="" height="200px;" width="100%"></a>
                         <div class="card-block">
                             <p class="card-text"><small class="text-muted" style="float: left"><b>[${EnterpriseVO.enterprise_sectors}]</b></small>
-                            <small class="text-muted" style="float: right"><b>별점 4.5점</b></small>
+                            <small class="text-muted" style="float: right"><b>별점 ${EnterpriseVO.review_scope}점</b></small>
                             </p>
                             <h5 class="card-title" style = "clear: both;">${EnterpriseVO.enterprise_businessName}</h5>
                             <p class="card-text"><small class="text-muted"><c:out value='${fn:substring(EnterpriseVO.enterprise_add2,0, 15)}' /></small></p>

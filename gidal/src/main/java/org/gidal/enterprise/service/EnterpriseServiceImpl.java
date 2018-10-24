@@ -171,12 +171,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	 */
 
 	@Override
-	public void delete(EnterpriseVO vo) {
+	public int delete(EnterpriseVO vo) {
 		SHA256 sha = new SHA256();
 		String pwd = sha.getSHA256(vo.getEnterprise_password());
 
 		vo.setEnterprise_password(pwd);
-		dao.delete(vo);
+		return dao.delete(vo);
 
 	}
 
@@ -244,6 +244,46 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	@Override
 	public int reserve_update(Integer code) {
 		return dao.reserve_update(code);
+	}
+
+	@Override
+	public int ent_detail_update(EnterpriseVO vo) {
+		return dao.ent_detail_update(vo);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_listCheck(Integer code) {
+		return dao.reserve_listCheck(code);
+	}
+
+	@Override
+	public List<ReserveVO> last_reserve_list(Integer code) {
+		return dao.last_reserve_list(code);
+	}
+
+	@Override
+	public List<WaitingVO> last_waiting_list(Integer code) {
+		return dao.last_waiting_list(code);
+	}
+
+	@Override
+	public int update_reserveConfirmation_yn(Integer code) {
+		return dao.update_reserveConfirmation_yn(code);
+	}
+
+	@Override
+	public int reserve_listCheck_cnt(Integer code) {
+		return dao.reserve_listCheck_cnt(code);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_now_list(Integer code) {
+		return dao.reserve_now_list(code);
+	}
+
+	@Override
+	public int review_scope(Integer code) {
+		return dao.review_scope(code);
 	}
 
 

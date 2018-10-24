@@ -15,17 +15,24 @@ public interface EnterpriseService {
 	public List<EnterpriseVO> enterpriseBoard_list();
 	public EnterpriseVO enterpriseBoard_view(Integer code);
 	public List<WaitingVO> waiting_list(Integer code);
+	public List<WaitingVO> last_waiting_list(Integer code);
+	public List<ReserveVO> reserve_listCheck(Integer code);
 	public List<ReserveVO> reserve_list(Integer code);
+	public List<ReserveVO> last_reserve_list(Integer code);
+	public List<ReserveVO> reserve_now_list(Integer code);
 	public int find_enterprise_code(String str);
 	public int waiting_update(Integer code);
 	public int reserve_update(Integer code);
-	public void delete(EnterpriseVO vo);
+	public int update_reserveConfirmation_yn(Integer code);
+	public int delete(EnterpriseVO vo);
 	public void enterprise_img(EnterpriseVO vo);
 	public List<EnterpriseVO> ent_best();
 	public List<EnterpriseVO> ent_popular();
 	public int reserve_count(Integer code);
 	public int waiting_count(Integer code);
-
+	public int ent_detail_update(EnterpriseVO vo);
+	public int reserve_listCheck_cnt(Integer code);
+	public int review_scope(Integer code);
 
 
 

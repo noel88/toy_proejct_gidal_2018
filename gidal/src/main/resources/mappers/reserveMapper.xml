@@ -6,7 +6,7 @@
 <mapper namespace="org.gidal.mapper.ReserveMapper">
 
 	<insert id="reserve">
-		insert into reserve values (#{reserve_code}, #{enterprise_code}, #{reserve_personnel}, #{reserve_datetime}, #{user_name}, #{user_phoneNum}, #{reserve_yn})
+		insert into reserve values (#{reserve_code}, #{enterprise_code}, #{reserve_personnel}, #{reserve_date}, #{reserve_time}, #{user_name}, #{user_phoneNum}, #{reserve_yn}, #{reserve_comfirmation})
 	</insert>
 
 	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">

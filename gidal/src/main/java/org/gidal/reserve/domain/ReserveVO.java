@@ -8,15 +8,29 @@ public class ReserveVO {
 	private int reserve_code;
 	private int enterprise_code;
 	private int reserve_personnel;
-	private String reserve_datetime;
+	private String reserve_date;
+	private String reserve_time;
 	private String user_name;
 	private String user_phoneNum;
 	private String reserve_yn;
+	private String reserve_comfirmation;
 
 
 
 	public ReserveVO() {
 
+	}
+
+
+
+	public String getReserve_comfirmation() {
+		return reserve_comfirmation;
+	}
+
+
+
+	public void setReserve_comfirmation(String reserve_comfirmation) {
+		this.reserve_comfirmation = reserve_comfirmation;
 	}
 
 
@@ -67,16 +81,26 @@ public class ReserveVO {
 		this.reserve_personnel = reserve_personnel;
 	}
 
-
-
-	public String getReserve_datetime() {
-		return reserve_datetime;
+	public String getReserve_date() {
+		return reserve_date;
 	}
 
 
 
-	public void setReserve_datetime(String reserve_datetime) {
-		this.reserve_datetime = reserve_datetime;
+	public void setReserve_date(String reserve_date) {
+		this.reserve_date = reserve_date;
+	}
+
+
+
+	public String getReserve_time() {
+		return reserve_time;
+	}
+
+
+
+	public void setReserve_time(String reserve_time) {
+		this.reserve_time = reserve_time;
 	}
 
 

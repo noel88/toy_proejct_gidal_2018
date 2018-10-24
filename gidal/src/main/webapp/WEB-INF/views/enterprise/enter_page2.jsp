@@ -224,7 +224,7 @@ a.article:hover {
             </div>
 
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
+                <p>기업</p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">업체등록</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -253,7 +253,7 @@ a.article:hover {
                             <a href="#">리뷰확인</a>
                         </li>
                     </ul>
-                   
+
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">세부웨이팅현황</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
@@ -294,19 +294,27 @@ a.article:hover {
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
+					<ul class="navbar-nav mr-auto">
+									<li class="nav-item">
+					       				<a class="nav-link">금일 예약 : 0건</a>
+					     			</li>
+									<li class="nav-item">
+										<a class="nav-link">현재 대기 : 0팀</a>
+									</li>
 
+								</ul>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">로그아웃</a>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
-            </nav> 
+            </nav>
 
-           
+
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
+<head>
+
 <style>
 #fileUpload {
 
@@ -107,12 +109,17 @@ function execPostCode() {
 
 
 </script>
+<%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
+</head>
+<body>
 
 
-	<br>
+	<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">3
+		<div class="jumbotron">
+				<h1>상세정보 수정</h1>
 
-
-<div style="width: 50%; margin-right: auto; margin-left: auto;">
+			<hr class="my-4">
+	<div class="form-group" style = "max-width : 400px; margin : auto;">
 				<form name = "form" action = "update" method = "post" enctype="multipart/form-data" onsubmit="return update();">
 
 
@@ -466,7 +473,9 @@ function execPostCode() {
 					</p>
 				</form>
 </div>
+</div>
+</div>
 
-
+</body>
 
 </html>

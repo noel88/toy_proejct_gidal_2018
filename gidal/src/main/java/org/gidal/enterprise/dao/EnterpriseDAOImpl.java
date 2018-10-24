@@ -67,8 +67,8 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	}
 
 	@Override
-	public void delete(EnterpriseVO vo) {
-		sqlsession.delete(namespace + ".enterprise_delete", vo);
+	public int delete(EnterpriseVO vo) {
+		return sqlsession.delete(namespace + ".enterprise_delete", vo);
 
 	}
 
@@ -100,6 +100,46 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	@Override
 	public int reserve_update(Integer code) {
 		return sqlsession.update(namespace + ".update_reserve_yn", code);
+	}
+
+	@Override
+	public int ent_detail_update(EnterpriseVO vo) {
+		return sqlsession.update(namespace + ".ent_detail_update", vo);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_listCheck(Integer code) {
+		return sqlsession.selectList(namespace + ".reserve_listCheck", code);
+	}
+
+	@Override
+	public List<ReserveVO> last_reserve_list(Integer code) {
+		return sqlsession.selectList(namespace + ".last_reserve_list", code);
+	}
+
+	@Override
+	public List<WaitingVO> last_waiting_list(Integer code) {
+		return sqlsession.selectList(namespace + ".last_waiting_list", code);
+	}
+
+	@Override
+	public int update_reserveConfirmation_yn(Integer code) {
+		return sqlsession.update(namespace + ".update_reserveConfirmation_yn", code);
+	}
+
+	@Override
+	public int reserve_listCheck_cnt(Integer code) {
+		return sqlsession.selectOne(namespace + ".reserve_listCheck_cnt", code);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_now_list(Integer code) {
+		return sqlsession.selectList(namespace + ".reserve_now_list", code);
+	}
+
+	@Override
+	public int review_scope(Integer code) {
+		return sqlsession.selectOne(namespace + ".review_scope", code);
 	}
 
 

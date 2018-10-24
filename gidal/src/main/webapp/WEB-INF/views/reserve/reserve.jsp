@@ -97,7 +97,7 @@
 							<div class = "col-md-12">
 								<label class="control-label" for="date">날짜</label>
                                   <div class="input-group date" id="dp3" data-date="12-02-2017" data-date-format="mm-dd-yyyy">
-                                  <input name="date" id = datepicker class="form-control" type="text" value="24-10-2018">
+                                  <input name="reserve_date" id = datepicker class="form-control" type="text" value="24-10-2018">
                                   <span class="input-group-addon btn"><i class="glyphicon glyphicon-calendar" id="butt"></i></span>
                                 </div>
                                   </div>
@@ -108,15 +108,15 @@
                               <div class="form-group">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label class="control-label">시간</label> <input id="start" name="start" type="text" required="required" placeholder="00:00 AM" class="form-control start" />
+									<label class="control-label">시간</label> <input id="start" name="reserve_time" type="text" required="required" placeholder="00:00 AM" class="form-control start" />
 								</div>
 							</div>
-                      
+
 							</div>
-							
-						
-			          
-			
+
+
+
+
 </td>
 <script type="text/javascript">
 $('#start').timepicker({'minTime':'${enterpriseVO.enterprise_operatingOpenTime}',
@@ -124,7 +124,7 @@ $('#start').timepicker({'minTime':'${enterpriseVO.enterprise_operatingOpenTime}'
 </script>
 
 
-       
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 <script type="text/javascript">
@@ -144,7 +144,7 @@ $(document).ready(function(){
 			return [(day != 0 && day != 1 && day != 3 && day != 4 && day != 6)];
 		}
 
-        
+
 	});
 });
 </script>

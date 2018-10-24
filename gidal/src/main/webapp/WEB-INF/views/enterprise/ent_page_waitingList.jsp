@@ -4,6 +4,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
+<head>
+<%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
+</head>
+<body>
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+<div class="jumbotron">
+		<h1>현재 대기목록</h1>
+
+			<hr class="my-4">
 			<div style= "width:100%; auto; margin-left: auto;">
 
 
@@ -20,7 +29,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${waiting}" var="WaitingVO">
+					<c:forEach items="${waitingList}" var="WaitingVO">
 						<tr>
 							<td>${WaitingVO.user_name}</td>
 							<td>${WaitingVO.user_phoneNum}</td>
@@ -36,6 +45,10 @@
 
 
 </div>
+</div>
+</div>
+</body>
+
 
 
 </html>

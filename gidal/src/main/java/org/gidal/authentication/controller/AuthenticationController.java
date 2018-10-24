@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/authentication/")
 public class AuthenticationController {
-	
+
 	@Inject
 	private AuthenticationService service;
 
@@ -35,10 +35,10 @@ public class AuthenticationController {
 	// 로그인 실행
 	@RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
 	public String loginPOST(LoginDTO loginInfo, HttpSession session, Model model) {
-		
+
 		// 로그인 실행
 		String signed = service.login(loginInfo);
-		
+
 		// 로그인한 계정의 등급을 확인 후 세션에 등급 입력
 		// 로그인 실패시 로그인실패 페이지 이동
 		if(signed.equals("user")) {
@@ -46,7 +46,7 @@ public class AuthenticationController {
 			return "redirect:/";
 		} else if(signed.equals("enterprise")) {
 			setLoginSession(loginInfo, "enterprise", session);
-			return "redirect:/enterprise/enter_page";
+			return "redirect:/enterprise/ent_page_main";
 		} else if(signed.equals("admin")) {
 			setLoginSession(loginInfo, "admin", session);
 			return "redirect:/";
@@ -54,11 +54,11 @@ public class AuthenticationController {
 			return "authentication/signFail";
 		}
 	}
-	
+
 	// 로그아웃 처리 후 홈화면 이동
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-	
+
 		service.logout(session);
 
 		return "redirect:/";
@@ -70,9 +70,9 @@ public class AuthenticationController {
 	public void noPermission(HttpSession session) {
 
 		service.logout(session);
-		
+
 	}
-	
+
 	// 비밀번호 재발급 페이지 이동
 	@RequestMapping(value = "/reissuePassword", method = RequestMethod.GET)
 	public String reissuePasswordGET() {
@@ -82,10 +82,10 @@ public class AuthenticationController {
 	// 비밀번호 재발급 처리 후 재발급 결과 페이지 이동
 	@RequestMapping(value = "/reissuePassword", method = RequestMethod.POST)
 	public String reissuePasswordPOST(ReissuePasswordDTO reissuePassword, RedirectAttributes rttr) {
-		
+
 		// 비밀번호 재발급 처리하여 newPassword에 입력
 		String newPassword = service.reissuePassword(reissuePassword);
-		
+
 		// newPassword가 비어있지 않다면 재발급된 비밀번호정보 입력
 		if(!(newPassword.equals(""))) {
 			rttr.addFlashAttribute("msg", "reissuePasswordSuccess");
@@ -95,13 +95,13 @@ public class AuthenticationController {
 
 		return "redirect:/authentication/reissuePasswordResult";
 	}
-	
+
 	// 재발급된 비밀번호 표시 페이지 이동
 	@RequestMapping(value = "/reissuePasswordResult", method = RequestMethod.GET)
 	public String reissuePasswordResult() {
 		return "authentication/reissuePasswordResult";
 	}
-	
+
 	// 로그인정보 세션에 등록
 	public void setLoginSession(LoginDTO loginInfo, String level, HttpSession session) {
 		session.setAttribute("LEVEL", level);

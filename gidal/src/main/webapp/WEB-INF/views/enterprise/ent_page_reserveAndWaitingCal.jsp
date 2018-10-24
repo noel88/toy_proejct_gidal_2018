@@ -5,14 +5,14 @@
 
 <!DOCTYPE html>
 <html>
-<br>
+<head>
 
 <title>Insert title here</title>
-
+<%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
 <link href="<c:url value="/resources/css/fullcalendar.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/fullcalendar.print.css" />" rel="stylesheet" media='print'>
 <script src="<c:url value="/resources/js/moment.min.js" />"></script>
-<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<%-- <script src="<c:url value="/resources/js/jquery.min.js" />""></script>--%>
 <script src="<c:url value="/resources/js/fullcalendar.min.js" />"></script>
 
 
@@ -29,9 +29,9 @@ body {
 }
 
 #calendar {
-	max-width: 500px;
+	max-width: 1000px;
 	margin: 0 auto;
-	width: 400px;
+
 }
 
 </style>
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		     <c:set var="title" value="${WaitingVO.user_name} / ${WaitingVO.reserve_personnel}명" />
              { title: '${title}', color : "#FF0000", start: '${WaitingVO.waiting_now}'},
            	</c:forEach>
-             
+
 
 		]
 
@@ -82,71 +82,18 @@ $(document).ready(function() {
 
 </script>
 
-<div id='calendar' style="float: left;"> </div>
-<div id='' >
-<table class="table table-hover"  style = "text-align : center; width: 60%;">
-				<thead>
-					<tr>
-						<th scope="col">이름</th>
-						<th scope="col">전화번호</th>
-						<th scope="col">인원</th>
-						<th scope="col">예약날짜</th>
-						<th scope="col">현황</th>
+</head>
+<body>
+	<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+		<div class="jumbotron">
+				<h1>전체 예약 및 웨이팅 현황</h1>
 
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var='ReserveVO' items='${reserve}'>
-						<tr>
-							<td>${ReserveVO.user_name}</td>
-							<td>${ReserveVO.user_phoneNum}</td>
-							<td>${ReserveVO.reserve_personnel}</td>
-							<td>${ReserveVO.reserve_datetime}</td>
-							<td><a href ="/enterprise/updateReserve_yn?reserve_code=${ReserveVO.reserve_code}"><button type="button" class="btn btn-secondary">${ReserveVO.reserve_yn}</button></a></td>
+			<hr class="my-4">
+			<div id='calendar'> </div>
+			</div>
+			</div>
+</body>
 
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-
-</div>
-	<%-- <div style= "width:100%; auto; margin-left: auto;">
-
-
-
-			<table class="table table-hover"  style = "text-align : center;">
-				<thead>
-					<tr>
-						<th scope="col">이름</th>
-						<th scope="col">전화번호</th>
-						<th scope="col">인원수</th>
-						<th scope="col">예약날짜</th>
-						<th scope="col">예약현황</th>
-
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var='ReserveVO' items='${reserve}'>
-						<tr>
-							<td>${ReserveVO.user_name}</td>
-							<td>${ReserveVO.user_phoneNum}</td>
-							<td>${ReserveVO.reserve_personnel}</td>
-							<td>${ReserveVO.reserve_datetime}</td>
-							<td><a href ="/enterprise/updateReserve_yn?reserve_code=${ReserveVO.reserve_code}"><button type="button" class="btn btn-secondary">${ReserveVO.reserve_yn}</button></a></td>
-
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-
-
-
-
-</div>
-
-
-
- --%>
 
 
 

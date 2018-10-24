@@ -1,14 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
-	<br>
-
+<head>
+<%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
+</head>
 <script type="text/javascript">
 	function delete_enterprise() {
 		alert('탈퇴가 완료되었습니다.')
 	}
 </script>
+<body>
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 50px;">
+<div class="jumbotron">
+
+		<h1>기업 탈퇴</h1>
+
+			<hr class="my-4">
 
 <div style="width: 50%; margin-right: auto; margin-left: auto;">
 <form action="delete_out">
@@ -22,7 +29,8 @@
 
 
 </div>
-
-
+</div>
+</div>
+</body>
 
 </html>

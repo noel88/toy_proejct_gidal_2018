@@ -28,7 +28,7 @@ public class EnterpriseVO {
 	private String enterprise_closed; //휴무일
 //	private int sum;
 //	private int scope;
-	private int review_scope;
+	private double review_scope;
 	private double aver;
 
 
@@ -236,12 +236,12 @@ public class EnterpriseVO {
 	}
 
 
-	public int getReview_scope() {
+	public double getReview_scope() {
 		return review_scope;
 	}
 
 
-	public void setReview_scope(int review_scope) {
+	public void setReview_scope(double review_scope) {
 		this.review_scope = review_scope;
 	}
 

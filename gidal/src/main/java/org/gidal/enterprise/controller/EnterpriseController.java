@@ -59,6 +59,166 @@ public class EnterpriseController {
 
 	}
 
+	/**
+	 * 기업 페이지 상세정보 입력폼 이동
+	 *
+	 * @param
+	 * @return String
+	 * @throws
+	 */
+
+	@RequestMapping(value = "/entForm", method = RequestMethod.GET)
+	public String enterprise_Form() {
+
+		return "/enterprise/enterpriseDetail";
+
+	}
+
+	/**
+	 * 기업 페이지 상세정보 로직
+	 *
+	 * @param HttpSession, EnterpriseVO
+	 * @return String
+	 * @throws
+	 */
+
+	@RequestMapping(value = "/entDetailUpdate", method = RequestMethod.GET)
+	public String enterprise_detailUpdate(HttpSession session, EnterpriseVO vo) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		vo.setEnterprise_email(login_email);
+
+		service.ent_detail_update(vo);
+		return "/enterprise/ent_main_page";
+
+	}
+
+	/**
+	 * 기업 페이지 수정페이지 이동
+	 *
+	 * @param HttpSession, Model
+	 * @return String
+	 * @throws
+	 */
+
+	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
+	public String enterprise_updateForm(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		model.addAttribute("list", service.enterpriseBoard_view(code));
+		return "/enterprise/ent_page_update";
+
+	}
+
+	/**
+	 * 수정페이지에서 기업 정보 수정후 업데이트
+	 *
+	 * @param MultipartHttpServletRequest
+	 * @return String
+	 * @throws IOException, Exception
+	 */
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String enterprise_update(MultipartHttpServletRequest request, EnterpriseVO vo, HttpSession session) throws IOException, Exception {
+
+		String email = (String)session.getAttribute("LOGIN");
+		vo.setEnterprise_email(email);
+
+		service.enterpriseBoard_update(vo);
+		return "redirect:/enterprise/ent_page_main";
+
+	}
+
+	/**
+	 * 기업페이지 전체 예약 및 웨이팅 업데이트 현황[달력]
+	 *
+	 * @param HttpSession, Model
+	 * @return String
+	 * @throws
+	 */
+
+	@RequestMapping(value = "/entCal", method = RequestMethod.GET)
+	public String enterprise_cal(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		model.addAttribute("waiting",service.waiting_list(code));
+		model.addAttribute("reserve",service.reserve_list(code));
+		return "/enterprise/ent_page_reserveAndWaitingCal";
+
+	}
+
+
+	@RequestMapping(value = "/entReserveListCheck", method = RequestMethod.GET)
+	public String enterprise_entReserveListCheck(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		model.addAttribute("reserveCheckList", service.reserve_listCheck(code));
+		return "/enterprise/ent_page_reserveListCheck";
+
+	}
+
+	@RequestMapping(value = "/entReserveList", method = RequestMethod.GET)
+	public String enterprise_entReserveList(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		model.addAttribute("reserveList", service.reserve_list(code));
+		return "/enterprise/ent_page_reserveList";
+
+	}
+
+	@RequestMapping(value = "/entLastReserveList", method = RequestMethod.GET)
+	public String enterprise_entLastReserveList(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		model.addAttribute("lastReserveList", service.last_reserve_list(code));
+		return "/enterprise/ent_page_lastReserveList";
+
+	}
+	@RequestMapping(value = "/entWaitingList", method = RequestMethod.GET)
+	public String enterprise_entWaitingList(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		model.addAttribute("waitingList", service.waiting_list(code));
+		return "/enterprise/ent_page_waitingList";
+
+	}
+	@RequestMapping(value = "/entLastWaitingList", method = RequestMethod.GET)
+	public String enterprise_entLastWaitingList(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		model.addAttribute("lastWaitingList", service.last_waiting_list(code));
+		return "/enterprise/ent_page_lastWaitingList";
+
+	}
+
+	@RequestMapping(value = "/waitingReviewList", method = RequestMethod.GET)
+	public String ent_waitingReviewList(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		return "/enterprise/ent_page_waitingReview";
+
+	}
+	@RequestMapping(value = "/reserveReviewList", method = RequestMethod.GET)
+	public String ent_reserveReviewList(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+
+		return "/enterprise/ent_page_reserveReview";
+
+	}
+	@RequestMapping(value = "/entDelete", method = RequestMethod.GET)
+	public String enterprise_entDelete() {
+
+		return "/enterprise/ent_page_delete";
+
+	}
 
 	/**
 	 * 기업페이지 이동
@@ -71,7 +231,7 @@ public class EnterpriseController {
 	 */
 
 
-	@RequestMapping(value = "/enter_page", method = RequestMethod.GET)
+	@RequestMapping(value = "/ent_page_main", method = RequestMethod.GET)
 	public void enterprise_page(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
@@ -79,9 +239,11 @@ public class EnterpriseController {
 		// 현재 남은 예약 및 대기목록 조회
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
-		model.addAttribute("waiting",service.waiting_list(code));
-		model.addAttribute("reserve",service.reserve_list(code));
 		model.addAttribute("list", service.enterpriseBoard_view(code));
+		model.addAttribute("reserve_listCheck_cnt", service.reserve_listCheck_cnt(code));
+		model.addAttribute("waitingList", service.waiting_list(code));
+		model.addAttribute("reserveNowList", service.reserve_now_list(code));
+
 
 	}
 
@@ -98,7 +260,7 @@ public class EnterpriseController {
 	public String enterprise_waiting_page(@RequestParam("waiting_code") int code) {
 
 		service.waiting_update(code);
-		return "redirect:/enterprise/enter_page";
+		return "redirect:/enterprise/ent_page_main";
 
 	}
 
@@ -115,7 +277,14 @@ public class EnterpriseController {
 	public String enterprise_reserve_page(@RequestParam("reserve_code") int code) {
 
 		service.reserve_update(code);
-		return "redirect:/enterprise/enter_page";
+		return "redirect:/enterprise/ent_page_main";
+	}
+
+	@RequestMapping(value = "/updateReserveComfirmation_yn", method = RequestMethod.GET)
+	public String enterprise_reserveComfirmation(@RequestParam("reserve_code") int code) {
+
+		service.update_reserveConfirmation_yn(code);
+		return "redirect:/enterprise/ent_page_main";
 	}
 
 	/**
@@ -135,24 +304,7 @@ public class EnterpriseController {
 		 return "redirect:/authentication/signIn";
 	}
 
-	/**
-	 * 수정페이지에서 기업 정보 수정후 업데이트
-	 *
-	 * @param MultipartHttpServletRequest
-	 * @return String
-	 * @throws IOException, Exception
-	 */
 
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String enterprise_update(MultipartHttpServletRequest request, EnterpriseVO vo, HttpSession session) throws IOException, Exception {
-
-		String email = (String)session.getAttribute("LOGIN");
-		vo.setEnterprise_email(email);
-
-		service.enterpriseBoard_update(vo);
-		return "redirect:/enterprise/enter_page";
-
-	}
 
 	/**
 	 * 기업페이지 수정에서 이미지만 ajax로 받는 로직
@@ -229,8 +381,6 @@ public class EnterpriseController {
 
 	}
 
-
-
 	/**
 	 * 식당 게시판 전체 목록 페이지[인기순 정렬]
 	 *
@@ -277,9 +427,15 @@ public class EnterpriseController {
 		int code = service.find_enterprise_code(login_email);
 		vo.setEnterprise_code(code);
 
-		service.delete(vo);
-		session.invalidate();
-		return "redirect:/";
+		int delete = service.delete(vo);
+		if(delete == 0) {
+			return "redirect:/authentication/noPermission";
+		}else {
+			session.invalidate();
+			return "redirect:/";
+		}
+
+
 	}
 
 

@@ -23,10 +23,10 @@
 		<div class="navbar-collapse collapse" id="navbarColor02" style="">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-       				<a class="nav-link">금일 예약 : 0건</a>
+       				<a class="nav-link">금일 남은 예약 : ${ reserve_count }건</a>
      			</li>
 				<li class="nav-item">
-					<a class="nav-link">현재 대기 : 0팀</a>
+					<a class="nav-link">현재 대기 : ${ waiting_count }팀</a>
 				</li>
 				<!-- <li class="nav-item">
        				<a class="nav-link" href="/enterprise/view">지역별 업체<span class="sr-only">(current)</span></a>

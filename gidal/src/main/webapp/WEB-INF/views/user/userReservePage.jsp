@@ -4,6 +4,7 @@
 <html>
 
 <body>
+			${UserPageVO.reserveAndWaiting_code}
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<table class="table table-hover"  style = "text-align : center;">
 			<thead>
@@ -20,13 +21,29 @@
 						<tr>
 							<td><small>${UserPageVO.enterprise_businessName}</small></td>
 							<td><small>${UserPageVO.reserve_personnel}</small></td>
-							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm" value="${UserPageVO.reserve_datetime}" /></small></td>
+							<td><small>${UserPageVO.reserve_date}${UserPageVO.reserve_time}</small></td>
 							<td><small>${UserPageVO.user_name}</small></td>
 							<td>
-								<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/show?rwDiv=R&code=${ UserPageVO.reserve_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
-<%-- 								<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/show?enterprise_code=${UserPageVO.enterprise_code}&rwDiv=R&code=${ UserPageVO.reserve_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');"> --%>
-									리뷰쓰기
-								</button>
+							
+							<c:choose>
+									<c:when test="${ UserPageVO.reserve_yn eq 'Y' && UserPageVO.reserve_comfirmation eq 'Y' }">
+										<button type="button" class="btn btn-primary btn-sm disabled">리뷰쓰기</button>
+									</c:when>
+									<c:otherwise>
+										<c:choose>
+											<c:when test="${ empty UserPageVO.reserveAndWaiting_code }">
+												<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/write?rwDiv=R&code=${ UserPageVO.reserve_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
+													리뷰쓰기
+												</button>
+											</c:when>
+											<c:otherwise>
+												<button type="button" class="btn btn-secondary btn-sm" onclick="window.open('/review/view?rwDiv=R&code=${ UserPageVO.reserve_code }&rcode=${ UserPageVO.reserveAndWaiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
+													리뷰보기
+												</button>
+											</c:otherwise>
+										</c:choose>
+									</c:otherwise>
+							</c:choose>
 							</td>
 						</tr>
 					</c:forEach>

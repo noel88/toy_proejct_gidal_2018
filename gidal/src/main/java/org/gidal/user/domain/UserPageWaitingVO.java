@@ -9,8 +9,8 @@ public class UserPageWaitingVO {
 	private Date waiting_now;
 	private String user_name;
 	private int waiting_code;
-
-
+	private String reserveAndWaiting_code;
+	private String waiting_yn;
 
 
 	public int getEnterprise_code() {
@@ -48,5 +48,17 @@ public class UserPageWaitingVO {
 	}
 	public void setWaiting_code(int waiting_code) {
 		this.waiting_code = waiting_code;
+	}
+	public String getReserveAndWaiting_code() {
+		return reserveAndWaiting_code;
+	}
+	public void setReserveAndWaiting_code(String reserveAndWaiting_code) {
+		this.reserveAndWaiting_code = reserveAndWaiting_code;
+	}
+	public String getWaiting_yn() {
+		return waiting_yn;
+	}
+	public void setWaiting_yn(String waiting_yn) {
+		this.waiting_yn = waiting_yn;
 	}
 }

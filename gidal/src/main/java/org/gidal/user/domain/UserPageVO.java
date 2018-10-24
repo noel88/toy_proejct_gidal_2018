@@ -1,18 +1,21 @@
 package org.gidal.user.domain;
 
-import java.util.Date;
-
 public class UserPageVO {
 	private String enterprise_businessName; // 매장명
 	private int enterprise_code;
 	private int reserve_personnel;
-	private Date reserve_datetime;
+	private String reserve_date;
+	private String reserve_time;
 	private String user_name;
 	private int reserve_code;
+	private String reserveAndWaiting_code;
+	private String reserve_yn;
+	private String reserve_comfirmation;
 
 
 
 
+	
 	public int getEnterprise_code() {
 		return enterprise_code;
 	}
@@ -31,11 +34,17 @@ public class UserPageVO {
 	public void setReserve_personnel(int reserve_personnel) {
 		this.reserve_personnel = reserve_personnel;
 	}
-	public Date getReserve_datetime() {
-		return reserve_datetime;
+	public String getReserve_date() {
+		return reserve_date;
 	}
-	public void setReserve_datetime(Date reserve_datetime) {
-		this.reserve_datetime = reserve_datetime;
+	public void setReserve_date(String reserve_date) {
+		this.reserve_date = reserve_date;
+	}
+	public String getReserve_time() {
+		return reserve_time;
+	}
+	public void setReserve_time(String reserve_time) {
+		this.reserve_time = reserve_time;
 	}
 	public String getUser_name() {
 		return user_name;
@@ -49,5 +58,25 @@ public class UserPageVO {
 	public void setReserve_code(int reserve_code) {
 		this.reserve_code = reserve_code;
 	}
-
+	public String getReserveAndWaiting_code() {
+		return reserveAndWaiting_code;
+	}
+	public void setReserveAndWaiting_code(String reserveAndWaiting_code) {
+		this.reserveAndWaiting_code = reserveAndWaiting_code;
+	}
+	public String getReserve_yn() {
+		return reserve_yn;
+	}
+	public void setReserve_yn(String reserve_yn) {
+		this.reserve_yn = reserve_yn;
+	}
+	public String getReserve_comfirmation() {
+		return reserve_comfirmation;
+	}
+	public void setReserve_comfirmation(String reserve_comfirmation) {
+		this.reserve_comfirmation = reserve_comfirmation;
+	}
+	
+	
+	
 }

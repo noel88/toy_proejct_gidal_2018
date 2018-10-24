@@ -50,4 +50,16 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.getEnterprise_businessName(enterprise_code);
 	}
 
+
+	@Override
+	public ReviewVO readReview(String rcode) {
+		return dao.readReview(rcode);
+	}
+
+
+	@Override
+	public void reviewDelete(String rcode) {
+		dao.reviewDelete(rcode);
+	}
+
 }

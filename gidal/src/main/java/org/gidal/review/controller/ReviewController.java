@@ -20,8 +20,8 @@ public class ReviewController {
 	private ReviewService service;
 
 
-	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public String show(String rwDiv, int code, Model model) {
+	@RequestMapping(value = "write", method = RequestMethod.GET)
+	public String write(String rwDiv, int code, Model model) {
 		
 		if(rwDiv.equals("R")) {
 			ReserveVO content = new ReserveVO();
@@ -38,17 +38,48 @@ public class ReviewController {
 		}
 		
 		model.addAttribute("rwDiv", rwDiv);
-		return "review/show";
+		return "review/write";
 
 	}
+	
+	@RequestMapping(value = "view", method = RequestMethod.GET)
+	public String view(String rwDiv, int code, String rcode, Model model) {
+		
+		if(rwDiv.equals("R")) {
+			ReserveVO content = new ReserveVO();
+			content = service.reserve(code);
+			String enterprise_businessName = service.getEnterprise_businessName(content.getEnterprise_code());
+			model.addAttribute("content", content);
+			model.addAttribute("enterprise_businessName", enterprise_businessName);
+		} else {
+			WaitingVO content = new WaitingVO();
+			content = service.waiting(code);
+			String enterprise_businessName = service.getEnterprise_businessName(content.getEnterprise_code());
+			model.addAttribute("content", content);
+			model.addAttribute("enterprise_businessName", enterprise_businessName);
+		}
+		
+		model.addAttribute("review_content", service.readReview(rcode));
+		model.addAttribute("rwDiv", rwDiv);
+		return "review/view";
+	}
+	
 	@RequestMapping(value = "/userReview", method = RequestMethod.POST)
 	public String userReview(ReviewVO vo, Model model, HttpSession session) {
-
+		
+		vo.setUser_email((String) session.getAttribute("LOGIN"));
 		service.userReview(vo);
-		model.addAttribute("review",vo);
-	    return "redirect:/user/userpage";
+		
+		return "/review/success";
 	}
 
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(String rcode, Model model) {
+		
+		service.reviewDelete(rcode);
+		return "/review/success";
+	}
+	
 
 
 }

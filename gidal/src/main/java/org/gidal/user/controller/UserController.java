@@ -63,9 +63,12 @@ public class UserController {
 		int UserPageWaitingCount = service.UserPageWaitingCount();
 		String user_email = (String)session.getAttribute("LOGIN");
 		model.addAttribute("pageInfo", service.pageInfo(page, LIMIT, UserPageReserveCount));
-		model.addAttribute("list",service.UserPageReserve(page,user_email));
+		model.addAttribute("list",service.UserPageReserve(page, user_email));
+		
+		
+		
 		model.addAttribute("pageInfo1", service.pageInfo(page, LIMIT, UserPageWaitingCount));
-		model.addAttribute("list1",service.UserPageWaiting(page,user_email));
+		model.addAttribute("list1",service.UserPageWaiting(page, user_email));
 	
 		return model;
 	}

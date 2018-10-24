@@ -26,9 +26,9 @@
 		update review set review_commandText = #{review_commandText} where review_code = #{review_code}
 	</update>
 
-	<delete id="reviewDelete">
+	<!-- <delete id="reviewDelete">
 		delete from review where user_email = #{user_email}
-	</delete>
+	</delete> -->
 
 	<select id="ent_review_waiting" resultType="org.gidal.review.domain.ReviewVO">
 		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_code like 'w%'
@@ -66,5 +66,19 @@
 			enterprise_code = #{enterprise_code};
 	</select>
 
+	<select id="readReview" resultType="org.gidal.review.domain.ReviewVO">
+		SELECT 
+			* 
+		FROM 
+			review 
+		WHERE 
+			reserveAndWaiting_code = #{reserveAndWaiting_code};
+	</select>
+	
+	<delete id="reviewDelete">
+		DELETE FROM 
+			review 
+		WHERE reserveAndWaiting_code = #{reserveAndWaiting_code};
+	</delete>
 
 </mapper>

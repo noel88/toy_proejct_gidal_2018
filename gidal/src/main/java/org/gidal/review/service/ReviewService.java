@@ -13,4 +13,6 @@ public interface ReviewService {
 	public ReserveVO reserve(Integer code);
 	public WaitingVO waiting(Integer code);
 	public String getEnterprise_businessName(int enterprise_code);
+	public ReviewVO readReview(String rcode);
+	public void reviewDelete(String rcode);
 }

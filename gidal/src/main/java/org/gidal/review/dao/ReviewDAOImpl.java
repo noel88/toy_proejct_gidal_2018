@@ -50,6 +50,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 		return sqlsession.selectOne(namespace + ".getEnterprise_businessName", enterprise_code);
 	}
 
+	@Override
+	public ReviewVO readReview(String rcode) {
+		return sqlsession.selectOne(namespace + ".readReview", rcode);
+	}
+
+	@Override
+	public void reviewDelete(String rcode) {
+		sqlsession.delete(namespace + ".reviewDelete", rcode);
+	}
+
 
 
 }

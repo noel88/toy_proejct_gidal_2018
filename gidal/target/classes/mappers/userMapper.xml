@@ -25,11 +25,21 @@
 	</delete>
 
 
-	<select id="UserPageReserve" resultType="org.gidal.user.domain.UserPageVO">
-		select a.enterprise_code, a.enterprise_businessName, b.reserve_personnel, b.reserve_datetime, b.user_name, b.reserve_code
-		from enterprise a inner join reserve b
-		on a.enterprise_code = b.enterprise_code
-		where user_name =(select user_name from user where user_email=#{user_email})
+	<select id="UserPageReserve" parameterType="org.gidal.user.domain.SessionPageVO" resultType="org.gidal.user.domain.UserPageVO">
+		SELECT 
+			r1.*, r2.reserveAndWaiting_code, e.enterprise_businessName 
+		FROM 
+			reserve r1 LEFT JOIN review r2 
+		ON 
+			r1.reserve_code = SUBSTRING(
+				r2.reserveAndWaiting_code, INSTR(r2.reserveAndWaiting_code, '_')+1, 
+				CHAR_LENGTH(r2.reserveAndWaiting_code)) 
+			AND r2.reserveAndWaiting_code LIKE ('R%') 
+		LEFT JOIN enterprise e 
+		ON r1.enterprise_code = e.enterprise_code 
+		WHERE 
+			r1.user_name = (SELECT user_name FROM user WHERE user_email = #{user_email}) 
+			AND r1.user_phoneNum = (SELECT user_phoneNum FROM user WHERE user_email = #{user_email}) 
 		ORDER BY
 			reserve_code DESC
 		LIMIT
@@ -46,14 +56,24 @@
 		]]>
 	</select>
 
-	<select id="UserPageWaiting" resultType="org.gidal.user.domain.UserPageWaitingVO">
-			select a.enterprise_code, a.enterprise_businessName, b.waiting_personnel, b.waiting_now, b.user_name, b.waiting_code
-			from enterprise a inner join waiting b
-			on a.enterprise_code = b.enterprise_code
-			where user_name =(select user_name from user where user_email=#{user_email})
-			ORDER BY
+	<select id="UserPageWaiting" parameterType="org.gidal.user.domain.SessionPageVO" resultType="org.gidal.user.domain.UserPageWaitingVO">
+		SELECT 
+			w.*, r.reserveAndWaiting_code, e.enterprise_businessName 
+		FROM 
+			waiting w LEFT JOIN review r 
+		ON 
+			w.waiting_code = SUBSTRING(
+				r.reserveAndWaiting_code, INSTR(r.reserveAndWaiting_code, '_')+1, 
+				CHAR_LENGTH(r.reserveAndWaiting_code)) 
+			AND r.reserveAndWaiting_code LIKE ('W%') 
+		LEFT JOIN enterprise e 
+		ON w.enterprise_code = e.enterprise_code 
+		WHERE 
+			w.user_name = (SELECT user_name FROM user WHERE user_email = #{user_email}) 
+			AND w.user_phoneNum = (SELECT user_phoneNum FROM user WHERE user_email = #{user_email}) 
+		ORDER BY
 			waiting_code DESC
-			LIMIT
+		LIMIT
 			#{startRow}, 10;
 	</select>
 

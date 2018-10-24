@@ -11,16 +11,18 @@
 </head>
 <body>
 
-	<form action = "userReview">
-		<input type="hidden"  name="enterprise_code" value="${code}" >
+	<form action = "userReview" method = "post">
+		<input type="hidden"  name="enterprise_code" value="${ content.enterprise_code}" >
 		<div class="card mb-3">
 			<h3 class="card-header">
 				<c:choose>
 					<c:when test="${ rwDiv eq 'R' }">
 						예약리뷰 등록				
+						<input type="hidden"  name="reserveAndWaiting_code" value="${ rwDiv}_${ content.reserve_code }" >
 					</c:when>
 					<c:otherwise>
 						웨이팅리뷰 등록
+						<input type="hidden"  name="reserveAndWaiting_code" value="${ rwDiv }_${ content.waiting_code }" >
 					</c:otherwise>
 				</c:choose>
 			</h3>
@@ -28,7 +30,7 @@
 				<h5 class="card-title">업체명 : ${ enterprise_businessName }</h5>
 				<c:choose>
 					<c:when test="${ rwDiv eq 'R' }">
-						<h6 class="card-subtitle text-muted">예약시간 : ${ content.reserve_datetime }</h6>
+						<h6 class="card-subtitle text-muted">예약시간 : ${ content.reserve_date }/${ content.reserve_time }</h6>
 						<p />
 						<h6 class="card-subtitle text-muted">예약인원 : ${ content.reserve_personnel }명</h6>
 					</c:when>
@@ -53,7 +55,7 @@
 					</select>
 				</p>
 				<p>
-					<textarea class="form-control" name = "review_text" placeholder="리뷰 내용" id="inputDefault" rows = "10" style="resize: none;"></textarea>
+					<textarea class="form-control" name = "review_text" placeholder="리뷰 내용" id="inputDefault" rows = "5" style="resize: none;"></textarea>
 				</p>
 			</div>
 			<div class="card-footer text-muted">

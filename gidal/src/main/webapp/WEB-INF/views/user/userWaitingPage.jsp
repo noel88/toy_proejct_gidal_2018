@@ -24,10 +24,25 @@
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${UserPageWaitingVO.waiting_now}" /></small></td>
 							<td><small>${UserPageWaitingVO.user_name}</small></td>
 							<td>
-								<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/show?rwDiv=W&code=${ UserPageWaitingVO.waiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
-<%-- 								<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/show?enterprise_code=${UserPageWaitingVO.enterprise_code}&rwDiv=W&code=${ UserPageWaitingVO.waiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');"> --%>
-									리뷰쓰기
-								</button>
+								<c:choose>
+									<c:when test="${ UserPageWaitingVO.waiting_yn eq 'Y' }">
+										<button type="button" class="btn btn-primary btn-sm disabled">리뷰쓰기</button>
+									</c:when>
+									<c:otherwise>
+										<c:choose>
+											<c:when test="${ empty UserPageWaitingVO.reserveAndWaiting_code }">
+												<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/write?rwDiv=W&code=${ UserPageWaitingVO.waiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
+													리뷰쓰기
+												</button>
+											</c:when>
+											<c:otherwise>
+												<button type="button" class="btn btn-secondary btn-sm" onclick="window.open('/review/view?rwDiv=W&code=${ UserPageWaitingVO.waiting_code }&rcode=${ UserPageWaitingVO.reserveAndWaiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
+													리뷰보기
+												</button>
+											</c:otherwise>
+										</c:choose>
+									</c:otherwise>
+								</c:choose>
 							</td>
 						</tr>
 					</c:forEach>

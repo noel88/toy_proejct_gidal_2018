@@ -8,6 +8,7 @@ public class UserPageVO {
 	private int reserve_personnel;
 	private Date reserve_datetime;
 	private String user_name;
+	private int reserve_code;
 
 
 
@@ -41,6 +42,12 @@ public class UserPageVO {
 	}
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+	}
+	public int getReserve_code() {
+		return reserve_code;
+	}
+	public void setReserve_code(int reserve_code) {
+		this.reserve_code = reserve_code;
 	}
 
 }

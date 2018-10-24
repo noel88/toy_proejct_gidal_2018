@@ -38,6 +38,33 @@
 		select * from review where enterprise_code = #{enterprise_code} and reserveAndWaiting_code like 'r%'
 	</select>
 	
+	
+	<select id="reserve" resultType="org.gidal.reserve.domain.ReserveVO">
+		SELECT 
+			* 
+		FROM 
+			reserve 
+		WHERE 
+			reserve_code = #{code};
+	</select>
+
+	<select id="waiting" resultType="org.gidal.waiting.domain.WaitingVO">
+		SELECT 
+			* 
+		FROM 
+			waiting 
+		WHERE 
+			waiting_code = #{code};
+	</select>
+	
+	<select id="getEnterprise_businessName" resultType="java.lang.String">
+		SELECT 
+			enterprise_businessName 
+		FROM 
+			enterprise 
+		WHERE 
+			enterprise_code = #{enterprise_code};
+	</select>
 
 
 </mapper>

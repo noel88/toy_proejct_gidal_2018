@@ -23,7 +23,12 @@
 							<td><small>${UserPageWaitingVO.waiting_personnel}</small></td>
 							<td><small><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${UserPageWaitingVO.waiting_now}" /></small></td>
 							<td><small>${UserPageWaitingVO.user_name}</small></td>
-							<td><a href="/review/show?enterprise_code=${UserPageWaitingVO.enterprise_code}"><button type="button" class="btn btn-primary">리뷰쓰기</button></a></td>
+							<td>
+								<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/show?rwDiv=W&code=${ UserPageWaitingVO.waiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
+<%-- 								<button type="button" class="btn btn-primary btn-sm" onclick="window.open('/review/show?enterprise_code=${UserPageWaitingVO.enterprise_code}&rwDiv=W&code=${ UserPageWaitingVO.waiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');"> --%>
+									리뷰쓰기
+								</button>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

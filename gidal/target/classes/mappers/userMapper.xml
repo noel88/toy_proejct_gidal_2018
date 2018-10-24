@@ -26,7 +26,7 @@
 
 
 	<select id="UserPageReserve" resultType="org.gidal.user.domain.UserPageVO">
-		select a.enterprise_code, a.enterprise_businessName,b.reserve_personnel,b.reserve_datetime,b.user_name
+		select a.enterprise_code, a.enterprise_businessName, b.reserve_personnel, b.reserve_datetime, b.user_name, b.reserve_code
 		from enterprise a inner join reserve b
 		on a.enterprise_code = b.enterprise_code
 		where user_name =(select user_name from user where user_email=#{user_email})
@@ -47,7 +47,7 @@
 	</select>
 
 	<select id="UserPageWaiting" resultType="org.gidal.user.domain.UserPageWaitingVO">
-			select a.enterprise_code, a.enterprise_businessName,b.waiting_personnel,b.waiting_now,b.user_name
+			select a.enterprise_code, a.enterprise_businessName, b.waiting_personnel, b.waiting_now, b.user_name, b.waiting_code
 			from enterprise a inner join waiting b
 			on a.enterprise_code = b.enterprise_code
 			where user_name =(select user_name from user where user_email=#{user_email})

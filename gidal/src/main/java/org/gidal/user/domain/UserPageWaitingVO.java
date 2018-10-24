@@ -8,6 +8,7 @@ public class UserPageWaitingVO {
 	private int waiting_personnel;
 	private Date waiting_now;
 	private String user_name;
+	private int waiting_code;
 
 
 
@@ -41,5 +42,11 @@ public class UserPageWaitingVO {
 	}
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+	}
+	public int getWaiting_code() {
+		return waiting_code;
+	}
+	public void setWaiting_code(int waiting_code) {
+		this.waiting_code = waiting_code;
 	}
 }

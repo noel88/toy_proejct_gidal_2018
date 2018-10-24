@@ -6,36 +6,61 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>기달</title>
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 </head>
 <body>
 
-<%@ include file = "/WEB-INF/views/include/nav.jsp" %>
+	<form action = "userReview">
+		<input type="hidden"  name="enterprise_code" value="${code}" >
+		<div class="card mb-3">
+			<h3 class="card-header">
+				<c:choose>
+					<c:when test="${ rwDiv eq 'R' }">
+						예약리뷰 등록				
+					</c:when>
+					<c:otherwise>
+						웨이팅리뷰 등록
+					</c:otherwise>
+				</c:choose>
+			</h3>
+			<div class="card-body">
+				<h5 class="card-title">업체명 : ${ enterprise_businessName }</h5>
+				<c:choose>
+					<c:when test="${ rwDiv eq 'R' }">
+						<h6 class="card-subtitle text-muted">예약시간 : ${ content.reserve_datetime }</h6>
+						<p />
+						<h6 class="card-subtitle text-muted">예약인원 : ${ content.reserve_personnel }명</h6>
+					</c:when>
+					<c:otherwise>
+						<c:set var = "dot" value = "${ fn:indexOf(content.waiting_now, '.') }"></c:set>
+						<c:set var = "time" value = "${ fn:substring(content.waiting_now, 0, dot)}"></c:set>
+						<h6 class="card-subtitle text-muted">웨이팅시간 : ${ time }</h6>
+						<p />
+						<h6 class="card-subtitle text-muted">웨이팅인원 : ${ content.waiting_personnel }명</h6>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<div class="card-body">
+				<p class="card-text">
+					<select class="custom-select" name = "review_scope">
+						<option value="0">☆☆☆☆☆</option>
+						<option value="1">★☆☆☆☆</option>
+						<option value="2">★★☆☆☆</option>
+						<option value="3">★★★☆☆</option>
+						<option value="4">★★★★☆</option>
+						<option value="5">★★★★★</option>
+					</select>
+				</p>
+				<p>
+					<textarea class="form-control" name = "review_text" placeholder="리뷰 내용" id="inputDefault" rows = "10" style="resize: none;"></textarea>
+				</p>
+			</div>
+			<div class="card-footer text-muted">
+				<button type="submit" class="form-control btn btn-primary">리뷰 등록</button>
+			</div>
+		</div>
+	</form>
 
-
-
-<div style="width: 50%; margin-right: auto; margin-left: auto;">
-<h2>리뷰</h2>
-<form action = "userReview" onsubmit="return tocheckpw2()" data-ajax="false" method = "post" onsubmit="return join();">
-    <textarea rows="5" cols="50" name="review_text"></textarea>
-    <br/>
-    <input type="hidden"  name="user_email" value="${LOGIN}" >
-    <input type="hidden"  name="enterprise_code" value="${code}" >
-     <!-- 평점 선택창 -->
-    <label >평점: </label>
-    <select name="review_scope">
-        <option value="0">☆☆☆☆☆</option>
-        <option value="1">★☆☆☆☆</option>
-        <option value="2">★★☆☆☆</option>
-        <option value="3">★★★☆☆</option>
-        <option value="4">★★★★☆</option>
-        <option value="5">★★★★★</option>
-    </select>
-
-    <button class="form-control btn btn-primary" type="submit">리뷰 등록</button>
-
-</form>
-</div>
 </body>
 </html>

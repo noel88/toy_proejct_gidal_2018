@@ -79,7 +79,7 @@
 						
 					</p>
 					<p>
-						<button type="submit" class="btn btn-primary btn-lg btn-block "  >정보수정</button>
+						<button type="submit" class="form-control btn btn-primary">정보수정</button>
 					</p>
 				</form>
 			</div>

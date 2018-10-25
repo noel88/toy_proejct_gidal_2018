@@ -199,6 +199,9 @@
 		select ifnull(count(*),0) from review where enterprise_code = #{enterprise_code}
 	</select>
 
+	<select id="list_cnt" resultType="Integer">
+		select ifnull(count(*),0) from enterprise where enterprise_businessName is not null
+	</select>
 
 
 </mapper>

@@ -276,9 +276,7 @@ a.article:hover {
                 <li>
                     <a href="entDelete">탈퇴하기</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+
             </ul>
         </nav>
 

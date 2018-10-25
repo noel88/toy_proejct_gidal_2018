@@ -359,6 +359,11 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		return dao.total_review_cnt(code);
 	}
 
+	@Override
+	public int list_cnt() {
+		return dao.list_cnt();
+	}
+
 
 
 }

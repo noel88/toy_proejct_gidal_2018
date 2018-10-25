@@ -43,7 +43,7 @@ public interface EnterpriseService {
 	public int total_reserve_cnt(Integer code);
 	public int total_waiting_cnt(Integer code);
 	public int total_review_cnt(Integer code);
-
+	public int list_cnt();
 
 
 

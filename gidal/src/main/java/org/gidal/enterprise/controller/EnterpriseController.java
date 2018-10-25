@@ -411,6 +411,8 @@ public class EnterpriseController {
 			return "redirect:/authentication/signIn";
 		}else {
 			model.addAttribute("list", service.enterpriseBoard_list());
+			model.addAttribute("list_cnt", service.list_cnt());
+
 			return "/enterprise/enterpriseBoardView";
 		}
 
@@ -440,7 +442,7 @@ public class EnterpriseController {
 
 	@RequestMapping(value = "/popular", method = RequestMethod.GET)
 	public String enterprise_popular(Model model, HttpSession session) {
-
+			model.addAttribute("list_cnt", service.list_cnt());
 			model.addAttribute("popular", service.ent_popular());
 			return "/enterprise/enterpriseBoardView_pop";
 

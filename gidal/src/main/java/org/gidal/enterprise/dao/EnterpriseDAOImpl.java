@@ -217,6 +217,11 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 		sqlsession.delete(namespace + ".enterprise_reserve_delete", code);
 	}
 
+	@Override
+	public int list_cnt() {
+		return sqlsession.selectOne(namespace + ".list_cnt");
+	}
+
 
 
 

@@ -27,7 +27,7 @@
 		<a class="nav-link" data-toggle="tab" href="#waiting">웨이팅목록</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#update">유저정보수정</a>
+		<a class="nav-link" data-toggle="tab" href="#update">비밀번호변경</a>
 		</li>
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#delete">유저탈퇴</a>

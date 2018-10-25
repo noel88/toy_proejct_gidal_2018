@@ -3,16 +3,13 @@ package org.gidal.user.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.user.domain.UserVO;
 import org.gidal.user.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -49,37 +46,34 @@ public class UserController {
 	//이메일 중복확인
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int idCheck(UserVO vo, Model model) {
+		
         return service.user_check(vo);
     }
 
-
-
-
-	
-
 	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
-	public Model userpage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model,HttpSession session)throws Exception{
+	public String userpage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model, HttpSession session)throws Exception{
 		int UserPageReserveCount = service.UserPageReserveCount();
 		int UserPageWaitingCount = service.UserPageWaitingCount();
 		String user_email = (String)session.getAttribute("LOGIN");
-		model.addAttribute("pageInfo", service.pageInfo(page, LIMIT, UserPageReserveCount));
-		model.addAttribute("list",service.UserPageReserve(page, user_email));
 		
-		
-		
-		model.addAttribute("pageInfo1", service.pageInfo(page, LIMIT, UserPageWaitingCount));
-		model.addAttribute("list1",service.UserPageWaiting(page, user_email));
+		if(user_email != null) {
+			model.addAttribute("pageInfo", service.pageInfo(page, LIMIT, UserPageReserveCount));
+			model.addAttribute("list",service.UserPageReserve(page, user_email));
+			model.addAttribute("pageInfo1", service.pageInfo(page, LIMIT, UserPageWaitingCount));
+			model.addAttribute("list1",service.UserPageWaiting(page, user_email));
+			
+			return "user/userpage";
+		} else {
+			return "redirect:/authentication/signIn";
+		}
 	
-		return model;
 	}
 
 	@RequestMapping(value = "/userReservePage", method = RequestMethod.GET)
 	public void userReservePage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model,HttpSession session)throws Exception  {
 		int UserPageReserveCount = service.UserPageReserveCount();
 		String user_email = (String)session.getAttribute("LOGIN");
-		
-		
-	
+
 		model.addAttribute("pageInfo", service.pageInfo(page, LIMIT, UserPageReserveCount));
 		
 		model.addAttribute("list",service.UserPageReserve(page,user_email));
@@ -103,23 +97,30 @@ public class UserController {
 		return "redirect:/";
 
 	}
+	
 	@RequestMapping(value = "/userReviseForm", method = RequestMethod.GET)
 	public String userReviseForm() {
 
 		return "user/userRevise";
 
 	}
+	
 	@RequestMapping(value = "/userDeleteForm", method = RequestMethod.GET)
 	public String userDeleteForm() {
 
 		return "user/userDelete";
 
 	}
+	
 	@RequestMapping(value = "/userDelete", method = RequestMethod.POST)
 	public String userDelete(UserVO vo,HttpSession session) {
-		service.userDelete(vo);
-		session.invalidate();
-		return "redirect:/";
+		int result = service.userDelete(vo);
+		if(result > 0) {
+			session.invalidate();
+			return "user/userDeleteResult";
+		} else {
+			return "redirect:/authentication/noPermission";
+		}
 
 	}
 

@@ -21,7 +21,7 @@
 	</update> -->
 
 	<delete id="userDelete">
-		DELETE FROM `gidal`.`user` WHERE  `user_email`=#{user_email} and user_password = #{user_password}; 
+		DELETE FROM user WHERE user_email=#{user_email} and user_password = #{user_password}; 
 	</delete>
 
 
@@ -93,12 +93,15 @@
 
 		]]>
 	</select>
-
-	<insert id="userRevise">
-		UPDATE `gidal`.`user`
-		SET  `user_phoneNum`=#{user_phoneNum},`user_password`=#{user_password}, `user_name`=#{user_name}
-		WHERE  `user_email`=#{user_email};
-	</insert>
+	
+	<update id="userRevise">
+		UPDATE 
+			user 
+		SET 
+			user_password=#{user_password} 
+		WHERE 
+			user_email=#{user_email};
+	</update>
 
 	</mapper>
 

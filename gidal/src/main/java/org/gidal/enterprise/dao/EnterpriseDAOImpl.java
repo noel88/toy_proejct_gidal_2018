@@ -171,6 +171,21 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	}
 
+	@Override
+	public int total_reserve_cnt(Integer code) {
+		return sqlsession.selectOne(namespace + ".total_reserve_cnt", code);
+	}
+
+	@Override
+	public int total_waiting_cnt(Integer code) {
+		return sqlsession.selectOne(namespace + ".total_waiting_cnt", code);
+	}
+
+	@Override
+	public int total_review_cnt(Integer code) {
+		return sqlsession.selectOne(namespace + ".total_review_cnt", code);
+	}
+
 
 
 

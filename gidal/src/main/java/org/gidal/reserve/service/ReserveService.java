@@ -9,7 +9,7 @@ import org.gidal.user.domain.UserVO;
 
 public interface ReserveService {
 
-	public int reserve_insert(ReserveVO vo);
+	public int reserve_insert(ReserveVO vo) throws Exception;
 	public EnterpriseVO selectOne(Integer code);
 	public UserVO  selectOne(String str);
 

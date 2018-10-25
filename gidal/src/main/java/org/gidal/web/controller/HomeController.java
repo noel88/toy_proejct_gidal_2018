@@ -7,6 +7,7 @@ import java.util.Locale;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.gidal.enterprise.service.EnterpriseService;
 import org.gidal.event.domain.EventVO;
@@ -35,14 +36,16 @@ public class HomeController extends HandlerInterceptorAdapter{
 	    public boolean preHandle(HttpServletRequest request,
 	            HttpServletResponse response, Object handler) throws Exception {
 	        System.out.println("preHandle executed");
-	        return true;
+	      return true;
 	    }
+
 	  	//모든창에서 검색 자동완성되게끔.
 	    @Override
 	    public void postHandle(HttpServletRequest request,
 	            HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-	    	modelAndView.addObject("lists", service.seachKeyword());
-	        System.out.println("postHandle executed");
+	    		request.setAttribute("lists", service.seachKeyword());
+	    		//modelAndView.addObject("lists", service.seachKeyword());
+
 	    }
 
 	    @Override

@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>기달</title>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -203,15 +204,15 @@ a.article:hover {
     CONTENT STYLE
 ----------------------------------------------------- */
 
-/*  #content {
+/*   #content {
     width: 100%;
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
     top: 0;
-    right: 0;
-} */
+    right: 0; */
+}
 </style>
 
 </head>

@@ -3,6 +3,7 @@ package org.gidal.reserve.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+
 import org.gidal.enterprise.service.EnterpriseService;
 import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.reserve.service.ReserveService;
@@ -43,13 +44,13 @@ public class ReserveController {
 		model.addAttribute(ent.enterpriseBoard_view(code));
 		session.setAttribute("user", service.selectOne(email));
 		model.addAttribute(service.selectOne(code));
-		model.addAttribute("review_reserve", re.ent_review_reserve(code));
 			return "/reserve/reserve";
 		}
 
 	}
 
 	/**
+	 * @throws Exception
 	 * 예약 처리 메소드
 	 *
 	 * @param ReserveVO
@@ -57,11 +58,11 @@ public class ReserveController {
 	 * @throws
 	 */
 
+
 	@RequestMapping(value = "/reserve_insert", method = RequestMethod.GET)
-	public String reserve_insert(ReserveVO vo) {
+	public String reserve_insert(ReserveVO vo) throws Exception {
 
 		service.reserve_insert(vo);
-
 		 return "/reserve/success";
 	}
 

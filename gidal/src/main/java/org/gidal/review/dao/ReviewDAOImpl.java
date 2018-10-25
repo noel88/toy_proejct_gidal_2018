@@ -26,14 +26,10 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<ReviewVO> ent_review_waiting(Integer code) {
-		return sqlsession.selectList(namespace + ".ent_review_waiting", code);
+	public List<ReviewVO> ent_review(Integer code) {
+		return sqlsession.selectList(namespace + ".ent_review", code);
 	}
 
-	@Override
-	public List<ReviewVO> ent_review_reserve(Integer code) {
-		return sqlsession.selectList(namespace + ".ent_review_reserve", code);
-	}
 
 	@Override
 	public ReserveVO reserve(Integer code) {

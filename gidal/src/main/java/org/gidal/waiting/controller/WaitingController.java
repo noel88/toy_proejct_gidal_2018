@@ -46,7 +46,7 @@ public class WaitingController {
 		model.addAttribute(service.selectOne(code));
 		model.addAttribute("list",service.waiting_view(code));
 		model.addAttribute("count",service.waiting_count(code));
-		model.addAttribute("review_waiting", re.ent_review_waiting(code));
+
 
 		return "/waiting/waiting";
 		}

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
 </style>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="/resources/js/addressapi.js"></script>
+<!-- <script src="/resources/js/addressapi.js"></script> -->
 
 <%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
 
@@ -238,7 +239,7 @@ function execPostCode() {
 						 	<div id="fileUpload" class="dragAndDropDiv"><h5 style="margin-top: 40px;">추가할 사진을 드래그해주세요.</h5></div>
 
 
-				</form>
+
 
 					 <p>
 						<label class="col-form-label" for="inputDefault">매장명</label>
@@ -328,9 +329,8 @@ function execPostCode() {
 							<option value = "3">웨이팅 + 예약 서비스</option>
 						</select>
 
-					</p>
 					<p>
-						<button type="submit" class="form-control btn btn-primary signupbtn"  disabled="disabled">매장등록</button>
+						<button type="submit" class="form-control btn btn-primary signupbtn">매장등록</button>
 					</p>
 				</form>
 

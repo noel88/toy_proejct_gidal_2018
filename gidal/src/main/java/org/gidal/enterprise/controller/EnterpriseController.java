@@ -42,6 +42,7 @@ public class EnterpriseController {
 
 
 	@Inject private EnterpriseService service;
+	@Inject private ReviewService re;
 
 
 
@@ -84,13 +85,13 @@ public class EnterpriseController {
 	 * @throws
 	 */
 
-	@RequestMapping(value = "/entDetailUpdate", method = RequestMethod.GET)
+	@RequestMapping(value = "/entDetailUpdate", method = RequestMethod.	POST)
 	public String enterprise_detailUpdate(HttpSession session, EnterpriseVO vo) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		vo.setEnterprise_email(login_email);
 
 		service.ent_detail_update(vo);
-		return "/enterprise/ent_main_page";
+		return "/enterprise/ent_page_main";
 
 	}
 
@@ -276,10 +277,14 @@ public class EnterpriseController {
 		// 현재 남은 예약 및 대기목록 조회
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
-		model.addAttribute("list", service.enterpriseBoard_view(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		model.addAttribute("reserve_listCheck_cnt", service.reserve_listCheck_cnt(code));
 		model.addAttribute("waitingList", service.waiting_list(code));
 		model.addAttribute("reserveNowList", service.reserve_now_list(code));
+		model.addAttribute("total_reserve_cnt", service.total_reserve_cnt(code));
+		model.addAttribute("total_waiting_cnt", service.total_waiting_cnt(code));
+		model.addAttribute("total_review_cnt", service.total_review_cnt(code));
+
 
 
 	}
@@ -415,6 +420,11 @@ public class EnterpriseController {
 	public void enterprise_details(Model model, @RequestParam("enterprise_code") int enterprise_code) {
 
 			model.addAttribute(service.enterpriseBoard_view(enterprise_code));
+			model.addAttribute("review",re.ent_review(enterprise_code));
+			model.addAttribute("total_reserve_cnt", service.total_reserve_cnt(enterprise_code));
+			model.addAttribute("total_waiting_cnt", service.total_waiting_cnt(enterprise_code));
+			model.addAttribute("total_review_cnt", service.total_review_cnt(enterprise_code));
+
 
 	}
 

@@ -31,7 +31,8 @@
 	</select>
 
 	<select id="allInfo_enterprise" resultType="org.gidal.enterprise.domain.EnterpriseVO">
-		select * from enterprise where enterprise_code = #{enterprise_code}
+		select *, truncate(round(sum(r.review_scope)/(select ifnull(count(*),0) from review where enterprise_code = e.enterprise_code) * 2) / 2,1) as review_scope
+		from enterprise e left join review r on e.enterprise_code = r.enterprise_code where e.enterprise_code = #{enterprise_code}
 	</select>
 
 	<update id="enterprise_update">
@@ -163,6 +164,17 @@
 		update review set enterprise_text = null where review_code = #{review_code}
 	</update>
 
+	<select id="total_reserve_cnt" resultType="Integer">
+		select ifnull(count(*),0) from reserve where enterprise_code = #{enterprise_code}
+	</select>
+
+	<select id="total_waiting_cnt" resultType="Integer">
+		select ifnull(count(*),0) from waiting where enterprise_code = #{enterprise_code}
+	</select>
+
+	<select id="total_review_cnt" resultType="Integer">
+		select ifnull(count(*),0) from review where enterprise_code = #{enterprise_code}
+	</select>
 
 
 

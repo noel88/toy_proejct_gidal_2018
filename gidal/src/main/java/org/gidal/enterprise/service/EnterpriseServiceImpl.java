@@ -315,6 +315,21 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	}
 
+	@Override
+	public int total_reserve_cnt(Integer code) {
+		return dao.total_reserve_cnt(code);
+	}
+
+	@Override
+	public int total_waiting_cnt(Integer code) {
+		return dao.total_waiting_cnt(code);
+	}
+
+	@Override
+	public int total_review_cnt(Integer code) {
+		return dao.total_review_cnt(code);
+	}
+
 
 
 }

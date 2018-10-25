@@ -39,6 +39,9 @@ public interface EnterpriseDAO {
 	public JoinEntReviewVO findReview(Integer code);
 	public void entReply(ReviewVO vo);
 	public void delReply(Integer code);
+	public int total_reserve_cnt(Integer code);
+	public int total_waiting_cnt(Integer code);
+	public int total_review_cnt(Integer code);
 
 
 

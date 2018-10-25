@@ -18,9 +18,37 @@
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
-	<p>확인해야할 예약 사항 ${reserve_listCheck_cnt}건</p>
+	<p style="text-align: center; float: right;">확인해야할 예약 사항 ${reserve_listCheck_cnt}건</p>
 	<div style= "width:100%; auto; margin-left: auto;">
 
+
+	<table class="table" style = " margin-top : 10px; margin-left: auto; margin-right: auto;">
+
+
+	<tr>
+		<td colspan="3" style="text-align: center;"><h2><small class="text-muted">[${enterpriseVO.enterprise_sectors}]</small> ${enterpriseVO.enterprise_businessName}</h2>
+		총 예약 ${total_reserve_cnt}건 웨이팅 ${total_waiting_cnt}건 리뷰 ${total_review_cnt}건</td>
+	</tr>
+	<tr>
+		<td style="width: 20%; height: 10px;">별점</td>
+		<td style="width: 30%;">${enterpriseVO.review_scope}점</td>
+		<td rowspan="6"><img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style="height : 350px;"></td>
+	</tr>
+	<tr>
+		<td style="height: 10px;">전화번호</td>
+		<td>${enterpriseVO.enterprise_phone}</td>
+	</tr>
+	<tr>
+		<td style="height: 10px;">주소</td>
+		<td>${enterpriseVO.enterprise_add2}, ${enterpriseVO.enterprise_add3}</td>
+	</tr>
+	<tr>
+		<td style="height: 10px;">영업시간</td>
+		<td>${enterpriseVO.enterprise_operatingOpenTime} ~ ${enterpriseVO.enterprise_operatingCloseTime}</td>
+	</tr>
+
+
+	</table>
 
 
 			<table class="table table-hover"  style = "text-align : center;">

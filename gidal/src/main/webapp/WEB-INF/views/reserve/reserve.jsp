@@ -95,9 +95,13 @@
 				<div class="form-group">
 						<div class="row">
 							<div class = "col-md-12">
+								<c:set var="now" value="<%=new java.util.Date()%>" />
+								<c:set var="sysYear">
+									<fmt:formatDate value="${now}" pattern="yyyy/MM/dd" />
+								</c:set>
 								<label class="control-label" for="date">날짜</label>
-                                  <div class="input-group date" id="dp3" data-date="12-02-2017" data-date-format="mm-dd-yyyy">
-                                  <input name="reserve_date" id = datepicker class="form-control" type="text" value="24-10-2018">
+								<div class="input-group date" id="dp3" data-date="${sysYear}" data-date-format="yyyy/MM/dd">
+                                  <input name="reserve_date" id = datepicker class="form-control" type="text" value="${sysYear}">
                                   <span class="input-group-addon btn"><i class="glyphicon glyphicon-calendar" id="butt"></i></span>
                                 </div>
                                   </div>

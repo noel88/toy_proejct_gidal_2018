@@ -16,6 +16,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:if test = "${ empty list1}">
+						<tr>
+							<td colspan = "4"><small>웨이팅내역이 없습니다.</small></td>
+						</tr>
+					</c:if>
 					<c:forEach items="${list1}" var="UserPageWaitingVO">
 						<tr>
 							<td><small>${UserPageWaitingVO.enterprise_businessName}</small></td>
@@ -31,14 +36,14 @@
 												</button>
 											</c:when>
 											<c:otherwise>
-												<button type="button" class="btn btn-secondary btn-sm" onclick="window.open('/review/view?rwDiv=W&code=${ UserPageWaitingVO.waiting_code }&rcode=${ UserPageWaitingVO.reserveAndWaiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
+												<button type="button" class="btn btn-success btn-sm" onclick="window.open('/review/view?rwDiv=W&code=${ UserPageWaitingVO.waiting_code }&rcode=${ UserPageWaitingVO.reserveAndWaiting_code }','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">
 													리뷰보기
 												</button>
 											</c:otherwise>
 										</c:choose>
 									</c:when>
 									<c:otherwise>
-										<button type="button" class="btn btn-primary btn-sm disabled">리뷰쓰기</button>
+										<button type="button" class="btn btn-secondary btn-sm" style = "width : 74px;">입장 전</button>
 									</c:otherwise>
 								</c:choose>
 							</td>

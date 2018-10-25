@@ -12,7 +12,7 @@
 <body>
 <div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <div class="jumbotron">
-		<h1>예약리뷰목록</h1>
+		<h1>진행중인 예약목록</h1>
 
 			<hr class="my-4">
 	<div style= "width:100%; auto; margin-left: auto;">

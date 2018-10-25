@@ -27,6 +27,9 @@ public interface EnterpriseDAO {
 	public List<WaitingVO> last_waiting_list(Integer code);
 	public EnterpriseVO enterpriseBoard_view(Integer code);
 	public int delete(EnterpriseVO vo);
+	public void review_delete(Integer code);
+	public void waiting_delete(Integer code);
+	public void reserve_delete(Integer code);
 	public void enterprise_img(EnterpriseVO vo);
 	public List<EnterpriseVO> ent_best();
 	public List<EnterpriseVO> ent_popular();
@@ -43,6 +46,7 @@ public interface EnterpriseDAO {
 	public int total_reserve_cnt(Integer code);
 	public int total_waiting_cnt(Integer code);
 	public int total_review_cnt(Integer code);
+	public int list_cnt();
 	public ReserveVO findReserveUser(Integer code);
 	public EnterpriseVO findBusinessName(Integer code);
 	public UserVO findReserveUserEmail(String name);

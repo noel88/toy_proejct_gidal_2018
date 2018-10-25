@@ -108,6 +108,7 @@
 
 						<label class="col-form-label" for="inputDefault">이름</label>
                         <input type="text" class="form-control" placeholder="이름을 입력해주세요." name="enterprise_name">
+                        <input type="hidden" name="enterprise_mainImg" value = "no_image.png">
 
 
 					</p>

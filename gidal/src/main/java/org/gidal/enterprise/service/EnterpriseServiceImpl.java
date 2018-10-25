@@ -184,6 +184,9 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		String pwd = sha.getSHA256(vo.getEnterprise_password());
 
 		vo.setEnterprise_password(pwd);
+		dao.review_delete(vo.getEnterprise_code());
+		dao.reserve_delete(vo.getEnterprise_code());
+		dao.waiting_delete(vo.getEnterprise_code());
 		return dao.delete(vo);
 
 	}
@@ -354,6 +357,11 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 	@Override
 	public int total_review_cnt(Integer code) {
 		return dao.total_review_cnt(code);
+	}
+
+	@Override
+	public int list_cnt() {
+		return dao.list_cnt();
 	}
 
 

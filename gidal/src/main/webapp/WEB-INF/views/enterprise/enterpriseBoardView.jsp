@@ -480,7 +480,7 @@ h2 {
 
              <div class="row" style="margin-left: auto; margin-right: auto;">
                  <div class="col-lg-12 col-lg-offset-3 text-center" >
-                    <h2><span class="ion-minus"></span>총 0개의 식당이 있습니다.<span class="ion-minus"></span></h2>
+                    <h2><span class="ion-minus"></span>총 ${list_cnt}개의 식당이 등록되어 있습니다.<span class="ion-minus"></span></h2>
 						<p>원하는 식당을 선택하여 웨이팅하거나 예약할 수 있습니다.</p>
                  </div>
             </div>

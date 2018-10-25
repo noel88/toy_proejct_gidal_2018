@@ -490,7 +490,7 @@ h2 {
 
 				      		<select class="form-control" name = "local1" onchange="setCategory2()">
 
-				        		<option value = "">-- 지역 선택 --</option>
+				        		<option value = "">-- 지역 --</option>
 				        		<option value = "서울" <c:if test = "${filter.local1 eq '서울'}" > selected = "selected" </c:if>>서울특별시</option>
 				        		<option value = "부산" <c:if test = "${filter.local1 eq '부산'}" > selected = "selected" </c:if>>부산광역시</option>
 				        		<option value = "대구" <c:if test = "${filter.local1 eq '대구'}" > selected = "selected" </c:if>>대구광역시</option>
@@ -513,7 +513,7 @@ h2 {
 			<td>
 
 				<select class="form-control" name = "local2" onchange = "settext(this.options[this.selectedIndex].value)">
-			    	<option value="">-- 구 선택 --</option>
+			    	<option value="">-- 구 --</option>
 
 				</select>
 
@@ -522,7 +522,7 @@ h2 {
 
 	<td>
 		<select class = "form-control" name = "food">
-		    <option value="">-- 음식선택 --</option>
+		    <option value="">-- 음식 --</option>
 		    <option value="">음식전체</option>
 <%-- 		<option value="default" <c:if test = "${filter.food eq 'default'}" > selected = "selected" </c:if>>음식전체</option> --%>
 		    <option value="양식" <c:if test = "${filter.food eq '양식'}" > selected = "selected" </c:if>>양식</option>
@@ -554,6 +554,9 @@ h2 {
       <div class="container">
 
            <div class="row" style="clear: both;">
+           <c:if test = "${ fn:length(filter_list) == 0 }">
+           		<h5 style="text-align: center; margin-top: 30px;">등록된 식당이 없습니다.</h5>
+           </c:if>
 <c:forEach items = "${filter_list}" var = "EnterpriseVO">
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">

@@ -3,12 +3,8 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
-
-
 
   //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
     function checkPwd() {
@@ -24,7 +20,7 @@
         else if (inputed == reinputed) {
             $("#repwd").css("background-color", "#fcfadb");
             pwdCheck = 1;
-            if(idCheck==1 && pwdCheck == 1) {
+            if(pwdCheck == 1) {
                 $(".signupbtn").prop("disabled", false);
                 $(".signupbtn").css("background-color", "#ff7777");
             }
@@ -45,23 +41,11 @@
 
 </script>
 
-
-
-
-
-
-
-
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "userRevise" onsubmit="return tocheckpw2()" data-ajax="false" method = "post" onsubmit="return join();">
+				<form action = "userRevise" data-ajax="false" method = "post">
 					<p>
 
-						<label class="col-form-label" for="inputDefault">휴대폰번호</label>
-						<input type="text" name="user_phoneNum" class="form-control" id="phone" placeholder="휴대폰번호" maxlength="13"  />
-
-						
 						<input type="hidden"  name="user_email" value="${LOGIN}" >
-
 
 						<label class="col-form-label" for="inputDefault">패스워드</label>
 						<input type="password" class="form-control pass" name="user_password" placeholder="패스워드" id="pw" oninput="checkPwd()">
@@ -69,22 +53,11 @@
 						<label class="col-form-label" for="inputDefault">패스워드확인</label>
 						<input type="password" class="form-control pass" name = "user_passwordCheck" placeholder="패스워드확인" id="repwd" oninput="checkPwd()">
 
-
-
-
-
-						<label class="col-form-label" for="inputDefault">이름</label>
-						<input type="text" class="form-control" name="user_name" placeholder="이름" id="inputDefault">
-
-						
 					</p>
 					<p>
-						<button type="submit" class="form-control btn btn-primary">정보수정</button>
+						<button type="submit" class="form-control btn btn-primary signupbtn" disabled="disabled" >정보수정</button>
 					</p>
 				</form>
 			</div>
-
-		
-
 
 </html>

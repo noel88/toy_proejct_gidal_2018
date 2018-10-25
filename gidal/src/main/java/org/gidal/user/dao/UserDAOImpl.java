@@ -30,8 +30,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public int user_revise(UserVO vo) {
-	
-		return sqlsession.insert(namespace + ".userRevise", vo) ;
+		return sqlsession.update(namespace + ".userRevise", vo) ;
 	}
 
 	@Override
@@ -74,7 +73,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public int userDelete(UserVO vo) {
 		
-		return sqlsession.insert(namespace + ".userDelete", vo) ;
+		return sqlsession.delete(namespace + ".userDelete", vo) ;
 	}
 
 }

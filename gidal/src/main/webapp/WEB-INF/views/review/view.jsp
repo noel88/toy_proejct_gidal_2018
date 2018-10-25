@@ -68,6 +68,14 @@
 					<p class="card-text">${review_content.review_text}</p>
 				</p>
 			</div>
+			<c:if test="${ !empty review_content.enterprise_text }">
+				<ul class="list-group list-group-flush">
+				    <li class="list-group-item" style="background-color : #EB6864;color: white;">
+				    	<p><b>사장님 답변</b></p>
+				    	<p>${ review_content.enterprise_text }</p>
+				    </li>
+	  			</ul>
+			</c:if>
 			<div class="card-footer text-muted">
 				<p>
 					<button type="submit" class="form-control btn btn-primary">리뷰 삭제</button>

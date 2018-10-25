@@ -323,7 +323,7 @@ public class EnterpriseController {
 	}
 
 	@RequestMapping(value = "/updateReserveComfirmation_yn", method = RequestMethod.GET)
-	public String enterprise_reserveComfirmation(@RequestParam("reserve_code") int code) {
+	public String enterprise_reserveComfirmation(@RequestParam("reserve_code") int code) throws Exception {
 
 		service.update_reserveConfirmation_yn(code);
 		return "redirect:/enterprise/ent_page_main";

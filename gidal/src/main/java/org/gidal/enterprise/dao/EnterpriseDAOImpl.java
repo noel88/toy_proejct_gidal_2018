@@ -10,6 +10,7 @@ import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.event.domain.EventVO;
 import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.review.domain.ReviewVO;
+import org.gidal.user.domain.UserVO;
 import org.gidal.waiting.domain.WaitingVO;
 import org.springframework.stereotype.Repository;
 
@@ -184,6 +185,21 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 	@Override
 	public int total_review_cnt(Integer code) {
 		return sqlsession.selectOne(namespace + ".total_review_cnt", code);
+	}
+
+	@Override
+	public ReserveVO findReserveUser(Integer code) {
+		return sqlsession.selectOne(namespace + ".findReserveUser", code);
+	}
+
+	@Override
+	public EnterpriseVO findBusinessName(Integer code) {
+		return sqlsession.selectOne(namespace + ".findBusinessName", code);
+	}
+
+	@Override
+	public UserVO findReserveUserEmail(String name) {
+		return sqlsession.selectOne(namespace + ".findReserveUserEmail", name);
 	}
 
 

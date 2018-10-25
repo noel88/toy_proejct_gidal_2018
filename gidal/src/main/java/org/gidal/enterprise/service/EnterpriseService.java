@@ -25,7 +25,7 @@ public interface EnterpriseService {
 	public int find_enterprise_code(String str);
 	public int waiting_update(Integer code);
 	public int reserve_update(Integer code);
-	public int update_reserveConfirmation_yn(Integer code);
+	public int update_reserveConfirmation_yn(Integer code) throws Exception;
 	public int delete(EnterpriseVO vo);
 	public void enterprise_img(EnterpriseVO vo);
 	public List<EnterpriseVO> ent_best();
@@ -43,6 +43,8 @@ public interface EnterpriseService {
 	public int total_reserve_cnt(Integer code);
 	public int total_waiting_cnt(Integer code);
 	public int total_review_cnt(Integer code);
+
+
 
 
 

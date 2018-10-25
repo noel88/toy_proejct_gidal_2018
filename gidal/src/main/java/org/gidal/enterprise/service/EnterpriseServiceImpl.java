@@ -8,16 +8,22 @@ import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.review.domain.ReviewVO;
+import org.gidal.user.domain.UserVO;
+import org.gidal.util.MailHandler;
 import org.gidal.util.SHA256;
 import org.gidal.waiting.domain.WaitingVO;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Service
 public class EnterpriseServiceImpl implements EnterpriseService{
 
-	@Inject
-	private EnterpriseDAO dao;
+	@Inject private EnterpriseDAO dao;
+	@Inject private JavaMailSender mailSender;
+
 
 	/**
 	 * 기업 회원가입
@@ -268,8 +274,28 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		return dao.last_waiting_list(code);
 	}
 
+	@Transactional
 	@Override
-	public int update_reserveConfirmation_yn(Integer code) {
+	public int update_reserveConfirmation_yn(Integer code) throws Exception{
+		ReserveVO reserve;
+		reserve = dao.findReserveUser(code);
+		EnterpriseVO ent;
+		ent = dao.findBusinessName(reserve.getEnterprise_code());
+		UserVO user;
+		user = dao.findReserveUserEmail(reserve.getUser_name());
+
+
+		MailHandler sendMail = new MailHandler(mailSender);
+		sendMail.setSubject(reserve.getUser_name() + "님! " + "[" + ent.getEnterprise_businessName()+" 예약확정 되었습니다.]");
+		sendMail.setText(
+				new StringBuffer().append("<h2>" + reserve.getUser_name() + "님 \n" + reserve.getReserve_date() + reserve.getReserve_time() + "\n"
+						+ "인원수 : " + reserve.getReserve_personnel() + "명" + "\n" + "예약확정되었습니다." +
+							"</h2>").toString());
+		sendMail.setFrom(ent.getEnterprise_email(), ent.getEnterprise_businessName());
+		sendMail.setTo(user.getUser_email());
+		sendMail.send();
+
+
 		return dao.update_reserveConfirmation_yn(code);
 	}
 

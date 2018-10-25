@@ -6,6 +6,7 @@ import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.review.domain.ReviewVO;
+import org.gidal.user.domain.UserVO;
 import org.gidal.waiting.domain.WaitingVO;
 
 public interface EnterpriseDAO {
@@ -42,6 +43,9 @@ public interface EnterpriseDAO {
 	public int total_reserve_cnt(Integer code);
 	public int total_waiting_cnt(Integer code);
 	public int total_review_cnt(Integer code);
+	public ReserveVO findReserveUser(Integer code);
+	public EnterpriseVO findBusinessName(Integer code);
+	public UserVO findReserveUserEmail(String name);
 
 
 

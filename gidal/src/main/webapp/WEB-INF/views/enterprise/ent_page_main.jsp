@@ -18,12 +18,16 @@
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
+	<c:choose>
+		<c:when test="${enterpriseVO == null}">
+			<h4>사장님 식당 정보를 등록해주세요!</h4>
+		</c:when>
+		<c:otherwise>
 	<p style="text-align: center; float: right;">확인해야할 예약 사항 ${reserve_listCheck_cnt}건</p>
 	<div style= "width:100%; auto; margin-left: auto;">
 
 
 	<table class="table" style = " margin-top : 10px; margin-left: auto; margin-right: auto;">
-
 
 	<tr>
 		<td colspan="3" style="text-align: center;"><h2><small class="text-muted">[${enterpriseVO.enterprise_sectors}]</small> ${enterpriseVO.enterprise_businessName}</h2>
@@ -79,6 +83,7 @@
 				</tbody>
 			</table>
 
+
 			<table class="table table-hover"  style = "text-align : center;">
 				<thead>
 					<tr>
@@ -106,7 +111,8 @@
 			</table>
 
 </div>
-
+		</c:otherwise>
+	</c:choose>
 
 
 	</div>

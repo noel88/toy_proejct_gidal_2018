@@ -9,11 +9,12 @@
 
 	<script type="text/javascript">
 
-		alert("탈퇴완료되었습니다.");
+		alert("비밀번호를 확인해주세요");
 		//window.opener.location.reload();
 		/* window.open('', '_self', ''); // 브라우저창 닫기 */
-		self.location = '/';
+		self.location = '/enterprise/entDelete';
 		window.close(); // 브라우저 창 닫기
+
 		</script>
 
 </html>

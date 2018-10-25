@@ -202,6 +202,21 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 		return sqlsession.selectOne(namespace + ".findReserveUserEmail", name);
 	}
 
+	@Override
+	public void review_delete(Integer code) {
+		sqlsession.delete(namespace + ".enterprise_review_delete", code);
+	}
+
+	@Override
+	public void waiting_delete(Integer code) {
+		sqlsession.delete(namespace + ".enterprise_waiting_delete", code);
+	}
+
+	@Override
+	public void reserve_delete(Integer code) {
+		sqlsession.delete(namespace + ".enterprise_reserve_delete", code);
+	}
+
 
 
 

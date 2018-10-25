@@ -476,10 +476,10 @@ public class EnterpriseController {
 
 		int delete = service.delete(vo);
 		if(delete == 0) {
-			return "redirect:/authentication/noPermission";
+			return "/enterprise/delfail";
 		}else {
 			session.invalidate();
-			return "redirect:/enterprise/delOutSuccess";
+			return "/enterprise/delOutSuccess";
 		}
 
 

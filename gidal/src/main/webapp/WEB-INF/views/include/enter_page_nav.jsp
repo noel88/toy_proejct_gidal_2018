@@ -294,18 +294,16 @@ a.article:hover {
                         <i class="fas fa-align-left"></i>
                         <span></span>
                     </button>
+					<ul class="navbar-nav mr-auto">
+									<li class="nav-item">
+					       				<a class="nav-link">&nbsp;금일 예약 : ${reserve_count}건, 현재 대기 : ${waiting_count}팀</a>
+					     			</li>
+
+
+								</ul>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-					<ul class="navbar-nav mr-auto">
-									<li class="nav-item">
-					       				<a class="nav-link">금일 예약 : ${reserve_count}건</a>
-					     			</li>
-									<li class="nav-item">
-										<a class="nav-link">현재 대기 : ${waiting_count}팀</a>
-									</li>
-
-								</ul>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">

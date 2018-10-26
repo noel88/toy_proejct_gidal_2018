@@ -66,6 +66,26 @@ function execPostCode() {
     }).open();
 }
 
+	function ruleCheck() {
+	
+		var phone = document.getElementById("phone").value;
+	
+		var expnum = /^(0[0-9]{1,2})-([0-9]{3,4})-([0-9]{4})$/;
+	
+		if(expnum.test(phone) == false) {
+	
+			//전화번호 형식이 숫자-숫자-숫자 형식이 아닐경우			
+	
+			alert("전화번호 형식이 올바르지 않습니다.");
+	
+			document.getElementById("phone").select();
+	
+			return false;
+	
+		} else {
+			return true;
+		}
+	}
 
 
 </script>
@@ -92,7 +112,7 @@ function execPostCode() {
 
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form name = "form" action = "entDetailUpdate" method = "post" onsubmit="return join();">
+				<form name = "form" action = "entDetailUpdate" method = "post" onsubmit="return ruleCheck();" onsubmit="return join();">
 
 
 					<hr class="my-4">
@@ -246,7 +266,7 @@ function execPostCode() {
 						<input type="text" class="form-control" name = "enterprise_businessName" placeholder="매장명" id="inputDefault">
 
 						<label class="col-form-label" for="inputDefault">매장 전화번호</label>
-						<input type="text" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="inputDefault">
+						<input type="text" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="phone">
 
 
 

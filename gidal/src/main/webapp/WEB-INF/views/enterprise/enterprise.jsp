@@ -83,7 +83,7 @@
 
 		var email = document.getElementById("checkaa").value;
 
-		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z]+/;
+		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z]+$/;
 
 		if (exptext.test(email) == false) {
 
@@ -99,6 +99,7 @@
 			return true;
 		}
 	}
+	
 </script>
 </head>
 <body>

@@ -82,7 +82,7 @@
 
 
 				<div class="form-group">
-					<label for="exampleSelect1">인원</label> <select class="form-control" id="exampleSelect1" name="reserve_personnel">
+					<label for="exampleSelect1">인원</label> <select class="form-control count" id="personnel" name="reserve_personnel">
 						<option value="1">1</option>
 						<option value="2" selected>2</option>
 						<option value="3">3</option>
@@ -101,7 +101,7 @@
 						<div class="row">
 							<div class = "col-md-12">
 
-								<label class="control-label">날짜</label><input type="text" class="form-control"  id="datepicker">
+								<label class="control-label">날짜</label><input type="text" class="form-control date"  id="datepicker">
                                   </div>
                                   </div>
                                   </div>
@@ -173,7 +173,28 @@
 
 </tr>
 <tr>
-	<td colspan="3" style="text-align: center;">0000년 00월 00일 00:00 0명</td>
+
+	<td colspan="3" style="text-align: center;"><div><span id = "date">&nbsp;</span><span id = "time">&nbsp;</span><span id = "per"></span></div></td>
+
+	<script type="text/javascript">
+
+	function displayVals() {
+	var count = $("#personnel").val();
+	$("#per").html(" 인원 : " + count + "명" );}
+	$("select").change(displayVals);
+	displayVals();
+
+	$("input").keyup(function () {
+		var date = "예약날짜 : " + $("#datepicker").val();
+		$("#date").text(date); }).keyup();
+
+	$("input").keyup(function () {
+		var time = " 예약시간 : " +  $("#start").val();
+		$("#time").text(time); }).keyup();
+
+
+
+	</script>
 </tr>
 
 <tr>
@@ -196,9 +217,9 @@
 </tr>
 <tr>
 <td colspan="3">
-<p>*21시 이후의 예약 건은 다음날 오전 마이페이지에서 확인가능합니다.</p>
-<p>*예약 취소는 예약 시간 30분 전까지만 가능합니다.</p>
-<p>*No-Show(노쇼:예약을 하고 나타나지 않은 행위)는 외식업계를 아프게합니다.</p>
+<p class= "sss">*21시 이후의 예약 건은 다음날 오전 마이페이지에서 확인가능합니다.</p>
+<p class= "sss">*예약 취소는 예약 시간 30분 전까지만 가능합니다.</p>
+<p class= "sss">*No-Show(노쇼:예약을 하고 나타나지 않은 행위)는 외식업계를 아프게합니다.</p>
 	</td>
 </tr>
 <tr>

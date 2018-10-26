@@ -87,14 +87,13 @@
 
 </td>
 </tr>
-<tr>
-	<td colspan="3" style="text-align: center;">0000년 00월 00일 00:00 0명</td>
-</tr>
+
+
 <tr>
 	<td colspan="3">
     <button type="submit" class="btn btn-primary" style="width: 550px;" onclick ="javascript:waiting();" ><i class="fas fa-arrow-right">&nbsp;웨이팅하기</i></button>
 	</td>
-</tr> 
+</tr>
 
 </form>
 </table>

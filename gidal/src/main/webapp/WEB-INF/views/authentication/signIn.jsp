@@ -8,11 +8,11 @@
 
 <script>
 	
-	function check() {		
+	function emailRuleCheck() {		
 
 		var email = document.getElementById("login_email").value;
 
-		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z]+/;
 
 		if(exptext.test(email) == false){
 
@@ -45,7 +45,7 @@
 			<hr class="my-4">
 
 			<div class="form-group" style = "max-width : 400px; margin : auto;">
-				<form action = "loginPOST" method = "post" onsubmit = "return check();" name = "login">
+				<form action = "loginPOST" method = "post" onsubmit = "return emailRuleCheck();" name = "login">
 					<p>
 						<label class="col-form-label" for="inputDefault">이메일</label>
 						<input type="email" class="form-control" name = "login_email" placeholder="이메일" id="login_email">

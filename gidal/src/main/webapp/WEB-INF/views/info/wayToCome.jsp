@@ -39,7 +39,7 @@
 						"timestamp" : "1536822872499",
 						"key" : "qz8g",
 						"mapWidth" : "auto",
-						"mapHeight" : "520"
+						"mapHeight" : "auto" 
 					}).render();
 				</script>
 			</div>

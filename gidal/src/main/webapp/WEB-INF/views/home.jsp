@@ -74,7 +74,7 @@ h2 {
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
-			<h1>홈화면</h1>
+			<h1>이벤트</h1>
 
 			<hr class="my-4">
 
@@ -154,37 +154,40 @@ h2 {
 					class="sr-only">다음</span>
 				</a>
 			</div>
+			
+			<br />
+			<h1>인기업체</h1>
 
-<div class="blog">
-      <div class="container">
-
-           <div class="row" style="clear: both;">
-<c:forEach items = "${ent}" var = "EnterpriseVO">
-
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">
-					 <div class="card text-center">
-                        <a href = "/enterprise/enterprise_details?enterprise_code=${EnterpriseVO.enterprise_code}"><img class="card-img-top" src="<spring:url value ='/image/${EnterpriseVO.enterprise_mainImg}'/>" alt="" height="200px;" width="100%"></a>
-                        <div class="card-block">
-                            <p class="card-text"><small class="text-muted" style="float: left"><b>[${EnterpriseVO.enterprise_sectors}]</b></small>
-                            <small class="text-muted" style="float: right"><b>별점 ${EnterpriseVO.aver}점</b></small>
-                            </p>
-                            <h5 class="card-title" style = "clear: both;">${EnterpriseVO.enterprise_businessName}</h5>
-                            <p class="card-text"><small class="text-muted"><c:out value='${fn:substring(EnterpriseVO.enterprise_add2,0, 15)}' /></small></p>
-                            <c:choose>
-							<c:when test = "${ LEVEL eq 'user' }">
-                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '1'}"> disabled = 'disabled' </c:if> onclick="window.open('/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">예약하기</button>
-                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '2'}"> disabled = 'disabled' </c:if> onclick="window.open('/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">웨이팅하기</button>
-							</c:when>
-                        	</c:choose>
-
-
-                        </div>
-                     </div>
-                </div>
-			</c:forEach>
-               </div>
-
-</div>
+			<hr class="my-4">
+			<div class="blog">
+		      <div class="container">
+		
+		           <div class="row" style="clear: both;">
+						<c:forEach items = "${ent}" var = "EnterpriseVO">
+			
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">
+								 <div class="card text-center">
+			                        <a href = "/enterprise/enterprise_details?enterprise_code=${EnterpriseVO.enterprise_code}"><img class="card-img-top" src="<spring:url value ='/image/${EnterpriseVO.enterprise_mainImg}'/>" alt="" height="200px;" width="100%"></a>
+			                        <div class="card-block">
+			                            <p class="card-text"><small class="text-muted" style="float: left"><b>[${EnterpriseVO.enterprise_sectors}]</b></small>
+			                            <small class="text-muted" style="float: right"><b>별점 ${EnterpriseVO.aver}점</b></small>
+			                            </p>
+			                            <h5 class="card-title" style = "clear: both;">${EnterpriseVO.enterprise_businessName}</h5>
+			                            <p class="card-text"><small class="text-muted"><c:out value='${fn:substring(EnterpriseVO.enterprise_add2,0, 15)}' /></small></p>
+			                            <c:choose>
+										<c:when test = "${ LEVEL eq 'user' }">
+			                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '1'}"> disabled = 'disabled' </c:if> onclick="window.open('/reserve/reserve?enterprise_code=${EnterpriseVO.enterprise_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">예약하기</button>
+			                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '2'}"> disabled = 'disabled' </c:if> onclick="window.open('/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">웨이팅하기</button>
+										</c:when>
+			                        	</c:choose>
+			
+			
+			                        </div>
+			                     </div>
+			                </div>
+						</c:forEach>
+					</div>
+				</div>
 
 <%-- 			<div class="row" style="margin : 0 auto;">
 <c:forEach items="${ent}" var = "enterprise">
@@ -231,6 +234,7 @@ h2 {
 				</div>
 </c:forEach> --%>
 
+			</div>
 		</div>
 
 	</div>

@@ -37,6 +37,11 @@
 				<li class="nav-item">
        				<a class="nav-link" href="/enterprise/view">지역별 업체<span class="sr-only">(current)</span></a>
      			</li>
+				<c:if test = "${ !empty LOGIN }">
+					<li class="nav-item">
+	       				<a class="nav-link" href="/user/reserveWaitList">예약목록<span class="sr-only">(current)</span></a>
+	     			</li>
+				</c:if>
 			</ul>
 			<div>
 			<form class="form-inline my-2 my-lg-0" action = "/search/search" method = "get">
@@ -87,7 +92,7 @@
 								<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
 									<c:choose>
 										<c:when test = "${ LEVEL eq 'user' }">
-											<a class="dropdown-item" href="/user/userpage">마이페이지</a>
+											<a class="dropdown-item" href="/user/userpage">정보수정</a>
 											<a class="dropdown-item" href="/authentication/logout">로그아웃</a>
 										</c:when>
 										<c:when test = "${ LEVEL eq 'enterprise' }">

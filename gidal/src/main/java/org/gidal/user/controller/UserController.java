@@ -50,8 +50,8 @@ public class UserController {
         return service.user_check(vo);
     }
 
-	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
-	public String userpage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model, HttpSession session)throws Exception{
+	@RequestMapping(value = "/reserveWaitList", method = RequestMethod.GET)
+	public String reserveWaitList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model, HttpSession session)throws Exception{
 		int UserPageReserveCount = service.UserPageReserveCount();
 		int UserPageWaitingCount = service.UserPageWaitingCount();
 		String user_email = (String)session.getAttribute("LOGIN");
@@ -62,11 +62,24 @@ public class UserController {
 			model.addAttribute("pageInfo1", service.pageInfo(page, LIMIT, UserPageWaitingCount));
 			model.addAttribute("list1",service.UserPageWaiting(page, user_email));
 			
-			return "user/userpage";
+			return "user/reserveWaitList";
 		} else {
 			return "redirect:/authentication/signIn";
 		}
 	
+	}
+	
+	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
+	public String userpage(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model, HttpSession session)throws Exception{
+
+		String user_email = (String)session.getAttribute("LOGIN");
+		
+		if(user_email != null) {
+			return "user/userpage";
+		} else {
+			return "redirect:/authentication/signIn";
+		}
+		
 	}
 
 	@RequestMapping(value = "/userReservePage", method = RequestMethod.GET)

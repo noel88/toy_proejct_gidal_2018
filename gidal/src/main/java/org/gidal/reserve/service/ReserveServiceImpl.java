@@ -99,5 +99,10 @@ public class ReserveServiceImpl implements ReserveService {
 		return dao.selectUser(str);
 	}
 
+	@Override
+	public void reserve_cancel(String reserve_code) {
+		dao.reserve_cancel(reserve_code);
+	}
+
 
 }

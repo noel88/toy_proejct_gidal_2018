@@ -17,6 +17,12 @@
 		select * from enterprise where enterprise_code = #{enterprise_code}
 	</select>
 
+	<delete id="reserve_cancel">
+		DELETE FROM 
+			reserve 
+		WHERE 
+			reserve_code = #{reserve_code};
+	</delete>
 
 
 </mapper>

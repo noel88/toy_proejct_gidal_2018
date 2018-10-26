@@ -35,7 +35,8 @@ public class ReserveDAOImpl implements ReserveDAO{
 	}
 
 	@Override
-	public void reserve_cancel() {
+	public void reserve_cancel(String reserve_code) {
+		sqlsession.delete(namespace + ".reserve_cancel", reserve_code);
 
 	}
 
@@ -48,5 +49,7 @@ public class ReserveDAOImpl implements ReserveDAO{
 	public UserVO selectUser(String str) {
 		return sqlsession.selectOne(namespace + ".selectOne", str);
 	}
+
+
 
 }

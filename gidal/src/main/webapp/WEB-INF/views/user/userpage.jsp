@@ -8,6 +8,13 @@
 
 <%@ include file = "/WEB-INF/views/include/head.jsp" %>
 
+<style>
+ .table td {
+ 	padding : 0.65rem;
+ 	vertical-align : middle;
+ }
+</style>
+
 </head>
 <body>
 

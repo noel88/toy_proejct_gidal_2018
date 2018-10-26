@@ -3,8 +3,18 @@
 <!DOCTYPE html>
 <html>
 
-<body>
-			${UserPageVO.reserveAndWaiting_code}
+<script>
+
+	function reserve_cancel(reserve_code) {
+		
+		if (confirm("예약을 취소하시려면 확인을 눌러주세요.")) {
+			
+			location.href = "/reserve/reserve_cancel?check=user&reserve_code=" + reserve_code;
+		}
+	}
+	
+</script>
+
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<table class="table table-hover"  style = "text-align : center;">
 			<thead>
@@ -12,7 +22,7 @@
 					<th scope="col" style = "min-width : 100px;">식당</th>
 					<th scope="col" style = "min-width : 56px;">인원</th>
 					<th scope="col" style = "min-width : 90px;">날짜</th>
-					<th scope="col" style = "min-width : 80px;">리뷰</th>
+					<th scope="col" style = "min-width : 80px;">상태</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,7 +39,10 @@
 						<td>
 							<c:choose>
 								<c:when test="${ UserPageVO.reserve_comfirmation eq 'N' }">
-									<button type="button" class="btn btn-secondary btn-sm disabled" style = "width : 74px;">미승인</button>
+									<button type="button" class="btn btn-secondary btn-sm" onclick="reserve_cancel(${ UserPageVO.reserve_code });" style = "width : 74px;">
+										미승인<br />
+										<small>예약취소</small>
+									</button>
 								</c:when>
 								<c:when test="${ UserPageVO.reserve_yn eq 'Y' && UserPageVO.reserve_comfirmation eq 'Y' }">
 									<c:choose>
@@ -46,7 +59,10 @@
 									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<button type="button" class="btn btn-secondary btn-sm" style = "width : 74px;">입장 전</button>
+									<button type="button" class="btn btn-secondary btn-sm" onclick="reserve_cancel(${ UserPageVO.reserve_code });" style = "width : 74px;">
+										입장 전<br />
+										<small>예약취소</small>
+									</button>
 								</c:otherwise>
 							</c:choose>
 						</td>

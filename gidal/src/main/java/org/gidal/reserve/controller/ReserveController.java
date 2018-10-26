@@ -65,6 +65,26 @@ public class ReserveController {
 		service.reserve_insert(vo);
 		 return "/reserve/success";
 	}
+	
+	@RequestMapping(value = "/reserve_cancel", method = RequestMethod.GET)
+	public String reserve_cancel(String check, String reserve_code) throws Exception {
+		
+		if(check.equals("user")) {
+			service.reserve_cancel(reserve_code);
+			return "redirect:/reserve/cancelResult";
+		} else {
+			return "redirect:/";
+		}
+		
+	}
+
+	@RequestMapping(value = "/cancelResult", method = RequestMethod.GET)
+	public String cancelResult() throws Exception {
+
+		return "/reserve/cancelResult";
+
+		
+	}
 
 }
 

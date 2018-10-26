@@ -15,7 +15,7 @@ public interface ReserveDAO {
 	public List<ReserveVO> reserve_view();
 	public EnterpriseVO selectOne(Integer code);
 	public int reserve_update();
-	public void reserve_cancel();
+	public void reserve_cancel(String reserve_code);
 	public UserVO selectUser(String str);
 
 

@@ -47,6 +47,9 @@
 
 						<input type="hidden"  name="user_email" value="${LOGIN}" >
 
+						<label class="col-form-label" for="inputDefault">기존 패스워드</label>
+						<input type="password" class="form-control" name="old_password" placeholder="기존 패스워드">
+
 						<label class="col-form-label" for="inputDefault">패스워드</label>
 						<input type="password" class="form-control pass" name="user_password" placeholder="패스워드" id="pw" oninput="checkPwd()">
 

@@ -102,7 +102,12 @@
 		WHERE 
 			user_email=#{user_email};
 	</update>
+	
+	<select id="getUser_password" resultType="java.lang.String">
+		SELECT user_password FROM user WHERE user_email=#{user_email};
 
-	</mapper>
+	</select>
+
+</mapper>
 
 

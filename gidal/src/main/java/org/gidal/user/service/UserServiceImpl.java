@@ -31,12 +31,20 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int user_revise(UserVO vo) {
+	public int user_revise(UserVO vo, String old_password) {
 		SHA256 sha = new SHA256();
+		
+		String resultPassword = dao.getUser_password(vo);
+		old_password = sha.getSHA256(old_password);
+		
+		if(resultPassword.equals(old_password)) {
+			vo.setUser_password(sha.getSHA256(vo.getUser_password()));
+			return dao.user_revise(vo);
+		} else {
+			return 0;
+		}
 
 
-		vo.setUser_password(sha.getSHA256(vo.getUser_password()));
-		return dao.user_revise(vo);
 	}
 
 	@Override

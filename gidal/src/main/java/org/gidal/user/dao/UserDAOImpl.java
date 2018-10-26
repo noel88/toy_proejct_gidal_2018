@@ -76,4 +76,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlsession.delete(namespace + ".userDelete", vo) ;
 	}
 
+	@Override
+	public String getUser_password(UserVO vo) {
+		return sqlsession.selectOne(namespace + ".getUser_password", vo);
+	}
+
 }

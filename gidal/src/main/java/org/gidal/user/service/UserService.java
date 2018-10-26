@@ -11,7 +11,7 @@ import org.gidal.user.domain.UserVO;
 public interface UserService {
 
 	public int user_join(UserVO vo);
-	public int user_revise(UserVO vo);
+	public int user_revise(UserVO vo, String old_password);
 	public int userDelete(UserVO vo);
 	public List<UserVO> userBoard_view();
 

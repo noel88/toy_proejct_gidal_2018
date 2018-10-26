@@ -91,10 +91,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/userRevise", method = RequestMethod.POST)
-	public String userRevise(UserVO vo, Model model) {
-		service.user_revise(vo);
+	public String userRevise(UserVO vo, String old_password, Model model) {
 		
-		return "redirect:/";
+		int result = service.user_revise(vo, old_password);
+		
+		if(result > 0) {
+			return "redirect:/user/userpage";
+		} else {
+			return "redirect:/authentication/noPermission";
+		}
+		
 
 	}
 	

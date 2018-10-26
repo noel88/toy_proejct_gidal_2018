@@ -22,6 +22,7 @@ public interface UserDAO {
 	public PageInfo pageInfo();
 
 	public int user_check(UserVO vo);
+	public String getUser_password(UserVO vo);
 
 
 }

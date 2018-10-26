@@ -39,7 +39,7 @@
      			</li>
 				<c:if test = "${ !empty LOGIN }">
 					<li class="nav-item">
-	       				<a class="nav-link" href="/user/reserveWaitList">예약목록<span class="sr-only">(current)</span></a>
+	       				<a class="nav-link" href="/user/reserveWaitList">기달목록<span class="sr-only">(current)</span></a>
 	     			</li>
 				</c:if>
 			</ul>

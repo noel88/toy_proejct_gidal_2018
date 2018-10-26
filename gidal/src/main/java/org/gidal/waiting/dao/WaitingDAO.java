@@ -14,6 +14,7 @@ public interface WaitingDAO {
 	public UserVO selectUser(String str);
 	public int waiting_insert(WaitingVO vo);
 	public int waiting_count(Integer code);
+	public void waiting_cancel(String waiting_code);
 
 
 }

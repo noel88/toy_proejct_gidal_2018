@@ -46,4 +46,9 @@ public class WaitingDAOImpl implements WaitingDAO {
 		return sqlsession.selectOne(namespace + ".selectList_count", code);
 	}
 
+	@Override
+	public void waiting_cancel(String waiting_code) {
+		sqlsession.delete(namespace + ".waiting_cancel", waiting_code);
+	}
+
 }

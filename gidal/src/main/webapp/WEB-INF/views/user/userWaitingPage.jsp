@@ -4,9 +4,11 @@
 
 <script>
 
-	function waitingCancel() {
-		if (confirm("예약을 취소하시려면 확인을 눌러주세요.")) {
-			location.href = "http://hosting.websearch.kr/ ";
+	function waiting_cancel(waiting_code) {
+		
+		if (confirm("웨이팅을 취소하시려면 확인을 눌러주세요.")) {
+			
+			location.href = "/waiting/waiting_cancel?check=user&waiting_code=" + waiting_code;
 		}
 	}
 	
@@ -51,7 +53,7 @@
 									</c:choose>
 								</c:when>
 								<c:otherwise>
-									<button type="button" class="btn btn-secondary btn-sm" onclick="waitingCancel();" style = "width : 74px;">
+									<button type="button" class="btn btn-secondary btn-sm" onclick="waiting_cancel(${ UserPageWaitingVO.waiting_code });" style = "width : 74px;">
 										입장 전<br />
 										<small>웨이팅취소</small>
 									</button>

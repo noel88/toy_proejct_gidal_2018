@@ -66,6 +66,24 @@ public class WaitingController {
 		service.waiting_insert(vo);
 		 return "/waiting/success";
 	}
+	
+	@RequestMapping(value = "/waiting_cancel", method = RequestMethod.GET)
+	public String waiting_cancel(String check, String waiting_code) throws Exception {
+		
+		if(check.equals("user")) {
+			service.waiting_cancel(waiting_code);
+			return "redirect:/waiting/cancelResult";
+		} else {
+			return "redirect:/";
+		}
+		
+	}
+
+	@RequestMapping(value = "/cancelResult", method = RequestMethod.GET)
+	public String cancelResult() throws Exception {
+
+		return "/waiting/cancelResult";
+	}
 
 
 

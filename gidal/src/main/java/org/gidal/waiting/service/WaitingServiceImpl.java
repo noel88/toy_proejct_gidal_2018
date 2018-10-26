@@ -92,4 +92,9 @@ public class WaitingServiceImpl implements WaitingService{
 		return dao.waiting_count(code);
 	}
 
+	@Override
+	public void waiting_cancel(String waiting_code) {
+		dao.waiting_cancel(waiting_code);
+	}
+
 }

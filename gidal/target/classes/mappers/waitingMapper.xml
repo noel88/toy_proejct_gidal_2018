@@ -27,6 +27,13 @@
 	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">
 		select * from user where user_email = #{user_email}
 	</select>
+	
+	<delete id="waiting_cancel">
+		DELETE FROM 
+			waiting 
+		WHERE 
+			waiting_code = #{waiting_code};
+	</delete>
 
 
 </mapper>

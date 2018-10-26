@@ -5,7 +5,7 @@
 <html>
 	<script type="text/javascript">
 
-		alert("예약취소가 완료되었습니다.");
+		alert("웨이팅취소가 완료되었습니다.");
 		location.href = "/user/userpage";
 	</script>
 

@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -13,7 +15,7 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
- <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<!--  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script> -->
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -98,11 +100,8 @@
 				<div class="form-group">
 						<div class="row">
 							<div class = "col-md-12">
-								<c:set var="now" value="<%=new java.util.Date()%>" />
-								<c:set var="sysYear">
-									<fmt:formatDate value="${now}" pattern="yyyy/MM/dd" />
-								</c:set>
-								일자: <input type="text" id="datepicker">
+
+								<label class="control-label">날짜</label><input type="text" class="form-control"  id="datepicker">
                                   </div>
                                   </div>
                                   </div>
@@ -113,13 +112,36 @@
                                           //input을 datepicker로 선언
                                           $("#datepicker").datepicker({
                                               dateFormat: 'yy-mm-dd' //Input Display Format 변경
-                                              ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
-                                              ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
-                                              ,changeYear: true //콤보박스에서 년 선택 가능
-                                              ,changeMonth: true //콤보박스에서 월 선택 가능
+                                                  ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+                                                  ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+                                                  ,changeYear: true //콤보박스에서 년 선택 가능
+                                                  ,changeMonth: true //콤보박스에서 월 선택 가능
+                                                  //,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시
+                                                  ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트
+                                                  ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+                                                  ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
+                                                  ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+                                                  ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+                                                  ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
+                                                  ,minDate: "+1D" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+                                             	  ,maxDate: "+2Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+                                           /*     ,onSelect: function(date) {
+                                             		   var dt = new Date(date);
+                                             		   var w = dt.getDay();
+                                             		   if(w == 6 || w == 0) {
+                                             			   alert('예약할수 없는 날짜입니다');
+                                             		   }
+                                             	   } */
 
-                                              ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-                                              ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+                                             	 <c:if test = "${fn:length(closed) != 0}">
+                                             	  ,beforeShowDay: function(date){
+												  var day = date.getDay();
+
+												 return [(
+														${closed}
+												 )];
+											     }
+                                            	  </c:if>
                                           });
 
                                           //초기값을 오늘 날짜로 설정

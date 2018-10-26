@@ -479,6 +479,12 @@ h2 {
 		<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
+        <div class="row" style="margin-left: auto; margin-right: auto;">
+                 <div class="col-lg-12 col-lg-offset-3 text-center" >
+                    <h2><span class="ion-minus"></span>${filter.local1}시 ${filter.local2} 에 있는 ${filter.food} 식당입니다. <span class="ion-minus"></span></h2>
+						<p>총 ${fn:length(filter_list)}개의 식당이 검색되었습니다.</p>
+                 </div>
+            </div>
 
 
 		<table style = "margin-top : 30px; margin-left: auto; margin-right: auto;">
@@ -491,7 +497,7 @@ h2 {
 				      		<select class="form-control" name = "local1" onchange="setCategory2()">
 
 				        		<option value = "">-- 지역 --</option>
-				        		<option value = "서울" <c:if test = "${filter.local1 eq '서울'}" > selected = "selected" </c:if>>서울특별시</option>
+<%-- 				        	<option value = "서울" <c:if test = "${filter.local1 eq '서울'}" > selected = "selected" </c:if>>서울특별시</option>
 				        		<option value = "부산" <c:if test = "${filter.local1 eq '부산'}" > selected = "selected" </c:if>>부산광역시</option>
 				        		<option value = "대구" <c:if test = "${filter.local1 eq '대구'}" > selected = "selected" </c:if>>대구광역시</option>
 				        		<option value = "인천" <c:if test = "${filter.local1 eq '인천'}" > selected = "selected" </c:if>>인천광역시</option>
@@ -504,7 +510,21 @@ h2 {
 				        		<option value = "충청" <c:if test = "${filter.local1 eq '충청'}" > selected = "selected" </c:if>>충청북도</option>
 				        		<option value = "전라" <c:if test = "${filter.local1 eq '전라남도'}" > selected = "selected" </c:if>>전라남도</option>
 				        		<option value = "경상" <c:if test = "${filter.local1 eq '경상북도'}" > selected = "selected" </c:if>>경상북도</option>
-				        		<option value = "제주" <c:if test = "${filter.local1 eq '제주도'}" > selected = "selected" </c:if>>제주도</option>
+				        		<option value = "제주" <c:if test = "${filter.local1 eq '제주도'}" > selected = "selected" </c:if>>제주도</option> --%>
+				        		<option value = "서울">서울시</option>
+				        		<option value = "부산">부산광역시</option>
+				        		<option value = "대구">대구광역시</option>
+				        		<option value = "인천">인천광역시</option>
+				        		<option value = "광주">광주광역시</option>
+				        		<option value = "대전">대전광역시</option>
+				        		<option value = "울산">울산광역시</option>
+				        		<option value = "세종">세종특별자치시</option>
+				        		<option value = "경기">경기도</option>
+				        		<option value = "강원">강원도</option>
+				        		<option value = "충청">충청북도</option>
+				        		<option value = "전라">전라남도</option>
+				        		<option value = "경상">경상북도</option>
+				        		<option value = "제주">제주도</option>
 
 			     	 		</select>
 
@@ -523,18 +543,17 @@ h2 {
 	<td>
 		<select class = "form-control" name = "food">
 		    <option value="">-- 음식 --</option>
-		    <option value="">음식전체</option>
 <%-- 		<option value="default" <c:if test = "${filter.food eq 'default'}" > selected = "selected" </c:if>>음식전체</option> --%>
-		    <option value="양식" <c:if test = "${filter.food eq '양식'}" > selected = "selected" </c:if>>양식</option>
-		    <option value="한식" <c:if test = "${filter.food eq '한식'}" > selected = "selected" </c:if>>한식</option>
-		    <option value="중식" <c:if test = "${filter.food eq '중식'}" > selected = "selected" </c:if>>중식</option>
-		    <option value="일식" <c:if test = "${filter.food eq '일식'}" > selected = "selected" </c:if>>일식</option>
-		    <option value="아시아식" <c:if test = "${filter.food eq '아시아식'}" > selected = "selected" </c:if>>아시아식</option>
-		    <option value="컨템퍼러리" <c:if test = "${filter.food eq '컨템퍼러리'}" > selected = "selected" </c:if>>컨템퍼러리</option>
-		    <option value="뷔페" <c:if test = "${filter.food eq '뷔페'}" > selected = "selected" </c:if>>뷔페</option>
-		    <option value="구이" <c:if test = "${filter.food eq '구이'}" > selected = "selected" </c:if>>구이</option>
-		    <option value="술집" <c:if test = "${filter.food eq '술집'}" > selected = "selected" </c:if>>술집</option>
-		    <option value="카페/베이커리" <c:if test = "${filter.food eq '카페/베이커리'}" > selected = "selected" </c:if>>카페/베이커리</option>
+		    <option value="양식">양식</option>
+		    <option value="한식">한식</option>
+		    <option value="중식">중식</option>
+		    <option value="일식">일식</option>
+		    <option value="아시아식">>아시아식</option>
+		    <option value="컨템퍼러리">컨템퍼러리</option>
+		    <option value="뷔페">뷔페</option>
+		    <option value="구이">구이</option>
+		    <option value="술집">술집</option>
+		    <option value="카페/베이커리">카페/베이커리</option>
 
 		</select>
 

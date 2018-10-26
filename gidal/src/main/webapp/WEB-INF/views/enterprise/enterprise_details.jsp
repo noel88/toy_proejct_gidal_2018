@@ -152,10 +152,6 @@ body {
 	overflow: hidden;
 }
 
-.comments-list .comment-avatar img {
-	width: 100%;
-	height: 100%;
-}
 
 .reply-list .comment-avatar {
 	width: 50px;
@@ -201,7 +197,7 @@ body {
 }
 
 .reply-list .comment-box {
-	width: 610px;
+	width: 600px;
 }
 .comment-box .comment-head {
 	background: #FCFCFC;
@@ -276,17 +272,17 @@ body {
 /** =====================
  * Responsive
  ========================*/
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 500px) {
 	.comments-container {
-		width: 480px;
+		 width: 30%;
 	}
 
 	.comments-list .comment-box {
-		width: 390px;
+		width: 50%;
 	}
 
 	.reply-list .comment-box {
-		width: 320px;
+		 width: 30%;
 	}
 }
 </style>
@@ -299,95 +295,109 @@ body {
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
 
-<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto;">
+			<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto;">
 
 
-<tr>
-	<td colspan="3" style="text-align: center;"><h2><small class="text-muted">[${enterpriseVO.enterprise_sectors}]</small> ${enterpriseVO.enterprise_businessName}</h2>
-	총 예약 ${total_reserve_cnt}건 웨이팅 ${total_waiting_cnt}건 리뷰 ${total_review_cnt}건</td>
-</tr>
-<tr>
-	<td style="width: 20%; height: 10px;">별점</td>
-	<td style="width: 30%;">${enterpriseVO.review_scope}점</td>
-	<td rowspan="6"><img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style="height : 350px;"></td>
-</tr>
-<tr>
-	<td style="height: 10px;">전화번호</td>
-	<td>${enterpriseVO.enterprise_phone}</td>
-</tr>
-<tr>
-	<td style="height: 10px;">주소</td>
-	<td>${enterpriseVO.enterprise_add2}, ${enterpriseVO.enterprise_add3}</td>
-</tr>
-<tr>
-	<td style="height: 10px;">영업시간</td>
-	<td>${enterpriseVO.enterprise_operatingOpenTime} ~ ${enterpriseVO.enterprise_operatingCloseTime}</td>
-</tr>
+			<tr>
+				<td colspan="3" style="text-align: center;"><h2><small class="text-muted">[${enterpriseVO.enterprise_sectors}]</small> ${enterpriseVO.enterprise_businessName}</h2>
+				총 예약 ${total_reserve_cnt}건 웨이팅 ${total_waiting_cnt}건 리뷰 ${total_review_cnt}건</td>
+			</tr>
+			<tr>
+				<td style="width: 20%; height: 10px;">별점</td>
+				<td style="width: 30%;">${enterpriseVO.review_scope}점</td>
+				<td rowspan="6"><img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style=" vertical-align: middle"></td>
+			</tr>
+			<tr>
+				<td style="height: 10px;">전화번호</td>
+				<td>${enterpriseVO.enterprise_phone}</td>
+			</tr>
+			<tr>
+				<td style="height: 10px;">주소</td>
+				<td>${enterpriseVO.enterprise_add2}, ${enterpriseVO.enterprise_add3}</td>
+			</tr>
+			<tr>
+				<td style="height: 10px;">영업시간</td>
+				<td>${enterpriseVO.enterprise_operatingOpenTime} ~ ${enterpriseVO.enterprise_operatingCloseTime}</td>
+			</tr>
 
 
-</table>
+			</table>
 
-<div style=" margin-left : auto; margin-right : auto;">
-	<ul class="nav nav-tabs">
-		<li class="nav-item">
-		<a class="nav-link active show" data-toggle="tab" href="#map">지도</a>
-		</li>
-		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#review">리뷰목록</a>
-		</li>
-	</ul>
+		<div style=" margin-left : auto; margin-right : auto;">
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+				<a class="nav-link active show" data-toggle="tab" href="#map">지도</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#review">리뷰</a>
+				</li>
+			</ul>
 
-		<div id="myTabContent" class="tab-content">
+				<div id="myTabContent" class="tab-content">
 
-			<div class="tab-pane fade active show" id="map">
-				<div id="map" style="width:100%;height:400px;"></div>
-			</div>
+					<div class="tab-pane fade active show" id="map">
+						<div id="map" style="width:100%;height:400px;"></div>
+					</div>
 
-			<div class="tab-pane fade show" id="review">
-			<c:if test ="${review == null}">
+					<div class="tab-pane fade show" id="review">
 
-				<h5 style="text-align: center; margin-top: 30px;">등록된 리뷰가 없습니다.</h5>
-			</c:if>
-			<c:forEach items="${review}" var="re">
-				<div class="comments-container">
-				<ul id="comments-list" class="comments-list">
-					<li>
-						<div class="comment-main-level">
-							<!-- Contenedor del Comentario -->
-							<div class="comment-box">
-								<div class="comment-head">
-									<h6>${re.user_email} <small class="text-muted">[별점${re.review_scope}점]</small></h6>
-								</div>
-								<div class="comment-content">
-									${re.review_text}
-								</div>
-							</div>
-						</div>
-						<!-- Respuestas de los comentarios -->
-						<ul class="comments-list reply-list">
-							<li>
-								<!-- Contenedor del Comentario -->
-								<div class="comment-box">
-									<div class="comment-head">
-										<h6>${enterpriseVO.enterprise_businessName}</h6>
-									</div>
-									<div class="comment-content">
-										${re.enterprise_text}
+					<c:if test ="${review == null}">
+
+						<h5 style="text-align: center; margin-top: 30px;">등록된 리뷰가 없습니다.</h5>
+					</c:if>
+
+
+					<table class="table" style = " margin-top : 50px; margin-left: auto; margin-right: auto;">
+					<c:forEach items="${review}" var="re">
+						<tr>
+							<td>
+								<div class="comment-main-level">
+									<!-- Contenedor del Comentario -->
+									<div class="comment-box">
+										<div class="comment-head">
+											<h6>${re.user_email} <small class="text-muted">[별점${re.review_scope}점]</small></h6>
+										</div>
+										<div class="comment-content">
+											${re.review_text}
+										</div>
 									</div>
 								</div>
-							</li>
-						</ul>
-						</li>
-					</ul>
-				</div>
-				</c:forEach>
+							</td>
+						</tr>
+
+					<c:if test ="${fn:length(re.enterprise_text) != 0}">
+						<tr>
+							<td>
+								&nbsp;&nbsp;&nbsp;
+							</td>
+							<td>
+
+								<!-- Respuestas de los comentarios -->
+								<ul class="comments-list reply-list">
+									<li>
+										<!-- Contenedor del Comentario -->
+										<div class="comment-box">
+											<div class="comment-head">
+												<h6>${enterpriseVO.enterprise_businessName}</h6>
+											</div>
+											<div class="comment-content">
+												${re.enterprise_text}
+											</div>
+										</div>
+									</li>
+										</ul>
+
+							</td>
+						</tr>
+						</c:if>
+					</c:forEach>
+					</table>
 
 			</div>
 		</div>
 	</div>
 </div>
 </div>
-
 
 <script>
 

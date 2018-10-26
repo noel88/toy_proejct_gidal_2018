@@ -67,21 +67,21 @@ function execPostCode() {
 }
 
 	function ruleCheck() {
-	
+
 		var phone = document.getElementById("phone").value;
-	
+
 		var expnum = /^(0[0-9]{1,2})-([0-9]{3,4})-([0-9]{4})$/;
-	
+
 		if(expnum.test(phone) == false) {
-	
-			//전화번호 형식이 숫자-숫자-숫자 형식이 아닐경우			
-	
+
+			//전화번호 형식이 숫자-숫자-숫자 형식이 아닐경우
+
 			alert("전화번호 형식이 올바르지 않습니다.");
-	
+
 			document.getElementById("phone").select();
-	
+
 			return false;
-	
+
 		} else {
 			return true;
 		}
@@ -312,7 +312,7 @@ function execPostCode() {
 
 						</script>
 
-				 		<label class="col-form-label" for="inputDefault">영업일 체크</label>
+				 		<label class="col-form-label" for="inputDefault">휴무일 체크</label>
 						<div class="form-group">
 							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '1'>월요일
 						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '2'>화요일
@@ -328,7 +328,6 @@ function execPostCode() {
 						<label class="col-form-label" for="inputDefault">업종</label>
 						<select class="custom-select" name = "enterprise_sectors" id="exampleSelect1">
 							<option value = "0" selected>선택해주세요</option>
-							<option value = "default">음식전체</option>
 							<option value = "한식">한식</option>
 							<option value = "양식">양식</option>
 							<option value = "중식">중식</option>

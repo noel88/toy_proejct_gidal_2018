@@ -161,7 +161,7 @@ function execPostCode() {
 						<label class="col-form-label" for="inputDefault">매장명</label>
 						<input type="text" class="form-control" name = "enterprise_businessName" value = "${list.enterprise_businessName}">
 
-						<label class="col-form-label" for="inputDefault">매장 전화번호</label>
+						<label class="col-form-label" for="inputDefault">매장 전화번호 (-포함)</label>
 						<input type="text" class="form-control" name = "enterprise_phone" value = "${list.enterprise_phone}" id = "phone">
 
 

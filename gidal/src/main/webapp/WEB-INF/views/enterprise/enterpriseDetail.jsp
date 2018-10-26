@@ -265,8 +265,8 @@ function execPostCode() {
 						<label class="col-form-label" for="inputDefault">매장명</label>
 						<input type="text" class="form-control" name = "enterprise_businessName" placeholder="매장명" id="inputDefault">
 
-						<label class="col-form-label" for="inputDefault">매장 전화번호</label>
-						<input type="text" class="form-control" name = "enterprise_phone" placeholder="매장전화번호" id="phone">
+						<label class="col-form-label" for="inputDefault">매장 전화번호 (-포함)</label>
+						<input type="text" class="form-control" name = "enterprise_phone" placeholder="매장전화번호 (-포함)" id="phone">
 
 
 

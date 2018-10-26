@@ -11,6 +11,12 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.nexmo.client.NexmoClient;
+import com.nexmo.client.auth.AuthMethod;
+import com.nexmo.client.auth.TokenAuthMethod;
+import com.nexmo.client.sms.SmsSubmissionResult;
+import com.nexmo.client.sms.messages.TextMessage;
+
 @Service
 public class ReserveServiceImpl implements ReserveService {
 
@@ -31,7 +37,7 @@ public class ReserveServiceImpl implements ReserveService {
 	public int reserve_insert(ReserveVO vo) throws Exception{
 		vo.setReserve_yn("N");
 		vo.setReserve_comfirmation("N");
-
+		//예약확정을 위한 기업에게 메일링
 		EnterpriseVO ent;
 		ent = dao.selectOne(vo.getEnterprise_code());
 		MailHandler sendMail = new MailHandler(mailSender);
@@ -43,6 +49,23 @@ public class ReserveServiceImpl implements ReserveService {
 		sendMail.setFrom("amdintest@gmail.com", "관리자");
 		sendMail.setTo(ent.getEnterprise_email());
 		sendMail.send();
+
+/*		//예약 확정을 위한 기업에게 문자서비스
+		AuthMethod auth = new TokenAuthMethod("552d2d19", "yxbPbejhdRgqBo5Q");
+		NexmoClient client = new NexmoClient(auth);
+
+		SmsSubmissionResult[] responses = client.getSmsClient().submitMessage(
+			new TextMessage(
+		        "관리자",
+		        "",
+		        ""
+		    )
+		);
+
+		for (SmsSubmissionResult response : responses) {
+		    System.out.println(response);
+		}*/
+
 		return dao.reserve_insert(vo);
 	}
 

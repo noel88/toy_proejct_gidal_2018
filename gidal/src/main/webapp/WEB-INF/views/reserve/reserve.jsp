@@ -14,10 +14,13 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script> -->
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
 <style type="text/css">
@@ -99,14 +102,32 @@
 								<c:set var="sysYear">
 									<fmt:formatDate value="${now}" pattern="yyyy/MM/dd" />
 								</c:set>
-								<label class="control-label" for="date">날짜</label>
-								<div class="input-group date" id="dp3" data-date="${sysYear}" data-date-format="yyyy/MM/dd">
-                                  <input name="reserve_date" id = datepicker class="form-control" type="text" value="${sysYear}">
-                                  <span class="input-group-addon btn"><i class="glyphicon glyphicon-calendar" id="butt"></i></span>
-                                </div>
+								일자: <input type="text" id="datepicker">
                                   </div>
                                   </div>
                                   </div>
+
+                                  <script>
+
+                                      $(function() {
+                                          //input을 datepicker로 선언
+                                          $("#datepicker").datepicker({
+                                              dateFormat: 'yy-mm-dd' //Input Display Format 변경
+                                              ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+                                              ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+                                              ,changeYear: true //콤보박스에서 년 선택 가능
+                                              ,changeMonth: true //콤보박스에서 월 선택 가능
+
+                                              ,minDate: "-1M" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+                                              ,maxDate: "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+                                          });
+
+                                          //초기값을 오늘 날짜로 설정
+                                          $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+                                      });
+
+								</script>
+
 </td>
 <td>
                               <div class="form-group">
@@ -120,39 +141,15 @@
 
 
 
+							<script type="text/javascript">
+							$('#start').timepicker({'minTime':'${enterpriseVO.enterprise_operatingOpenTime}',
+								'maxTime': '${enterpriseVO.enterprise_operatingCloseTime}'});
+							</script>
 
 </td>
-<script type="text/javascript">
-$('#start').timepicker({'minTime':'${enterpriseVO.enterprise_operatingOpenTime}',
-	'maxTime': '${enterpriseVO.enterprise_operatingCloseTime}'});
-</script>
 
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-	var date_input=$('.date'); //our date input has the name "date"
-	var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-	date_input.datepicker({
-		format: 'yyyy/mm/dd',
-		container: container,
-		todayHighlight: true,
-		minDate: 0, // 오늘 이후 날짜 선택 불가
-		autoclose: true,
-		//regional: "ko",
-		beforeShowDay: function(date){
-			var day = date.getDay();
-			return [(day != 0 && day != 1 && day != 3 && day != 4 && day != 6)];
-		}
-
-
-	});
-});
-</script>
-
+</tr>
 <tr>
 	<td colspan="3" style="text-align: center;">0000년 00월 00일 00:00 0명</td>
 </tr>

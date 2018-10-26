@@ -43,16 +43,16 @@
 		 enterprise_closed = #{enterprise_closed} where enterprise_email = #{enterprise_email}
 	</update>
 
-	<select id="findBusinessName">
+	<select id="findBusinessName"  resultType = "org.gidal.enterprise.domain.EnterpriseVO">
 		select enterprise_businessName from enterprise where enterprise_code = #{enterprise_code}
 	</select>
 
-	<select id="findReserveUser">
+	<select id="findReserveUser" resultType = "org.gidal.reserve.domain.ReserveVO">
 		select * from reserve where reserve_code = #{reserve_code}
 	</select>
 
-	<select id="findReserveUserEmail">
-		select user_email from user where user_name = #{user_name}
+	<select id="findReserveUserEmail" resultType = "org.gidal.user.domain.UserVO">
+		select * from user where user_name = #{user_name}
 	</select>
 
 	<update id="enterprise_img">

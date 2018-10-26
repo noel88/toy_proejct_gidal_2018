@@ -17,6 +17,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.nexmo.client.NexmoClient;
+import com.nexmo.client.auth.AuthMethod;
+import com.nexmo.client.auth.TokenAuthMethod;
+import com.nexmo.client.sms.SmsSubmissionResult;
+import com.nexmo.client.sms.messages.TextMessage;
+
 
 @Service
 public class EnterpriseServiceImpl implements EnterpriseService{
@@ -287,16 +293,38 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		UserVO user;
 		user = dao.findReserveUserEmail(reserve.getUser_name());
 
-
+		//예약 확정이 되면 예약자에게 예약확정메일 보내기
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject(reserve.getUser_name() + "님! " + "[" + ent.getEnterprise_businessName()+" 예약확정 되었습니다.]");
 		sendMail.setText(
-				new StringBuffer().append("<h2>" + reserve.getUser_name() + "님 \n" + reserve.getReserve_date() + reserve.getReserve_time() + "\n"
+				new StringBuffer().append("<h2>" + reserve.getUser_name() + "님 \n" + reserve.getReserve_date() + " " + reserve.getReserve_time() + "\n"
 						+ "인원수 : " + reserve.getReserve_personnel() + "명" + "\n" + "예약확정되었습니다." +
 							"</h2>").toString());
-		sendMail.setFrom(ent.getEnterprise_email(), ent.getEnterprise_businessName());
+		sendMail.setFrom("amdintest@gmail.com", ent.getEnterprise_businessName());
 		sendMail.setTo(user.getUser_email());
 		sendMail.send();
+
+		//String phone = user.getUser_phoneNum().replaceAll("-", "").substring(1, user.getUser_phoneNum().replaceAll("-", "").length());
+		//System.out.println("폰넘버 : " + phone);
+
+		/*//예약 확정이 되면 예약자에게 예약확정문자 보내기
+		AuthMethod auth = new TokenAuthMethod("552d2d19", "yxbPbejhdRgqBo5Q");
+		NexmoClient client = new NexmoClient(auth);
+
+
+		SmsSubmissionResult[] responses = client.getSmsClient().submitMessage(
+			new TextMessage(
+				"",
+		        "",
+		        reserve.getUser_name() + "님 \n" + reserve.getReserve_date() + reserve.getReserve_time() + "\n"
+						+ "인원수 : " + reserve.getReserve_personnel() + "명" + "\n" +  ent.getEnterprise_businessName() +" 예약확정되었습니다."
+
+		    )
+		);
+
+		for (SmsSubmissionResult response : responses) {
+		    System.out.println(response);
+		}*/
 
 
 		return dao.update_reserveConfirmation_yn(code);

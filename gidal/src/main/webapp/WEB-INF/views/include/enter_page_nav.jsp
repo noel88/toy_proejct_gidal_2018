@@ -243,37 +243,38 @@ a.article:hover {
                     </ul>
                 </li>
                 <li>
-                    <a href="entCal">전체예약현황</a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">세부예약현황</a>
+                    <a href="entCal">전체 예약현황</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">세부 예약현황</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="entReserveListCheck">예약확인명단</a>
+                            <a href="entReserveListCheck">예약 확인명단</a>
                         </li>
                         <li>
-                            <a href="entReserveList">진행중인예약</a>
+                            <a href="entReserveList">진행중인 예약</a>
                         </li>
                         <li>
-                            <a href="entLastReserveList">지난예약목록</a>
+                            <a href="entLastReserveList">지난 예약목록</a>
                         </li>
                         <li>
-                            <a href="reserveReviewList">리뷰확인</a>
+                            <a href="reserveReviewList">리뷰 확인</a>
                         </li>
                     </ul>
 
-                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">세부웨이팅현황</a>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">세부 웨이팅현황</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="entWaitingList">진행중인대기인원</a>
+                            <a href="entWaitingList">진행중인 대기인원</a>
                         </li>
                         <li>
-                            <a href="entLastWaitingList">지난대기목록</a>
+                            <a href="entLastWaitingList">지난 대기목록</a>
                         </li>
                         <li>
-                            <a href="waitingReviewList">리뷰확인</a>
+                            <a href="waitingReviewList">리뷰 확인</a>
                         </li>
                     </ul>
                 </li>
                 <li>
+                    <a href="/authentication/logout">로그아웃</a>
                     <a href="entDelete">탈퇴하기</a>
                 </li>
 
@@ -299,18 +300,6 @@ a.article:hover {
 
 
 								</ul>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/authentication/logout">로그아웃</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
                 </div>
             </nav>
 

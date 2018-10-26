@@ -36,7 +36,7 @@
 	<tr>
 		<td style="width: 20%; height: 10px;">별점</td>
 		<td style="width: 30%;">${enterpriseVO.review_scope}점</td>
-		<td rowspan="6"><img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style="height : 350px;"></td>
+		<td rowspan="6"><img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style=" vertical-align: middle"></td>
 	</tr>
 	<tr>
 		<td style="height: 10px;">전화번호</td>
@@ -54,7 +54,10 @@
 
 	</table>
 
-
+ <c:if test = "${fn:length(reserveNowList) == 0}">
+<h4 style="text-align: center;"> 금일 예약자가 없습니다.</h4>
+ </c:if>
+ <c:if test = "${fn:length(reserveNowList) != 0}">
 			<table class="table table-hover"  style = "text-align : center;">
 				<thead>
 					<tr>
@@ -82,8 +85,11 @@
 					</c:forEach>
 				</tbody>
 			</table>
-
-
+</c:if>
+ <c:if test = "${fn:length(reserveNowList) == 0}">
+<h4 style="text-align: center;"> 금일 대기자가 없습니다.</h4>
+ </c:if>
+ <c:if test = "${fn:length(waitingList) != 0}">
 			<table class="table table-hover"  style = "text-align : center;">
 				<thead>
 					<tr>
@@ -109,7 +115,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-
+</c:if>
 </div>
 		</c:otherwise>
 	</c:choose>

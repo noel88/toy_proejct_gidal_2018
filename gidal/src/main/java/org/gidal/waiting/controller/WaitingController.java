@@ -61,10 +61,18 @@ public class WaitingController {
 	 */
 
 	@RequestMapping(value = "/waiting_insert", method = RequestMethod.GET)
-	public String waiting_insert(WaitingVO vo) {
-
-		service.waiting_insert(vo);
-		 return "/waiting/success";
+	public String waiting_insert(HttpSession session, WaitingVO vo) {
+		
+		String email = (String)session.getAttribute("LOGIN");	
+		int result = service.duplicationWaiting(email);
+		
+		if(result == 0) {
+			service.waiting_insert(vo);
+			return "/waiting/success";			
+		}else {
+			return "/waiting/fail";
+		}
+	
 	}
 	
 	@RequestMapping(value = "/waiting_cancel", method = RequestMethod.GET)

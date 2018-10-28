@@ -20,6 +20,7 @@
 	<select id="boardlist" resultType="org.gidal.enterprise.domain.EnterpriseVO">
 		select  e.enterprise_code, e.enterprise_businessName, e.enterprise_sectors, e.enterprise_mainImg, e.enterprise_service, e.enterprise_add2, e.enterprise_closed, e.enterprise_service, truncate(round(sum(r.review_scope)/(select ifnull(count(*),0) from review where enterprise_code = e.enterprise_code) * 2) / 2,1) as review_scope
 		from enterprise e left join review r on e.enterprise_code = r.enterprise_code where e.enterprise_businessName IS NOT NULL group by e.enterprise_code order by e.enterprise_code DESC;
+		
 	</select>
 
 	<select id="selectTotalRecords" resultType="int">
@@ -33,6 +34,7 @@
 	<select id="allInfo_enterprise" resultType="org.gidal.enterprise.domain.EnterpriseVO">
 		select *, truncate(round(sum(r.review_scope)/(select ifnull(count(*),0) from review where enterprise_code = e.enterprise_code) * 2) / 2,1) as review_scope
 		from enterprise e left join review r on e.enterprise_code = r.enterprise_code where e.enterprise_code = #{enterprise_code}
+		
 	</select>
 
 	<update id="enterprise_update">

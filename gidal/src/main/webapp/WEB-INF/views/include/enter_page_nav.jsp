@@ -232,14 +232,18 @@ a.article:hover {
             <ul class="list-unstyled components">
                 <p>기업</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">업체등록</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">업체정보</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <c:if test = "${enterpriseVO.enterprise_businessName == null}">
                         <li>
                             <a href="entForm">상세정보</a>
                         </li>
+                        </c:if>
+                        <c:if test = "${enterpriseVO.enterprise_businessName != null}">
                         <li>
-                            <a href="updateForm">업체수정</a>
+                            <a href="updateForm">업체수정</a> 
                         </li>
+                        </c:if>
                     </ul>
                 </li>
                 <li>

@@ -9,6 +9,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.filters.AddDefaultCharsetFilter;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -38,14 +41,14 @@ import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/enterprise/")
-public class EnterpriseController {
+public class EnterpriseController{
 
 
 	@Inject private EnterpriseService service;
 	@Inject private ReviewService re;
 
-
-
+	
+	
 
 	/**
 	 * 기업 회원가입 페이지 이동
@@ -71,8 +74,12 @@ public class EnterpriseController {
 	 */
 
 	@RequestMapping(value = "/entForm", method = RequestMethod.GET)
-	public String enterprise_Form() {
-
+	public String enterprise_Form(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		return "/enterprise/enterpriseDetail";
 
 	}
@@ -147,6 +154,7 @@ public class EnterpriseController {
 		int code = service.find_enterprise_code(login_email);
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		model.addAttribute("waiting",service.waiting_list(code));
 		model.addAttribute("reserve",service.reserve_list(code));
 		return "/enterprise/ent_page_reserveAndWaitingCal";
@@ -160,6 +168,7 @@ public class EnterpriseController {
 		int code = service.find_enterprise_code(login_email);
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		model.addAttribute("reserveCheckList", service.reserve_listCheck(code));
 		return "/enterprise/ent_page_reserveListCheck";
 
@@ -171,6 +180,7 @@ public class EnterpriseController {
 		int code = service.find_enterprise_code(login_email);
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		model.addAttribute("reserveList", service.reserve_list(code));
 		return "/enterprise/ent_page_reserveList";
 
@@ -182,6 +192,7 @@ public class EnterpriseController {
 		int code = service.find_enterprise_code(login_email);
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		model.addAttribute("lastReserveList", service.last_reserve_list(code));
 		return "/enterprise/ent_page_lastReserveList";
 
@@ -192,6 +203,7 @@ public class EnterpriseController {
 		int code = service.find_enterprise_code(login_email);
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		model.addAttribute("waitingList", service.waiting_list(code));
 		return "/enterprise/ent_page_waitingList";
 
@@ -202,6 +214,7 @@ public class EnterpriseController {
 		int code = service.find_enterprise_code(login_email);
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		model.addAttribute("lastWaitingList", service.last_waiting_list(code));
 		return "/enterprise/ent_page_lastWaitingList";
 
@@ -211,10 +224,10 @@ public class EnterpriseController {
 	public String ent_waitingReviewList(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
-		model.addAttribute("waitingReview", service.waitingReview(code));
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
+		model.addAttribute("waitingReview", service.waitingReview(code));
 		return "/enterprise/ent_page_waitingReview";
 
 	}
@@ -222,16 +235,20 @@ public class EnterpriseController {
 	public String ent_reserveReviewList(HttpSession session, Model model) {
 		String login_email = (String)session.getAttribute("LOGIN");
 		int code = service.find_enterprise_code(login_email);
-
-		model.addAttribute("reserveReview", service.reserveReview(code));
 		model.addAttribute("reserve_count", service.reserve_count(code));
 		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
+		model.addAttribute("reserveReview", service.reserveReview(code));
 		return "/enterprise/ent_page_reserveReview";
 
 	}
 	@RequestMapping(value = "/entDelete", method = RequestMethod.GET)
-	public String enterprise_entDelete() {
-
+	public String enterprise_entDelete(HttpSession session, Model model) {
+		String login_email = (String)session.getAttribute("LOGIN");
+		int code = service.find_enterprise_code(login_email);
+		model.addAttribute("reserve_count", service.reserve_count(code));
+		model.addAttribute("waiting_count", service.waiting_count(code));
+		model.addAttribute(service.enterpriseBoard_view(code));
 		return "/enterprise/ent_page_delete";
 
 	}

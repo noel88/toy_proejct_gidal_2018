@@ -312,7 +312,7 @@ function execPostCode() {
 
 						</script>
 
-				 		<label class="col-form-label" for="inputDefault">휴무일 체크</label>
+				 		<label class="col-form-label" for="inputDefault">영업일 체크</label>
 						<div class="form-group">
 							<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '1'>월요일
 						 	<input type = "checkbox" name = "chkbox" onClick="itemSum(this.form);" value = '2'>화요일
@@ -349,7 +349,7 @@ function execPostCode() {
 						</select>
 
 					<p>
-						<button type="submit" class="form-control btn btn-primary signupbtn">매장등록</button>
+						<button type="submit" class="form-control btn btn-primary">매장등록</button>
 					</p>
 				</form>
 

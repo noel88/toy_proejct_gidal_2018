@@ -51,4 +51,9 @@ public class WaitingDAOImpl implements WaitingDAO {
 		sqlsession.delete(namespace + ".waiting_cancel", waiting_code);
 	}
 
+	@Override
+	public int duplicationWaiting(String email) {
+		return sqlsession.selectOne(namespace + ".duplicationWaiting", email); 
+	}
+
 }

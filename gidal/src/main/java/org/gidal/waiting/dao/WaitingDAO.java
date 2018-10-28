@@ -15,6 +15,6 @@ public interface WaitingDAO {
 	public int waiting_insert(WaitingVO vo);
 	public int waiting_count(Integer code);
 	public void waiting_cancel(String waiting_code);
-
+	public int duplicationWaiting(String email);
 
 }

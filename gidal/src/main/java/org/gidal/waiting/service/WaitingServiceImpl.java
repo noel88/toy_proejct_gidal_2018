@@ -97,4 +97,9 @@ public class WaitingServiceImpl implements WaitingService{
 		dao.waiting_cancel(waiting_code);
 	}
 
+	@Override
+	public int duplicationWaiting(String email) {
+		return dao.duplicationWaiting(email);
+	}
+
 }

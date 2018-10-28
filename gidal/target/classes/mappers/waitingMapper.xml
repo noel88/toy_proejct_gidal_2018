@@ -16,16 +16,24 @@
 	</select>
 
 	<select id="selectList" resultType = "org.gidal.waiting.domain.WaitingVO">
-		SELECT * FROM waiting WHERE enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'N';
+		SELECT * FROM waiting WHERE enterprise_code = #{enterprise_code} and waiting_now 
+		between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'N';
 	</select>
 
 	<select id="selectList_count" parameterType = "org.gidal.waiting.domain.WaitingVO" resultType="java.lang.Integer">
-		SELECT IFNULL(COUNT(*),0) FROM waiting WHERE enterprise_code = #{enterprise_code} and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'N';
+		SELECT IFNULL(COUNT(*),0) FROM waiting WHERE enterprise_code = #{enterprise_code} 
+		and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'N';
 	</select>
 
 
 	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">
 		select * from user where user_email = #{user_email}
+	</select>
+	
+	<select id="duplicationWaiting" resultType="Integer">
+		select IFNULL(COUNT(*),0) from waiting where waiting_now 
+		between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') 
+		and waiting_yn = 'N' and user_name = (select user_name from user where user_email = #{user_email});
 	</select>
 	
 	<delete id="waiting_cancel">

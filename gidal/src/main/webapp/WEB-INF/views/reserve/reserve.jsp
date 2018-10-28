@@ -12,6 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기달</title>
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
+<script src="//code.jquery.com/jquery-latest.min.js"></script> 
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
@@ -19,6 +20,7 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script> -->
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -125,14 +127,7 @@
                                                   ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
                                                   ,minDate: "+1D" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
                                              	  ,maxDate: "+2Y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
-                                           /*     ,onSelect: function(date) {
-                                             		   var dt = new Date(date);
-                                             		   var w = dt.getDay();
-                                             		   if(w == 6 || w == 0) {
-                                             			   alert('예약할수 없는 날짜입니다');
-                                             		   }
-                                             	   } */
-
+                                       
                                              	 <c:if test = "${fn:length(closed) != 0}">
                                              	  ,beforeShowDay: function(date){
 												  var day = date.getDay();
@@ -176,6 +171,7 @@
 
 	<td colspan="3" style="text-align: center;"><div><span id = "date">&nbsp;</span><span id = "time">&nbsp;</span><span id = "per"></span></div></td>
 
+</tr>
 	<script type="text/javascript">
 
 	function displayVals() {
@@ -195,7 +191,6 @@
 
 
 	</script>
-</tr>
 
 <tr>
 <td>
@@ -223,11 +218,12 @@
 	</td>
 </tr>
 <tr>
+
 <td colspan="3">
+
 				<button type="submit" class="btn btn-primary" style="width:550px;" onclick="javascript:reserve();">예약하기</button>
 	</td>
 </tr>
-
 
 
 	</form>

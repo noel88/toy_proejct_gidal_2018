@@ -21,7 +21,8 @@
 <!-- <script src="/resources/js/addressapi.js"></script> -->
 
 <%@ include file = "/WEB-INF/views/include/enter_page_nav.jsp" %>
-
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script type="text/javascript">
 function execPostCode() {
     new daum.Postcode({
@@ -284,7 +285,7 @@ function execPostCode() {
 
 
 
-						<label class="col-form-label" for="inputDefault">영업시작시간</label>
+						<%-- <label class="col-form-label" for="inputDefault">영업시작시간</label>
 						<select class="custom-select" name = "enterprise_operatingOpenTime" id="exampleSelect1">
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
 						</select>
@@ -293,7 +294,37 @@ function execPostCode() {
 						<label class="col-form-label" for="inputDefault" >영업종료시간</label>
 						<select class="custom-select"  name = "enterprise_operatingCloseTime" id="exampleSelect1">
 							<%@ include file = "/WEB-INF/views/include/time.jsp" %>
-						</select>
+						</select> --%>
+						
+						<input type="text" name="enterprise_operatingOpenTime" id="START_TIME" value="" maxlength="10"  class="setDatePicker">
+ 				           ~
+            			<input type="text" name="enterprise_operatingCloseTime" id="END_TIME" value="" maxlength="10"  class="setDatePicker">
+ 
+						<script type="text/javascript">
+						    $(document).ready(function() {
+						        // INPUT 박스에 들어간 ID값을 적어준다.
+						        $("#START_TIME,#END_TIME").timepicker({
+						            'minTime': '00:00am', // 조회하고자 할 시작 시간 ( 09시 부터 선택 가능하다. )
+						            'maxTime': '23:30pm', // 조회하고자 할 종료 시간 ( 20시 까지 선택 가능하다. )
+						           // 'timeFormat': 'H:i',
+						            'step': 30 // 30분 단위로 지정. ( 10을 넣으면 10분 단위 )
+						    });
+						        
+						    
+						    $(window).scroll(function(){
+						        $(".ui-timepicker-wrapper").hide();
+						    });
+						 
+						    });
+						    
+						    
+			
+						        
+						</script>
+
+
+
+
 
 						<script>
 

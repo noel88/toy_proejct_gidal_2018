@@ -234,12 +234,12 @@ a.article:hover {
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">업체정보</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <c:if test = "${enterpriseVO.enterprise_businessName == null}">
+                        <c:if test = "${enterpriseVO.enterprise_businessName eq '0'}">
                         <li>
                             <a href="entForm">상세정보</a>
                         </li>
                         </c:if>
-                        <c:if test = "${enterpriseVO.enterprise_businessName != null}">
+                        <c:if test = "${enterpriseVO.enterprise_businessName != '0'}">
                         <li>
                             <a href="updateForm">업체수정</a> 
                         </li>

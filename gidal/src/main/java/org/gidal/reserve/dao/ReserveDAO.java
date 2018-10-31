@@ -17,6 +17,8 @@ public interface ReserveDAO {
 	public int reserve_update();
 	public void reserve_cancel(String reserve_code);
 	public UserVO selectUser(String str);
+	public List<ReserveVO> reserve_alert(String user);
+	public List<ReserveVO> reserve_alert_now(String user);
 
 
 

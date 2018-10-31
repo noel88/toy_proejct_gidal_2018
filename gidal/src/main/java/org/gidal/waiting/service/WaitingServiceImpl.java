@@ -102,4 +102,9 @@ public class WaitingServiceImpl implements WaitingService{
 		return dao.duplicationWaiting(email);
 	}
 
+	@Override
+	public List<WaitingVO> waiting_alert(String user) {
+		return dao.waiting_alert(user);
+	}
+
 }

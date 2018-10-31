@@ -50,6 +50,8 @@ public interface EnterpriseDAO {
 	public ReserveVO findReserveUser(Integer code);
 	public EnterpriseVO findBusinessName(Integer code);
 	public UserVO findReserveUserEmail(String name);
+	public void update_updateReserveCancel(Integer code);
+	public void update_updateWaitingCancel(Integer code);
 
 
 

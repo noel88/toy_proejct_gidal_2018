@@ -1,5 +1,7 @@
 package org.gidal.reserve.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
@@ -102,6 +104,16 @@ public class ReserveServiceImpl implements ReserveService {
 	@Override
 	public void reserve_cancel(String reserve_code) {
 		dao.reserve_cancel(reserve_code);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_alert(String user) {
+		return dao.reserve_alert(user);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_alert_now(String user) {
+		return dao.reserve_alert_now(user);
 	}
 
 

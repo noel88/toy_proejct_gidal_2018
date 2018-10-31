@@ -392,6 +392,36 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 		return dao.list_cnt();
 	}
 
+	@Override
+	public void update_updateReserveCancel(Integer code) throws Exception {
+		ReserveVO reserve;
+		reserve = dao.findReserveUser(code);
+		EnterpriseVO ent;
+		ent = dao.findBusinessName(reserve.getEnterprise_code());
+		UserVO user;
+		user = dao.findReserveUserEmail(reserve.getUser_name());
+
+		//예약 취소가 되면 예약자에게 예약취소메일 보내기
+		MailHandler sendMail = new MailHandler(mailSender);
+		sendMail.setSubject(reserve.getUser_name() + "님! " + "[" + ent.getEnterprise_businessName()+" 예약취소 되었습니다.]");
+		sendMail.setText(
+				new StringBuffer().append("<h2>" + reserve.getUser_name() + "님 \n" + reserve.getReserve_date() + " " + reserve.getReserve_time() + "\n"
+						+ "인원수 : " + reserve.getReserve_personnel() + "명" + "\n" + "예약취소되었습니다." +
+							"</h2>").toString());
+		sendMail.setFrom("amdintest@gmail.com", ent.getEnterprise_businessName());
+		sendMail.setTo(user.getUser_email());
+		sendMail.send();
+
+		dao.update_updateReserveCancel(code);
+
+	}
+
+	@Override
+	public void update_updateWaitingCancel(Integer code) {
+		dao.update_updateWaitingCancel(code);
+
+	}
+
 
 
 }

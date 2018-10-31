@@ -6,13 +6,13 @@
 <script>
 
 	function reserve_cancel(reserve_code) {
-		
+
 		if (confirm("예약을 취소하시려면 확인을 눌러주세요.")) {
-			
+
 			location.href = "/reserve/reserve_cancel?check=user&reserve_code=" + reserve_code;
 		}
 	}
-	
+
 </script>
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">

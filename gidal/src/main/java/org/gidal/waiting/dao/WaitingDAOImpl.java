@@ -53,7 +53,12 @@ public class WaitingDAOImpl implements WaitingDAO {
 
 	@Override
 	public int duplicationWaiting(String email) {
-		return sqlsession.selectOne(namespace + ".duplicationWaiting", email); 
+		return sqlsession.selectOne(namespace + ".duplicationWaiting", email);
+	}
+
+	@Override
+	public List<WaitingVO> waiting_alert(String user) {
+		return sqlsession.selectList(namespace + ".waiting_alert", user);
 	}
 
 }

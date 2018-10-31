@@ -44,6 +44,8 @@ public interface EnterpriseService {
 	public int total_waiting_cnt(Integer code);
 	public int total_review_cnt(Integer code);
 	public int list_cnt();
+	public void update_updateReserveCancel(Integer code) throws Exception;
+	public void update_updateWaitingCancel(Integer code);
 
 
 

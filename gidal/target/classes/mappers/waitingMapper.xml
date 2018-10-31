@@ -16,12 +16,12 @@
 	</select>
 
 	<select id="selectList" resultType = "org.gidal.waiting.domain.WaitingVO">
-		SELECT * FROM waiting WHERE enterprise_code = #{enterprise_code} and waiting_now 
+		SELECT * FROM waiting WHERE enterprise_code = #{enterprise_code} and waiting_now
 		between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'N';
 	</select>
 
 	<select id="selectList_count" parameterType = "org.gidal.waiting.domain.WaitingVO" resultType="java.lang.Integer">
-		SELECT IFNULL(COUNT(*),0) FROM waiting WHERE enterprise_code = #{enterprise_code} 
+		SELECT IFNULL(COUNT(*),0) FROM waiting WHERE enterprise_code = #{enterprise_code}
 		and waiting_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') and waiting_yn = 'N';
 	</select>
 
@@ -29,17 +29,21 @@
 	<select id="selectOne" resultType="org.gidal.user.domain.UserVO">
 		select * from user where user_email = #{user_email}
 	</select>
-	
+
+	<select id="waiting_alert" resultType="org.gidal.waiting.domain.WaitingVO">
+		select *, (select enterprise_businessName from enterprise where enterprise_code = waiting.enterprise_code) as enterprise_businessname from waiting where user_name = #{user_name} and waiting_now LIKE(CONCAT(CURDATE(), '%'))
+	</select>
+
 	<select id="duplicationWaiting" resultType="Integer">
-		select IFNULL(COUNT(*),0) from waiting where waiting_now 
-		between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59') 
+		select IFNULL(COUNT(*),0) from waiting where waiting_now
+		between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
 		and waiting_yn = 'N' and user_name = (select user_name from user where user_email = #{user_email});
 	</select>
-	
+
 	<delete id="waiting_cancel">
-		DELETE FROM 
-			waiting 
-		WHERE 
+		DELETE FROM
+			waiting
+		WHERE
 			waiting_code = #{waiting_code};
 	</delete>
 

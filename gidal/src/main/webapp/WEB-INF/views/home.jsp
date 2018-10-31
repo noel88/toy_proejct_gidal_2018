@@ -74,6 +74,14 @@ h2 {
 
 	<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 		<div class="jumbotron">
+<c:if test = "${ LEVEL eq 'user' }">
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">잠깐!</h4>
+  <p class="mb-0">예약현황과 웨이팅 순서를 기다리시는 분들은 상단 우측 메뉴 '알림' 을 확인해주세요</p>
+</div>
+</c:if>
+
 			<h1>이벤트</h1>
 
 			<hr class="my-4">
@@ -189,50 +197,7 @@ h2 {
 					</div>
 				</div>
 
-<%-- 			<div class="row" style="margin : 0 auto;">
-<c:forEach items="${ent}" var = "enterprise">
-				<div class="card mb-3" style="width: 300px; margin: 10px 5px;">
-					<h3 class="card-header">${enterprise.enterprise_businessName}</h3>
-					<div class="card-body">
-						<h5 class="card-title">
 
-							별점 : ${enterprise.aver}
-						</h5>
-						<h6 class="card-subtitle text-muted">${enterprise.enterprise_add2}</h6>
-					</div>
-					<img style="height: 200px; width: 100%; display: block;"
-						src="<spring:url value ='/image/${enterprise.enterprise_mainImg}'/>"
-						alt="Card image">
-					<div class="card-body" style = "text-align : center;">
-
-<c:choose>
-			<c:when test = "${ LEVEL eq 'enterprise' }">
-
-				<b>- 기업회원은 예약 및 웨이팅을 할수 없습니다. -</b>
-
-			</c:when>
-			<c:otherwise>
-				<c:choose>
-				<c:when test = "${enterprise.enterprise_service == '1'}">
-			      &nbsp;&nbsp;&nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}"  class="btn btn-primary btn-lg" role="button">웨이팅</a>
-			    </c:when>
-			    <c:when test = "${enterprise.enterprise_service == '2'}">
-			      &nbsp;&nbsp;&nbsp;<a href = "/reserve/reserve?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
-			    </c:when>
-
-	 		     <c:otherwise>
-
-			      &nbsp;<a href = "/waiting/waiting?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">웨이팅</a>
-			       <a href = "/reserve/reserve?enterprise_code=${enterprise.enterprise_code}" class="btn btn-primary btn-lg" role="button">예약</a>
-
-	     		  </c:otherwise>
-					</c:choose>
-				</c:otherwise>
-</c:choose>
-
-					</div>
-				</div>
-</c:forEach> --%>
 
 			</div>
 		</div>

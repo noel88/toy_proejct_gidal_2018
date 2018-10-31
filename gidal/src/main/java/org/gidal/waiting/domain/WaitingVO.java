@@ -10,10 +10,18 @@ public class WaitingVO {
 	private String waiting_now;
 	private String waiting_yn;
 	private String waiting_wait_personnel;
+	private String enterprise_businessName;
 
 
 
 
+
+	public String getEnterprise_businessName() {
+		return enterprise_businessName;
+	}
+	public void setEnterprise_businessName(String enterprise_businessName) {
+		this.enterprise_businessName = enterprise_businessName;
+	}
 	public String getWaiting_yn() {
 		return waiting_yn;
 	}

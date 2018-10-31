@@ -343,7 +343,21 @@ public class EnterpriseController{
 	public String enterprise_reserveComfirmation(@RequestParam("reserve_code") int code) throws Exception {
 
 		service.update_reserveConfirmation_yn(code);
-		return "redirect:/enterprise/ent_page_main";
+		return "redirect:/enterprise/entReserveList";
+	}
+
+	@RequestMapping(value = "/updateReserveCancel", method = RequestMethod.GET)
+	public String enterprise_updateReserveCancel(@RequestParam("reserve_code") int code) throws Exception {
+
+		service.update_updateReserveCancel(code);
+		return "redirect:/enterprise/updateReserveComfirmation_yn";
+	}
+
+	@RequestMapping(value = "/updateWaitingCancel", method = RequestMethod.GET)
+	public String enterprise_updateWaitingCancel(@RequestParam("waiting_code") int code) throws Exception {
+
+		service.update_updateWaitingCancel(code);
+		return "redirect:/enterprise/entWaitingList";
 	}
 
 	/**

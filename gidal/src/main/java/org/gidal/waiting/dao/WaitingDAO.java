@@ -3,6 +3,7 @@ package org.gidal.waiting.dao;
 import java.util.List;
 
 import org.gidal.enterprise.domain.EnterpriseVO;
+import org.gidal.reserve.domain.ReserveVO;
 import org.gidal.user.domain.UserVO;
 import org.gidal.waiting.domain.WaitingVO;
 
@@ -16,5 +17,6 @@ public interface WaitingDAO {
 	public int waiting_count(Integer code);
 	public void waiting_cancel(String waiting_code);
 	public int duplicationWaiting(String email);
+	public List<WaitingVO> waiting_alert(String user);
 
 }

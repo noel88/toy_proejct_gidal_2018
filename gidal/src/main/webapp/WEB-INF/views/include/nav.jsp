@@ -113,6 +113,61 @@
 				</c:choose>
 			</div>
 
+<!-- Button trigger modal By Ved Prakash Gupta -->
+<c:if test = "${ LEVEL eq 'user' }">
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  <!-- <i class="far fa-bell"></i> -->
+알림
+</button>
+</c:if>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">예약 및 웨이팅 현황 알림</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+          <div class="modal-body" align="center">
+           <p> <h3>예약</h3> </p>
+           <c:forEach items = "${reserve_alert}" var = "re">
+          <c:choose>
+          <c:when test = "${re.reserve_comfirmation eq 'N'}">
+           <p>[${re.enterprise_businessName}] ${re.reserve_date} 예약대기</p>
+           </c:when>
+            <c:when test = "${re.reserve_comfirmation eq 'Y'}">
+           <p>[${re.enterprise_businessName}] ${re.reserve_date} 예약확정</p>
+           </c:when>
+            <c:when test = "${re.reserve_comfirmation eq 'C'}">
+           <p>[${re.enterprise_businessName}] ${re.reserve_date} 예약취소됨</p>
+           </c:when>
+          </c:choose>
+           </c:forEach>
+           <hr>
+            <p> <h3>웨이팅</h3> </p>
+             <c:forEach items = "${waiting_alert}" var = "waiting">
+            <c:choose>
+            <c:when test = "${waiting.waiting_yn eq 'N'}">
+           <p>[${waiting.enterprise_businessName}]  웨이팅 대기중</p>
+           </c:when>
+           <c:when test = "${waiting.waiting_yn eq 'A'}">
+           <p>[식당명] 입장하세요</p>
+           </c:when>
+           </c:choose>
+           </c:forEach>
+           <hr>
+           <c:forEach items = "${reserve_alert_now}" var = "now_list">
+           <p class="text-primary">오늘은 [${now_list.enterprise_businessName}] 예약일입니다</p>
+           </c:forEach>
+
+          </div>
+        </div>
+          </div>
+  </div>
+</div>
+
+
+
 
 		</div>
 	</nav>

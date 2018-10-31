@@ -25,10 +25,10 @@
 					<tr>
 						<th scope="col">이름</th>
 						<th scope="col">전화번호</th>
-						<th scope="col">인원수</th>
-						<th scope="col">예약날짜</th>
-						<th scope="col">예약시간</th>
-						<th scope="col">예약확정</th>
+						<th scope="col">인원</th>
+						<th scope="col">날짜</th>
+						<th scope="col">확정</th>
+						<th scope="col">취소</th>
 
 					</tr>
 				</thead>
@@ -38,9 +38,9 @@
 							<td>${ReserveVO.user_name}</td>
 							<td>${ReserveVO.user_phoneNum}</td>
 							<td>${ReserveVO.reserve_personnel}</td>
-							<td>${ReserveVO.reserve_date}</td>
-							<td>${ReserveVO.reserve_time}</td>
+							<td>${ReserveVO.reserve_date} ${ReserveVO.reserve_time}</td>
 							<td><a href ="/enterprise/updateReserveComfirmation_yn?reserve_code=${ReserveVO.reserve_code}"><button type="button" class="btn btn-secondary">${ReserveVO.reserve_comfirmation}</button></a></td>
+							<td><a href ="/enterprise/updateReserveCancel?reserve_code=${ReserveVO.reserve_code}"><button type="button" class="btn btn-secondary">취소</button></a></td>
 
 						</tr>
 					</c:forEach>

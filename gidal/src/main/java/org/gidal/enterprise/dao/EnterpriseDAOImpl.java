@@ -222,6 +222,18 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 		return sqlsession.selectOne(namespace + ".list_cnt");
 	}
 
+	@Override
+	public void update_updateReserveCancel(Integer code) {
+		sqlsession.update(namespace + ".update_updateReserveCancel", code);
+
+	}
+
+	@Override
+	public void update_updateWaitingCancel(Integer code) {
+		sqlsession.update(namespace + ".update_updateWaitingCancel", code);
+
+	}
+
 
 
 

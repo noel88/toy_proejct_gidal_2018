@@ -14,11 +14,24 @@ public class ReserveVO {
 	private String user_phoneNum;
 	private String reserve_yn;
 	private String reserve_comfirmation;
+	private String enterprise_businessName;
 
 
 
 	public ReserveVO() {
 
+	}
+
+
+
+	public String getEnterprise_businessName() {
+		return enterprise_businessName;
+	}
+
+
+
+	public void setEnterprise_businessName(String enterprise_businessName) {
+		this.enterprise_businessName = enterprise_businessName;
 	}
 
 

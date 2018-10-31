@@ -50,6 +50,16 @@ public class ReserveDAOImpl implements ReserveDAO{
 		return sqlsession.selectOne(namespace + ".selectOne", str);
 	}
 
+	@Override
+	public List<ReserveVO> reserve_alert(String user) {
+		return sqlsession.selectList(namespace + ".reserve_alert", user);
+	}
+
+	@Override
+	public List<ReserveVO> reserve_alert_now(String user) {
+		return sqlsession.selectList(namespace + ".reserve_alert_now", user);
+	}
+
 
 
 }

@@ -13,14 +13,22 @@
 		select * from user where user_email = #{user_email}
 	</select>
 
+	<select id="reserve_alert" resultType="org.gidal.reserve.domain.ReserveVO">
+		select *, (select enterprise_businessName from enterprise where enterprise_code = reserve.enterprise_code) as enterprise_businessname from reserve where user_name = #{user_name} and reserve_yn = 'N' order by reserve_comfirmation desc
+	</select>
+
+	<select id="reserve_alert_now" resultType="org.gidal.reserve.domain.ReserveVO">
+		select *, (select enterprise_businessName from enterprise where enterprise_code = reserve.enterprise_code) as enterprise_businessname from reserve where user_name = #{user_name} and reserve_yn = 'N' and  reserve_date LIKE(CONCAT(CURDATE(), '%')) order by reserve_comfirmation desc
+	</select>
+
 	<select id="selectView" resultType = "org.gidal.enterprise.domain.EnterpriseVO">
 		select * from enterprise where enterprise_code = #{enterprise_code}
 	</select>
 
 	<delete id="reserve_cancel">
-		DELETE FROM 
-			reserve 
-		WHERE 
+		DELETE FROM
+			reserve
+		WHERE
 			reserve_code = #{reserve_code};
 	</delete>
 

@@ -16,4 +16,5 @@ public interface WaitingService {
 	public List<WaitingVO> waiting_view(Integer code);
 	public void waiting_cancel(String waiting_code);
 	public int duplicationWaiting(String email);
+	public List<WaitingVO> waiting_alert(String user);
 }

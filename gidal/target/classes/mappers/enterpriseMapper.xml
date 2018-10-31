@@ -101,6 +101,18 @@
 		update reserve set reserve_comfirmation = 'Y' where reserve_code = #{reserve_code}
 	</update>
 
+	<update id="update_updateReserveCancel">
+		update reserve set reserve_comfirmation = 'C' where reserve_code = #{reserve_code}
+	</update>
+
+	<update id="update_updateWaitingCancel">
+		update waiting set waiting_yn = 'C' where waiting_code = #{waiting_code}
+	</update>
+
+	<update id="update_updateWaitingAlert">
+		update waiting set waiting_yn = 'A' where waiting_code = #{waiting_code}
+	</update>
+
 	<delete id="enterprise_delete">
 		delete from enterprise where enterprise_code = #{enterprise_code} and enterprise_password = #{enterprise_password}
 	</delete>

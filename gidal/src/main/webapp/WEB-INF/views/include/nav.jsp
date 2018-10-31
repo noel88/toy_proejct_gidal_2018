@@ -34,10 +34,12 @@
 						<a class="dropdown-item" href="/event/upcomingEvent">진행 예정 이벤트</a>
 					</div>
 				</li>
-				<li class="nav-item">
-       				<a class="nav-link" href="/enterprise/view">지역별 업체<span class="sr-only">(current)</span></a>
-     			</li>
-				<c:if test = "${ !empty LOGIN }">
+				<c:if test = "${ LEVEL ne 'admin' }">
+					<li class="nav-item">
+	       				<a class="nav-link" href="/enterprise/view">지역별 업체<span class="sr-only">(current)</span></a>
+	     			</li>
+				</c:if>
+				<c:if test = "${ LEVEL eq 'user' }">
 					<li class="nav-item">
 	       				<a class="nav-link" href="/user/reserveWaitList">기달목록<span class="sr-only">(current)</span></a>
 	     			</li>

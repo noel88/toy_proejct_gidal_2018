@@ -37,7 +37,7 @@ public class UserController {
 		 if(result > 0) {
 			 model.addAttribute("id", vo);
 			 return "redirect:/authentication/signIn";
-		 }else {
+		 } else {
 			 //error
 			 return "redirect:/signFail";
 		 }

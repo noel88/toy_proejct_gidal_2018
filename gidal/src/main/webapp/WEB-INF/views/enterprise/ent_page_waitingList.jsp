@@ -22,9 +22,10 @@
 					<tr>
 						<th scope="col">이름</th>
 						<th scope="col">전화번호</th>
-						<th scope="col">인원수</th>
-						<th scope="col">웨이팅 시간</th>
-						<th scope="col">웨이팅 현황</th>
+						<th scope="col">인원</th>
+						<th scope="col">시간</th>
+						<th scope="col">현황</th>
+						<th scope="col">취소</th>
 						<th scope="col">입장알림</th>
 
 					</tr>
@@ -37,7 +38,8 @@
 							<td>${WaitingVO.waiting_personnel}</td>
 							<td><c:out value='${fn:substring(WaitingVO.waiting_now, 10, 19)}'/></td>
 							<td><a href ="/enterprise/update_yn?waiting_code=${WaitingVO.waiting_code}"><button type="button" class="btn btn-secondary">${WaitingVO.waiting_yn}</button></a></td>
-							<td><a href ="/enterprise/update_Alert?waiting_code=${WaitingVO.waiting_code}"><button type="button" class="btn btn-secondary">입장</button></a></td>
+							<td><a href ="/enterprise/updateWaitingCancel?waiting_code=${WaitingVO.waiting_code}"><button type="button" class="btn btn-secondary"<c:if test = "${WaitingVO.waiting_yn == 'C'}"> disabled = 'disabled'</c:if>>취소</button></a></td>
+							<td><a href ="/enterprise/update_Alert?waiting_code=${WaitingVO.waiting_code}"><button type="button" class="btn btn-secondary" <c:if test = "${WaitingVO.waiting_yn == 'A'}"> disabled = 'disabled'</c:if>>입장</button></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -234,6 +234,12 @@ public class EnterpriseDAOImpl implements EnterpriseDAO{
 
 	}
 
+	@Override
+	public void update_updateWaitingAlert(Integer code) {
+		sqlsession.update(namespace + ".update_updateWaitingAlert", code);
+
+	}
+
 
 
 

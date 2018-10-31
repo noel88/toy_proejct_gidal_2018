@@ -52,6 +52,7 @@ public interface EnterpriseDAO {
 	public UserVO findReserveUserEmail(String name);
 	public void update_updateReserveCancel(Integer code);
 	public void update_updateWaitingCancel(Integer code);
+	public void update_updateWaitingAlert(Integer code);
 
 
 

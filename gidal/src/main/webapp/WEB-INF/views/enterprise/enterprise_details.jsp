@@ -41,7 +41,7 @@
 			</tr>
 			<tr>
 				<td style="width: 20%; height: 10px;">별점</td>
-				<td style="width: 30%;">${enterpriseVO.review_scope}점</td>
+				<td style="width: 30%;">${enterpriseVO.aver}점</td>
 				<td rowspan="6"><img class="d-block w-100" src = "<spring:url value ='/image/${enterpriseVO.enterprise_mainImg}'/>" style=" vertical-align: middle"></td>
 			</tr>
 			<tr>

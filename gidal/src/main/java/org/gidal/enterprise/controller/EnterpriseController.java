@@ -47,8 +47,8 @@ public class EnterpriseController{
 	@Inject private EnterpriseService service;
 	@Inject private ReviewService re;
 
-	
-	
+
+
 
 	/**
 	 * 기업 회원가입 페이지 이동

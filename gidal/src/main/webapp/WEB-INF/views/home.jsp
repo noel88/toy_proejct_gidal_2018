@@ -154,17 +154,17 @@ h2 {
 					class="sr-only">다음</span>
 				</a>
 			</div>
-			
+
 			<br />
 			<h1>인기업체</h1>
 
 			<hr class="my-4">
 			<div class="blog">
 		      <div class="container">
-		
+
 		           <div class="row" style="clear: both;">
 						<c:forEach items = "${ent}" var = "EnterpriseVO">
-			
+
 							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">
 								 <div class="card text-center">
 			                        <a href = "/enterprise/enterprise_details?enterprise_code=${EnterpriseVO.enterprise_code}"><img class="card-img-top" src="<spring:url value ='/image/${EnterpriseVO.enterprise_mainImg}'/>" alt="" height="200px;" width="100%"></a>
@@ -180,8 +180,8 @@ h2 {
 			                             <button class="btn btn-default" <c:if test = "${EnterpriseVO.enterprise_service == '2'}"> disabled = 'disabled' </c:if> onclick="window.open('/waiting/waiting?enterprise_code=${EnterpriseVO.enterprise_code}','','width=600,height=400,top=250,left=350,location=no,status=no,scrollbars=no');">웨이팅하기</button>
 										</c:when>
 			                        	</c:choose>
-			
-			
+
+
 			                        </div>
 			                     </div>
 			                </div>

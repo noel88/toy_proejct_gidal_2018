@@ -422,6 +422,12 @@ public class EnterpriseServiceImpl implements EnterpriseService{
 
 	}
 
+	@Override
+	public void update_updateWaitingAlert(Integer code) {
+		dao.update_updateWaitingAlert(code);
+
+	}
+
 
 
 }

@@ -46,7 +46,7 @@ public interface EnterpriseService {
 	public int list_cnt();
 	public void update_updateReserveCancel(Integer code) throws Exception;
 	public void update_updateWaitingCancel(Integer code);
-
+	public void update_updateWaitingAlert(Integer code);
 
 
 

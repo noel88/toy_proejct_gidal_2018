@@ -360,6 +360,13 @@ public class EnterpriseController{
 		return "redirect:/enterprise/entWaitingList";
 	}
 
+	@RequestMapping(value = "/update_Alert", method = RequestMethod.GET)
+	public String enterprise_update_Alert(@RequestParam("waiting_code") int code) throws Exception {
+
+		service.update_updateWaitingAlert(code);
+		return "redirect:/enterprise/entWaitingList";
+	}
+
 	/**
 	 * 글쓰기 폼으로 이동
 	 *

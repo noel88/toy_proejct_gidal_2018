@@ -350,7 +350,7 @@ public class EnterpriseController{
 	public String enterprise_updateReserveCancel(@RequestParam("reserve_code") int code) throws Exception {
 
 		service.update_updateReserveCancel(code);
-		return "redirect:/enterprise/updateReserveComfirmation_yn";
+		return "redirect:/enterprise/entReserveListCheck";
 	}
 
 	@RequestMapping(value = "/updateWaitingCancel", method = RequestMethod.GET)

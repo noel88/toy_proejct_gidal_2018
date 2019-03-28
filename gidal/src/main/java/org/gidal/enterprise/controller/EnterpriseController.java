@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.gidal.enterprise.domain.EnterpriseVO;
 import org.gidal.enterprise.domain.JoinEntReviewVO;
 import org.gidal.enterprise.domain.PagingVO;

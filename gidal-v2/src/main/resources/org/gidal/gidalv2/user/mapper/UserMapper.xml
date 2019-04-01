@@ -5,5 +5,13 @@
 
 <mapper namespace="org.gidal.gidalv2.user.mapper.UserMapper">
 
+    <insert id="userReg">
+        INSERT INTO user VALUES (#{id}, #{user_phoneNum}, #{user_name}, #{user_email}, #{user_password}, #{user_gender},
+        #{enterprise_yn}, #{admin_yn})
+    </insert>
+
+    <select id="mailCkeck" resultType="Integer">
+        SELECT COUNT(*) FROM user WHERE user_email = #{user_email}
+    </select>
 
 </mapper>

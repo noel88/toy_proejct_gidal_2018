@@ -1,5 +1,6 @@
 package org.gidal.gidalv2;
 
+import org.modelmapper.ModelMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.ui.ModelMap;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
@@ -21,4 +23,8 @@ public class GidalV2Application {
     }
 
 
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
 }

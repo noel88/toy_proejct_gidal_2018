@@ -1,11 +1,12 @@
 package org.gidal.gidalv2.user.service;
 
+import org.gidal.gidalv2.user.domain.UserDto;
 import org.gidal.gidalv2.user.domain.UserVO;
 
 public interface UserService {
 
     //회원가입
-    void userReg(UserVO uservo) throws Exception;
+    void userReg(UserVO user) throws Exception;
 
     //이메일 중복확인
     int mailCkeck(String mail) throws Exception;

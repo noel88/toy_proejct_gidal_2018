@@ -12,12 +12,10 @@ import java.sql.DriverManager;
 @SpringBootTest
 public class JDBCTest {
 
-
     private static final String Drive = "org.mariadb.jdbc.Driver";
     private static final String URL = "jdbc:mariadb://localhost:3307/gidal?useSSL=false&amp;serverTimezone=UTC";
     private static final String USER = "gidal";
     private static final String PASSWORD = "gidal";
-
 
     @Test
     public void testConnect() throws Exception {

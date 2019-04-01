@@ -5,5 +5,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/auth")
-public class authentication {
+public class authenticationController {
 }

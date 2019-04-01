@@ -1,5 +1,6 @@
 package org.gidal.gidalv2.user.service;
 
+import org.gidal.gidalv2.user.domain.UserDto;
 import org.gidal.gidalv2.user.domain.UserVO;
 import org.gidal.gidalv2.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +13,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public void userReg(UserVO uservo) throws Exception {
-
+    public void userReg(UserVO user) throws Exception {
+        userMapper.userReg(user);
     }
 
     @Override
     public int mailCkeck(String mail) throws Exception {
-        return 0;
+        return userMapper.mailCkeck(mail);
     }
 }
